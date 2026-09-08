@@ -1,7 +1,7 @@
-# Italian Occupation Plus - decision category (v0.0.3)
+# Italian Occupation Plus - decision category (v0.0.4)
 # All Italian Occupation decisions live here (shown as "Italian Occupation").
 iop_occupation = {
-	icon = generic
+	icon = iop_occupation
 	allowed = {
 		original_tag = ITA
 	}

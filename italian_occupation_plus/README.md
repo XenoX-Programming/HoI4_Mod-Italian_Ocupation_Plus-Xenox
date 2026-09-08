@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.3 (Yugoslavia)
+# Italian Occupation Plus — v0.0.4 (Yugoslavia)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -113,13 +113,14 @@ italian_occupation_plus/
 │   ├── autonomous_states/iop_autonomy.txt   # Military Occupation level
 │   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT
 │   ├── countries/Italy_*.txt                # gfx culture + map color
-│   ├── decision_category/iop_categories.txt # "Italian Occupation" tab
+│   ├── decisions/categories/iop_categories.txt # "Italian Occupation" tab (note: categories/ subfolder!)
 │   └── decisions/IOP_yugoslavia.txt         # 3 founding + 17 distribution decisions
 ├── history/
 │   ├── countries/ICR|ISE|IMT*.txt           # capitals, leaders, tech
 │   └── units/IOP_empty.txt                  # empty puppet OOB
 ├── events/IOP_yugoslavia.txt                # 17 events (iop_yugo.102, .103, ...)
 ├── interface/iop_autonomy.gfx               # autonomy icon sprite
+├── interface/iop_decisions.gfx               # category icon sprite
 ├── gfx/
 │   ├── flags/ (+ medium/, small/)           # 45 placeholder .tga flags
 │   └── interface/autonomy/                  # Military Occupation .dds icon
@@ -147,6 +148,7 @@ Suggested next regions: Greece (Epirus, Thessaly, Athens…), Albania protectora
 
 ## Changelog
 
+- **0.0.4** — Hotfix: decision category moved to the correct `common/decisions/categories/` path (the old `common/decision_category/` folder is never read by the game, which hid the whole tab); custom Italian-roundel category icon + registered sprite.
 - **0.0.3** — Military Occupation autonomy level (0.1, RK-like, 100% civ+mil industry, Italy-only, custom icon); new "Italian Occupation" decision category; map highlighting on all 20 decisions; all decisions free; transfers restricted to bordering puppets (Zara/Istria keep annex-to-Italy); version scheme reset to 0.0.x.
 - **0.1.1** — Hotfix: vanilla category, `country_exists` triggers, state-scope cores, repeatable founding, `supported_version` 1.18.*.
 - **0.1.0** — First version: ICR / ISE / IMT, Yugoslavia founding + distribution, Zara/Istria special annexation, placeholder flags, English localisation.
