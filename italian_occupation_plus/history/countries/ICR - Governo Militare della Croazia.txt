@@ -1,0 +1,56 @@
+# Italian Occupation Plus
+# ICR - Governo Militare di Occupazione della Croazia
+# Capital: 109 Croatia (Zagreb). Initial cores: Dalmatia (103), Croatia (109), Bosnia (104), Herzegovina (804).
+# Cores are added by decision at release time, so no history/states overrides are needed.
+
+capital = 109
+oob = "IOP_empty"
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+}
+
+set_politics = {
+	ruling_party = fascism
+	last_election = 1936.1.1
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 5
+	fascism = 75
+	communism = 5
+	neutrality = 15
+}
+
+# Commander of the Italian 2nd Army in Yugoslavia - historical choice for v1.
+create_country_leader = {
+	name = "Mario Roatta"
+	desc = ""
+	picture = "Portrait_Italy_Mario_Roatta.dds"
+	expire = "1965.1.1"
+	ideology = fascism
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Mario Roatta"
+	desc = ""
+	picture = "Portrait_Italy_Mario_Roatta.dds"
+	expire = "1965.1.1"
+	ideology = neutrality
+	traits = {
+	}
+}
+
+set_stability = 0.50
+set_war_support = 0.60
+set_convoys = 5
+set_research_slots = 2
+
+set_country_flag = iop_puppet
+set_country_flag = iop_croatia

@@ -1,0 +1,7 @@
+# Build artifacts (distribute via GitHub Releases instead)
+*.zip
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*~

@@ -1,0 +1,56 @@
+# Italian Occupation Plus
+# IMT - Governo Militare di Occupazione del Montenegro
+# Capital: 105 Montenegro (Podgorica/Cetinje). Initial core: Montenegro (105).
+# Cores are added by decision at release time, so no history/states overrides are needed.
+
+capital = 105
+oob = "IOP_empty"
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+}
+
+set_politics = {
+	ruling_party = fascism
+	last_election = 1936.1.1
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 5
+	fascism = 75
+	communism = 5
+	neutrality = 15
+}
+
+# Historical Italian governor of Montenegro (1941-1943).
+create_country_leader = {
+	name = "Alessandro Pirzio Biroli"
+	desc = ""
+	picture = "Portrait_Italy_Alessandro_Pirzio_Biroli.dds"
+	expire = "1965.1.1"
+	ideology = fascism
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Alessandro Pirzio Biroli"
+	desc = ""
+	picture = "Portrait_Italy_Alessandro_Pirzio_Biroli.dds"
+	expire = "1965.1.1"
+	ideology = neutrality
+	traits = {
+	}
+}
+
+set_stability = 0.50
+set_war_support = 0.60
+set_convoys = 5
+set_research_slots = 2
+
+set_country_flag = iop_puppet
+set_country_flag = iop_montenegro

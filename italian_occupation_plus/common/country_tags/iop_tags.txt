@@ -1,0 +1,5 @@
+# Italian Occupation Plus - custom country tags (v0.1 Yugoslavia)
+# NOTE: ISR is vanilla Israel, so Italian Serbia uses ISE instead.
+ICR = "countries/Italy_Croatia.txt"
+ISE = "countries/Italy_Serbia.txt"
+IMT = "countries/Italy_Montenegro.txt"

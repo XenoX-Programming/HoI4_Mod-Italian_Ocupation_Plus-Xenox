@@ -1,0 +1,611 @@
+# ============================================================
+# Italian Occupation Plus v0.1 - Yugoslavia events
+# Fired by "Determine fate of ..." decisions. ROOT = Italy.
+# Standard events: choose Croatia / Serbia / Montenegro / Keep.
+# Zara (163) and Istria (852): choose Croatia / Annex to Italy.
+# ============================================================
+
+add_namespace = iop_yugo
+
+# ---------------- 102 - North Slovenia ----------------
+country_event = {
+	id = iop_yugo.102
+	title = iop_yugo_fate_title
+	desc = iop_yugo_102_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		102 = { add_core_of = ICR }
+		ICR = { transfer_state = 102 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		102 = { add_core_of = ISE }
+		ISE = { transfer_state = 102 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		102 = { add_core_of = IMT }
+		IMT = { transfer_state = 102 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 853 - Ljubljana ----------------
+country_event = {
+	id = iop_yugo.853
+	title = iop_yugo_fate_title
+	desc = iop_yugo_853_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		853 = { add_core_of = ICR }
+		ICR = { transfer_state = 853 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		853 = { add_core_of = ISE }
+		ISE = { transfer_state = 853 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		853 = { add_core_of = IMT }
+		IMT = { transfer_state = 853 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 103 - Dalmatia ----------------
+country_event = {
+	id = iop_yugo.103
+	title = iop_yugo_fate_title
+	desc = iop_yugo_103_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		103 = { add_core_of = ICR }
+		ICR = { transfer_state = 103 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		103 = { add_core_of = ISE }
+		ISE = { transfer_state = 103 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		103 = { add_core_of = IMT }
+		IMT = { transfer_state = 103 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 109 - Croatia ----------------
+country_event = {
+	id = iop_yugo.109
+	title = iop_yugo_fate_title
+	desc = iop_yugo_109_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		109 = { add_core_of = ICR }
+		ICR = { transfer_state = 109 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		109 = { add_core_of = ISE }
+		ISE = { transfer_state = 109 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		109 = { add_core_of = IMT }
+		IMT = { transfer_state = 109 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 104 - Bosnia ----------------
+country_event = {
+	id = iop_yugo.104
+	title = iop_yugo_fate_title
+	desc = iop_yugo_104_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		104 = { add_core_of = ICR }
+		ICR = { transfer_state = 104 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		104 = { add_core_of = ISE }
+		ISE = { transfer_state = 104 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		104 = { add_core_of = IMT }
+		IMT = { transfer_state = 104 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 804 - Herzegovina ----------------
+country_event = {
+	id = iop_yugo.804
+	title = iop_yugo_fate_title
+	desc = iop_yugo_804_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		804 = { add_core_of = ICR }
+		ICR = { transfer_state = 804 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		804 = { add_core_of = ISE }
+		ISE = { transfer_state = 804 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		804 = { add_core_of = IMT }
+		IMT = { transfer_state = 804 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 105 - Montenegro ----------------
+country_event = {
+	id = iop_yugo.105
+	title = iop_yugo_fate_title
+	desc = iop_yugo_105_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		105 = { add_core_of = ICR }
+		ICR = { transfer_state = 105 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		105 = { add_core_of = ISE }
+		ISE = { transfer_state = 105 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		105 = { add_core_of = IMT }
+		IMT = { transfer_state = 105 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 107 - Serbia ----------------
+country_event = {
+	id = iop_yugo.107
+	title = iop_yugo_fate_title
+	desc = iop_yugo_107_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		107 = { add_core_of = ICR }
+		ICR = { transfer_state = 107 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		107 = { add_core_of = ISE }
+		ISE = { transfer_state = 107 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		107 = { add_core_of = IMT }
+		IMT = { transfer_state = 107 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 108 - Morava ----------------
+country_event = {
+	id = iop_yugo.108
+	title = iop_yugo_fate_title
+	desc = iop_yugo_108_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		108 = { add_core_of = ICR }
+		ICR = { transfer_state = 108 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		108 = { add_core_of = ISE }
+		ISE = { transfer_state = 108 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		108 = { add_core_of = IMT }
+		IMT = { transfer_state = 108 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 45 - Vojvodina (Backa) ----------------
+country_event = {
+	id = iop_yugo.45
+	title = iop_yugo_fate_title
+	desc = iop_yugo_45_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		45 = { add_core_of = ICR }
+		ICR = { transfer_state = 45 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		45 = { add_core_of = ISE }
+		ISE = { transfer_state = 45 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		45 = { add_core_of = IMT }
+		IMT = { transfer_state = 45 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 764 - West Banat ----------------
+country_event = {
+	id = iop_yugo.764
+	title = iop_yugo_fate_title
+	desc = iop_yugo_764_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		764 = { add_core_of = ICR }
+		ICR = { transfer_state = 764 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		764 = { add_core_of = ISE }
+		ISE = { transfer_state = 764 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		764 = { add_core_of = IMT }
+		IMT = { transfer_state = 764 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 802 - Kosovo ----------------
+country_event = {
+	id = iop_yugo.802
+	title = iop_yugo_fate_title
+	desc = iop_yugo_802_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		802 = { add_core_of = ICR }
+		ICR = { transfer_state = 802 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		802 = { add_core_of = ISE }
+		ISE = { transfer_state = 802 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		802 = { add_core_of = IMT }
+		IMT = { transfer_state = 802 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 803 - Southern Serbia ----------------
+country_event = {
+	id = iop_yugo.803
+	title = iop_yugo_fate_title
+	desc = iop_yugo_803_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		803 = { add_core_of = ICR }
+		ICR = { transfer_state = 803 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		803 = { add_core_of = ISE }
+		ISE = { transfer_state = 803 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		803 = { add_core_of = IMT }
+		IMT = { transfer_state = 803 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 106 - Macedonia ----------------
+country_event = {
+	id = iop_yugo.106
+	title = iop_yugo_fate_title
+	desc = iop_yugo_106_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		106 = { add_core_of = ICR }
+		ICR = { transfer_state = 106 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		106 = { add_core_of = ISE }
+		ISE = { transfer_state = 106 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		106 = { add_core_of = IMT }
+		IMT = { transfer_state = 106 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 970 - Debar ----------------
+country_event = {
+	id = iop_yugo.970
+	title = iop_yugo_fate_title
+	desc = iop_yugo_970_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		970 = { add_core_of = ICR }
+		ICR = { transfer_state = 970 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ISE
+		trigger = { ISE = { exists = yes } }
+		show_as_unavailable = yes
+		970 = { add_core_of = ISE }
+		ISE = { transfer_state = 970 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IMT
+		trigger = { IMT = { exists = yes } }
+		show_as_unavailable = yes
+		970 = { add_core_of = IMT }
+		IMT = { transfer_state = 970 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_keep_for_italy
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 163 - Zara (SPECIAL) ----------------
+# Give to Croatia OR annex to Italy (adds Italian core).
+country_event = {
+	id = iop_yugo.163
+	title = iop_yugo_zara_title
+	desc = iop_yugo_163_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_zara_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		163 = { add_core_of = ICR }
+		ICR = { transfer_state = 163 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		163 = { add_core_of = ITA }
+		ITA = { transfer_state = 163 }
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 852 - Istria (SPECIAL) ----------------
+# Give to Croatia OR annex to Italy (adds Italian core).
+country_event = {
+	id = iop_yugo.852
+	title = iop_yugo_istria_title
+	desc = iop_yugo_852_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_istria_to_ICR
+		trigger = { ICR = { exists = yes } }
+		show_as_unavailable = yes
+		852 = { add_core_of = ICR }
+		ICR = { transfer_state = 852 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		852 = { add_core_of = ITA }
+		ITA = { transfer_state = 852 }
+		ai_chance = { factor = 100 }
+	}
+}

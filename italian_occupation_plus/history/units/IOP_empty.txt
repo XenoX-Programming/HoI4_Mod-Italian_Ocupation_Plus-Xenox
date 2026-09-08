@@ -1,0 +1,18 @@
+# Italian Occupation Plus - empty OOB for released puppets
+# Puppets are released during the game, so they start with no deployed divisions.
+# They get a basic garrison template and receive technologies from Italy on release.
+
+division_template = {
+	name = "Divisione Presidio"
+	is_locked = no
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 1 }
+	}
+	support = {
+	}
+}
