@@ -3,3 +3,4 @@
 ICR = "countries/Italy_Croatia.txt"
 ISE = "countries/Italy_Serbia.txt"
 IMT = "countries/Italy_Montenegro.txt"
+IAL = "countries/Italy_Albania.txt"

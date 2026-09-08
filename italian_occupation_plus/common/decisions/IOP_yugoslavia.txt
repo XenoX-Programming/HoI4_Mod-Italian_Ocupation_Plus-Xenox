@@ -134,7 +134,64 @@ iop_occupation = {
 		}
 	}
 
-	iop_establish_montenegro = {
+	iop_establish_albania = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 44
+				state = 805
+				state = 934
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IAL }
+		}
+
+		available = {
+			controls_state = 44
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_albania_tt
+			hidden_effect = {
+				set_country_flag = iop_albania_established
+				44 = { add_core_of = IAL }
+				805 = { add_core_of = IAL }
+				934 = { add_core_of = IAL }
+				release_puppet = IAL
+				set_autonomy = {
+					target = IAL
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 44 }
+					IAL = { transfer_state = 44 }
+				}
+				if = {
+					limit = { controls_state = 805 }
+					IAL = { transfer_state = 805 }
+				}
+				if = {
+					limit = { controls_state = 934 }
+					IAL = { transfer_state = 934 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	iop_fall_of_montenegro = {
 		icon = generic_political_pressure
 
 		highlight_states = {
@@ -149,6 +206,7 @@ iop_occupation = {
 
 		visible = {
 			original_tag = ITA
+			controls_state = 105
 			NOT = { country_exists = IMT }
 		}
 
@@ -157,22 +215,10 @@ iop_occupation = {
 		}
 
 		fire_only_once = no
+		days_re_enable = 3
 
 		complete_effect = {
-			custom_effect_tooltip = iop_establish_montenegro_tt
-			hidden_effect = {
-				set_country_flag = iop_montenegro_established
-				105 = { add_core_of = IMT }
-				release_puppet = IMT
-				set_autonomy = {
-					target = IMT
-					autonomous_state = autonomy_military_occupation
-				}
-				if = {
-					limit = { controls_state = 105 }
-					IMT = { transfer_state = 105 }
-				}
-			}
+			country_event = { id = iop_yugo.1000 }
 		}
 
 		ai_will_do = {
@@ -204,6 +250,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -216,6 +263,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -244,6 +292,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -256,6 +305,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -284,6 +334,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -296,6 +347,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -320,10 +372,12 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 109
+			country_exists = ICR
 			OR = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -336,6 +390,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -364,6 +419,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -376,6 +432,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -404,6 +461,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -416,6 +474,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -440,10 +499,12 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 105
+			country_exists = IMT
 			OR = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -456,6 +517,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -480,10 +542,12 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 107
+			country_exists = ISE
 			OR = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -496,6 +560,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -524,6 +589,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -536,6 +602,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -564,6 +631,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -576,6 +644,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -604,6 +673,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -616,6 +686,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -644,6 +715,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -656,6 +728,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -684,6 +757,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -696,6 +770,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -724,6 +799,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -736,6 +812,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -764,6 +841,7 @@ iop_occupation = {
 				has_country_flag = iop_croatia_established
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
 			}
 		}
 		available = {
@@ -776,6 +854,7 @@ iop_occupation = {
 						is_owned_by = ICR
 						is_owned_by = ISE
 						is_owned_by = IMT
+						is_owned_by = IAL
 					}
 				}
 			}
@@ -788,6 +867,130 @@ iop_occupation = {
 	}
 
 	# ------------------------------------------------------------
+	iop_decide_44 = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 44
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 44
+			country_exists = IAL
+			OR = {
+				has_country_flag = iop_croatia_established
+				has_country_flag = iop_serbia_established
+				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
+			}
+		}
+		available = {
+			controls_state = 44
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			44 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+						is_owned_by = IAL
+					}
+				}
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_yugo.44 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	iop_decide_805 = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 805
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 805
+			OR = {
+				has_country_flag = iop_croatia_established
+				has_country_flag = iop_serbia_established
+				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
+			}
+		}
+		available = {
+			controls_state = 805
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			805 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+						is_owned_by = IAL
+					}
+				}
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_yugo.805 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	iop_decide_934 = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 934
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 934
+			OR = {
+				has_country_flag = iop_croatia_established
+				has_country_flag = iop_serbia_established
+				has_country_flag = iop_montenegro_established
+				has_country_flag = iop_albania_established
+			}
+		}
+		available = {
+			controls_state = 934
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			934 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+						is_owned_by = IAL
+					}
+				}
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_yugo.934 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
 	# SPECIAL: ZARA (163) AND ISTRIA (852)
 	# Give to Croatia OR annex to Italy (adds Italian core).
 	# These start as Italian territory, so the decisions appear

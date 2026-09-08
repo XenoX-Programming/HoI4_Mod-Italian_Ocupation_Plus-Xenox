@@ -1,9 +1,9 @@
 # Italian Occupation Plus
-# ICR - Governo Militare di Occupazione della Croazia
-# Capital: 109 Croatia (Zagreb). Initial cores: Dalmatia (103), Croatia (109), Bosnia (104), Herzegovina (804).
+# IAL - Governo Militare di Occupazione dell'Albania
+# Capital: 44 Albania (Tirana). Initial cores: Albania (44), Northern Epirus (805), Shkoder (934).
 # Cores are added by decision at release time, so no history/states overrides are needed.
 
-capital = 109
+capital = 44
 oob = "IOP_empty"
 
 set_technology = {
@@ -26,11 +26,11 @@ set_popularities = {
 	neutrality = 15
 }
 
-# Governor of Dalmatia (1941-1943). Custom portrait by the mod (gfx/leaders/).
+# Lieutenant of the King in Albania (1939-1943) - historical choice.
 create_country_leader = {
-	name = "Giuseppe Bastianini"
+	name = "Francesco Jacomoni"
 	desc = ""
-	picture = "Portrait_Giuseppe_Bastianini.dds"
+	picture = "Portrait_Italy_Francesco_Jacomoni.dds"
 	expire = "1965.1.1"
 	ideology = fascism
 	traits = {
@@ -38,9 +38,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Giuseppe Bastianini"
+	name = "Francesco Jacomoni"
 	desc = ""
-	picture = "Portrait_Giuseppe_Bastianini.dds"
+	picture = "Portrait_Italy_Francesco_Jacomoni.dds"
 	expire = "1965.1.1"
 	ideology = neutrality
 	traits = {
@@ -53,4 +53,4 @@ set_convoys = 5
 set_research_slots = 2
 
 set_country_flag = iop_puppet
-set_country_flag = iop_croatia
+set_country_flag = iop_albania

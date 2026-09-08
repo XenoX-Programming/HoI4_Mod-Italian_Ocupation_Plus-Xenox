@@ -5,3 +5,6 @@
 .DS_Store
 Thumbs.db
 *~
+
+# User uploads (source files, not part of the mod)
+uploads/
