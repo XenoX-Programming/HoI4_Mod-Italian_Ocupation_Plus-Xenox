@@ -1,0 +1,57 @@
+# ============================================================
+# Italian Occupation Plus - "Military Occupation" autonomy level
+# Sits between annexation (0.0) and Reichskommissariat on the
+# freedom scale. Stats modelled on the Reichskommissariat, but
+# civilian AND military industry to the overlord are both 100%.
+# Only available to subjects of Italy (see allowed block).
+# Assigned automatically by the founding decisions via set_autonomy.
+# ============================================================
+
+autonomy_state = {
+	id = autonomy_military_occupation
+
+	is_puppet = yes
+	use_overlord_color = no
+
+	# Annexed = 0.0, Integrated Puppet = 0.2, Reichskommissariat > 0.2.
+	# 0.1 puts Military Occupation between annexation and RK.
+	# (Never reuse a min_freedom_level used by another state.)
+	min_freedom_level = 0.1
+
+	manpower_influence = 0.5
+
+	rule = {
+		can_not_declare_war = yes
+		can_decline_call_to_war = no
+		units_deployed_to_overlord = yes
+		can_be_spymaster = no
+		contributes_operatives = no
+		can_create_collaboration_government = no
+	}
+
+	modifier = {
+		autonomy_manpower_share = 1.0
+		can_master_build_for_us = 1
+		extra_trade_to_overlord_factor = 1.0
+		overlord_trade_cost_factor = -0.9
+		cic_to_overlord_factor = 1.0
+		mic_to_overlord_factor = 1.0
+		research_sharing_per_country_bonus_factor = -0.5
+	}
+
+	ai_subject_wants_higher = {
+		factor = 1.0
+	}
+
+	ai_overlord_wants_lower = {
+		factor = 1.0
+	}
+
+	# Only Italy's subjects can hold this level, so it never shows up
+	# for other overlords (peace deals, subject interaction, ...).
+	allowed = {
+		OVERLORD = {
+			original_tag = ITA
+		}
+	}
+}

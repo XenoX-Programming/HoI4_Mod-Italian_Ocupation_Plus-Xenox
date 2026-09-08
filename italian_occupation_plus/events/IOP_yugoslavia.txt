@@ -16,7 +16,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			102 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		102 = { add_core_of = ICR }
 		ICR = { transfer_state = 102 }
@@ -24,7 +27,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			102 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		102 = { add_core_of = ISE }
 		ISE = { transfer_state = 102 }
@@ -32,15 +38,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			102 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		102 = { add_core_of = IMT }
 		IMT = { transfer_state = 102 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -53,7 +58,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			853 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		853 = { add_core_of = ICR }
 		ICR = { transfer_state = 853 }
@@ -61,7 +69,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			853 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		853 = { add_core_of = ISE }
 		ISE = { transfer_state = 853 }
@@ -69,15 +80,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			853 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		853 = { add_core_of = IMT }
 		IMT = { transfer_state = 853 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -90,7 +100,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			103 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		103 = { add_core_of = ICR }
 		ICR = { transfer_state = 103 }
@@ -98,7 +111,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			103 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		103 = { add_core_of = ISE }
 		ISE = { transfer_state = 103 }
@@ -106,15 +122,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			103 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		103 = { add_core_of = IMT }
 		IMT = { transfer_state = 103 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -127,7 +142,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			109 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		109 = { add_core_of = ICR }
 		ICR = { transfer_state = 109 }
@@ -135,7 +153,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			109 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		109 = { add_core_of = ISE }
 		ISE = { transfer_state = 109 }
@@ -143,15 +164,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			109 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		109 = { add_core_of = IMT }
 		IMT = { transfer_state = 109 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -164,7 +184,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			104 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		104 = { add_core_of = ICR }
 		ICR = { transfer_state = 104 }
@@ -172,7 +195,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			104 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		104 = { add_core_of = ISE }
 		ISE = { transfer_state = 104 }
@@ -180,15 +206,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			104 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		104 = { add_core_of = IMT }
 		IMT = { transfer_state = 104 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -201,7 +226,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			804 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		804 = { add_core_of = ICR }
 		ICR = { transfer_state = 804 }
@@ -209,7 +237,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			804 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		804 = { add_core_of = ISE }
 		ISE = { transfer_state = 804 }
@@ -217,15 +248,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			804 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		804 = { add_core_of = IMT }
 		IMT = { transfer_state = 804 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -238,7 +268,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			105 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		105 = { add_core_of = ICR }
 		ICR = { transfer_state = 105 }
@@ -246,7 +279,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			105 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		105 = { add_core_of = ISE }
 		ISE = { transfer_state = 105 }
@@ -254,15 +290,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			105 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		105 = { add_core_of = IMT }
 		IMT = { transfer_state = 105 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -275,7 +310,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			107 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		107 = { add_core_of = ICR }
 		ICR = { transfer_state = 107 }
@@ -283,7 +321,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			107 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		107 = { add_core_of = ISE }
 		ISE = { transfer_state = 107 }
@@ -291,15 +332,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			107 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		107 = { add_core_of = IMT }
 		IMT = { transfer_state = 107 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -312,7 +352,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			108 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		108 = { add_core_of = ICR }
 		ICR = { transfer_state = 108 }
@@ -320,7 +363,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			108 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		108 = { add_core_of = ISE }
 		ISE = { transfer_state = 108 }
@@ -328,15 +374,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			108 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		108 = { add_core_of = IMT }
 		IMT = { transfer_state = 108 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -349,7 +394,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			45 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		45 = { add_core_of = ICR }
 		ICR = { transfer_state = 45 }
@@ -357,7 +405,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			45 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		45 = { add_core_of = ISE }
 		ISE = { transfer_state = 45 }
@@ -365,15 +416,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			45 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		45 = { add_core_of = IMT }
 		IMT = { transfer_state = 45 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -386,7 +436,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			764 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		764 = { add_core_of = ICR }
 		ICR = { transfer_state = 764 }
@@ -394,7 +447,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			764 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		764 = { add_core_of = ISE }
 		ISE = { transfer_state = 764 }
@@ -402,15 +458,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			764 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		764 = { add_core_of = IMT }
 		IMT = { transfer_state = 764 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -423,7 +478,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			802 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		802 = { add_core_of = ICR }
 		ICR = { transfer_state = 802 }
@@ -431,7 +489,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			802 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		802 = { add_core_of = ISE }
 		ISE = { transfer_state = 802 }
@@ -439,15 +500,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			802 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		802 = { add_core_of = IMT }
 		IMT = { transfer_state = 802 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -460,7 +520,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			803 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		803 = { add_core_of = ICR }
 		ICR = { transfer_state = 803 }
@@ -468,7 +531,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			803 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		803 = { add_core_of = ISE }
 		ISE = { transfer_state = 803 }
@@ -476,15 +542,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			803 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		803 = { add_core_of = IMT }
 		IMT = { transfer_state = 803 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -497,7 +562,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			106 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		106 = { add_core_of = ICR }
 		ICR = { transfer_state = 106 }
@@ -505,7 +573,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			106 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		106 = { add_core_of = ISE }
 		ISE = { transfer_state = 106 }
@@ -513,15 +584,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			106 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		106 = { add_core_of = IMT }
 		IMT = { transfer_state = 106 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -534,7 +604,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			970 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		970 = { add_core_of = ICR }
 		ICR = { transfer_state = 970 }
@@ -542,7 +615,10 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_ISE
-		trigger = { ISE = { exists = yes } }
+		trigger = {
+			country_exists = ISE
+			970 = { any_neighbor_state = { is_owned_by = ISE } }
+		}
 		show_as_unavailable = yes
 		970 = { add_core_of = ISE }
 		ISE = { transfer_state = 970 }
@@ -550,15 +626,14 @@ country_event = {
 	}
 	option = {
 		name = iop_give_to_IMT
-		trigger = { IMT = { exists = yes } }
+		trigger = {
+			country_exists = IMT
+			970 = { any_neighbor_state = { is_owned_by = IMT } }
+		}
 		show_as_unavailable = yes
 		970 = { add_core_of = IMT }
 		IMT = { transfer_state = 970 }
 		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_keep_for_italy
-		ai_chance = { factor = 100 }
 	}
 }
 
@@ -572,7 +647,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_zara_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			163 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		163 = { add_core_of = ICR }
 		ICR = { transfer_state = 163 }
@@ -596,7 +674,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_istria_to_ICR
-		trigger = { ICR = { exists = yes } }
+		trigger = {
+			country_exists = ICR
+			852 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		show_as_unavailable = yes
 		852 = { add_core_of = ICR }
 		ICR = { transfer_state = 852 }

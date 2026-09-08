@@ -12,7 +12,7 @@
 # ============================================================
 
 # NOTE v0.1.1: vanilla "political_actions" category, guaranteed to show up.
-political_actions = {
+iop_occupation = {
 
 	# ------------------------------------------------------------
 	# FOUNDING DECISIONS
@@ -20,6 +20,15 @@ political_actions = {
 
 	iop_establish_croatia = {
 		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 103
+				state = 109
+				state = 104
+				state = 804
+			}
+		}
 
 		allowed = {
 			original_tag = ITA
@@ -34,7 +43,6 @@ political_actions = {
 			controls_state = 109
 		}
 
-		cost = 50
 		fire_only_once = no
 
 		complete_effect = {
@@ -46,6 +54,10 @@ political_actions = {
 				104 = { add_core_of = ICR }
 				804 = { add_core_of = ICR }
 				release_puppet = ICR
+				set_autonomy = {
+					target = ICR
+					autonomous_state = autonomy_military_occupation
+				}
 				if = {
 					limit = { controls_state = 103 }
 					ICR = { transfer_state = 103 }
@@ -73,6 +85,13 @@ political_actions = {
 	iop_establish_serbia = {
 		icon = generic_political_pressure
 
+		highlight_states = {
+			highlight_state_targets = {
+				state = 107
+				state = 108
+			}
+		}
+
 		allowed = {
 			original_tag = ITA
 		}
@@ -86,7 +105,6 @@ political_actions = {
 			controls_state = 107
 		}
 
-		cost = 50
 		fire_only_once = no
 
 		complete_effect = {
@@ -96,6 +114,10 @@ political_actions = {
 				107 = { add_core_of = ISE }
 				108 = { add_core_of = ISE }
 				release_puppet = ISE
+				set_autonomy = {
+					target = ISE
+					autonomous_state = autonomy_military_occupation
+				}
 				if = {
 					limit = { controls_state = 107 }
 					ISE = { transfer_state = 107 }
@@ -115,6 +137,12 @@ political_actions = {
 	iop_establish_montenegro = {
 		icon = generic_political_pressure
 
+		highlight_states = {
+			highlight_state_targets = {
+				state = 105
+			}
+		}
+
 		allowed = {
 			original_tag = ITA
 		}
@@ -128,7 +156,6 @@ political_actions = {
 			controls_state = 105
 		}
 
-		cost = 50
 		fire_only_once = no
 
 		complete_effect = {
@@ -137,6 +164,10 @@ political_actions = {
 				set_country_flag = iop_montenegro_established
 				105 = { add_core_of = IMT }
 				release_puppet = IMT
+				set_autonomy = {
+					target = IMT
+					autonomous_state = autonomy_military_occupation
+				}
 				if = {
 					limit = { controls_state = 105 }
 					IMT = { transfer_state = 105 }
@@ -159,6 +190,12 @@ political_actions = {
 	# 102 - North Slovenia
 	iop_decide_102 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 102
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -169,8 +206,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 102 }
-		cost = 10
+		available = {
+			controls_state = 102
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			102 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.102 }
@@ -181,6 +230,12 @@ political_actions = {
 	# 853 - Ljubljana (South Slovenia)
 	iop_decide_853 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 853
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -191,8 +246,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 853 }
-		cost = 10
+		available = {
+			controls_state = 853
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			853 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.853 }
@@ -203,6 +270,12 @@ political_actions = {
 	# 103 - Dalmatia
 	iop_decide_103 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 103
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -213,8 +286,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 103 }
-		cost = 10
+		available = {
+			controls_state = 103
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			103 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.103 }
@@ -225,6 +310,12 @@ political_actions = {
 	# 109 - Croatia
 	iop_decide_109 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 109
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -235,8 +326,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 109 }
-		cost = 10
+		available = {
+			controls_state = 109
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			109 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.109 }
@@ -247,6 +350,12 @@ political_actions = {
 	# 104 - Bosnia
 	iop_decide_104 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 104
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -257,8 +366,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 104 }
-		cost = 10
+		available = {
+			controls_state = 104
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			104 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.104 }
@@ -269,6 +390,12 @@ political_actions = {
 	# 804 - Herzegovina
 	iop_decide_804 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 804
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -279,8 +406,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 804 }
-		cost = 10
+		available = {
+			controls_state = 804
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			804 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.804 }
@@ -291,6 +430,12 @@ political_actions = {
 	# 105 - Montenegro
 	iop_decide_105 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 105
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -301,8 +446,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 105 }
-		cost = 10
+		available = {
+			controls_state = 105
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			105 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.105 }
@@ -313,6 +470,12 @@ political_actions = {
 	# 107 - Serbia
 	iop_decide_107 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 107
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -323,8 +486,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 107 }
-		cost = 10
+		available = {
+			controls_state = 107
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			107 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.107 }
@@ -335,6 +510,12 @@ political_actions = {
 	# 108 - Morava
 	iop_decide_108 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 108
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -345,8 +526,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 108 }
-		cost = 10
+		available = {
+			controls_state = 108
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			108 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.108 }
@@ -357,6 +550,12 @@ political_actions = {
 	# 45 - Vojvodina (Backa)
 	iop_decide_45 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 45
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -367,8 +566,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 45 }
-		cost = 10
+		available = {
+			controls_state = 45
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			45 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.45 }
@@ -379,6 +590,12 @@ political_actions = {
 	# 764 - West Banat
 	iop_decide_764 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 764
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -389,8 +606,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 764 }
-		cost = 10
+		available = {
+			controls_state = 764
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			764 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.764 }
@@ -401,6 +630,12 @@ political_actions = {
 	# 802 - Kosovo
 	iop_decide_802 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 802
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -411,8 +646,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 802 }
-		cost = 10
+		available = {
+			controls_state = 802
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			802 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.802 }
@@ -423,6 +670,12 @@ political_actions = {
 	# 803 - Southern Serbia
 	iop_decide_803 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 803
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -433,8 +686,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 803 }
-		cost = 10
+		available = {
+			controls_state = 803
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			803 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.803 }
@@ -445,6 +710,12 @@ political_actions = {
 	# 106 - Macedonia
 	iop_decide_106 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 106
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -455,8 +726,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 106 }
-		cost = 10
+		available = {
+			controls_state = 106
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			106 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.106 }
@@ -467,6 +750,12 @@ political_actions = {
 	# 970 - Debar (Western Macedonia)
 	iop_decide_970 = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 970
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -477,8 +766,20 @@ political_actions = {
 				has_country_flag = iop_montenegro_established
 			}
 		}
-		available = { controls_state = 970 }
-		cost = 10
+		available = {
+			controls_state = 970
+			# At least one occupation government must border the state,
+			# otherwise the fate event would have no valid recipient.
+			970 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ICR
+						is_owned_by = ISE
+						is_owned_by = IMT
+					}
+				}
+			}
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.970 }
@@ -495,6 +796,12 @@ political_actions = {
 
 	iop_decide_163_zara = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 163
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -503,7 +810,6 @@ political_actions = {
 			country_exists = ICR
 		}
 		available = { controls_state = 163 }
-		cost = 10
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.163 }
@@ -513,6 +819,12 @@ political_actions = {
 
 	iop_decide_852_istria = {
 		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 852
+			}
+		}
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -521,7 +833,6 @@ political_actions = {
 			country_exists = ICR
 		}
 		available = { controls_state = 852 }
-		cost = 10
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.852 }
