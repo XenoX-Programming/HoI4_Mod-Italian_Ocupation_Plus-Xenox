@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.5 (Yugoslavia + Albania)
+# Italian Occupation Plus — v0.0.6 (Yugoslavia + Albania)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -53,7 +53,7 @@ Own tab: **"Italian Occupation"**. Hovering any decision outlines the state(s) i
 
 Founding only needs the **capital state**. Any other initial states you control transfer automatically.
 
-**Fall of Montenegro (special):** Montenegro is no longer founded directly. The **"Fall of Montenegro"** decision (requires control of **105**) fires an event with 4 options: **Integrate into Croatia / Serbia / Albania** (each must border Montenegro; transfers + cores the state) or **Create a new occupational government** (releases IMT as before).
+**Fall of Montenegro (special):** Montenegro is no longer founded directly. The **"Fall of Montenegro"** decision (requires control of **105** plus at least one of ICR / ISE / IAL already existing) fires an event with 4 options: **Integrate into Croatia / Serbia / Albania** (each must border Montenegro; transfers + cores the state) or **Create a new occupational government** (releases IMT as before).
 
 **Distribution (repeatable):** one "Determine Fate of …" decision per state. Each fires an **event where you choose the recipient — but only occupation governments that BORDER the state are eligible.** This forces natural, contiguous expansion (e.g. assign Macedonia before Debar).
 
@@ -156,6 +156,7 @@ Suggested next regions: Greece (Epirus, Thessaly, Athens…), Albania protectora
 
 ## Changelog
 
+- **0.0.6** — Fall of Montenegro requires ICR/ISE/IAL to exist; all puppets use Italy's map color { 67 127 63 }; portraits/icons re-encoded as proper DXT5 DDS (fixes Bastianini not showing); leader desc localisation keys; autonomy name mirrored into countries loc as redundancy.
 - **0.0.5** — New IAL (Albania: 44/805/934) with full founding + redistribution parity and 4th recipient option in every fate event; Montenegro moved to 'Fall of Montenegro' event (integrate into Croatia/Serbia/Albania or create IMT); capitals can't be redistributed while their puppet is still creatable; Zara/Istria annex no longer mentions cores; Giuseppe Bastianini (custom portrait) leads ICR.
 - **0.0.4** — Hotfix: decision category moved to the correct `common/decisions/categories/` path (the old `common/decision_category/` folder is never read by the game, which hid the whole tab); custom Italian-roundel category icon + registered sprite.
 - **0.0.3** — Military Occupation autonomy level (0.1, RK-like, 100% civ+mil industry, Italy-only, custom icon); new "Italian Occupation" decision category; map highlighting on all 20 decisions; all decisions free; transfers restricted to bordering puppets (Zara/Istria keep annex-to-Italy); version scheme reset to 0.0.x.

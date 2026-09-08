@@ -29,7 +29,7 @@ set_popularities = {
 # Governor of Dalmatia (1941-1943). Custom portrait by the mod (gfx/leaders/).
 create_country_leader = {
 	name = "Giuseppe Bastianini"
-	desc = ""
+	desc = "PODCAT_GIUSEPPE_BASTIANINI_DESC"
 	picture = "Portrait_Giuseppe_Bastianini.dds"
 	expire = "1965.1.1"
 	ideology = fascism
@@ -39,7 +39,7 @@ create_country_leader = {
 
 create_country_leader = {
 	name = "Giuseppe Bastianini"
-	desc = ""
+	desc = "PODCAT_GIUSEPPE_BASTIANINI_DESC"
 	picture = "Portrait_Giuseppe_Bastianini.dds"
 	expire = "1965.1.1"
 	ideology = neutrality

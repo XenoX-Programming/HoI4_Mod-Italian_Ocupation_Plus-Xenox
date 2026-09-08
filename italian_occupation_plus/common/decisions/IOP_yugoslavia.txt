@@ -212,6 +212,12 @@ iop_occupation = {
 
 		available = {
 			controls_state = 105
+			# At least one other occupation government must already exist.
+			OR = {
+				country_exists = ICR
+				country_exists = ISE
+				country_exists = IAL
+			}
 		}
 
 		fire_only_once = no
