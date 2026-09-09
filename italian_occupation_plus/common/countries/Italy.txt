@@ -1,0 +1,6 @@
+# Italian Occupation Plus - Italy in the occupation green.
+# NOTE: vanilla colors.txt may override this; if Italy does not change color
+# in-game, a full colors.txt override (needs your vanilla file) is required.
+graphical_culture = western_european_gfx
+graphical_culture_2d = western_european_2d
+color = { 25 100 14 }

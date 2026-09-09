@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.6 (Yugoslavia + Albania)
+# Italian Occupation Plus — v0.0.7 (Yugoslavia + Albania)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -125,7 +125,7 @@ italian_occupation_plus/
 ├── history/
 │   ├── countries/ICR|ISE|IMT*.txt           # capitals, leaders, tech
 │   └── units/IOP_empty.txt                  # empty puppet OOB
-├── gfx/leaders/Portrait_Giuseppe_Bastianini.dds # custom ICR leader portrait
+├── gfx/leaders/ICR_Giuseppe_Bastianini.dds # custom ICR leader portrait
 ├── events/IOP_yugoslavia.txt                # 17 events (iop_yugo.102, .103, ...)
 ├── interface/iop_autonomy.gfx               # autonomy icon sprite
 ├── interface/iop_decisions.gfx               # category icon sprite
@@ -156,6 +156,7 @@ Suggested next regions: Greece (Epirus, Thessaly, Athens…), Albania protectora
 
 ## Changelog
 
+- **0.0.7** — Puppets (and attempted Italy) recolored to rgb(25, 100, 14); Bastianini portrait files renamed to ICR_Giuseppe_Bastianini.* (still ICR's leader).
 - **0.0.6** — Fall of Montenegro requires ICR/ISE/IAL to exist; all puppets use Italy's map color { 67 127 63 }; portraits/icons re-encoded as proper DXT5 DDS (fixes Bastianini not showing); leader desc localisation keys; autonomy name mirrored into countries loc as redundancy.
 - **0.0.5** — New IAL (Albania: 44/805/934) with full founding + redistribution parity and 4th recipient option in every fate event; Montenegro moved to 'Fall of Montenegro' event (integrate into Croatia/Serbia/Albania or create IMT); capitals can't be redistributed while their puppet is still creatable; Zara/Istria annex no longer mentions cores; Giuseppe Bastianini (custom portrait) leads ICR.
 - **0.0.4** — Hotfix: decision category moved to the correct `common/decisions/categories/` path (the old `common/decision_category/` folder is never read by the game, which hid the whole tab); custom Italian-roundel category icon + registered sprite.
