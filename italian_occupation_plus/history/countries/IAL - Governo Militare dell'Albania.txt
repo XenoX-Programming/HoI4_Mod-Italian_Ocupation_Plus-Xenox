@@ -32,7 +32,7 @@ create_country_leader = {
 	desc = "PODCAT_FRANCESCO_JACOMONI_DESC"
 	picture = "Portrait_Italy_Francesco_Jacomoni.dds"
 	expire = "1965.1.1"
-	ideology = fascism
+	ideology = fascism_ideology
 	traits = {
 	}
 }
@@ -42,7 +42,7 @@ create_country_leader = {
 	desc = "PODCAT_FRANCESCO_JACOMONI_DESC"
 	picture = "Portrait_Italy_Francesco_Jacomoni.dds"
 	expire = "1965.1.1"
-	ideology = neutrality
+	ideology = despotism
 	traits = {
 	}
 }
@@ -52,7 +52,7 @@ create_country_leader = {
 	desc = "PODCAT_FRANCESCO_JACOMONI_DESC"
 	picture = "Portrait_Italy_Francesco_Jacomoni.dds"
 	expire = "1965.1.1"
-	ideology = democratic
+	ideology = liberalism
 	traits = {
 	}
 }
@@ -62,7 +62,7 @@ create_country_leader = {
 	desc = "PODCAT_FRANCESCO_JACOMONI_DESC"
 	picture = "Portrait_Italy_Francesco_Jacomoni.dds"
 	expire = "1965.1.1"
-	ideology = communism
+	ideology = marxism
 	traits = {
 	}
 }

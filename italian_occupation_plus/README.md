@@ -160,6 +160,7 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 
 ## Changelog
 
+- **0.0.9** — Leaders fixed for real: all 16 `create_country_leader` blocks now use valid vanilla sub-ideologies (`fascism_ideology` / `despotism` / `liberalism` / `marxism`) instead of the invalid group names that made the game reject every leader and spawn generics like "lucas brown" — Bastianini now actually leads ICR; removed all 77 invalid `show_as_unavailable` lines from events (unknown key, pure log spam — ineligible options now hide instead of greying out); fixed the missing UTF-8 BOM in the autonomy localisation file.
 - **0.0.8** — Colors use the documented `color = rgb { ... }` format (plain braces are ignored by the game — this was why puppet colors never applied); every puppet now has its leader defined for all 4 ideologies (Bastianini leads ICR as fascist, neutral, democratic and communist).
 - **0.0.7** — Puppets (and attempted Italy) recolored to rgb(25, 100, 14); Bastianini portrait files renamed to ICR_Giuseppe_Bastianini.* (still ICR's leader).
 - **0.0.6** — Fall of Montenegro requires ICR/ISE/IAL to exist; all puppets use Italy's map color { 67 127 63 }; portraits/icons re-encoded as proper DXT5 DDS (fixes Bastianini not showing); leader desc localisation keys; autonomy name mirrored into countries loc as redundancy.

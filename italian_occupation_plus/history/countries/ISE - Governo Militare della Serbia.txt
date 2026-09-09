@@ -33,7 +33,7 @@ create_country_leader = {
 	desc = "PODCAT_VITTORIO_AMBROSIO_DESC"
 	picture = "Portrait_Italy_Vittorio_Ambrosio.dds"
 	expire = "1965.1.1"
-	ideology = fascism
+	ideology = fascism_ideology
 	traits = {
 	}
 }
@@ -43,7 +43,7 @@ create_country_leader = {
 	desc = "PODCAT_VITTORIO_AMBROSIO_DESC"
 	picture = "Portrait_Italy_Vittorio_Ambrosio.dds"
 	expire = "1965.1.1"
-	ideology = neutrality
+	ideology = despotism
 	traits = {
 	}
 }
@@ -53,7 +53,7 @@ create_country_leader = {
 	desc = "PODCAT_VITTORIO_AMBROSIO_DESC"
 	picture = "Portrait_Italy_Vittorio_Ambrosio.dds"
 	expire = "1965.1.1"
-	ideology = democratic
+	ideology = liberalism
 	traits = {
 	}
 }
@@ -63,7 +63,7 @@ create_country_leader = {
 	desc = "PODCAT_VITTORIO_AMBROSIO_DESC"
 	picture = "Portrait_Italy_Vittorio_Ambrosio.dds"
 	expire = "1965.1.1"
-	ideology = communism
+	ideology = marxism
 	traits = {
 	}
 }

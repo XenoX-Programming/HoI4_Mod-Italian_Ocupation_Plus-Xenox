@@ -20,7 +20,6 @@ country_event = {
 			country_exists = ICR
 			102 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		102 = { add_core_of = ICR }
 		ICR = { transfer_state = 102 }
 		ai_chance = { factor = 0 }
@@ -31,7 +30,6 @@ country_event = {
 			country_exists = ISE
 			102 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		102 = { add_core_of = ISE }
 		ISE = { transfer_state = 102 }
 		ai_chance = { factor = 0 }
@@ -42,7 +40,6 @@ country_event = {
 			country_exists = IMT
 			102 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		102 = { add_core_of = IMT }
 		IMT = { transfer_state = 102 }
 		ai_chance = { factor = 0 }
@@ -53,7 +50,6 @@ country_event = {
 			country_exists = IAL
 			102 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		102 = { add_core_of = IAL }
 		IAL = { transfer_state = 102 }
 		ai_chance = { factor = 0 }
@@ -73,7 +69,6 @@ country_event = {
 			country_exists = ICR
 			853 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		853 = { add_core_of = ICR }
 		ICR = { transfer_state = 853 }
 		ai_chance = { factor = 0 }
@@ -84,7 +79,6 @@ country_event = {
 			country_exists = ISE
 			853 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		853 = { add_core_of = ISE }
 		ISE = { transfer_state = 853 }
 		ai_chance = { factor = 0 }
@@ -95,7 +89,6 @@ country_event = {
 			country_exists = IMT
 			853 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		853 = { add_core_of = IMT }
 		IMT = { transfer_state = 853 }
 		ai_chance = { factor = 0 }
@@ -106,7 +99,6 @@ country_event = {
 			country_exists = IAL
 			853 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		853 = { add_core_of = IAL }
 		IAL = { transfer_state = 853 }
 		ai_chance = { factor = 0 }
@@ -126,7 +118,6 @@ country_event = {
 			country_exists = ICR
 			103 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		103 = { add_core_of = ICR }
 		ICR = { transfer_state = 103 }
 		ai_chance = { factor = 0 }
@@ -137,7 +128,6 @@ country_event = {
 			country_exists = ISE
 			103 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		103 = { add_core_of = ISE }
 		ISE = { transfer_state = 103 }
 		ai_chance = { factor = 0 }
@@ -148,7 +138,6 @@ country_event = {
 			country_exists = IMT
 			103 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		103 = { add_core_of = IMT }
 		IMT = { transfer_state = 103 }
 		ai_chance = { factor = 0 }
@@ -159,7 +148,6 @@ country_event = {
 			country_exists = IAL
 			103 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		103 = { add_core_of = IAL }
 		IAL = { transfer_state = 103 }
 		ai_chance = { factor = 0 }
@@ -179,7 +167,6 @@ country_event = {
 			country_exists = ICR
 			109 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		109 = { add_core_of = ICR }
 		ICR = { transfer_state = 109 }
 		ai_chance = { factor = 0 }
@@ -190,7 +177,6 @@ country_event = {
 			country_exists = ISE
 			109 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		109 = { add_core_of = ISE }
 		ISE = { transfer_state = 109 }
 		ai_chance = { factor = 0 }
@@ -201,7 +187,6 @@ country_event = {
 			country_exists = IMT
 			109 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		109 = { add_core_of = IMT }
 		IMT = { transfer_state = 109 }
 		ai_chance = { factor = 0 }
@@ -212,7 +197,6 @@ country_event = {
 			country_exists = IAL
 			109 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		109 = { add_core_of = IAL }
 		IAL = { transfer_state = 109 }
 		ai_chance = { factor = 0 }
@@ -232,7 +216,6 @@ country_event = {
 			country_exists = ICR
 			104 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		104 = { add_core_of = ICR }
 		ICR = { transfer_state = 104 }
 		ai_chance = { factor = 0 }
@@ -243,7 +226,6 @@ country_event = {
 			country_exists = ISE
 			104 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		104 = { add_core_of = ISE }
 		ISE = { transfer_state = 104 }
 		ai_chance = { factor = 0 }
@@ -254,7 +236,6 @@ country_event = {
 			country_exists = IMT
 			104 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		104 = { add_core_of = IMT }
 		IMT = { transfer_state = 104 }
 		ai_chance = { factor = 0 }
@@ -265,7 +246,6 @@ country_event = {
 			country_exists = IAL
 			104 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		104 = { add_core_of = IAL }
 		IAL = { transfer_state = 104 }
 		ai_chance = { factor = 0 }
@@ -285,7 +265,6 @@ country_event = {
 			country_exists = ICR
 			804 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		804 = { add_core_of = ICR }
 		ICR = { transfer_state = 804 }
 		ai_chance = { factor = 0 }
@@ -296,7 +275,6 @@ country_event = {
 			country_exists = ISE
 			804 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		804 = { add_core_of = ISE }
 		ISE = { transfer_state = 804 }
 		ai_chance = { factor = 0 }
@@ -307,7 +285,6 @@ country_event = {
 			country_exists = IMT
 			804 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		804 = { add_core_of = IMT }
 		IMT = { transfer_state = 804 }
 		ai_chance = { factor = 0 }
@@ -318,7 +295,6 @@ country_event = {
 			country_exists = IAL
 			804 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		804 = { add_core_of = IAL }
 		IAL = { transfer_state = 804 }
 		ai_chance = { factor = 0 }
@@ -338,7 +314,6 @@ country_event = {
 			country_exists = ICR
 			105 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		105 = { add_core_of = ICR }
 		ICR = { transfer_state = 105 }
 		ai_chance = { factor = 0 }
@@ -349,7 +324,6 @@ country_event = {
 			country_exists = ISE
 			105 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		105 = { add_core_of = ISE }
 		ISE = { transfer_state = 105 }
 		ai_chance = { factor = 0 }
@@ -360,7 +334,6 @@ country_event = {
 			country_exists = IMT
 			105 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		105 = { add_core_of = IMT }
 		IMT = { transfer_state = 105 }
 		ai_chance = { factor = 0 }
@@ -371,7 +344,6 @@ country_event = {
 			country_exists = IAL
 			105 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		105 = { add_core_of = IAL }
 		IAL = { transfer_state = 105 }
 		ai_chance = { factor = 0 }
@@ -391,7 +363,6 @@ country_event = {
 			country_exists = ICR
 			107 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		107 = { add_core_of = ICR }
 		ICR = { transfer_state = 107 }
 		ai_chance = { factor = 0 }
@@ -402,7 +373,6 @@ country_event = {
 			country_exists = ISE
 			107 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		107 = { add_core_of = ISE }
 		ISE = { transfer_state = 107 }
 		ai_chance = { factor = 0 }
@@ -413,7 +383,6 @@ country_event = {
 			country_exists = IMT
 			107 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		107 = { add_core_of = IMT }
 		IMT = { transfer_state = 107 }
 		ai_chance = { factor = 0 }
@@ -424,7 +393,6 @@ country_event = {
 			country_exists = IAL
 			107 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		107 = { add_core_of = IAL }
 		IAL = { transfer_state = 107 }
 		ai_chance = { factor = 0 }
@@ -444,7 +412,6 @@ country_event = {
 			country_exists = ICR
 			108 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		108 = { add_core_of = ICR }
 		ICR = { transfer_state = 108 }
 		ai_chance = { factor = 0 }
@@ -455,7 +422,6 @@ country_event = {
 			country_exists = ISE
 			108 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		108 = { add_core_of = ISE }
 		ISE = { transfer_state = 108 }
 		ai_chance = { factor = 0 }
@@ -466,7 +432,6 @@ country_event = {
 			country_exists = IMT
 			108 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		108 = { add_core_of = IMT }
 		IMT = { transfer_state = 108 }
 		ai_chance = { factor = 0 }
@@ -477,7 +442,6 @@ country_event = {
 			country_exists = IAL
 			108 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		108 = { add_core_of = IAL }
 		IAL = { transfer_state = 108 }
 		ai_chance = { factor = 0 }
@@ -497,7 +461,6 @@ country_event = {
 			country_exists = ICR
 			45 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		45 = { add_core_of = ICR }
 		ICR = { transfer_state = 45 }
 		ai_chance = { factor = 0 }
@@ -508,7 +471,6 @@ country_event = {
 			country_exists = ISE
 			45 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		45 = { add_core_of = ISE }
 		ISE = { transfer_state = 45 }
 		ai_chance = { factor = 0 }
@@ -519,7 +481,6 @@ country_event = {
 			country_exists = IMT
 			45 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		45 = { add_core_of = IMT }
 		IMT = { transfer_state = 45 }
 		ai_chance = { factor = 0 }
@@ -530,7 +491,6 @@ country_event = {
 			country_exists = IAL
 			45 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		45 = { add_core_of = IAL }
 		IAL = { transfer_state = 45 }
 		ai_chance = { factor = 0 }
@@ -550,7 +510,6 @@ country_event = {
 			country_exists = ICR
 			764 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		764 = { add_core_of = ICR }
 		ICR = { transfer_state = 764 }
 		ai_chance = { factor = 0 }
@@ -561,7 +520,6 @@ country_event = {
 			country_exists = ISE
 			764 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		764 = { add_core_of = ISE }
 		ISE = { transfer_state = 764 }
 		ai_chance = { factor = 0 }
@@ -572,7 +530,6 @@ country_event = {
 			country_exists = IMT
 			764 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		764 = { add_core_of = IMT }
 		IMT = { transfer_state = 764 }
 		ai_chance = { factor = 0 }
@@ -583,7 +540,6 @@ country_event = {
 			country_exists = IAL
 			764 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		764 = { add_core_of = IAL }
 		IAL = { transfer_state = 764 }
 		ai_chance = { factor = 0 }
@@ -603,7 +559,6 @@ country_event = {
 			country_exists = ICR
 			802 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		802 = { add_core_of = ICR }
 		ICR = { transfer_state = 802 }
 		ai_chance = { factor = 0 }
@@ -614,7 +569,6 @@ country_event = {
 			country_exists = ISE
 			802 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		802 = { add_core_of = ISE }
 		ISE = { transfer_state = 802 }
 		ai_chance = { factor = 0 }
@@ -625,7 +579,6 @@ country_event = {
 			country_exists = IMT
 			802 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		802 = { add_core_of = IMT }
 		IMT = { transfer_state = 802 }
 		ai_chance = { factor = 0 }
@@ -636,7 +589,6 @@ country_event = {
 			country_exists = IAL
 			802 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		802 = { add_core_of = IAL }
 		IAL = { transfer_state = 802 }
 		ai_chance = { factor = 0 }
@@ -656,7 +608,6 @@ country_event = {
 			country_exists = ICR
 			803 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		803 = { add_core_of = ICR }
 		ICR = { transfer_state = 803 }
 		ai_chance = { factor = 0 }
@@ -667,7 +618,6 @@ country_event = {
 			country_exists = ISE
 			803 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		803 = { add_core_of = ISE }
 		ISE = { transfer_state = 803 }
 		ai_chance = { factor = 0 }
@@ -678,7 +628,6 @@ country_event = {
 			country_exists = IMT
 			803 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		803 = { add_core_of = IMT }
 		IMT = { transfer_state = 803 }
 		ai_chance = { factor = 0 }
@@ -689,7 +638,6 @@ country_event = {
 			country_exists = IAL
 			803 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		803 = { add_core_of = IAL }
 		IAL = { transfer_state = 803 }
 		ai_chance = { factor = 0 }
@@ -709,7 +657,6 @@ country_event = {
 			country_exists = ICR
 			106 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		106 = { add_core_of = ICR }
 		ICR = { transfer_state = 106 }
 		ai_chance = { factor = 0 }
@@ -720,7 +667,6 @@ country_event = {
 			country_exists = ISE
 			106 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		106 = { add_core_of = ISE }
 		ISE = { transfer_state = 106 }
 		ai_chance = { factor = 0 }
@@ -731,7 +677,6 @@ country_event = {
 			country_exists = IMT
 			106 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		106 = { add_core_of = IMT }
 		IMT = { transfer_state = 106 }
 		ai_chance = { factor = 0 }
@@ -742,7 +687,6 @@ country_event = {
 			country_exists = IAL
 			106 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		106 = { add_core_of = IAL }
 		IAL = { transfer_state = 106 }
 		ai_chance = { factor = 0 }
@@ -762,7 +706,6 @@ country_event = {
 			country_exists = ICR
 			970 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		970 = { add_core_of = ICR }
 		ICR = { transfer_state = 970 }
 		ai_chance = { factor = 0 }
@@ -773,7 +716,6 @@ country_event = {
 			country_exists = ISE
 			970 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		970 = { add_core_of = ISE }
 		ISE = { transfer_state = 970 }
 		ai_chance = { factor = 0 }
@@ -784,7 +726,6 @@ country_event = {
 			country_exists = IMT
 			970 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		970 = { add_core_of = IMT }
 		IMT = { transfer_state = 970 }
 		ai_chance = { factor = 0 }
@@ -795,7 +736,6 @@ country_event = {
 			country_exists = IAL
 			970 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		970 = { add_core_of = IAL }
 		IAL = { transfer_state = 970 }
 		ai_chance = { factor = 0 }
@@ -816,7 +756,6 @@ country_event = {
 			country_exists = ICR
 			163 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		163 = { add_core_of = ICR }
 		ICR = { transfer_state = 163 }
 		ai_chance = { factor = 0 }
@@ -846,7 +785,6 @@ country_event = {
 			country_exists = ICR
 			852 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		852 = { add_core_of = ICR }
 		ICR = { transfer_state = 852 }
 		ai_chance = { factor = 0 }
@@ -875,7 +813,6 @@ country_event = {
 			country_exists = ICR
 			44 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		44 = { add_core_of = ICR }
 		ICR = { transfer_state = 44 }
 		ai_chance = { factor = 0 }
@@ -886,7 +823,6 @@ country_event = {
 			country_exists = ISE
 			44 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		44 = { add_core_of = ISE }
 		ISE = { transfer_state = 44 }
 		ai_chance = { factor = 0 }
@@ -897,7 +833,6 @@ country_event = {
 			country_exists = IMT
 			44 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		44 = { add_core_of = IMT }
 		IMT = { transfer_state = 44 }
 		ai_chance = { factor = 0 }
@@ -908,7 +843,6 @@ country_event = {
 			country_exists = IAL
 			44 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		44 = { add_core_of = IAL }
 		IAL = { transfer_state = 44 }
 		ai_chance = { factor = 0 }
@@ -928,7 +862,6 @@ country_event = {
 			country_exists = ICR
 			805 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		805 = { add_core_of = ICR }
 		ICR = { transfer_state = 805 }
 		ai_chance = { factor = 0 }
@@ -939,7 +872,6 @@ country_event = {
 			country_exists = ISE
 			805 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		805 = { add_core_of = ISE }
 		ISE = { transfer_state = 805 }
 		ai_chance = { factor = 0 }
@@ -950,7 +882,6 @@ country_event = {
 			country_exists = IMT
 			805 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		805 = { add_core_of = IMT }
 		IMT = { transfer_state = 805 }
 		ai_chance = { factor = 0 }
@@ -961,7 +892,6 @@ country_event = {
 			country_exists = IAL
 			805 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		805 = { add_core_of = IAL }
 		IAL = { transfer_state = 805 }
 		ai_chance = { factor = 0 }
@@ -981,7 +911,6 @@ country_event = {
 			country_exists = ICR
 			934 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		934 = { add_core_of = ICR }
 		ICR = { transfer_state = 934 }
 		ai_chance = { factor = 0 }
@@ -992,7 +921,6 @@ country_event = {
 			country_exists = ISE
 			934 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		934 = { add_core_of = ISE }
 		ISE = { transfer_state = 934 }
 		ai_chance = { factor = 0 }
@@ -1003,7 +931,6 @@ country_event = {
 			country_exists = IMT
 			934 = { any_neighbor_state = { is_owned_by = IMT } }
 		}
-		show_as_unavailable = yes
 		934 = { add_core_of = IMT }
 		IMT = { transfer_state = 934 }
 		ai_chance = { factor = 0 }
@@ -1014,7 +941,6 @@ country_event = {
 			country_exists = IAL
 			934 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		934 = { add_core_of = IAL }
 		IAL = { transfer_state = 934 }
 		ai_chance = { factor = 0 }
@@ -1034,7 +960,6 @@ country_event = {
 			country_exists = ICR
 			105 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		show_as_unavailable = yes
 		105 = { add_core_of = ICR }
 		ICR = { transfer_state = 105 }
 		ai_chance = { factor = 0 }
@@ -1045,7 +970,6 @@ country_event = {
 			country_exists = ISE
 			105 = { any_neighbor_state = { is_owned_by = ISE } }
 		}
-		show_as_unavailable = yes
 		105 = { add_core_of = ISE }
 		ISE = { transfer_state = 105 }
 		ai_chance = { factor = 0 }
@@ -1056,7 +980,6 @@ country_event = {
 			country_exists = IAL
 			105 = { any_neighbor_state = { is_owned_by = IAL } }
 		}
-		show_as_unavailable = yes
 		105 = { add_core_of = IAL }
 		IAL = { transfer_state = 105 }
 		ai_chance = { factor = 0 }
