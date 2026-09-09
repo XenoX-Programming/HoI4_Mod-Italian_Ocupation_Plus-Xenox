@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.8 (Yugoslavia + Albania)
+# Italian Occupation Plus — v0.0.10 (Yugoslavia + Albania)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -88,7 +88,7 @@ Only **Zara and Istria** keep an annex-to-Italy option (core gain is intentional
    - **Windows:** `Documents\Paradox Interactive\Hearts of Iron IV\mod\`
    - **Linux:** `~/.local/share/Paradox Interactive/Hearts of Iron IV/mod/`
 2. Open the Paradox launcher → *Mods* → enable **Italian Occupation Plus**.
-3. Launch the game. Supported version: `1.18.*` (if your game is newer and the launcher shows it as outdated, you can still try enabling it — the mod uses stable scripting features).
+3. Launch the game. Supported version: `1.19.2` (if your game is newer and the launcher shows it as outdated, you can still try enabling it — the mod uses stable scripting features).
 
 ## How to play / test
 
@@ -125,7 +125,7 @@ italian_occupation_plus/
 ├── history/
 │   ├── countries/ICR|ISE|IMT*.txt           # capitals, leaders, tech
 │   └── units/IOP_empty.txt                  # empty puppet OOB
-├── gfx/leaders/ICR_Giuseppe_Bastianini.dds # custom ICR leader portrait
+├── gfx/leaders/ICR/ICR_Giuseppe_Bastianini.dds # custom ICR portrait (tag subfolder required!)
 ├── events/IOP_yugoslavia.txt                # 17 events (iop_yugo.102, .103, ...)
 ├── interface/iop_autonomy.gfx               # autonomy icon sprite
 ├── interface/iop_decisions.gfx               # category icon sprite
@@ -153,13 +153,14 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 ## Troubleshooting
 
 - **Decisions don't show:** you must be playing the country with `original_tag = ITA`. Founding needs control of the capital state (109 / 107 / 105). Distribution needs ≥1 puppet to exist AND at least one puppet bordering the state.
-- **Mod shows as outdated:** edit `supported_version` in both `.mod` files to match your game (e.g. `1.19.*`).
+- **Mod shows as outdated:** edit `supported_version` in both `.mod` files to match your game (e.g. `1.20.*`).
 - **"Military Occupation" level missing/wrong:** check `error.log` for `autonomy_military_occupation` — most likely the `.gfx` sprite or `.dds` path. The icon falling back to `?` is cosmetic only.
 - **Check errors:** after running the game, look at `Documents\Paradox Interactive\Hearts of Iron IV\logs\error.log` and search for `iop`.
 - **Missing portraits:** if a leader shows a silhouette, the portrait `.dds` name doesn't exist in your game version — replace `picture = ...` in the history file with another vanilla portrait. It never crashes, it's cosmetic.
 
 ## Changelog
 
+- **0.0.10** — Bastianini portrait fixed: the DDS moved to `gfx/leaders/ICR/` (the engine only looks inside tag subfolders, so the old flat file was never found); removed the broken `Portrait_Italy_*` picture references for the other three leaders (vanilla portraits cannot resolve for custom tags) — they now use the default portrait with no log errors; `supported_version` updated to `1.19.2`.
 - **0.0.9** — Leaders fixed for real: all 16 `create_country_leader` blocks now use valid vanilla sub-ideologies (`fascism_ideology` / `despotism` / `liberalism` / `marxism`) instead of the invalid group names that made the game reject every leader and spawn generics like "lucas brown" — Bastianini now actually leads ICR; removed all 77 invalid `show_as_unavailable` lines from events (unknown key, pure log spam — ineligible options now hide instead of greying out); fixed the missing UTF-8 BOM in the autonomy localisation file.
 - **0.0.8** — Colors use the documented `color = rgb { ... }` format (plain braces are ignored by the game — this was why puppet colors never applied); every puppet now has its leader defined for all 4 ideologies (Bastianini leads ICR as fascist, neutral, democratic and communist).
 - **0.0.7** — Puppets (and attempted Italy) recolored to rgb(25, 100, 14); Bastianini portrait files renamed to ICR_Giuseppe_Bastianini.* (still ICR's leader).
