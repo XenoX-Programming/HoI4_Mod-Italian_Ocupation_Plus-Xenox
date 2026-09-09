@@ -1,10 +1,9 @@
 # Italian Occupation Plus
-# ISE - Governo Militare di Occupazione della Serbia
-# (Tag ISE is used because ISR is vanilla Israel.)
-# Capital: 107 Serbia (Belgrade). Initial cores: Serbia (107), Morava (108).
+# IBL - Governatorato di occupazione militare della Bulgaria
+# Capital: 48 Sofia. Initial cores: Sofia (48), Moesia (801), Plovdiv (212), Burgas (211).
 # Cores are added by decision at release time, so no history/states overrides are needed.
 
-capital = 107
+capital = 48
 oob = "IOP_empty"
 
 set_technology = {
@@ -27,11 +26,11 @@ set_popularities = {
 	neutrality = 15
 }
 
-# Italian Chief of Staff, responsible for the Balkans theatre - historical choice for v1.
+# Governor of Bulgaria.
 create_country_leader = {
-	name = "Tito Agosti"
-	desc = "PODCAT_TITO_AGOSTI_DESC"
-	picture = "ISE_Tito_Agosti.dds"
+	name = "Attilio Biseo"
+	desc = "PODCAT_ATTILIO_BISEO_DESC"
+	picture = "IBL_Attilio_Biseo.dds"
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
@@ -39,9 +38,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Tito Agosti"
-	desc = "PODCAT_TITO_AGOSTI_DESC"
-	picture = "ISE_Tito_Agosti.dds"
+	name = "Attilio Biseo"
+	desc = "PODCAT_ATTILIO_BISEO_DESC"
+	picture = "IBL_Attilio_Biseo.dds"
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
@@ -49,9 +48,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Tito Agosti"
-	desc = "PODCAT_TITO_AGOSTI_DESC"
-	picture = "ISE_Tito_Agosti.dds"
+	name = "Attilio Biseo"
+	desc = "PODCAT_ATTILIO_BISEO_DESC"
+	picture = "IBL_Attilio_Biseo.dds"
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
@@ -59,9 +58,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Tito Agosti"
-	desc = "PODCAT_TITO_AGOSTI_DESC"
-	picture = "ISE_Tito_Agosti.dds"
+	name = "Attilio Biseo"
+	desc = "PODCAT_ATTILIO_BISEO_DESC"
+	picture = "IBL_Attilio_Biseo.dds"
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
@@ -74,4 +73,4 @@ set_convoys = 5
 set_research_slots = 2
 
 set_country_flag = iop_puppet
-set_country_flag = iop_serbia
+set_country_flag = iop_bulgaria

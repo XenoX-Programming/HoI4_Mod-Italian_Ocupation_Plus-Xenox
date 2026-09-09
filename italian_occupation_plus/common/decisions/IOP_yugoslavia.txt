@@ -185,6 +185,69 @@ iop_occupation = {
 			factor = 0
 		}
 	}
+	iop_establish_bulgaria = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 48
+				state = 801
+				state = 212
+				state = 211
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IBL }
+		}
+
+		available = {
+			controls_state = 48
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_bulgaria_tt
+			hidden_effect = {
+				set_country_flag = iop_bulgaria_established
+				48 = { add_core_of = IBL }
+				801 = { add_core_of = IBL }
+				212 = { add_core_of = IBL }
+				211 = { add_core_of = IBL }
+				release_puppet = IBL
+				set_autonomy = {
+					target = IBL
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 48 }
+					IBL = { transfer_state = 48 }
+				}
+				if = {
+					limit = { controls_state = 801 }
+					IBL = { transfer_state = 801 }
+				}
+				if = {
+					limit = { controls_state = 212 }
+					IBL = { transfer_state = 212 }
+				}
+				if = {
+					limit = { controls_state = 211 }
+					IBL = { transfer_state = 211 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
 	iop_fall_of_montenegro = {
 		icon = generic_political_pressure
 
@@ -704,19 +767,18 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
 			controls_state = 803
-			# At least one occupation government must border the state,
+			# Serbia or Bulgaria must border the state,
 			# otherwise the fate event would have no valid recipient.
 			803 = {
 				any_neighbor_state = {
 					OR = {
-						is_owned_by = ICR
 						is_owned_by = ISE
-						is_owned_by = IMT
-						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}
@@ -746,19 +808,18 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
 			controls_state = 106
-			# At least one occupation government must border the state,
+			# Serbia or Bulgaria must border the state,
 			# otherwise the fate event would have no valid recipient.
 			106 = {
 				any_neighbor_state = {
 					OR = {
-						is_owned_by = ICR
 						is_owned_by = ISE
-						is_owned_by = IMT
-						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}

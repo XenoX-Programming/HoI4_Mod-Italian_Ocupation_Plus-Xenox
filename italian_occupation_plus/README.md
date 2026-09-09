@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.12 (Yugoslavia + Albania)
+# Italian Occupation Plus — v0.0.13 (Yugoslavia + Albania + Bulgaria)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -8,7 +8,7 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 
 ## What's in v0.0.3
 
-### 4 new puppet nations
+### 5 new puppet nations
 
 | Tag | Full name | Capital | Initial states (state IDs) |
 |-----|-----------|---------|----------------------------|
@@ -16,14 +16,16 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 | **ISE** | Governo Militare di Occupazione della Serbia | Serbia (107, Belgrade) | Serbia (107), Morava (108) |
 | **IMT** | Governatorato del Montenegro | Montenegro (105) | Montenegro (105) |
 | **IAL** | Governo Militare di Occupazione dell'Albania | Albania (44, Tirana) | Albania (44), Shkoder (934) |
+| **IBL** | Governatorato di occupazione militare della Bulgaria | Sofia (48) | Sofia (48), Moesia (801), Plovdiv (212), Burgas (211) |
 
 > **Why ISE and not ISR?** `ISR` is already used by vanilla HOI4 for **Israel** (releasable by the UK). Using it would overwrite Israel. `ISE` (Italian SErbia) keeps the `Ixx` pattern and is free in vanilla.
 
 Puppet leaders (historical placeholders, all fascist):
 - **ICR** — Giuseppe Bastianini (Governor of Croatia, custom portrait included)
-- **ISE** — Vittorio Ambrosio (Italian Chief of Staff)
+- **ISE** — Tito Agosti (Governor of Serbia, custom portrait included)
 - **IMT** — Alessandro Pirzio Biroli (Governor of Montenegro, custom portrait included)
 - **IAL** — Alfredo Guzzoni (Governor of Albania, custom portrait included)
+- **IBL** — Attilio Biseo (Governor of Bulgaria, custom portrait included)
 
 ### New autonomy level: Military Occupation
 
@@ -42,7 +44,7 @@ Between **annexation** and **Reichskommissariat** on the freedom scale (`min_fre
 - Restricted to **Italian subjects only** (`allowed` block), so it never pollutes other nations' UI, peace deals, or subject interactions.
 - Has its own 35×35 icon (`gfx/interface/autonomy/` + `interface/iop_autonomy.gfx`).
 
-### 22 decisions — all free, all with map highlighting
+### 23 decisions — all free, all with map highlighting
 
 Own tab: **"Italian Occupation"**. Hovering any decision outlines the state(s) it needs/changes.
 
@@ -50,6 +52,7 @@ Own tab: **"Italian Occupation"**. Hovering any decision outlines the state(s) i
 - Establish Military Occupation of Croatia — requires control of **Croatia (109)**, highlights all 4 initial states
 - Establish Military Occupation of Serbia — requires control of **Serbia (107)**, highlights both initial states
 - Establish Military Occupation of Albania — requires control of **Albania (44)**, highlights Albania and Shkoder (Northern Epirus stays Italian until you assign it via its fate decision)
+- Establish Military Occupation of Bulgaria — requires control of **Sofia (48)**, highlights all 4 initial states
 
 Founding only needs the **capital state**. Any other initial states you control transfer automatically.
 
@@ -70,15 +73,15 @@ Founding only needs the **capital state**. Any other initial states you control 
 | 45 | Vojvodina (Backa) | ICR or ISE only (must border) |
 | 764 | West Banat | ICR or ISE only (must border) |
 | 802 | Kosovo | bordering puppets only |
-| 803 | Southern Serbia | bordering puppets only |
-| 106 | Macedonia | bordering puppets only |
+| 803 | Southern Serbia | any bordering puppet (decision needs ISE or IBL border) |
+| 106 | Macedonia | any bordering puppet (decision needs ISE or IBL border) |
 | 970 | Debar | bordering puppets only |
 | 44 | Albania (capital — reassignable only after IAL exists) | bordering puppets only |
 | 805 | Northern Epirus | bordering puppets only |
 | **163** | **Zara (special)** | **Decision needs ICR border; then Croatia OR annex to Italy** |
 | **852** | **Istria (special)** | **Decision needs ICR border; then Croatia OR annex to Italy** |
 
-Only **Zara and Istria** keep an annex-to-Italy option (core gain is intentionally not shown) — all other transfers must go to a bordering puppet. Bačka (45) and West Banat (764) can only go to Croatia or Serbia. Zara and Istria decisions need Croatia to border the state. North Slovenia (102) and Ljubljana (853) decisions need Croatia to border, but any bordering puppet can receive. A distribution decision stays unavailable (greyed) until at least one puppet borders its state, so the event can never fire without a valid recipient. Capital states (Croatia 109, Serbia 107, Montenegro 105, Albania 44) have no redistribution decision at all while their puppet can still be created — found (or settle) the puppet first.
+Only **Zara and Istria** keep an annex-to-Italy option (core gain is intentionally not shown) — all other transfers must go to a bordering puppet. Bačka (45) and West Banat (764) can only go to Croatia or Serbia. Zara and Istria decisions need Croatia to border the state. North Slovenia (102) and Ljubljana (853) decisions need Croatia to border, but any bordering puppet can receive. Southern Serbia (803) and Macedonia (106) decisions need Serbia or Bulgaria to border, but any bordering puppet (including Bulgaria) can receive. A distribution decision stays unavailable (greyed) until at least one puppet borders its state, so the event can never fire without a valid recipient. Capital states (Croatia 109, Serbia 107, Montenegro 105, Albania 44) have no redistribution decision at all while their puppet can still be created — found (or settle) the puppet first.
 
 ## Installation
 
@@ -116,21 +119,23 @@ italian_occupation_plus/
 ├── README.md
 ├── common/
 │   ├── autonomous_states/iop_autonomy.txt   # Military Occupation level
-│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT
+│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL
 │   ├── countries/Italy_*.txt                # gfx culture + map color
 │   ├── decisions/categories/iop_categories.txt # "Italian Occupation" tab (note: categories/ subfolder!)
-│   └── decisions/IOP_yugoslavia.txt         # 3 founding + Fall of Montenegro + 18 distribution decisions
+│   └── decisions/IOP_yugoslavia.txt         # 4 founding + Fall of Montenegro + 18 distribution decisions
 ├── history/
-│   ├── countries/ICR|ISE|IMT*.txt           # capitals, leaders, tech
+│   ├── countries/ICR|ISE|IMT|IAL|IBL*.txt           # capitals, leaders, tech
 │   └── units/IOP_empty.txt                  # empty puppet OOB
 ├── gfx/leaders/ICR/ICR_Giuseppe_Bastianini.dds # custom ICR portrait (tag subfolder required!)
 ├── gfx/leaders/IMT/IMT_Alessandro_Pirzio_Biroli.dds # custom IMT portrait
 ├── gfx/leaders/IAL/IAL_Alfredo_Guzzoni.dds # custom IAL portrait
+├── gfx/leaders/ISE/ISE_Tito_Agosti.dds # custom ISE portrait
+├── gfx/leaders/IBL/IBL_Attilio_Biseo.dds # custom IBL portrait
 ├── events/IOP_yugoslavia.txt                # 19 events (iop_yugo.102, .103, ...)
 ├── interface/iop_autonomy.gfx               # autonomy icon sprite
 ├── interface/iop_decisions.gfx               # category icon sprite
 ├── gfx/
-│   ├── flags/ (+ medium/, small/)           # 45 placeholder .tga flags
+│   ├── flags/ (+ medium/, small/)           # 60 placeholder .tga flags (12 per tag: 4 ideologies x 3 sizes)
 │   └── interface/autonomy/                  # Military Occupation .dds icon
 └── localisation/english/IOP_*_l_english.yml # countries / decisions / events / autonomy (BOM!)
 ```
@@ -160,6 +165,7 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 
 ## Changelog
 
+- **0.0.13** — New 5th puppet: IBL (Governatorato di occupazione militare della Bulgaria), founded from Sofia with Moesia/Plovdiv/Burgas, led by Attilio Biseo (Governor of Bulgaria, your portrait); Southern Serbia and Macedonia decisions now need Serbia or Bulgaria to border, and Bulgaria can receive them; Serbia gets your Tito Agosti portrait (Governor of Serbia).
 - **0.0.12** — Zara/Istria decisions now require Croatia to border the state (for ceding and annexing alike); North Slovenia/Ljubljana decisions need a Croatian border too, though any bordering puppet can still receive them; IAL gets your Alfredo Guzzoni portrait (Governor of Albania).
 - **0.0.11** — IMT renamed to Governatorato del Montenegro, with your custom Pirzio Biroli portrait (Governor of Montenegro); Bastianini is now Governor of Croatia; removed the Morava and Shkoder fate decisions (plus their now-dead events); Albania founding no longer takes Northern Epirus — assign it later via its fate decision; Bačka and West Banat can only go to Croatia or Serbia; Zara/Istria verified Croatia-or-annex only (no change needed).
 - **0.0.10** — Bastianini portrait fixed: the DDS moved to `gfx/leaders/ICR/` (the engine only looks inside tag subfolders, so the old flat file was never found); removed the broken `Portrait_Italy_*` picture references for the other three leaders (vanilla portraits cannot resolve for custom tags) — they now use the default portrait with no log errors; `supported_version` updated to `1.19.2`.

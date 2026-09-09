@@ -554,7 +554,17 @@ country_event = {
 		803 = { add_core_of = IAL }
 		IAL = { transfer_state = 803 }
 		ai_chance = { factor = 0 }
+	}	option = {
+		name = iop_give_to_IBL
+		trigger = {
+			country_exists = IBL
+			803 = { any_neighbor_state = { is_owned_by = IBL } }
+		}
+		803 = { add_core_of = IBL }
+		IBL = { transfer_state = 803 }
+		ai_chance = { factor = 0 }
 	}
+
 }
 
 # ---------------- 106 - Macedonia ----------------
@@ -603,7 +613,17 @@ country_event = {
 		106 = { add_core_of = IAL }
 		IAL = { transfer_state = 106 }
 		ai_chance = { factor = 0 }
+	}	option = {
+		name = iop_give_to_IBL
+		trigger = {
+			country_exists = IBL
+			106 = { any_neighbor_state = { is_owned_by = IBL } }
+		}
+		106 = { add_core_of = IBL }
+		IBL = { transfer_state = 106 }
+		ai_chance = { factor = 0 }
 	}
+
 }
 
 # ---------------- 970 - Debar ----------------
