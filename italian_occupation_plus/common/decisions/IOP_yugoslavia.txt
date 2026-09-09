@@ -140,7 +140,6 @@ iop_occupation = {
 		highlight_states = {
 			highlight_state_targets = {
 				state = 44
-				state = 805
 				state = 934
 			}
 		}
@@ -165,7 +164,6 @@ iop_occupation = {
 			hidden_effect = {
 				set_country_flag = iop_albania_established
 				44 = { add_core_of = IAL }
-				805 = { add_core_of = IAL }
 				934 = { add_core_of = IAL }
 				release_puppet = IAL
 				set_autonomy = {
@@ -175,10 +173,6 @@ iop_occupation = {
 				if = {
 					limit = { controls_state = 44 }
 					IAL = { transfer_state = 44 }
-				}
-				if = {
-					limit = { controls_state = 805 }
-					IAL = { transfer_state = 805 }
 				}
 				if = {
 					limit = { controls_state = 934 }
@@ -578,47 +572,7 @@ iop_occupation = {
 		ai_will_do = { factor = 0 }
 	}
 
-	# 108 - Morava
-	iop_decide_108 = {
-		icon = generic_decision
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 108
-			}
-		}
-		allowed = { original_tag = ITA }
-		visible = {
-			original_tag = ITA
-			controls_state = 108
-			OR = {
-				has_country_flag = iop_croatia_established
-				has_country_flag = iop_serbia_established
-				has_country_flag = iop_montenegro_established
-				has_country_flag = iop_albania_established
-			}
-		}
-		available = {
-			controls_state = 108
-			# At least one occupation government must border the state,
-			# otherwise the fate event would have no valid recipient.
-			108 = {
-				any_neighbor_state = {
-					OR = {
-						is_owned_by = ICR
-						is_owned_by = ISE
-						is_owned_by = IMT
-						is_owned_by = IAL
-					}
-				}
-			}
-		}
-		days_re_enable = 3
-		complete_effect = {
-			country_event = { id = iop_yugo.108 }
-		}
-		ai_will_do = { factor = 0 }
-	}
+	
 
 	# 45 - Vojvodina (Backa)
 	iop_decide_45 = {
@@ -642,15 +596,13 @@ iop_occupation = {
 		}
 		available = {
 			controls_state = 45
-			# At least one occupation government must border the state,
+			# Croatia or Serbia must border the state,
 			# otherwise the fate event would have no valid recipient.
 			45 = {
 				any_neighbor_state = {
 					OR = {
 						is_owned_by = ICR
 						is_owned_by = ISE
-						is_owned_by = IMT
-						is_owned_by = IAL
 					}
 				}
 			}
@@ -684,15 +636,13 @@ iop_occupation = {
 		}
 		available = {
 			controls_state = 764
-			# At least one occupation government must border the state,
+			# Croatia or Serbia must border the state,
 			# otherwise the fate event would have no valid recipient.
 			764 = {
 				any_neighbor_state = {
 					OR = {
 						is_owned_by = ICR
 						is_owned_by = ISE
-						is_owned_by = IMT
-						is_owned_by = IAL
 					}
 				}
 			}
@@ -952,47 +902,6 @@ iop_occupation = {
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.805 }
-		}
-		ai_will_do = { factor = 0 }
-	}
-
-	iop_decide_934 = {
-		icon = generic_decision
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 934
-			}
-		}
-		allowed = { original_tag = ITA }
-		visible = {
-			original_tag = ITA
-			controls_state = 934
-			OR = {
-				has_country_flag = iop_croatia_established
-				has_country_flag = iop_serbia_established
-				has_country_flag = iop_montenegro_established
-				has_country_flag = iop_albania_established
-			}
-		}
-		available = {
-			controls_state = 934
-			# At least one occupation government must border the state,
-			# otherwise the fate event would have no valid recipient.
-			934 = {
-				any_neighbor_state = {
-					OR = {
-						is_owned_by = ICR
-						is_owned_by = ISE
-						is_owned_by = IMT
-						is_owned_by = IAL
-					}
-				}
-			}
-		}
-		days_re_enable = 3
-		complete_effect = {
-			country_event = { id = iop_yugo.934 }
 		}
 		ai_will_do = { factor = 0 }
 	}

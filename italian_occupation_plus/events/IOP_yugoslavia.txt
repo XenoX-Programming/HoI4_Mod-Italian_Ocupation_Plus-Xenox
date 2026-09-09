@@ -399,55 +399,6 @@ country_event = {
 	}
 }
 
-# ---------------- 108 - Morava ----------------
-country_event = {
-	id = iop_yugo.108
-	title = iop_yugo_fate_title
-	desc = iop_yugo_108_desc
-	picture = GFX_report_event_generic
-	is_triggered_only = yes
-	option = {
-		name = iop_give_to_ICR
-		trigger = {
-			country_exists = ICR
-			108 = { any_neighbor_state = { is_owned_by = ICR } }
-		}
-		108 = { add_core_of = ICR }
-		ICR = { transfer_state = 108 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_ISE
-		trigger = {
-			country_exists = ISE
-			108 = { any_neighbor_state = { is_owned_by = ISE } }
-		}
-		108 = { add_core_of = ISE }
-		ISE = { transfer_state = 108 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IMT
-		trigger = {
-			country_exists = IMT
-			108 = { any_neighbor_state = { is_owned_by = IMT } }
-		}
-		108 = { add_core_of = IMT }
-		IMT = { transfer_state = 108 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IAL
-		trigger = {
-			country_exists = IAL
-			108 = { any_neighbor_state = { is_owned_by = IAL } }
-		}
-		108 = { add_core_of = IAL }
-		IAL = { transfer_state = 108 }
-		ai_chance = { factor = 0 }
-	}
-}
-
 # ---------------- 45 - Vojvodina (Backa) ----------------
 country_event = {
 	id = iop_yugo.45
@@ -475,26 +426,7 @@ country_event = {
 		ISE = { transfer_state = 45 }
 		ai_chance = { factor = 0 }
 	}
-	option = {
-		name = iop_give_to_IMT
-		trigger = {
-			country_exists = IMT
-			45 = { any_neighbor_state = { is_owned_by = IMT } }
-		}
-		45 = { add_core_of = IMT }
-		IMT = { transfer_state = 45 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IAL
-		trigger = {
-			country_exists = IAL
-			45 = { any_neighbor_state = { is_owned_by = IAL } }
-		}
-		45 = { add_core_of = IAL }
-		IAL = { transfer_state = 45 }
-		ai_chance = { factor = 0 }
-	}
+
 }
 
 # ---------------- 764 - West Banat ----------------
@@ -524,26 +456,7 @@ country_event = {
 		ISE = { transfer_state = 764 }
 		ai_chance = { factor = 0 }
 	}
-	option = {
-		name = iop_give_to_IMT
-		trigger = {
-			country_exists = IMT
-			764 = { any_neighbor_state = { is_owned_by = IMT } }
-		}
-		764 = { add_core_of = IMT }
-		IMT = { transfer_state = 764 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IAL
-		trigger = {
-			country_exists = IAL
-			764 = { any_neighbor_state = { is_owned_by = IAL } }
-		}
-		764 = { add_core_of = IAL }
-		IAL = { transfer_state = 764 }
-		ai_chance = { factor = 0 }
-	}
+
 }
 
 # ---------------- 802 - Kosovo ----------------
@@ -894,55 +807,6 @@ country_event = {
 		}
 		805 = { add_core_of = IAL }
 		IAL = { transfer_state = 805 }
-		ai_chance = { factor = 0 }
-	}
-}
-
-# ---------------- 934 - Shkoder ----------------
-country_event = {
-	id = iop_yugo.934
-	title = iop_yugo_fate_title
-	desc = iop_yugo_934_desc
-	picture = GFX_report_event_generic
-	is_triggered_only = yes
-	option = {
-		name = iop_give_to_ICR
-		trigger = {
-			country_exists = ICR
-			934 = { any_neighbor_state = { is_owned_by = ICR } }
-		}
-		934 = { add_core_of = ICR }
-		ICR = { transfer_state = 934 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_ISE
-		trigger = {
-			country_exists = ISE
-			934 = { any_neighbor_state = { is_owned_by = ISE } }
-		}
-		934 = { add_core_of = ISE }
-		ISE = { transfer_state = 934 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IMT
-		trigger = {
-			country_exists = IMT
-			934 = { any_neighbor_state = { is_owned_by = IMT } }
-		}
-		934 = { add_core_of = IMT }
-		IMT = { transfer_state = 934 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IAL
-		trigger = {
-			country_exists = IAL
-			934 = { any_neighbor_state = { is_owned_by = IAL } }
-		}
-		934 = { add_core_of = IAL }
-		IAL = { transfer_state = 934 }
 		ai_chance = { factor = 0 }
 	}
 }

@@ -1,6 +1,6 @@
 # Italian Occupation Plus
 # IAL - Governo Militare di Occupazione dell'Albania
-# Capital: 44 Albania (Tirana). Initial cores: Albania (44), Northern Epirus (805), Shkoder (934).
+# Capital: 44 Albania (Tirana). Initial cores: Albania (44), Shkoder (934).
 # Cores are added by decision at release time, so no history/states overrides are needed.
 
 capital = 44
