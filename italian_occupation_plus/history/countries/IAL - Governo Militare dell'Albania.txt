@@ -28,8 +28,9 @@ set_popularities = {
 
 # Lieutenant of the King in Albania (1939-1943) - historical choice.
 create_country_leader = {
-	name = "Francesco Jacomoni"
-	desc = "PODCAT_FRANCESCO_JACOMONI_DESC"
+	name = "Alfredo Guzzoni"
+	desc = "PODCAT_ALFREDO_GUZZONI_DESC"
+	picture = "IAL_Alfredo_Guzzoni.dds"
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
@@ -37,8 +38,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Francesco Jacomoni"
-	desc = "PODCAT_FRANCESCO_JACOMONI_DESC"
+	name = "Alfredo Guzzoni"
+	desc = "PODCAT_ALFREDO_GUZZONI_DESC"
+	picture = "IAL_Alfredo_Guzzoni.dds"
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
@@ -46,8 +48,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Francesco Jacomoni"
-	desc = "PODCAT_FRANCESCO_JACOMONI_DESC"
+	name = "Alfredo Guzzoni"
+	desc = "PODCAT_ALFREDO_GUZZONI_DESC"
+	picture = "IAL_Alfredo_Guzzoni.dds"
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
@@ -55,8 +58,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Francesco Jacomoni"
-	desc = "PODCAT_FRANCESCO_JACOMONI_DESC"
+	name = "Alfredo Guzzoni"
+	desc = "PODCAT_ALFREDO_GUZZONI_DESC"
+	picture = "IAL_Alfredo_Guzzoni.dds"
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {

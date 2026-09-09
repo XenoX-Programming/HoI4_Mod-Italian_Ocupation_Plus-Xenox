@@ -12,9 +12,9 @@
 
 
  iop_decide_102:0 "Determine Fate of North Slovenia"
- iop_decide_102_desc:0 "Decide which occupation government should administer North Slovenia (102). Only a bordering occupation government can receive it."
+ iop_decide_102_desc:0 "Decide which occupation government should administer North Slovenia (102). Requires Croatia to border the state; only a bordering occupation government can receive it."
  iop_decide_853:0 "Determine Fate of Ljubljana"
- iop_decide_853_desc:0 "Decide which occupation government should administer Ljubljana (853). Only a bordering occupation government can receive it."
+ iop_decide_853_desc:0 "Decide which occupation government should administer Ljubljana (853). Requires Croatia to border the state; only a bordering occupation government can receive it."
  iop_decide_103:0 "Determine Fate of Dalmatia"
  iop_decide_103_desc:0 "Decide which occupation government should administer Dalmatia (103). Only a bordering occupation government can receive it."
  iop_decide_109:0 "Determine Fate of Croatia"
@@ -40,9 +40,9 @@
  iop_decide_970:0 "Determine Fate of Debar"
  iop_decide_970_desc:0 "Decide which occupation government should administer Debar (970). Only a bordering occupation government can receive it."
  iop_decide_163_zara:0 "Determine Fate of Zara"
- iop_decide_163_zara_desc:0 "Cede Zara (163) to the Croatian occupation government, or confirm its annexation to Italy."
+ iop_decide_163_zara_desc:0 "Cede Zara (163) to the Croatian occupation government, or confirm its annexation to Italy. Requires Croatia to border Zara."
  iop_decide_852_istria:0 "Determine Fate of Istria"
- iop_decide_852_istria_desc:0 "Cede Istria (852) to the Croatian occupation government, or confirm its annexation to Italy."
+ iop_decide_852_istria_desc:0 "Cede Istria (852) to the Croatian occupation government, or confirm its annexation to Italy. Requires Croatia to border Istria."
  iop_establish_albania:0 "Establish Military Occupation of Albania"
  iop_establish_albania_desc:0 "Requires control of Albania (Tirana). Releases IAL as an Italian puppet with cores on Albania and Shkoder. Controlled states transfer automatically."
  iop_establish_albania_tt:0 "Releases §YIAL§! - Governo Militare di Occupazione dell'Albania - as our puppet."

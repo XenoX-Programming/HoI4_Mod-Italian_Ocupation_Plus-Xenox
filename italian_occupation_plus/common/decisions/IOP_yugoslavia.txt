@@ -255,16 +255,11 @@ iop_occupation = {
 		}
 		available = {
 			controls_state = 102
-			# At least one occupation government must border the state,
+			# Croatia must border the state,
 			# otherwise the fate event would have no valid recipient.
 			102 = {
 				any_neighbor_state = {
-					OR = {
 						is_owned_by = ICR
-						is_owned_by = ISE
-						is_owned_by = IMT
-						is_owned_by = IAL
-					}
 				}
 			}
 		}
@@ -297,16 +292,11 @@ iop_occupation = {
 		}
 		available = {
 			controls_state = 853
-			# At least one occupation government must border the state,
+			# Croatia must border the state,
 			# otherwise the fate event would have no valid recipient.
 			853 = {
 				any_neighbor_state = {
-					OR = {
 						is_owned_by = ICR
-						is_owned_by = ISE
-						is_owned_by = IMT
-						is_owned_by = IAL
-					}
 				}
 			}
 		}
@@ -927,7 +917,11 @@ iop_occupation = {
 			has_country_flag = iop_croatia_established
 			country_exists = ICR
 		}
-		available = { controls_state = 163 }
+		available = {
+			controls_state = 163
+			# Croatia must border the state (for ceding or annexing).
+			163 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.163 }
@@ -950,7 +944,11 @@ iop_occupation = {
 			has_country_flag = iop_croatia_established
 			country_exists = ICR
 		}
-		available = { controls_state = 852 }
+		available = {
+			controls_state = 852
+			# Croatia must border the state (for ceding or annexing).
+			852 = { any_neighbor_state = { is_owned_by = ICR } }
+		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_yugo.852 }

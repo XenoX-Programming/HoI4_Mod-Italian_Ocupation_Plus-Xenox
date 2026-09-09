@@ -46,7 +46,7 @@
  PODCAT_GIUSEPPE_BASTIANINI_DESC:0 "Governor of Croatia."
  PODCAT_VITTORIO_AMBROSIO_DESC:0 "Chief of the General Staff."
  PODCAT_ALESSANDRO_PIRZIO_BIROLI_DESC:0 "Governor of Montenegro."
- PODCAT_FRANCESCO_JACOMONI_DESC:0 "The King's Lieutenant in Albania."
+ PODCAT_ALFREDO_GUZZONI_DESC:0 "Governor of Albania."
  # Mirror of IOP_autonomy entries (harmless redundancy if that file ever fails to load):
  autonomy_military_occupation:0 "Military Occupation"
  autonomy_military_occupation_desc:0 "Direct military administration. All industry serves the overlord."
