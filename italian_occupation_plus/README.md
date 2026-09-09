@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.7 (Yugoslavia + Albania)
+# Italian Occupation Plus — v0.0.8 (Yugoslavia + Albania)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -146,6 +146,10 @@ The pattern per new region is:
 
 Suggested next regions: Greece (Epirus, Thessaly, Athens…), Albania protectorate, Corsica/Savoy, Egypt/Libya, Ethiopia/East Africa.
 
+## IMPORTANT: always clean-reinstall
+
+HOI4 does not clean up removed/renamed mod files on update. If puppets show **wrong colors, wrong leaders, or old decisions**, you are almost certainly running **stale files mixed with the new version**. Fix: **delete** `Documents\Paradox Interactive\Hearts of Iron IV\mod\italian_occupation_plus` **and** `italian_occupation_plus.mod` completely, then extract the new zip. Never extract over the old folder.
+
 ## Troubleshooting
 
 - **Decisions don't show:** you must be playing the country with `original_tag = ITA`. Founding needs control of the capital state (109 / 107 / 105). Distribution needs ≥1 puppet to exist AND at least one puppet bordering the state.
@@ -156,6 +160,7 @@ Suggested next regions: Greece (Epirus, Thessaly, Athens…), Albania protectora
 
 ## Changelog
 
+- **0.0.8** — Colors use the documented `color = rgb { ... }` format (plain braces are ignored by the game — this was why puppet colors never applied); every puppet now has its leader defined for all 4 ideologies (Bastianini leads ICR as fascist, neutral, democratic and communist).
 - **0.0.7** — Puppets (and attempted Italy) recolored to rgb(25, 100, 14); Bastianini portrait files renamed to ICR_Giuseppe_Bastianini.* (still ICR's leader).
 - **0.0.6** — Fall of Montenegro requires ICR/ISE/IAL to exist; all puppets use Italy's map color { 67 127 63 }; portraits/icons re-encoded as proper DXT5 DDS (fixes Bastianini not showing); leader desc localisation keys; autonomy name mirrored into countries loc as redundancy.
 - **0.0.5** — New IAL (Albania: 44/805/934) with full founding + redistribution parity and 4th recipient option in every fate event; Montenegro moved to 'Fall of Montenegro' event (integrate into Croatia/Serbia/Albania or create IMT); capitals can't be redistributed while their puppet is still creatable; Zara/Istria annex no longer mentions cores; Giuseppe Bastianini (custom portrait) leads ICR.

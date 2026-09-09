@@ -48,6 +48,26 @@ create_country_leader = {
 	}
 }
 
+create_country_leader = {
+	name = "Vittorio Ambrosio"
+	desc = "PODCAT_VITTORIO_AMBROSIO_DESC"
+	picture = "Portrait_Italy_Vittorio_Ambrosio.dds"
+	expire = "1965.1.1"
+	ideology = democratic
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Vittorio Ambrosio"
+	desc = "PODCAT_VITTORIO_AMBROSIO_DESC"
+	picture = "Portrait_Italy_Vittorio_Ambrosio.dds"
+	expire = "1965.1.1"
+	ideology = communism
+	traits = {
+	}
+}
+
 set_stability = 0.50
 set_war_support = 0.60
 set_convoys = 5

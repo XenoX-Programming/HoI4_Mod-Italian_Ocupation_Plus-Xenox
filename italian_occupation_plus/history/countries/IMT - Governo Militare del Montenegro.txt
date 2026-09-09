@@ -47,6 +47,26 @@ create_country_leader = {
 	}
 }
 
+create_country_leader = {
+	name = "Alessandro Pirzio Biroli"
+	desc = "PODCAT_ALESSANDRO_PIRZIO_BIROLI_DESC"
+	picture = "Portrait_Italy_Alessandro_Pirzio_Biroli.dds"
+	expire = "1965.1.1"
+	ideology = democratic
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Alessandro Pirzio Biroli"
+	desc = "PODCAT_ALESSANDRO_PIRZIO_BIROLI_DESC"
+	picture = "Portrait_Italy_Alessandro_Pirzio_Biroli.dds"
+	expire = "1965.1.1"
+	ideology = communism
+	traits = {
+	}
+}
+
 set_stability = 0.50
 set_war_support = 0.60
 set_convoys = 5

@@ -47,6 +47,26 @@ create_country_leader = {
 	}
 }
 
+create_country_leader = {
+	name = "Giuseppe Bastianini"
+	desc = "PODCAT_GIUSEPPE_BASTIANINI_DESC"
+	picture = "ICR_Giuseppe_Bastianini.dds"
+	expire = "1965.1.1"
+	ideology = democratic
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Giuseppe Bastianini"
+	desc = "PODCAT_GIUSEPPE_BASTIANINI_DESC"
+	picture = "ICR_Giuseppe_Bastianini.dds"
+	expire = "1965.1.1"
+	ideology = communism
+	traits = {
+	}
+}
+
 set_stability = 0.50
 set_war_support = 0.60
 set_convoys = 5
