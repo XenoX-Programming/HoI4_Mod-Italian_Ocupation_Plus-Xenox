@@ -14,7 +14,20 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = iop_give_canarias_to_ISP
-		trigger = { country_exists = ISP }
+		trigger = {
+			country_exists = ISP
+			ISP = { NOT = { has_country_flag = iop_iberia } }
+		}
+		178 = { add_core_of = ISP }
+		ISP = { transfer_state = 178 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_canarias_to_ISP_iberia
+		trigger = {
+			country_exists = ISP
+			ISP = { has_country_flag = iop_iberia }
+		}
 		178 = { add_core_of = ISP }
 		ISP = { transfer_state = 178 }
 		ai_chance = { factor = 0 }
@@ -54,7 +67,28 @@ country_event = {
 	}
 	option = {
 		name = iop_give_azores_to_ISP
-		trigger = { country_exists = ISP }
+		trigger = {
+			country_exists = ISP
+			ISP = { NOT = { has_country_flag = iop_iberia } }
+		}
+		if = {
+			limit = { controls_state = 698 }
+			698 = { add_core_of = ISP }
+			ISP = { transfer_state = 698 }
+		}
+		if = {
+			limit = { controls_state = 697 }
+			697 = { add_core_of = ISP }
+			ISP = { transfer_state = 697 }
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_azores_to_ISP_iberia
+		trigger = {
+			country_exists = ISP
+			ISP = { has_country_flag = iop_iberia }
+		}
 		if = {
 			limit = { controls_state = 698 }
 			698 = { add_core_of = ISP }

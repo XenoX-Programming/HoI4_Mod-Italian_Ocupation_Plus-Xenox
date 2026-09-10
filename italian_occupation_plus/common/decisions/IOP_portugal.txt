@@ -168,6 +168,16 @@ iop_occupation = {
 	iop_unite_iberia = {
 		icon = generic_form_nation
 
+		highlight_states = {
+			highlight_state_targets = {
+				state = 180
+				state = 181
+				state = 112
+				state = 795
+				state = 179
+			}
+		}
+
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
@@ -186,6 +196,11 @@ iop_occupation = {
 			custom_effect_tooltip = iop_unite_iberia_tt
 			hidden_effect = {
 				set_country_flag = iop_iberia_united
+				180 = { add_core_of = ISP }
+				181 = { add_core_of = ISP }
+				112 = { add_core_of = ISP }
+				795 = { add_core_of = ISP }
+				179 = { add_core_of = ISP }
 				ISP = {
 					annex_country = { target = IPG transfer_troops = yes }
 					set_cosmetic_tag = ISP_iberia
