@@ -1,0 +1,76 @@
+# Italian Occupation Plus
+# ILV - Governatorato di occupazione militare del Levante
+# Capital: 454 Palestine. Cores: Palestine (454), Jordan (455), Lebanon (553), Damascus (554), Aleppo (677), Deir-az-Zur (680).
+# Cores are added by decision at release time, so no history/states overrides are needed.
+
+capital = 454
+oob = "IOP_empty"
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+}
+
+set_politics = {
+	ruling_party = fascism
+	last_election = 1936.1.1
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 5
+	fascism = 75
+	communism = 5
+	neutrality = 15
+}
+
+# Governor of Levant.
+create_country_leader = {
+	name = "Niccolò Nicchiarelli"
+	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
+	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	expire = "1965.1.1"
+	ideology = fascism_ideology
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Niccolò Nicchiarelli"
+	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
+	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Niccolò Nicchiarelli"
+	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
+	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Niccolò Nicchiarelli"
+	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
+	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+	}
+}
+
+set_stability = 0.50
+set_war_support = 0.60
+set_convoys = 5
+set_research_slots = 2
+
+set_country_flag = iop_puppet
+set_country_flag = iop_levant

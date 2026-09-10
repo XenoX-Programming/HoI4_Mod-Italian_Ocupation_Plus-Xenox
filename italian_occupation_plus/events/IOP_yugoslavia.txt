@@ -666,7 +666,10 @@ country_event = {
 		name = iop_give_zara_to_ICR
 		trigger = {
 			country_exists = ICR
-			163 = { any_neighbor_state = { is_owned_by = ICR } }
+			OR = {
+				163 = { any_neighbor_state = { is_owned_by = ICR } }
+				has_country_flag = iop_dalmatia_decided
+			}
 		}
 		163 = { add_core_of = ICR }
 		ICR = { transfer_state = 163 }
@@ -695,7 +698,10 @@ country_event = {
 		name = iop_give_istria_to_ICR
 		trigger = {
 			country_exists = ICR
-			852 = { any_neighbor_state = { is_owned_by = ICR } }
+			OR = {
+				852 = { any_neighbor_state = { is_owned_by = ICR } }
+				has_country_flag = iop_dalmatia_decided
+			}
 		}
 		852 = { add_core_of = ICR }
 		ICR = { transfer_state = 852 }

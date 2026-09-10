@@ -10,7 +10,7 @@
 #      or annex to Italy (adds Italian core).
 #    - Bursa (340) and Istanbul (797): Turkey (ITR), must border,
 #      or annex to Italy (adds Italian core).
-# NOTE: Alexandretta (799) has no fate decision and stays Italian.
+# Alexandretta/Hatay (799) is handled in IOP_levant.txt.
 # ============================================================
 
 iop_occupation = {

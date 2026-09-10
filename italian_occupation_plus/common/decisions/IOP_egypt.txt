@@ -11,7 +11,7 @@
 # 4) "Fall of Suez Canal" fires an event: give Suez (446) to IEG
 #    OR integrate it into Italy proper. Needs IEG to control a
 #    state neighboring Suez.
-# NOTE: Sinai (453) has no fate decision yet - coming in a later update.
+# Sinai (453) is handled in IOP_levant.txt.
 # ============================================================
 
 iop_occupation = {

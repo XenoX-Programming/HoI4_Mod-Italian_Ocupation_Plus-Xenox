@@ -380,6 +380,7 @@ iop_occupation = {
 		}
 		days_re_enable = 3
 		complete_effect = {
+			set_country_flag = iop_dalmatia_decided
 			country_event = { id = iop_yugo.103 }
 		}
 		ai_will_do = { factor = 0 }
@@ -949,8 +950,11 @@ iop_occupation = {
 		}
 		available = {
 			controls_state = 163
-			# Croatia must border the state (for ceding or annexing).
-			163 = { any_neighbor_state = { is_owned_by = ICR } }
+			# Croatia must border the state, OR Dalmatia's fate must already be decided.
+			OR = {
+				163 = { any_neighbor_state = { is_owned_by = ICR } }
+				has_country_flag = iop_dalmatia_decided
+			}
 		}
 		days_re_enable = 3
 		complete_effect = {
@@ -976,8 +980,11 @@ iop_occupation = {
 		}
 		available = {
 			controls_state = 852
-			# Croatia must border the state (for ceding or annexing).
-			852 = { any_neighbor_state = { is_owned_by = ICR } }
+			# Croatia must border the state, OR Dalmatia's fate must already be decided.
+			OR = {
+				852 = { any_neighbor_state = { is_owned_by = ICR } }
+				has_country_flag = iop_dalmatia_decided
+			}
 		}
 		days_re_enable = 3
 		complete_effect = {
