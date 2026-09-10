@@ -95,8 +95,8 @@ country_event = {
 }
 
 # ---------------- 164 - Dodecanese (SPECIAL) ----------------
-# Give to Greece OR annex to Italy (adds Italian core).
-# Island: no border check, IGR must simply exist.
+# Give to Greece or Turkey OR annex to Italy (adds Italian core).
+# Island: no border check, the recipient must simply exist.
 country_event = {
 	id = iop_greece.164
 	title = iop_greece_dodecanese_title
@@ -110,6 +110,15 @@ country_event = {
 		}
 		164 = { add_core_of = IGR }
 		IGR = { transfer_state = 164 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_dodecanese_to_ITR
+		trigger = {
+			country_exists = ITR
+		}
+		164 = { add_core_of = ITR }
+		ITR = { transfer_state = 164 }
 		ai_chance = { factor = 0 }
 	}
 	option = {

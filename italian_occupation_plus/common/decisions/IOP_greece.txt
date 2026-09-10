@@ -215,12 +215,23 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 164
-			has_country_flag = iop_greece_established
-			country_exists = IGR
+			OR = {
+				AND = {
+					has_country_flag = iop_greece_established
+					country_exists = IGR
+				}
+				AND = {
+					has_country_flag = iop_turkey_established
+					country_exists = ITR
+				}
+			}
 		}
 		available = {
 			controls_state = 164
-			country_exists = IGR
+			OR = {
+				country_exists = IGR
+				country_exists = ITR
+			}
 		}
 		days_re_enable = 3
 		complete_effect = {

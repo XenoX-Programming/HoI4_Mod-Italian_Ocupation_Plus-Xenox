@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.15 (Yugoslavia + Albania + Bulgaria + Greece + Turkey)
+# Italian Occupation Plus — v0.0.16 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -8,7 +8,7 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 
 ## What's in v0.0.3
 
-### 7 new puppet nations
+### 8 new puppet nations
 
 | Tag | Full name | Capital | Initial states (state IDs) |
 |-----|-----------|---------|----------------------------|
@@ -19,6 +19,7 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 | **IBL** | Governatorato di occupazione militare della Bulgaria | Sofia (48) | Sofia (48), Moesia (801), Plovdiv (212), Burgas (211) |
 | **IGR** | Governatorato militare di occupazione della Grecia | Attica (47, Athens) | Attica (47), Peloponnese (186), Epirus (185), Aegean Islands (187) |
 | **ITR** | Governo militare di occupazione della Turchia | Ankara (49) | Ankara (49), Izmit (347), Izmir (339), Antalya (342), Afyon (343), Kastamonu (356), Samsun (355), Trabzon (354), Amasya (798), Sivas (349), Tunceli (353), Van (800), Hakkari (352), Diyarbakir (350), Malatya (344), Kayseri (348), Mersin (345), Konya (346) |
+| **INA** | Governatorato di occupazione militare del Nord Africa | Tripoli (448) | Tripoli (448), Tripolitania (661), El Agheila (449), Sirte (662), Benghasi (450), Derna (451), Cyrenaica (663), Libyan Desert (273) |
 
 > **Why ISE and not ISR?** `ISR` is already used by vanilla HOI4 for **Israel** (releasable by the UK). Using it would overwrite Israel. `ISE` (Italian SErbia) keeps the `Ixx` pattern and is free in vanilla.
 
@@ -30,6 +31,7 @@ Puppet leaders (historical placeholders, all fascist):
 - **IBL** — Attilio Biseo (Governor of Bulgaria, custom portrait included)
 - **IGR** — Pietro Parini (Governor of Greece, custom portrait included)
 - **ITR** — Rodolfo Graziani (Governor of Turkey, custom portrait included)
+- **INA** — Ettore Bastico (Governor of North Africa, custom portrait included)
 
 ### New autonomy level: Military Occupation
 
@@ -48,7 +50,7 @@ Between **annexation** and **Reichskommissariat** on the freedom scale (`min_fre
 - Restricted to **Italian subjects only** (`allowed` block), so it never pollutes other nations' UI, peace deals, or subject interactions.
 - Has its own 35×35 icon (`gfx/interface/autonomy/` + `interface/iop_autonomy.gfx`).
 
-### 32 decisions — all free, all with map highlighting
+### 38 decisions — all free, all with map highlighting
 
 Own tab: **"Italian Occupation"**. Hovering any decision outlines the state(s) it needs/changes.
 
@@ -59,6 +61,7 @@ Own tab: **"Italian Occupation"**. Hovering any decision outlines the state(s) i
 - Establish Military Occupation of Bulgaria — requires control of **Sofia (48)**, highlights all 4 initial states
 - Establish Military Occupation of Greece — requires control of **Attica (47, Athens)**, highlights all 4 initial states (Central Macedonia, Thrace, Crete and Dodecanese stay Italian until you assign them via their fate decisions)
 - Establish Military Occupation of Turkey — requires control of **Ankara (49)**, highlights all 18 initial Anatolian states (Edirne, Bursa and Istanbul stay Italian until you assign them via their fate decisions; Alexandretta has no fate decision)
+- Establish Military Occupation of North Africa — requires control of **Tripoli (448)** (starts Italian, so INA can be founded on day one), highlights all 8 Libyan states
 
 Founding only needs the **capital state**. Any other initial states you control transfer automatically.
 
@@ -89,12 +92,17 @@ Founding only needs the **capital state**. Any other initial states you control 
 | 731 | Central Macedonia | IGR or IBL only (must border) |
 | 184 | Thrace | IGR or IBL only (must border) |
 | **182** | **Crete (special, island — no border check)** | **Needs IGR to exist; then Greece OR annex to Italy** |
-| **164** | **Dodecanese (special, island — no border check)** | **Needs IGR to exist; then Greece OR annex to Italy** |
+| **164** | **Dodecanese (special, island — no border check)** | **Needs IGR or ITR to exist; then Greece, Turkey OR annex to Italy** |
 | **341** | **Edirne (special)** | **Needs IBL or IGR to border; then Bulgaria, Greece OR annex to Italy** |
 | **340** | **Bursa (special)** | **Needs ITR border; then Turkey OR annex to Italy** |
 | **797** | **Istanbul (special)** | **Needs ITR border; then Turkey OR annex to Italy** |
+| 665 + 458 | Tunisia: Gabès + Tunisia (grouped) | INA only — direct transfer, no event |
+| 459 + 460 + 513 + 514 | Algeria: Algiers + Constantine + Tlemcen + Algerian Desert (grouped) | INA only — direct transfer, no event |
+| 461 + 462 | Morocco: Casablanca + Marrakech (grouped) | INA only — direct transfer, no event |
+| 290 | Spanish Africa | INA only — direct transfer, no event |
+| **783** | **Sidi Ifni (special)** | **Needs INA to exist; then North Africa OR integrate into Italy** |
 
-Only **Zara, Istria, Crete, Dodecanese, Edirne, Bursa and Istanbul** keep an annex-to-Italy option (core gain is intentionally not shown) — all other transfers must go to a bordering puppet, except North Slovenia which can also be handed to a bordering Germany or Austria (no cores). Bačka (45) and West Banat (764) can only go to Croatia or Serbia; Central Macedonia (731) and Thrace (184) can only go to Greece or Bulgaria; Northern Epirus (805) can only go to Albania or Greece; Edirne (341) can only go to Bulgaria or Greece (or Italy). Zara and Istria decisions need Croatia to border the state; Bursa and Istanbul need Turkey to border; Edirne needs Bulgaria or Greece to border. Crete and Dodecanese are islands, so no border check is possible — their decisions only need the Greek occupation government to exist (Dodecanese starts Italian, so its decision appears right after founding IGR). North Slovenia (102) needs Croatia, Germany or Austria to border — occupation governments receive it with cores, Germany/Austria as a plain handover. Ljubljana (853) needs Croatia to border, but any bordering puppet can receive. Southern Serbia (803) and Macedonia (106) decisions need Serbia or Bulgaria to border, but any bordering puppet (including Bulgaria) can receive. A distribution decision stays unavailable (greyed) until a valid recipient exists, so the event can never fire without one. Capital states (Croatia 109, Serbia 107, Montenegro 105, Albania 44) have no redistribution decision at all while their puppet can still be created — found (or settle) the puppet first.
+Only **Zara, Istria, Crete, Dodecanese, Edirne, Bursa, Istanbul and Sidi Ifni** keep an annex-to-Italy option (core gain is intentionally not shown) — all other transfers must go to a bordering puppet, except North Slovenia which can also be handed to a bordering Germany or Austria (no cores), and the North African group transfers which go straight to INA (existence check only). Bačka (45) and West Banat (764) can only go to Croatia or Serbia; Central Macedonia (731) and Thrace (184) can only go to Greece or Bulgaria; Northern Epirus (805) can only go to Albania or Greece; Edirne (341) can only go to Bulgaria or Greece (or Italy). Zara and Istria decisions need Croatia to border the state; Bursa and Istanbul need Turkey to border; Edirne needs Bulgaria or Greece to border. Crete and Dodecanese are islands, so no border check is possible — Crete needs IGR to exist, Dodecanese needs IGR or ITR to exist (Dodecanese starts Italian, so its decision appears right after founding either). North Slovenia (102) needs Croatia, Germany or Austria to border — occupation governments receive it with cores, Germany/Austria as a plain handover. Ljubljana (853) needs Croatia to border, but any bordering puppet can receive. Southern Serbia (803) and Macedonia (106) decisions need Serbia or Bulgaria to border, but any bordering puppet (including Bulgaria) can receive. The Tunisian, Algerian, Moroccan and Spanish-African groups transfer directly to INA with no event and no border checks — and none of those states has any other fate decision. A distribution decision stays unavailable (greyed) until a valid recipient exists, so the event can never fire without one. Capital states (Croatia 109, Serbia 107, Montenegro 105, Albania 44) have no redistribution decision at all while their puppet can still be created — found (or settle) the puppet first.
 
 ## Installation
 
@@ -109,9 +117,9 @@ Only **Zara, Istria, Crete, Dodecanese, Edirne, Bursa and Istanbul** keep an ann
 1. Start as **Italy**, justify on Yugoslavia (or wait for the historical war).
 2. Capitulate Yugoslavia and make sure **you** control the land (not Germany — decisions check `controls_state` for Italy).
 3. Open the **Decisions tab** → category **"Italian Occupation"**.
-4. Click **Establish Military Occupation of Croatia / Serbia / Albania / Bulgaria / Greece / Turkey** (free), and use **Fall of Montenegro** for Montenegro. Puppets appear as your subjects with the **Military Occupation** autonomy level.
-5. Use the **"Determine Fate of …"** decisions (free) — an event pops up letting you pick which **bordering** puppet gets the state. Assign in contiguous order (e.g. Macedonia before Debar, Central Macedonia before Thrace, Thrace or Plovdiv before Edirne).
-6. For Zara/Istria, the event offers **cede to Croatia** (must border) vs **annex to Italy** (adds an Italian core). For Crete/Dodecanese, the event offers **cede to Greece** (needs IGR to exist, no border check — islands) vs **annex to Italy**. Bursa/Istanbul work the same with Turkey (must border), and Edirne offers Bulgaria, Greece or annexation.
+4. Click **Establish Military Occupation of Croatia / Serbia / Albania / Bulgaria / Greece / Turkey / North Africa** (free), and use **Fall of Montenegro** for Montenegro. Puppets appear as your subjects with the **Military Occupation** autonomy level.
+5. Use the **"Determine Fate of …"** decisions (free) — an event pops up letting you pick which **bordering** puppet gets the state. Assign in contiguous order (e.g. Macedonia before Debar, Central Macedonia before Thrace, Thrace or Plovdiv before Edirne). The North African **"Transfer …"** decisions instead hand whole regions straight to INA with no event.
+6. For Zara/Istria, the event offers **cede to Croatia** (must border) vs **annex to Italy** (adds an Italian core). For Crete, the event offers **cede to Greece** (needs IGR to exist, no border check — islands) vs **annex to Italy**; Dodecanese additionally offers **cede to Turkey** (needs IGR or ITR). Bursa/Istanbul work the same with Turkey (must border), Edirne offers Bulgaria, Greece or annexation, and Sidi Ifni offers North Africa or integration into Italy proper.
 
 **Quick console test:** `tag ITA`, `annex YUG`, then open decisions. (Annexing via console gives you control of everything, so all founding decisions light up.)
 
@@ -132,14 +140,15 @@ italian_occupation_plus/
 ├── README.md
 ├── common/
 │   ├── autonomous_states/iop_autonomy.txt   # Military Occupation level
-│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR
+│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA
 │   ├── countries/Italy_*.txt                # gfx culture + map color
 │   ├── decisions/categories/iop_categories.txt # "Italian Occupation" tab (note: categories/ subfolder!)
 │   ├── decisions/IOP_yugoslavia.txt         # 4 founding + Fall of Montenegro + 18 distribution decisions
 │   ├── decisions/IOP_greece.txt             # 1 founding (IGR) + 4 distribution decisions (731/184/182/164)
-│   └── decisions/IOP_turkey.txt             # 1 founding (ITR) + 3 distribution decisions (341/340/797)
+│   ├── decisions/IOP_turkey.txt             # 1 founding (ITR) + 3 distribution decisions (341/340/797)
+│   └── decisions/IOP_north_africa.txt        # 1 founding (INA) + 5 distribution decisions (tunisia/algeria/morocco/spanish_africa/783)
 ├── history/
-│   ├── countries/ICR|ISE|IMT|IAL|IBL|IGR|ITR*.txt       # capitals, leaders, tech
+│   ├── countries/ICR|ISE|IMT|IAL|IBL|IGR|ITR|INA*.txt       # capitals, leaders, tech
 │   └── units/IOP_empty.txt                  # empty puppet OOB
 ├── gfx/leaders/ICR/ICR_Giuseppe_Bastianini.dds # custom ICR portrait (tag subfolder required!)
 ├── gfx/leaders/IMT/IMT_Alessandro_Pirzio_Biroli.dds # custom IMT portrait
@@ -148,9 +157,11 @@ italian_occupation_plus/
 ├── gfx/leaders/IBL/IBL_Attilio_Biseo.dds # custom IBL portrait
 ├── gfx/leaders/IGR/IGR_Pietro_Parini.dds # custom IGR portrait
 ├── gfx/leaders/ITR/ITR_Rodolfo_Graziani.dds # custom ITR portrait
+├── gfx/leaders/INA/INA_Ettore_Bastico.dds # custom INA portrait
 ├── events/IOP_yugoslavia.txt                # 19 events (iop_yugo.102, .103, ...)
 ├── events/IOP_greece.txt                    # 4 events (iop_greece.731, .184, .182, .164)
 ├── events/IOP_turkey.txt                    # 3 events (iop_turkey.341, .340, .797)
+├── events/IOP_north_africa.txt               # 1 event (iop_africa.783)
 ├── interface/iop_autonomy.gfx               # autonomy icon sprite
 ├── interface/iop_decisions.gfx               # category icon sprite
 ├── gfx/
@@ -163,9 +174,10 @@ italian_occupation_plus/
 
 The pattern per new region is:
 
-│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR
+│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA
 │   ├── decisions/IOP_greece.txt             # 1 founding (IGR) + 4 distribution decisions (731/184/182/164)
-│   └── decisions/IOP_turkey.txt             # 1 founding (ITR) + 3 distribution decisions (341/340/797)
+│   ├── decisions/IOP_turkey.txt             # 1 founding (ITR) + 3 distribution decisions (341/340/797)
+│   └── decisions/IOP_north_africa.txt        # 1 founding (INA) + 5 distribution decisions (tunisia/algeria/morocco/spanish_africa/783)
 3. **Distribution decisions + events** per state (copy a `iop_decide_*` block and its event, change the state ID — border logic works automatically).
 4. **Localisation**: add decision/event/country keys to the `.yml` files (keep the BOM!).
 
@@ -185,6 +197,7 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 
 ## Changelog
 
+- **0.0.16** — New 8th puppet: INA (Governatorato di occupazione militare del Nord Africa), founded from Tripoli with all 8 Libyan states, led by Ettore Bastico (Governor of North Africa, your portrait); new grouped direct transfers to INA — Tunisia (Gabès + Tunisia), Algeria (Algiers + Constantine + Tlemcen + Algerian Desert), Morocco (Casablanca + Marrakech) and Spanish Africa (existence check only, no events, no other fate decisions for those states); new Sidi Ifni (783) event (cede to North Africa or integrate into Italy); Dodecanese can now also be ceded to Turkey (ITR).
 - **0.0.15** — New 7th puppet: ITR (Governo militare di occupazione della Turchia), founded from Ankara with 18 Anatolian states, led by Rodolfo Graziani (Governor of Turkey, your portrait); new Edirne (341) fate event (Bulgaria or Greece, must border, or annex to Italy with core); new Zara-style Bursa (340) and Istanbul (797) events (cede to Turkey or annex); North Slovenia (102) can now also be handed to a bordering Germany or Austria (plain handover, no cores); restored Parini's "Governor of Greece" description and the missing 0.0.14 README notes.
 - **0.0.14** — New 6th puppet: IGR (Governatorato militare di occupazione della Grecia), founded from Attica with Peloponnese/Epirus/Aegean Islands, led by Pietro Parini (Governor of Greece, your portrait); Northern Epirus (805) now goes to Albania or Greece only, with all other nations' requirements removed; new Central Macedonia (731) and Thrace (184) fate events (Greece or Bulgaria, must border); new Zara-style Crete (182) and Dodecanese (164) events — cede to Greece or annex to Italy (islands, so no border check, IGR must exist).
 - **0.0.13** — New 5th puppet: IBL (Governatorato di occupazione militare della Bulgaria), founded from Sofia with Moesia/Plovdiv/Burgas, led by Attilio Biseo (Governor of Bulgaria, your portrait); Southern Serbia and Macedonia decisions now need Serbia or Bulgaria to border, and Bulgaria can receive them; Serbia gets your Tito Agosti portrait (Governor of Serbia).
