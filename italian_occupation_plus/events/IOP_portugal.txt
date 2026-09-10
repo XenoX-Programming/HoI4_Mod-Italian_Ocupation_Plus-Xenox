@@ -1,0 +1,87 @@
+# ============================================================
+# Italian Occupation Plus v0.0.19 - Portugal events. ROOT = Italy.
+# Islands: each option only needs its recipient to exist.
+# ============================================================
+
+add_namespace = iop_portugal
+
+# ---------------- 178 - Islas Canarias: ISP / Italy ----------------
+country_event = {
+	id = iop_portugal.178
+	title = iop_portugal_canarias_title
+	desc = iop_portugal_178_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_canarias_to_ISP
+		trigger = { country_exists = ISP }
+		178 = { add_core_of = ISP }
+		ISP = { transfer_state = 178 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			178 = { add_core_of = ITA }
+			ITA = { transfer_state = 178 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 698 + 697 - Azores + Madeira: IPG / ISP / Italy ----------------
+country_event = {
+	id = iop_portugal.698
+	title = iop_portugal_azores_title
+	desc = iop_portugal_698_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_azores_to_IPG
+		trigger = { country_exists = IPG }
+		if = {
+			limit = { controls_state = 698 }
+			698 = { add_core_of = IPG }
+			IPG = { transfer_state = 698 }
+		}
+		if = {
+			limit = { controls_state = 697 }
+			697 = { add_core_of = IPG }
+			IPG = { transfer_state = 697 }
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_azores_to_ISP
+		trigger = { country_exists = ISP }
+		if = {
+			limit = { controls_state = 698 }
+			698 = { add_core_of = ISP }
+			ISP = { transfer_state = 698 }
+		}
+		if = {
+			limit = { controls_state = 697 }
+			697 = { add_core_of = ISP }
+			ISP = { transfer_state = 697 }
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			if = {
+				limit = { controls_state = 698 }
+				698 = { add_core_of = ITA }
+				ITA = { transfer_state = 698 }
+			}
+			if = {
+				limit = { controls_state = 697 }
+				697 = { add_core_of = ITA }
+				ITA = { transfer_state = 697 }
+			}
+		}
+		ai_chance = { factor = 100 }
+	}
+}
