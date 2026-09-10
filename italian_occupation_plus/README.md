@@ -35,7 +35,7 @@ Puppet leaders (historical placeholders, all fascist):
 - **ITR** — Rodolfo Graziani (Governor of Turkey, custom portrait included)
 - **INA** — Ettore Bastico (Governor of North Africa, custom portrait included)
 - **IEG** — Italo Gariboldi (Governor of Egypt, custom portrait included)
-- **ISP** — Mario Roatta (Governor of Spain — placeholder portrait until `ISP_Mario_Roatta.png` is supplied)
+- **ISP** — Mario Roatta (Governor of Spain, custom portrait included)
 
 ### New autonomy level: Military Occupation
 
@@ -170,7 +170,7 @@ italian_occupation_plus/
 ├── gfx/leaders/ITR/ITR_Rodolfo_Graziani.dds # custom ITR portrait
 ├── gfx/leaders/INA/INA_Ettore_Bastico.dds # custom INA portrait
 ├── gfx/leaders/IEG/IEG_Italo_Gariboldi.dds # custom IEG portrait
-├── gfx/leaders/ISP/ISP_Mario_Roatta.dds    # ISP portrait (placeholder)
+├── gfx/leaders/ISP/ISP_Mario_Roatta.dds    # custom ISP portrait
 ├── events/IOP_spain.txt                     # 2 events (iop_spain.118, .177)
 ├── events/IOP_yugoslavia.txt                # 19 events (iop_yugo.102, .103, ...)
 ├── events/IOP_greece.txt                    # 4 events (iop_greece.731, .184, .182, .164)
