@@ -1,0 +1,212 @@
+# ============================================================
+# Italian Occupation Plus v0.0.20 - Occitania
+# 1) Found IOC with the "Establish" decision (needs 31 Midi Pyrenees).
+# 2) "Fate of Provence" (32 Alpes + 21 Bouches-du-Rhone): IOC or Italy.
+# 3) "Fate of Savoy and the Riviera" (735 Savoy + 851 Var): IOC or Italy.
+#    Both need IOC to OWN a state bordering one of the group states.
+# 4) "Fate of Corsica" (1): island - IOC only needs to exist.
+# ============================================================
+
+iop_occupation = {
+
+	# ------------------------------------------------------------
+	# FOUNDING DECISION
+	# ------------------------------------------------------------
+
+	iop_establish_occitania = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 33
+				state = 25
+				state = 19
+				state = 806
+				state = 31
+				state = 26
+				state = 20
+				state = 22
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IOC }
+		}
+
+		available = {
+			controls_state = 31
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_occitania_tt
+			hidden_effect = {
+				set_country_flag = iop_occitania_established
+				33 = { add_core_of = IOC }
+				25 = { add_core_of = IOC }
+				19 = { add_core_of = IOC }
+				806 = { add_core_of = IOC }
+				31 = { add_core_of = IOC }
+				26 = { add_core_of = IOC }
+				20 = { add_core_of = IOC }
+				22 = { add_core_of = IOC }
+				release_puppet = IOC
+				set_autonomy = {
+					target = IOC
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 33 }
+					IOC = { transfer_state = 33 }
+				}
+				if = {
+					limit = { controls_state = 25 }
+					IOC = { transfer_state = 25 }
+				}
+				if = {
+					limit = { controls_state = 19 }
+					IOC = { transfer_state = 19 }
+				}
+				if = {
+					limit = { controls_state = 806 }
+					IOC = { transfer_state = 806 }
+				}
+				if = {
+					limit = { controls_state = 31 }
+					IOC = { transfer_state = 31 }
+				}
+				if = {
+					limit = { controls_state = 26 }
+					IOC = { transfer_state = 26 }
+				}
+				if = {
+					limit = { controls_state = 20 }
+					IOC = { transfer_state = 20 }
+				}
+				if = {
+					limit = { controls_state = 22 }
+					IOC = { transfer_state = 22 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: PROVENCE - Alpes (32) + Bouches-du-Rhone (21)
+	# IOC (needs to own a bordering state) or Italy.
+	# ------------------------------------------------------------
+
+	iop_decide_32_provence = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 32
+				state = 21
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			OR = {
+				controls_state = 32
+				controls_state = 21
+			}
+			country_exists = IOC
+		}
+		available = {
+			OR = {
+				controls_state = 32
+				controls_state = 21
+			}
+			OR = {
+				32 = { any_neighbor_state = { is_owned_by = IOC } }
+				21 = { any_neighbor_state = { is_owned_by = IOC } }
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_occitania.32 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: SAVOY (735) + VAR (851)
+	# IOC (needs to own a bordering state) or Italy.
+	# ------------------------------------------------------------
+
+	iop_decide_735_savoy_var = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 735
+				state = 851
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			OR = {
+				controls_state = 735
+				controls_state = 851
+			}
+			country_exists = IOC
+		}
+		available = {
+			OR = {
+				controls_state = 735
+				controls_state = 851
+			}
+			OR = {
+				735 = { any_neighbor_state = { is_owned_by = IOC } }
+				851 = { any_neighbor_state = { is_owned_by = IOC } }
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_occitania.735 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: CORSICA (1) - island: IOC only needs to exist.
+	# ------------------------------------------------------------
+
+	iop_decide_1_corsica = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 1
+			country_exists = IOC
+		}
+		available = {
+			controls_state = 1
+			country_exists = IOC
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_occitania.1 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

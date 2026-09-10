@@ -175,6 +175,27 @@ iop_occupation = {
 				state = 112
 				state = 795
 				state = 179
+				state = 171
+				state = 790
+				state = 174
+				state = 792
+				state = 172
+				state = 166
+				state = 794
+				state = 165
+				state = 791
+				state = 176
+				state = 788
+				state = 41
+				state = 793
+				state = 167
+				state = 170
+				state = 175
+				state = 168
+				state = 789
+				state = 169
+				state = 173
+				state = 118
 			}
 		}
 
