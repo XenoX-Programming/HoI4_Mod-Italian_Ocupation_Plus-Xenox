@@ -1,0 +1,37 @@
+# ============================================================
+# Italian Occupation Plus v0.0.17 - Egypt events
+# Fired by the "Fall of Suez Canal" decision. ROOT = Italy.
+# Suez (446): Egypt / Integrate into Italy.
+# (The Sudan transfer is a direct decision.)
+# ============================================================
+
+add_namespace = iop_egypt
+
+# ---------------- 446 - Fall of Suez Canal (SPECIAL) ----------------
+# Give Suez to IEG OR integrate it into Italy proper (adds Italian core).
+country_event = {
+	id = iop_egypt.446
+	title = iop_egypt_suez_title
+	desc = iop_egypt_446_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_suez_to_IEG
+		trigger = {
+			country_exists = IEG
+			446 = { any_neighbor_state = { is_controlled_by = IEG } }
+		}
+		446 = { add_core_of = IEG }
+		IEG = { transfer_state = 446 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			446 = { add_core_of = ITA }
+			ITA = { transfer_state = 446 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}
