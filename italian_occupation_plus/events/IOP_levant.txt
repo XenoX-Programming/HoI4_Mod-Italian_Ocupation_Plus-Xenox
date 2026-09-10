@@ -70,3 +70,35 @@ country_event = {
 		ai_chance = { factor = 100 }
 	}
 }
+
+# ---------------- 183 - Cyprus (island): ITR / ILV / Italy ----------------
+country_event = {
+	id = iop_levant.183
+	title = iop_levant_cyprus_title
+	desc = iop_levant_183_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_cyprus_to_ITR
+		trigger = { country_exists = ITR }
+		183 = { add_core_of = ITR }
+		ITR = { transfer_state = 183 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_cyprus_to_ILV
+		trigger = { country_exists = ILV }
+		183 = { add_core_of = ILV }
+		ILV = { transfer_state = 183 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			183 = { add_core_of = ITA }
+			ITA = { transfer_state = 183 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}

@@ -129,4 +129,6 @@
  iop_decide_799_hatay_desc:0 "Cede Hatay (799) to the Turkish or the Levantine occupation government. Only a government owning a state bordering Hatay can receive it."
  iop_decide_453_sinai:0 "Determine Fate of Sinai"
  iop_decide_453_sinai_desc:0 "Cede Sinai (453) to the Levantine or the Egyptian occupation government (each must own a bordering state), or integrate it into Italy proper."
+ iop_decide_183_cyprus:0 "Determine Fate of Cyprus"
+ iop_decide_183_cyprus_desc:0 "Cede Cyprus (183) to the Turkish or the Levantine occupation government, or integrate it into Italy proper. Island - each option only requires its recipient to exist."
  iop_decide_1_corsica_desc:0 "Cede Corsica (1) to the Occitan occupation government, or integrate it into Italy proper. Island - requires only that the Occitan occupation government exists."
