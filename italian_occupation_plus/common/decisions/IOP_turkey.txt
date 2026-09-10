@@ -1,0 +1,274 @@
+# ============================================================
+# Italian Occupation Plus v0.0.15 - Turkey
+# 1) As Italy, occupy Turkish land.
+# 2) Found ITR with the "Establish" decision.
+#    Founding requires controlling the capital state only (49 Ankara).
+#    Any other initial states you control transfer automatically.
+# 3) Use "Determine fate of ..." decisions to assign further
+#    states via event:
+#    - Edirne (341): Bulgaria (IBL) or Greece (IGR), must border,
+#      or annex to Italy (adds Italian core).
+#    - Bursa (340) and Istanbul (797): Turkey (ITR), must border,
+#      or annex to Italy (adds Italian core).
+# NOTE: Alexandretta (799) has no fate decision and stays Italian.
+# ============================================================
+
+iop_occupation = {
+
+	# ------------------------------------------------------------
+	# FOUNDING DECISION
+	# ------------------------------------------------------------
+
+	iop_establish_turkey = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 49
+				state = 347
+				state = 339
+				state = 342
+				state = 343
+				state = 356
+				state = 355
+				state = 354
+				state = 798
+				state = 349
+				state = 353
+				state = 800
+				state = 352
+				state = 350
+				state = 344
+				state = 348
+				state = 345
+				state = 346
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = ITR }
+		}
+
+		available = {
+			controls_state = 49
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_turkey_tt
+			hidden_effect = {
+				set_country_flag = iop_turkey_established
+				49 = { add_core_of = ITR }
+				347 = { add_core_of = ITR }
+				339 = { add_core_of = ITR }
+				342 = { add_core_of = ITR }
+				343 = { add_core_of = ITR }
+				356 = { add_core_of = ITR }
+				355 = { add_core_of = ITR }
+				354 = { add_core_of = ITR }
+				798 = { add_core_of = ITR }
+				349 = { add_core_of = ITR }
+				353 = { add_core_of = ITR }
+				800 = { add_core_of = ITR }
+				352 = { add_core_of = ITR }
+				350 = { add_core_of = ITR }
+				344 = { add_core_of = ITR }
+				348 = { add_core_of = ITR }
+				345 = { add_core_of = ITR }
+				346 = { add_core_of = ITR }
+				release_puppet = ITR
+				set_autonomy = {
+					target = ITR
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 49 }
+					ITR = { transfer_state = 49 }
+				}
+				if = {
+					limit = { controls_state = 347 }
+					ITR = { transfer_state = 347 }
+				}
+				if = {
+					limit = { controls_state = 339 }
+					ITR = { transfer_state = 339 }
+				}
+				if = {
+					limit = { controls_state = 342 }
+					ITR = { transfer_state = 342 }
+				}
+				if = {
+					limit = { controls_state = 343 }
+					ITR = { transfer_state = 343 }
+				}
+				if = {
+					limit = { controls_state = 356 }
+					ITR = { transfer_state = 356 }
+				}
+				if = {
+					limit = { controls_state = 355 }
+					ITR = { transfer_state = 355 }
+				}
+				if = {
+					limit = { controls_state = 354 }
+					ITR = { transfer_state = 354 }
+				}
+				if = {
+					limit = { controls_state = 798 }
+					ITR = { transfer_state = 798 }
+				}
+				if = {
+					limit = { controls_state = 349 }
+					ITR = { transfer_state = 349 }
+				}
+				if = {
+					limit = { controls_state = 353 }
+					ITR = { transfer_state = 353 }
+				}
+				if = {
+					limit = { controls_state = 800 }
+					ITR = { transfer_state = 800 }
+				}
+				if = {
+					limit = { controls_state = 352 }
+					ITR = { transfer_state = 352 }
+				}
+				if = {
+					limit = { controls_state = 350 }
+					ITR = { transfer_state = 350 }
+				}
+				if = {
+					limit = { controls_state = 344 }
+					ITR = { transfer_state = 344 }
+				}
+				if = {
+					limit = { controls_state = 348 }
+					ITR = { transfer_state = 348 }
+				}
+				if = {
+					limit = { controls_state = 345 }
+					ITR = { transfer_state = 345 }
+				}
+				if = {
+					limit = { controls_state = 346 }
+					ITR = { transfer_state = 346 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# DISTRIBUTION DECISIONS - each fires an event where you pick
+	# the recipient. Visible only while Italy controls the state
+	# and at least one eligible occupation government exists.
+	# ------------------------------------------------------------
+
+	# 341 - Edirne (Bulgaria or Greece, must border, or annex to Italy)
+	iop_decide_341_edirne = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 341
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 341
+			OR = {
+				has_country_flag = iop_bulgaria_established
+				has_country_flag = iop_greece_established
+			}
+		}
+		available = {
+			controls_state = 341
+			# Bulgaria or Greece must border the state,
+			# otherwise the fate event would have no valid recipient.
+			341 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = IBL
+						is_owned_by = IGR
+					}
+				}
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_turkey.341 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: BURSA (340) AND ISTANBUL (797)
+	# Give to Turkey (ITR, must border) OR annex to Italy
+	# (adds Italian core). The decisions appear once the Turkish
+	# occupation government exists.
+	# ------------------------------------------------------------
+
+	iop_decide_340_bursa = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 340
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 340
+			has_country_flag = iop_turkey_established
+			country_exists = ITR
+		}
+		available = {
+			controls_state = 340
+			# Turkey must border the state (for ceding or annexing).
+			340 = { any_neighbor_state = { is_owned_by = ITR } }
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_turkey.340 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	iop_decide_797_istanbul = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 797
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 797
+			has_country_flag = iop_turkey_established
+			country_exists = ITR
+		}
+		available = {
+			controls_state = 797
+			# Turkey must border the state (for ceding or annexing).
+			797 = { any_neighbor_state = { is_owned_by = ITR } }
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_turkey.797 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

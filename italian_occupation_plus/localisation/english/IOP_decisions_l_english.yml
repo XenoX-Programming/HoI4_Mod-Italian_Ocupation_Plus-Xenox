@@ -12,7 +12,7 @@
 
 
  iop_decide_102:0 "Determine Fate of North Slovenia"
- iop_decide_102_desc:0 "Decide which occupation government should administer North Slovenia (102). Requires Croatia to border the state; only a bordering occupation government can receive it."
+ iop_decide_102_desc:0 "Decide which occupation government should administer North Slovenia (102). Requires Croatia, Germany or Austria to border the state; eligible recipients are bordering occupation governments (with cores) plus Germany and Austria (plain handover, no cores)."
  iop_decide_853:0 "Determine Fate of Ljubljana"
  iop_decide_853_desc:0 "Decide which occupation government should administer Ljubljana (853). Requires Croatia to border the state; only a bordering occupation government can receive it."
  iop_decide_103:0 "Determine Fate of Dalmatia"
@@ -66,3 +66,12 @@
  iop_decide_182_crete_desc:0 "Cede Crete (182) to the Greek occupation government, or confirm its annexation to Italy. Requires the Greek occupation government to exist."
  iop_decide_164_dodecanese:0 "Determine Fate of Dodecanese"
  iop_decide_164_dodecanese_desc:0 "Cede Dodecanese (164) to the Greek occupation government, or confirm its annexation to Italy. Requires the Greek occupation government to exist."
+ iop_establish_turkey:0 "Establish Military Occupation of Turkey"
+ iop_establish_turkey_desc:0 "Requires control of Ankara. Releases ITR as an Italian puppet with cores on all of Anatolia - from Izmit and Izmir to Van and Hakkari. Controlled states transfer automatically. (Edirne, Bursa and Istanbul stay Italian until you assign them via their fate decisions.)"
+ iop_establish_turkey_tt:0 "Releases §YITR§! - Governo militare di occupazione della Turchia - as our puppet."
+ iop_decide_341_edirne:0 "Determine Fate of Edirne"
+ iop_decide_341_edirne_desc:0 "Cede Edirne (341) to the Bulgarian or Greek occupation government, or confirm its annexation to Italy. Requires Bulgaria or Greece to border Edirne."
+ iop_decide_340_bursa:0 "Determine Fate of Bursa"
+ iop_decide_340_bursa_desc:0 "Cede Bursa (340) to the Turkish occupation government, or confirm its annexation to Italy. Requires the Turkish occupation government to border Bursa."
+ iop_decide_797_istanbul:0 "Determine Fate of Istanbul"
+ iop_decide_797_istanbul_desc:0 "Cede Istanbul (797) to the Turkish occupation government, or confirm its annexation to Italy. Requires the Turkish occupation government to border Istanbul."

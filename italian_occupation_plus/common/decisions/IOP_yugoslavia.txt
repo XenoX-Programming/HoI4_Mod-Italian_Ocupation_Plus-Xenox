@@ -296,7 +296,7 @@ iop_occupation = {
 	# one occupation government exists.
 	# ------------------------------------------------------------
 
-	# 102 - North Slovenia
+	# 102 - North Slovenia (occupation governments, Germany or Austria)
 	iop_decide_102 = {
 		icon = generic_decision
 
@@ -314,15 +314,21 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				102 = { any_neighbor_state = { is_owned_by = GER } }
+				102 = { any_neighbor_state = { is_owned_by = AUS } }
 			}
 		}
 		available = {
 			controls_state = 102
-			# Croatia must border the state,
+			# Croatia, Germany or Austria must border the state,
 			# otherwise the fate event would have no valid recipient.
 			102 = {
 				any_neighbor_state = {
+					OR = {
 						is_owned_by = ICR
+						is_owned_by = GER
+						is_owned_by = AUS
+					}
 				}
 			}
 		}

@@ -8,6 +8,9 @@
 add_namespace = iop_yugo
 
 # ---------------- 102 - North Slovenia ----------------
+# Occupation governments (with cores) plus Germany and Austria
+# (plain handover, no cores) - each option only shows if that
+# country borders the state.
 country_event = {
 	id = iop_yugo.102
 	title = iop_yugo_fate_title
@@ -52,6 +55,24 @@ country_event = {
 		}
 		102 = { add_core_of = IAL }
 		IAL = { transfer_state = 102 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_GER
+		trigger = {
+			country_exists = GER
+			102 = { any_neighbor_state = { is_owned_by = GER } }
+		}
+		GER = { transfer_state = 102 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_AUS
+		trigger = {
+			country_exists = AUS
+			102 = { any_neighbor_state = { is_owned_by = AUS } }
+		}
+		AUS = { transfer_state = 102 }
 		ai_chance = { factor = 0 }
 	}
 }
