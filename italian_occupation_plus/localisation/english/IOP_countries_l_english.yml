@@ -152,6 +152,7 @@
  PODCAT_ETTORE_BASTICO_DESC:0 "Governor of North Africa."
  PODCAT_ITALO_GARIBOLDI_DESC:0 "Governor of Egypt."
  PODCAT_MARIO_ROATTA_DESC:0 "Governor of Spain."
+ PODCAT_MARIO_ROATTA_IBERIA_DESC:0 "Governor of Spain and Portugal."
  PODCAT_GIUSEPPE_LOMBRASSA_DESC:0 "Governor of Portugal."
  PODCAT_ENEA_NAVARINI_DESC:0 "Governor of Occitania."
  # Mirror of IOP_autonomy entries (harmless redundancy if that file ever fails to load):

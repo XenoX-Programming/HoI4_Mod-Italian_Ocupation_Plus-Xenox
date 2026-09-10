@@ -4,8 +4,8 @@
  iop_yugo_istria_title:0 "Fate of Istria"
 
  iop_yugo_102_desc:0 "North Slovenia is under Italian control. Which occupation government should administer it? Bordering occupation governments are eligible (with cores) - or hand the territory to a bordering Germany or Austria (no cores)."
- iop_yugo_853_desc:0 "Ljubljana is under Italian control. Which occupation government should administer it? Only occupation governments bordering the state are eligible."
- iop_yugo_103_desc:0 "Dalmatia is under Italian control. Which occupation government should administer it? Only occupation governments bordering the state are eligible."
+ iop_yugo_853_desc:0 "Ljubljana is under Italian control. Do we integrate it into Italy proper, or cede its administration to the Croatian occupation government?"
+ iop_yugo_103_desc:0 "Dalmatia is under Italian control. Do we integrate it into Italy proper, or cede its administration to the Croatian occupation government?"
  iop_yugo_109_desc:0 "Croatia is under Italian control. Which occupation government should administer it? Only occupation governments bordering the state are eligible."
  iop_yugo_104_desc:0 "Bosnia is under Italian control. Which occupation government should administer it? Only occupation governments bordering the state are eligible."
  iop_yugo_804_desc:0 "Herzegovina is under Italian control. Which occupation government should administer it? Only occupation governments bordering the state are eligible."

@@ -1,9 +1,9 @@
 # Italian Occupation Plus
 # IOC - Governo militare di occupazione dell'Occitania
-# Capital: 31 Midi Pyrenees (Toulouse). Cores: Centre-Sud (33), Limousin (25), Aquitaine (19), Pyrenees-Atlantiques (806), Midi Pyrenees (31), Auvergne (26), Rhone (20), Languedoc (22).
+# Capital: 19 Aquitaine (Bordeaux). Cores: Centre-Sud (33), Limousin (25), Aquitaine (19), Pyrenees-Atlantiques (806), Midi Pyrenees (31), Auvergne (26), Rhone (20), Languedoc (22).
 # Cores are added by decision at release time, so no history/states overrides are needed.
 
-capital = 31
+capital = 19
 oob = "IOP_empty"
 
 set_technology = {

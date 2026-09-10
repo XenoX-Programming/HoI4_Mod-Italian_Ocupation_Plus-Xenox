@@ -77,7 +77,7 @@ country_event = {
 	}
 }
 
-# ---------------- 853 - Ljubljana ----------------
+# ---------------- 853 - Ljubljana (SPECIAL: Croatia / Italy) ----------------
 country_event = {
 	id = iop_yugo.853
 	title = iop_yugo_fate_title
@@ -95,38 +95,17 @@ country_event = {
 		ai_chance = { factor = 0 }
 	}
 	option = {
-		name = iop_give_to_ISE
-		trigger = {
-			country_exists = ISE
-			853 = { any_neighbor_state = { is_owned_by = ISE } }
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			853 = { add_core_of = ITA }
+			ITA = { transfer_state = 853 }
 		}
-		853 = { add_core_of = ISE }
-		ISE = { transfer_state = 853 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IMT
-		trigger = {
-			country_exists = IMT
-			853 = { any_neighbor_state = { is_owned_by = IMT } }
-		}
-		853 = { add_core_of = IMT }
-		IMT = { transfer_state = 853 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IAL
-		trigger = {
-			country_exists = IAL
-			853 = { any_neighbor_state = { is_owned_by = IAL } }
-		}
-		853 = { add_core_of = IAL }
-		IAL = { transfer_state = 853 }
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 100 }
 	}
 }
 
-# ---------------- 103 - Dalmatia ----------------
+# ---------------- 103 - Dalmatia (SPECIAL: Croatia / Italy) ----------------
 country_event = {
 	id = iop_yugo.103
 	title = iop_yugo_fate_title
@@ -144,34 +123,13 @@ country_event = {
 		ai_chance = { factor = 0 }
 	}
 	option = {
-		name = iop_give_to_ISE
-		trigger = {
-			country_exists = ISE
-			103 = { any_neighbor_state = { is_owned_by = ISE } }
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			103 = { add_core_of = ITA }
+			ITA = { transfer_state = 103 }
 		}
-		103 = { add_core_of = ISE }
-		ISE = { transfer_state = 103 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IMT
-		trigger = {
-			country_exists = IMT
-			103 = { any_neighbor_state = { is_owned_by = IMT } }
-		}
-		103 = { add_core_of = IMT }
-		IMT = { transfer_state = 103 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IAL
-		trigger = {
-			country_exists = IAL
-			103 = { any_neighbor_state = { is_owned_by = IAL } }
-		}
-		103 = { add_core_of = IAL }
-		IAL = { transfer_state = 103 }
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 100 }
 	}
 }
 

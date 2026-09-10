@@ -1,10 +1,11 @@
 # ============================================================
 # Italian Occupation Plus v0.0.20 - Occitania
-# 1) Found IOC with the "Establish" decision (needs 31 Midi Pyrenees).
+# 1) Found IOC with the "Establish" decision (needs 19 Aquitaine / Bordeaux).
 # 2) "Fate of Provence" (32 Alpes + 21 Bouches-du-Rhone): IOC or Italy.
 # 3) "Fate of Savoy and the Riviera" (735 Savoy + 851 Var): IOC or Italy.
 #    Both need IOC to OWN a state bordering one of the group states.
 # 4) "Fate of Corsica" (1): island - IOC only needs to exist.
+# 5) "Transfer Poitou to Occitania" (23): direct, no event.
 # ============================================================
 
 iop_occupation = {
@@ -39,7 +40,7 @@ iop_occupation = {
 		}
 
 		available = {
-			controls_state = 31
+			controls_state = 19
 		}
 
 		fire_only_once = no
@@ -206,6 +207,46 @@ iop_occupation = {
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_occitania.1 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# DIRECT TRANSFER - Poitou (23) -> IOC. Algeria pattern: no event,
+	# needs IOC to exist and Italy or one of its subjects to own/control
+	# the state.
+	# ------------------------------------------------------------
+
+	iop_give_poitou = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 23
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			country_exists = IOC
+			OR = {
+				controls_state = 23
+				owns_state = 23
+				23 = { owner = { is_subject_of = ROOT } }
+			}
+		}
+		available = {
+			country_exists = IOC
+			OR = {
+				controls_state = 23
+				owns_state = 23
+				23 = { owner = { is_subject_of = ROOT } }
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			23 = { add_core_of = IOC }
+			IOC = { transfer_state = 23 }
 		}
 		ai_will_do = { factor = 0 }
 	}

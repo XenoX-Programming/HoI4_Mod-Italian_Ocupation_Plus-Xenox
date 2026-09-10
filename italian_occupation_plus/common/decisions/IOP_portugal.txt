@@ -226,6 +226,39 @@ iop_occupation = {
 					annex_country = { target = IPG transfer_troops = yes }
 					set_cosmetic_tag = ISP_iberia
 					set_country_flag = iop_iberia
+					# Roatta becomes Governor of Spain and Portugal
+					create_country_leader = {
+						name = "Mario Roatta"
+						desc = "PODCAT_MARIO_ROATTA_IBERIA_DESC"
+						picture = "ISP_Mario_Roatta.dds"
+						expire = "1965.1.1"
+						ideology = fascism_ideology
+						traits = { }
+					}
+					create_country_leader = {
+						name = "Mario Roatta"
+						desc = "PODCAT_MARIO_ROATTA_IBERIA_DESC"
+						picture = "ISP_Mario_Roatta.dds"
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = { }
+					}
+					create_country_leader = {
+						name = "Mario Roatta"
+						desc = "PODCAT_MARIO_ROATTA_IBERIA_DESC"
+						picture = "ISP_Mario_Roatta.dds"
+						expire = "1965.1.1"
+						ideology = liberalism
+						traits = { }
+					}
+					create_country_leader = {
+						name = "Mario Roatta"
+						desc = "PODCAT_MARIO_ROATTA_IBERIA_DESC"
+						picture = "ISP_Mario_Roatta.dds"
+						expire = "1965.1.1"
+						ideology = marxism
+						traits = { }
+					}
 				}
 			}
 		}
