@@ -44,7 +44,7 @@ Between **annexation** and **Reichskommissariat** on the freedom scale (`min_fre
 - Restricted to **Italian subjects only** (`allowed` block), so it never pollutes other nations' UI, peace deals, or subject interactions.
 - Has its own 35×35 icon (`gfx/interface/autonomy/` + `interface/iop_autonomy.gfx`).
 
-### 23 decisions — all free, all with map highlighting
+### 28 decisions — all free, all with map highlighting
 
 Own tab: **"Italian Occupation"**. Hovering any decision outlines the state(s) it needs/changes.
 
@@ -53,6 +53,7 @@ Own tab: **"Italian Occupation"**. Hovering any decision outlines the state(s) i
 - Establish Military Occupation of Serbia — requires control of **Serbia (107)**, highlights both initial states
 - Establish Military Occupation of Albania — requires control of **Albania (44)**, highlights Albania and Shkoder (Northern Epirus stays Italian until you assign it via its fate decision)
 - Establish Military Occupation of Bulgaria — requires control of **Sofia (48)**, highlights all 4 initial states
+- Establish Military Occupation of Greece — requires control of **Attica (47, Athens)**, highlights all 4 initial states (Central Macedonia, Thrace, Crete and Dodecanese stay Italian until you assign them via their fate decisions)
 
 Founding only needs the **capital state**. Any other initial states you control transfer automatically.
 
@@ -119,23 +120,26 @@ italian_occupation_plus/
 ├── README.md
 ├── common/
 │   ├── autonomous_states/iop_autonomy.txt   # Military Occupation level
-│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL
+│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR
 │   ├── countries/Italy_*.txt                # gfx culture + map color
 │   ├── decisions/categories/iop_categories.txt # "Italian Occupation" tab (note: categories/ subfolder!)
-│   └── decisions/IOP_yugoslavia.txt         # 4 founding + Fall of Montenegro + 18 distribution decisions
+│   ├── decisions/IOP_yugoslavia.txt         # 4 founding + Fall of Montenegro + 18 distribution decisions
+│   └── decisions/IOP_greece.txt             # 1 founding (IGR) + 4 distribution decisions (731/184/182/164)
 ├── history/
-│   ├── countries/ICR|ISE|IMT|IAL|IBL*.txt           # capitals, leaders, tech
+│   ├── countries/ICR|ISE|IMT|IAL|IBL|IGR*.txt       # capitals, leaders, tech
 │   └── units/IOP_empty.txt                  # empty puppet OOB
 ├── gfx/leaders/ICR/ICR_Giuseppe_Bastianini.dds # custom ICR portrait (tag subfolder required!)
 ├── gfx/leaders/IMT/IMT_Alessandro_Pirzio_Biroli.dds # custom IMT portrait
 ├── gfx/leaders/IAL/IAL_Alfredo_Guzzoni.dds # custom IAL portrait
 ├── gfx/leaders/ISE/ISE_Tito_Agosti.dds # custom ISE portrait
 ├── gfx/leaders/IBL/IBL_Attilio_Biseo.dds # custom IBL portrait
+├── gfx/leaders/IGR/IGR_Pietro_Parini.dds # custom IGR portrait
 ├── events/IOP_yugoslavia.txt                # 19 events (iop_yugo.102, .103, ...)
+├── events/IOP_greece.txt                    # 4 events (iop_greece.731, .184, .182, .164)
 ├── interface/iop_autonomy.gfx               # autonomy icon sprite
 ├── interface/iop_decisions.gfx               # category icon sprite
 ├── gfx/
-│   ├── flags/ (+ medium/, small/)           # 60 placeholder .tga flags (12 per tag: 4 ideologies x 3 sizes)
+│   ├── flags/ (+ medium/, small/)           # placeholder .tga flags (base + 4 ideologies x 3 sizes per tag)
 │   └── interface/autonomy/                  # Military Occupation .dds icon
 └── localisation/english/IOP_*_l_english.yml # countries / decisions / events / autonomy (BOM!)
 ```

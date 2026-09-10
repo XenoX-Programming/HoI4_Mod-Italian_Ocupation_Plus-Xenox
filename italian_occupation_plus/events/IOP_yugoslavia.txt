@@ -783,42 +783,13 @@ country_event = {
 }
 
 # ---------------- 805 - Northern Epirus ----------------
+# Albania (IAL) or Greece (IGR) only - must border the state.
 country_event = {
 	id = iop_yugo.805
 	title = iop_yugo_fate_title
 	desc = iop_yugo_805_desc
 	picture = GFX_report_event_generic
 	is_triggered_only = yes
-	option = {
-		name = iop_give_to_ICR
-		trigger = {
-			country_exists = ICR
-			805 = { any_neighbor_state = { is_owned_by = ICR } }
-		}
-		805 = { add_core_of = ICR }
-		ICR = { transfer_state = 805 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_ISE
-		trigger = {
-			country_exists = ISE
-			805 = { any_neighbor_state = { is_owned_by = ISE } }
-		}
-		805 = { add_core_of = ISE }
-		ISE = { transfer_state = 805 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IMT
-		trigger = {
-			country_exists = IMT
-			805 = { any_neighbor_state = { is_owned_by = IMT } }
-		}
-		805 = { add_core_of = IMT }
-		IMT = { transfer_state = 805 }
-		ai_chance = { factor = 0 }
-	}
 	option = {
 		name = iop_give_to_IAL
 		trigger = {
@@ -827,6 +798,16 @@ country_event = {
 		}
 		805 = { add_core_of = IAL }
 		IAL = { transfer_state = 805 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IGR
+		trigger = {
+			country_exists = IGR
+			805 = { any_neighbor_state = { is_owned_by = IGR } }
+		}
+		805 = { add_core_of = IGR }
+		IGR = { transfer_state = 805 }
 		ai_chance = { factor = 0 }
 	}
 }

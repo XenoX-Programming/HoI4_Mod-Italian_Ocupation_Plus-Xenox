@@ -929,23 +929,19 @@ iop_occupation = {
 			original_tag = ITA
 			controls_state = 805
 			OR = {
-				has_country_flag = iop_croatia_established
-				has_country_flag = iop_serbia_established
-				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_greece_established
 			}
 		}
 		available = {
 			controls_state = 805
-			# At least one occupation government must border the state,
+			# Albania or Greece must border the state,
 			# otherwise the fate event would have no valid recipient.
 			805 = {
 				any_neighbor_state = {
 					OR = {
-						is_owned_by = ICR
-						is_owned_by = ISE
-						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IGR
 					}
 				}
 			}

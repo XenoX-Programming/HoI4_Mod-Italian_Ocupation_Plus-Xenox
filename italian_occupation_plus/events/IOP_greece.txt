@@ -1,0 +1,124 @@
+# ============================================================
+# Italian Occupation Plus v0.0.14 - Greece events
+# Fired by "Determine fate of ..." decisions. ROOT = Italy.
+# Central Macedonia (731) and Thrace (184): Greece / Bulgaria.
+# Crete (182) and Dodecanese (164): Greece / Annex to Italy.
+# ============================================================
+
+add_namespace = iop_greece
+
+# ---------------- 731 - Central Macedonia ----------------
+country_event = {
+	id = iop_greece.731
+	title = iop_yugo_fate_title
+	desc = iop_greece_731_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_IGR
+		trigger = {
+			country_exists = IGR
+			731 = { any_neighbor_state = { is_owned_by = IGR } }
+		}
+		731 = { add_core_of = IGR }
+		IGR = { transfer_state = 731 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IBL
+		trigger = {
+			country_exists = IBL
+			731 = { any_neighbor_state = { is_owned_by = IBL } }
+		}
+		731 = { add_core_of = IBL }
+		IBL = { transfer_state = 731 }
+		ai_chance = { factor = 0 }
+	}
+}
+
+# ---------------- 184 - Thrace ----------------
+country_event = {
+	id = iop_greece.184
+	title = iop_yugo_fate_title
+	desc = iop_greece_184_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_IGR
+		trigger = {
+			country_exists = IGR
+			184 = { any_neighbor_state = { is_owned_by = IGR } }
+		}
+		184 = { add_core_of = IGR }
+		IGR = { transfer_state = 184 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IBL
+		trigger = {
+			country_exists = IBL
+			184 = { any_neighbor_state = { is_owned_by = IBL } }
+		}
+		184 = { add_core_of = IBL }
+		IBL = { transfer_state = 184 }
+		ai_chance = { factor = 0 }
+	}
+}
+
+# ---------------- 182 - Crete (SPECIAL) ----------------
+# Give to Greece OR annex to Italy (adds Italian core).
+# Island: no border check, IGR must simply exist.
+country_event = {
+	id = iop_greece.182
+	title = iop_greece_crete_title
+	desc = iop_greece_182_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_crete_to_IGR
+		trigger = {
+			country_exists = IGR
+		}
+		182 = { add_core_of = IGR }
+		IGR = { transfer_state = 182 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			182 = { add_core_of = ITA }
+			ITA = { transfer_state = 182 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 164 - Dodecanese (SPECIAL) ----------------
+# Give to Greece OR annex to Italy (adds Italian core).
+# Island: no border check, IGR must simply exist.
+country_event = {
+	id = iop_greece.164
+	title = iop_greece_dodecanese_title
+	desc = iop_greece_164_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_dodecanese_to_IGR
+		trigger = {
+			country_exists = IGR
+		}
+		164 = { add_core_of = IGR }
+		IGR = { transfer_state = 164 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			164 = { add_core_of = ITA }
+			ITA = { transfer_state = 164 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}
