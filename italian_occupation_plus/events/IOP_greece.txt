@@ -131,3 +131,31 @@ country_event = {
 		ai_chance = { factor = 100 }
 	}
 }
+
+# ---------------- 77 - Dobrudja (SPECIAL): Bulgaria / Italy ----------------
+country_event = {
+	id = iop_greece.77
+	title = iop_greece_dobrudja_title
+	desc = iop_greece_77_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_dobrudja_to_IBL
+		trigger = {
+			country_exists = IBL
+			77 = { any_neighbor_state = { is_owned_by = IBL } }
+		}
+		77 = { add_core_of = IBL }
+		IBL = { transfer_state = 77 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			77 = { add_core_of = ITA }
+			ITA = { transfer_state = 77 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}

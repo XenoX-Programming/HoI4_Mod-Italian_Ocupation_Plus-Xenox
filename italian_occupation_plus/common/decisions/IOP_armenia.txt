@@ -1,0 +1,239 @@
+# ============================================================
+# Italian Occupation Plus v0.0.25 - Armenia + Iran
+# 1) Found IAM (needs 230 Armenia) / IIR (needs 266 Tehran).
+# 2) "Fate of Trabzon and Van" (354 + 800): Turkey or Armenia - each
+#    must own a state bordering one of the two. No Italian option.
+# ============================================================
+
+iop_occupation = {
+
+	iop_establish_armenia = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 230
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IAM }
+		}
+
+		available = {
+			controls_state = 230
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_armenia_tt
+			hidden_effect = {
+				set_country_flag = iop_armenia_established
+				230 = { add_core_of = IAM }
+				release_puppet = IAM
+				set_autonomy = {
+					target = IAM
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 230 }
+					IAM = { transfer_state = 230 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	iop_establish_iran = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 419
+				state = 1000
+				state = 420
+				state = 1001
+				state = 421
+				state = 417
+				state = 413
+				state = 266
+				state = 1004
+				state = 416
+				state = 418
+				state = 411
+				state = 1002
+				state = 1003
+				state = 412
+				state = 414
+				state = 410
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IIR }
+		}
+
+		available = {
+			controls_state = 266
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_iran_tt
+			hidden_effect = {
+				set_country_flag = iop_iran_established
+				419 = { add_core_of = IIR }
+				1000 = { add_core_of = IIR }
+				420 = { add_core_of = IIR }
+				1001 = { add_core_of = IIR }
+				421 = { add_core_of = IIR }
+				417 = { add_core_of = IIR }
+				413 = { add_core_of = IIR }
+				266 = { add_core_of = IIR }
+				1004 = { add_core_of = IIR }
+				416 = { add_core_of = IIR }
+				418 = { add_core_of = IIR }
+				411 = { add_core_of = IIR }
+				1002 = { add_core_of = IIR }
+				1003 = { add_core_of = IIR }
+				412 = { add_core_of = IIR }
+				414 = { add_core_of = IIR }
+				410 = { add_core_of = IIR }
+				release_puppet = IIR
+				set_autonomy = {
+					target = IIR
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 419 }
+					IIR = { transfer_state = 419 }
+				}
+				if = {
+					limit = { controls_state = 1000 }
+					IIR = { transfer_state = 1000 }
+				}
+				if = {
+					limit = { controls_state = 420 }
+					IIR = { transfer_state = 420 }
+				}
+				if = {
+					limit = { controls_state = 1001 }
+					IIR = { transfer_state = 1001 }
+				}
+				if = {
+					limit = { controls_state = 421 }
+					IIR = { transfer_state = 421 }
+				}
+				if = {
+					limit = { controls_state = 417 }
+					IIR = { transfer_state = 417 }
+				}
+				if = {
+					limit = { controls_state = 413 }
+					IIR = { transfer_state = 413 }
+				}
+				if = {
+					limit = { controls_state = 266 }
+					IIR = { transfer_state = 266 }
+				}
+				if = {
+					limit = { controls_state = 1004 }
+					IIR = { transfer_state = 1004 }
+				}
+				if = {
+					limit = { controls_state = 416 }
+					IIR = { transfer_state = 416 }
+				}
+				if = {
+					limit = { controls_state = 418 }
+					IIR = { transfer_state = 418 }
+				}
+				if = {
+					limit = { controls_state = 411 }
+					IIR = { transfer_state = 411 }
+				}
+				if = {
+					limit = { controls_state = 1002 }
+					IIR = { transfer_state = 1002 }
+				}
+				if = {
+					limit = { controls_state = 1003 }
+					IIR = { transfer_state = 1003 }
+				}
+				if = {
+					limit = { controls_state = 412 }
+					IIR = { transfer_state = 412 }
+				}
+				if = {
+					limit = { controls_state = 414 }
+					IIR = { transfer_state = 414 }
+				}
+				if = {
+					limit = { controls_state = 410 }
+					IIR = { transfer_state = 410 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: TRABZON (354) + VAN (800) - Turkey or Armenia.
+	# ------------------------------------------------------------
+
+	iop_decide_354_trabzon_van = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 354
+				state = 800
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			OR = {
+				controls_state = 354
+				controls_state = 800
+			}
+			OR = {
+				country_exists = ITR
+				country_exists = IAM
+			}
+		}
+		available = {
+			OR = {
+				controls_state = 354
+				controls_state = 800
+			}
+			OR = {
+				354 = { any_neighbor_state = { OR = { is_owned_by = ITR is_owned_by = IAM } } }
+				800 = { any_neighbor_state = { OR = { is_owned_by = ITR is_owned_by = IAM } } }
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_armenia.354 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

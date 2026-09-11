@@ -239,4 +239,34 @@ iop_occupation = {
 		}
 		ai_will_do = { factor = 0 }
 	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: DOBRUDJA (77) - Bulgaria (needs IBL to own a
+	# neighboring state) or integrate into Italy.
+	# ------------------------------------------------------------
+
+	iop_decide_77_dobrudja = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 77
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 77
+			country_exists = IBL
+		}
+		available = {
+			controls_state = 77
+			77 = { any_neighbor_state = { is_owned_by = IBL } }
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_greece.77 }
+		}
+		ai_will_do = { factor = 0 }
+	}
 }
