@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.25 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
+# Italian Occupation Plus — v0.0.26 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -192,6 +192,7 @@ italian_occupation_plus/
 │   ├── decisions/IOP_portugal.txt                 # 1 founding (IPG) + canarias + azores/madeira + unite iberia
 │   ├── decisions/IOP_occitania.txt                # 1 founding (IOC) + provence + savoy/var + corsica + poitou
 │   ├── decisions/IOP_levant.txt                   # 1 founding (ILV) + hatay + sinai + cyprus
+│   ├── ideas/IOP_ideas.txt                        # "Military Government" national spirit (all puppets)
 │   ├── decisions/IOP_arabia.txt                   # 2 foundings (IIQ, IAR) + kuwait + yemen/oman/abu dhabi/qatar transfers
 │   └── decisions/IOP_armenia.txt                  # 2 foundings (IAM, IIR) + trabzon/van
 ├── history/
@@ -265,6 +266,7 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 
 ## Changelog
 
+- **0.0.26** — Every occupation government now starts with the **Military Government** national spirit: −100% capitulation factor (cannot capitulate), −25% political power, −50% recruitable population factor.
 - **0.0.25** — Two new puppets: IAM (Governatorato di occupazione militare dell'Armenia, Yerevan, Drastamat "Dro" Kanayan) and IIR (Governatorato di occupazione militare dell'Iran, Tehran + 16 states, Giuseppe Pièche); Turkey no longer spawns with Trabzon/Van — new "Fate of Trabzon and Van" (Turkey or Armenia, bordering owner); "Fate of Dobrudja" (Bulgaria or Italy); ITR crescent centred right of the canton; ILV and IIQ flags now carry a full-height Italian tricolour.
 - **0.0.24** — Two new puppets: IIQ (Governatorato di occupazione militare dell'Irak, Baghdad + Mosul/Al Anbar/Al Hajara/Al Basrah, Nino Sozzani) and IAR (Governatorato di occupazione militare dell'Arabia, Riyadh/Nejd + 8 Saudi states, Gianrico Tedeschi); "Determine Fate of Kuwait" (Iraq, Arabia or Italy); grouped direct transfers to IAR: Yemen (North/South Yemen + Aden), Oman (Dhofar/Oman/Muscat), Abu Dhabi, Qatar.
 - **0.0.23** — "Determine Fate of Cyprus" (island: Turkey, Levant or Italy — existence checks only).

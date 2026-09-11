@@ -218,3 +218,5 @@
  # Mirror of IOP_autonomy entries (harmless redundancy if that file ever fails to load):
  autonomy_military_occupation:0 "Military Occupation"
  autonomy_military_occupation_desc:0 "Direct military administration. All industry serves the overlord."
+ iop_military_government:0 "Military Government"
+ iop_military_government_desc:0 "This territory is run directly by the Italian military. The administration cannot capitulate on its own, but wields little political initiative and may only draft a fraction of the population."
