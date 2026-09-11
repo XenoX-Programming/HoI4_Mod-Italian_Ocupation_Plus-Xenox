@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.23 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Spain + Portugal + Occitania + Levant)
+# Italian Occupation Plus — v0.0.24 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Spain + Portugal + Occitania + Levant + Iraq + Arabia)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -8,7 +8,7 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 
 ## What's in v0.0.3
 
-### 13 new puppet nations
+### 15 new puppet nations
 
 | Tag | Full name | Capital | Initial states (state IDs) |
 |-----|-----------|---------|----------------------------|
@@ -25,6 +25,8 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 | **IPG** | Governo militare di occupazione del Portogallo | Lisbon (112) | Porto (180), Guarda (181), Lisbon (112), Santarém (795), Beja (179) |
 | **IOC** | Governo militare di occupazione dell'Occitania | Aquitaine (19, Bordeaux) | Centre-Sud (33), Limousin (25), Aquitaine (19), Pyrénées-Atlantiques (806), Midi-Pyrénées (31), Auvergne (26), Rhône (20), Languedoc (22) |
 | **ILV** | Governatorato di occupazione militare del Levante | Palestine (454) | Palestine (454), Jordan (455), Lebanon (553), Damascus (554), Aleppo (677), Deir-az-Zur (680) |
+| **IIQ** | Governatorato di occupazione militare dell'Irak | Baghdad (291) | Mosul (676), Al Anbar (1010), Baghdad (291), Al Hajara (675), Al Basrah (1011) |
+| **IAR** | Governatorato di occupazione militare dell'Arabia | Nejd (292, Riyadh) | Jawf (854), Tabuk (855), Al-Qassim (857), Madinah (679), Dammam (859), Nejd (292), Asir-Makkah (856), Rub al Khali (678), Najiran (858) |
 
 > **Why ISE and not ISR?** `ISR` is already used by vanilla HOI4 for **Israel** (releasable by the UK). Using it would overwrite Israel. `ISE` (Italian SErbia) keeps the `Ixx` pattern and is free in vanilla.
 
@@ -42,6 +44,8 @@ Puppet leaders (historical placeholders, all fascist):
 - **IPG** — Giuseppe Lombrassa (Governor of Portugal, custom portrait included)
 - **IOC** — Enea Navarini (Governor of Occitania, custom portrait included)
 - **ILV** — Niccolò Nicchiarelli (Governor of Levant, custom portrait included)
+- **IIQ** — Nino Sozzani (Governor of Iraq, custom portrait included)
+- **IAR** — Gianrico Tedeschi (Governor of Arabia, custom portrait included)
 
 ### New autonomy level: Military Occupation
 
@@ -60,7 +64,7 @@ Between **annexation** and **Reichskommissariat** on the freedom scale (`min_fre
 - Restricted to **Italian subjects only** (`allowed` block), so it never pollutes other nations' UI, peace deals, or subject interactions.
 - Has its own 35×35 icon (`gfx/interface/autonomy/` + `interface/iop_autonomy.gfx`).
 
-### 57 decisions — all free, all with map highlighting
+### 64 decisions — all free, all with map highlighting
 
 Own tab: **"Italian Occupation"**. Hovering any decision outlines the state(s) it needs/changes.
 
@@ -124,10 +128,15 @@ Founding only needs the **capital state**. Any other initial states you control 
 | **799** | **Hatay (special)** | **Turkey OR Levant — each must own a bordering state; no Italian option** |
 | **453** | **Sinai (special)** | **Levant OR Egypt (each must own a bordering state) OR integrate into Italy** |
 | **183** | **Cyprus (special, island)** | **Turkey OR Levant (exist) OR integrate into Italy** |
+| **656** | **Kuwait (special)** | **Iraq OR Arabia (each must own a bordering state) OR integrate into Italy** |
+| 293 + 659 + 992 | Yemen: North Yemen + South Yemen + Aden (grouped) | IAR only — direct transfer, no event |
+| 1016 + 1015 + 294 | Oman: Dhofar + Oman + Muscat (grouped) | IAR only — direct transfer, no event |
+| 658 | Abu Dhabi | IAR only — direct transfer, no event |
+| 765 | Qatar | IAR only — direct transfer, no event |
 | 23 | Poitou | IOC only — direct transfer, no event (owned/controlled by Italy or a subject) |
 | — | **Unite the Iberian Peninsula** | **Visible once IPG founded and ISP exists; ISP annexes IPG, gains cores on all Portuguese states and becomes the Governatorato di occupazione militare della penisola Iberica (cosmetic tag `ISP_iberia`); afterwards all "cede to Spain" options read "cede to Iberia"** |
 
-Only **Dalmatia, Ljubljana, Zara, Istria, Crete, Dodecanese, Edirne, Bursa, Istanbul, Sidi Ifni, Suez, Gibraltar, the Balearics, the Canaries, Azores/Madeira, Provence, Savoy/Var, Corsica, Sinai and Cyprus** keep an annex-to-Italy option (core gain is intentionally not shown) — all other transfers must go to a bordering puppet, except North Slovenia which can also be handed to a bordering Germany or Austria (no cores), and the North African and Sudanese group transfers which go straight to INA/IEG (existence check only). Bačka (45) and West Banat (764) can only go to Croatia or Serbia; Central Macedonia (731) and Thrace (184) can only go to Greece or Bulgaria; Northern Epirus (805) can only go to Albania or Greece; Edirne (341) can only go to Bulgaria or Greece (or Italy). Zara and Istria decisions need Croatia to border the state (or the Dalmatia decision to have been taken); Bursa and Istanbul need Turkey to border; Edirne needs Bulgaria or Greece to border; Suez needs Egypt to control a neighboring state; Gibraltar needs Spain to own a neighboring state; the Balearics (island) only need ISP to exist. Crete and Dodecanese are islands, so no border check is possible — Crete needs IGR to exist, Dodecanese needs IGR or ITR to exist (Dodecanese starts Italian, so its decision appears right after founding either). North Slovenia (102) needs Croatia, Germany or Austria to border — occupation governments receive it with cores, Germany/Austria as a plain handover. Dalmatia (103) and Ljubljana (853) need Croatia to own a bordering state and go to Croatia or Italy only. Southern Serbia (803) and Macedonia (106) decisions need Serbia or Bulgaria to border, but any bordering puppet (including Bulgaria) can receive. The Tunisian, Algerian, Moroccan and Spanish-African groups transfer directly to INA with no event and no border checks — and none of those states has any other fate decision. The Sudan group works the same for IEG. Sinai (453) goes to the Levant, Egypt or Italy; Hatay (799) to Turkey or the Levant only. A distribution decision stays unavailable (greyed) until a valid recipient exists, so the event can never fire without one. Capital states (Croatia 109, Serbia 107, Montenegro 105, Albania 44) have no redistribution decision at all while their puppet can still be created — found (or settle) the puppet first.
+Only **Dalmatia, Ljubljana, Zara, Istria, Crete, Dodecanese, Edirne, Bursa, Istanbul, Sidi Ifni, Suez, Gibraltar, the Balearics, the Canaries, Azores/Madeira, Provence, Savoy/Var, Corsica, Sinai, Cyprus and Kuwait** keep an annex-to-Italy option (core gain is intentionally not shown) — all other transfers must go to a bordering puppet, except North Slovenia which can also be handed to a bordering Germany or Austria (no cores), and the North African and Sudanese group transfers which go straight to INA/IEG (existence check only). Bačka (45) and West Banat (764) can only go to Croatia or Serbia; Central Macedonia (731) and Thrace (184) can only go to Greece or Bulgaria; Northern Epirus (805) can only go to Albania or Greece; Edirne (341) can only go to Bulgaria or Greece (or Italy). Zara and Istria decisions need Croatia to border the state (or the Dalmatia decision to have been taken); Bursa and Istanbul need Turkey to border; Edirne needs Bulgaria or Greece to border; Suez needs Egypt to control a neighboring state; Gibraltar needs Spain to own a neighboring state; the Balearics (island) only need ISP to exist. Crete and Dodecanese are islands, so no border check is possible — Crete needs IGR to exist, Dodecanese needs IGR or ITR to exist (Dodecanese starts Italian, so its decision appears right after founding either). North Slovenia (102) needs Croatia, Germany or Austria to border — occupation governments receive it with cores, Germany/Austria as a plain handover. Dalmatia (103) and Ljubljana (853) need Croatia to own a bordering state and go to Croatia or Italy only. Southern Serbia (803) and Macedonia (106) decisions need Serbia or Bulgaria to border, but any bordering puppet (including Bulgaria) can receive. The Tunisian, Algerian, Moroccan and Spanish-African groups transfer directly to INA with no event and no border checks — and none of those states has any other fate decision. The Sudan group works the same for IEG. Sinai (453) goes to the Levant, Egypt or Italy; Hatay (799) to Turkey or the Levant only. A distribution decision stays unavailable (greyed) until a valid recipient exists, so the event can never fire without one. Capital states (Croatia 109, Serbia 107, Montenegro 105, Albania 44) have no redistribution decision at all while their puppet can still be created — found (or settle) the puppet first.
 
 ## Installation
 
@@ -165,7 +174,7 @@ italian_occupation_plus/
 ├── README.md
 ├── common/
 │   ├── autonomous_states/iop_autonomy.txt   # Military Occupation level
-│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA / IEG / ISP / IPG / IOC / ILV
+│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA / IEG / ISP / IPG / IOC / ILV / IIQ / IAR
 │   ├── countries/Italy_*.txt                # gfx culture + map color
 │   ├── decisions/categories/iop_categories.txt # "Italian Occupation" tab (note: categories/ subfolder!)
 │   ├── decisions/IOP_yugoslavia.txt         # 4 founding + Fall of Montenegro + 18 distribution decisions
@@ -176,9 +185,10 @@ italian_occupation_plus/
 │   ├── decisions/IOP_spain.txt                    # 1 founding (ISP) + 2 distribution decisions (gibraltar/baleares)
 │   ├── decisions/IOP_portugal.txt                 # 1 founding (IPG) + canarias + azores/madeira + unite iberia
 │   ├── decisions/IOP_occitania.txt                # 1 founding (IOC) + provence + savoy/var + corsica + poitou
-│   └── decisions/IOP_levant.txt                   # 1 founding (ILV) + hatay + sinai + cyprus
+│   ├── decisions/IOP_levant.txt                   # 1 founding (ILV) + hatay + sinai + cyprus
+│   └── decisions/IOP_arabia.txt                   # 2 foundings (IIQ, IAR) + kuwait + yemen/oman/abu dhabi/qatar transfers
 ├── history/
-│   ├── countries/ICR|ISE|IMT|IAL|IBL|IGR|ITR|INA|IEG|ISP|IPG|IOC|ILV*.txt       # capitals, leaders, tech
+│   ├── countries/ICR|ISE|IMT|IAL|IBL|IGR|ITR|INA|IEG|ISP|IPG|IOC|ILV|IIQ|IAR*.txt       # capitals, leaders, tech
 │   └── units/IOP_empty.txt                  # empty puppet OOB
 ├── gfx/leaders/ICR/ICR_Giuseppe_Bastianini.dds # custom ICR portrait (tag subfolder required!)
 ├── gfx/leaders/IMT/IMT_Alessandro_Pirzio_Biroli.dds # custom IMT portrait
@@ -197,6 +207,9 @@ italian_occupation_plus/
 ├── events/IOP_occitania.txt                 # 3 events (iop_occitania.32, .735, .1)
 ├── gfx/leaders/ILV/ILV_Niccolo_Nicchiarelli.dds # custom ILV portrait
 ├── events/IOP_levant.txt                    # 3 events (iop_levant.799, .453, .183)
+├── gfx/leaders/IIQ/IIQ_Nino_Sozzani.dds     # custom IIQ portrait
+├── gfx/leaders/IAR/IAR_Gianrico_Tedeschi.dds # custom IAR portrait
+├── events/IOP_arabia.txt                    # 1 event (iop_arabia.656)
 ├── events/IOP_yugoslavia.txt                # 19 events (iop_yugo.102, .103, ...)
 ├── events/IOP_greece.txt                    # 4 events (iop_greece.731, .184, .182, .164)
 ├── events/IOP_turkey.txt                    # 3 events (iop_turkey.341, .340, .797)
@@ -214,7 +227,7 @@ italian_occupation_plus/
 
 The pattern per new region is:
 
-│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA / IEG / ISP / IPG / IOC / ILV
+│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA / IEG / ISP / IPG / IOC / ILV / IIQ / IAR
 │   ├── decisions/IOP_greece.txt             # 1 founding (IGR) + 4 distribution decisions (731/184/182/164)
 │   ├── decisions/IOP_turkey.txt             # 1 founding (ITR) + 3 distribution decisions (341/340/797)
 │   ├── decisions/IOP_north_africa.txt        # 1 founding (INA) + 5 distribution decisions (tunisia/algeria/morocco/spanish_africa/783)
@@ -242,6 +255,7 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 
 ## Changelog
 
+- **0.0.24** — Two new puppets: IIQ (Governatorato di occupazione militare dell'Irak, Baghdad + Mosul/Al Anbar/Al Hajara/Al Basrah, Nino Sozzani) and IAR (Governatorato di occupazione militare dell'Arabia, Riyadh/Nejd + 8 Saudi states, Gianrico Tedeschi); "Determine Fate of Kuwait" (Iraq, Arabia or Italy); grouped direct transfers to IAR: Yemen (North/South Yemen + Aden), Oman (Dhofar/Oman/Muscat), Abu Dhabi, Qatar.
 - **0.0.23** — "Determine Fate of Cyprus" (island: Turkey, Levant or Italy — existence checks only).
 - **0.0.22** — New 13th puppet: ILV (Governatorato di occupazione militare del Levante), founded from Palestine with Jordan/Lebanon/Damascus/Aleppo/Deir-az-Zur, led by Niccolò Nicchiarelli (Governor of Levant); "Determine Fate of Hatay" (Turkey or Levant, bordering owner); "Determine Fate of Sinai" (Levant, Egypt or Italy); Zara/Istria now also unlock once the Dalmatia decision has been taken.
 - **0.0.21** — IOC capital moved to Aquitaine (Bordeaux); "Transfer Poitou to Occitania" direct decision (owned/controlled by Italy or a subject); Roatta's description becomes "Governor of Spain and Portugal" after Iberian unification; Croatia no longer spawns with Dalmatia — Dalmatia (103) and Ljubljana (853) are now Croatia-or-Italy fate events requiring ICR to own a neighboring state.

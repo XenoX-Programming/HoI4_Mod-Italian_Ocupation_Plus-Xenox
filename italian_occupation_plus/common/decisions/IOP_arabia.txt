@@ -1,0 +1,387 @@
+# ============================================================
+# Italian Occupation Plus v0.0.24 - Iraq + Arabia
+# 1) Found IIQ (needs 291 Baghdad) / IAR (needs 292 Nejd/Riyadh).
+# 2) "Fate of Kuwait" (656): Iraq, Arabia (each must own a bordering
+#    state) or integrate into Italy.
+# 3) Grouped direct transfers to IAR (Algeria pattern, no event):
+#    Yemen (293 + 659 + 992), Oman (1016 + 1015 + 294),
+#    Abu Dhabi (658), Qatar (765).
+# ============================================================
+
+iop_occupation = {
+
+	iop_establish_iraq = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 676
+				state = 1010
+				state = 291
+				state = 675
+				state = 1011
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IIQ }
+		}
+
+		available = {
+			controls_state = 291
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_iraq_tt
+			hidden_effect = {
+				set_country_flag = iop_iraq_established
+				676 = { add_core_of = IIQ }
+				1010 = { add_core_of = IIQ }
+				291 = { add_core_of = IIQ }
+				675 = { add_core_of = IIQ }
+				1011 = { add_core_of = IIQ }
+				release_puppet = IIQ
+				set_autonomy = {
+					target = IIQ
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 676 }
+					IIQ = { transfer_state = 676 }
+				}
+				if = {
+					limit = { controls_state = 1010 }
+					IIQ = { transfer_state = 1010 }
+				}
+				if = {
+					limit = { controls_state = 291 }
+					IIQ = { transfer_state = 291 }
+				}
+				if = {
+					limit = { controls_state = 675 }
+					IIQ = { transfer_state = 675 }
+				}
+				if = {
+					limit = { controls_state = 1011 }
+					IIQ = { transfer_state = 1011 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	iop_establish_arabia = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 854
+				state = 855
+				state = 857
+				state = 679
+				state = 859
+				state = 292
+				state = 856
+				state = 678
+				state = 858
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IAR }
+		}
+
+		available = {
+			controls_state = 292
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_arabia_tt
+			hidden_effect = {
+				set_country_flag = iop_arabia_established
+				854 = { add_core_of = IAR }
+				855 = { add_core_of = IAR }
+				857 = { add_core_of = IAR }
+				679 = { add_core_of = IAR }
+				859 = { add_core_of = IAR }
+				292 = { add_core_of = IAR }
+				856 = { add_core_of = IAR }
+				678 = { add_core_of = IAR }
+				858 = { add_core_of = IAR }
+				release_puppet = IAR
+				set_autonomy = {
+					target = IAR
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 854 }
+					IAR = { transfer_state = 854 }
+				}
+				if = {
+					limit = { controls_state = 855 }
+					IAR = { transfer_state = 855 }
+				}
+				if = {
+					limit = { controls_state = 857 }
+					IAR = { transfer_state = 857 }
+				}
+				if = {
+					limit = { controls_state = 679 }
+					IAR = { transfer_state = 679 }
+				}
+				if = {
+					limit = { controls_state = 859 }
+					IAR = { transfer_state = 859 }
+				}
+				if = {
+					limit = { controls_state = 292 }
+					IAR = { transfer_state = 292 }
+				}
+				if = {
+					limit = { controls_state = 856 }
+					IAR = { transfer_state = 856 }
+				}
+				if = {
+					limit = { controls_state = 678 }
+					IAR = { transfer_state = 678 }
+				}
+				if = {
+					limit = { controls_state = 858 }
+					IAR = { transfer_state = 858 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: KUWAIT (656) - Iraq, Arabia (bordering owner) or Italy.
+	# ------------------------------------------------------------
+
+	iop_decide_656_kuwait = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 656
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 656
+			OR = {
+				country_exists = IIQ
+				country_exists = IAR
+			}
+		}
+		available = {
+			controls_state = 656
+			656 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = IIQ
+						is_owned_by = IAR
+					}
+				}
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_arabia.656 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# GROUPED TRANSFERS - straight to IAR, no event, no border checks.
+	# ------------------------------------------------------------
+
+	# North Yemen (293) + South Yemen (659) + Province of Aden (992) -> IAR
+	iop_give_yemen = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 293
+				state = 659
+				state = 992
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			country_exists = IAR
+			OR = {
+				controls_state = 293
+				controls_state = 659
+				controls_state = 992
+			}
+		}
+		available = {
+			country_exists = IAR
+			OR = {
+				controls_state = 293
+				controls_state = 659
+				controls_state = 992
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			if = {
+				limit = { controls_state = 293 }
+				293 = { add_core_of = IAR }
+				IAR = { transfer_state = 293 }
+			}
+			if = {
+				limit = { controls_state = 659 }
+				659 = { add_core_of = IAR }
+				IAR = { transfer_state = 659 }
+			}
+			if = {
+				limit = { controls_state = 992 }
+				992 = { add_core_of = IAR }
+				IAR = { transfer_state = 992 }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# Dhofar (1016) + Oman (1015) + Muscat (294) -> IAR
+	iop_give_oman = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1016
+				state = 1015
+				state = 294
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			country_exists = IAR
+			OR = {
+				controls_state = 1016
+				controls_state = 1015
+				controls_state = 294
+			}
+		}
+		available = {
+			country_exists = IAR
+			OR = {
+				controls_state = 1016
+				controls_state = 1015
+				controls_state = 294
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			if = {
+				limit = { controls_state = 1016 }
+				1016 = { add_core_of = IAR }
+				IAR = { transfer_state = 1016 }
+			}
+			if = {
+				limit = { controls_state = 1015 }
+				1015 = { add_core_of = IAR }
+				IAR = { transfer_state = 1015 }
+			}
+			if = {
+				limit = { controls_state = 294 }
+				294 = { add_core_of = IAR }
+				IAR = { transfer_state = 294 }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# Abu Dhabi (658) -> IAR
+	iop_give_abu_dhabi = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 658
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			country_exists = IAR
+			OR = {
+				controls_state = 658
+			}
+		}
+		available = {
+			country_exists = IAR
+			OR = {
+				controls_state = 658
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			if = {
+				limit = { controls_state = 658 }
+				658 = { add_core_of = IAR }
+				IAR = { transfer_state = 658 }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# Qatar (765) -> IAR
+	iop_give_qatar = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 765
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			country_exists = IAR
+			OR = {
+				controls_state = 765
+			}
+		}
+		available = {
+			country_exists = IAR
+			OR = {
+				controls_state = 765
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			if = {
+				limit = { controls_state = 765 }
+				765 = { add_core_of = IAR }
+				IAR = { transfer_state = 765 }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

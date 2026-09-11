@@ -1,0 +1,76 @@
+# Italian Occupation Plus
+# IAR - Governatorato di occupazione militare dell'Arabia
+# Capital: 292 Nejd (Riyadh). Cores: Jawf (854), Tabuk (855), Al-Qassim (857), Madinah (679), Dammam (859), Nejd (292), Asir-Makkah (856), Rub al Khali (678), Najiran (858).
+# Cores are added by decision at release time, so no history/states overrides are needed.
+
+capital = 292
+oob = "IOP_empty"
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+}
+
+set_politics = {
+	ruling_party = fascism
+	last_election = 1936.1.1
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 5
+	fascism = 75
+	communism = 5
+	neutrality = 15
+}
+
+# Governor of Arabia.
+create_country_leader = {
+	name = "Gianrico Tedeschi"
+	desc = "PODCAT_GIANRICO_TEDESCHI_DESC"
+	picture = "IAR_Gianrico_Tedeschi.dds"
+	expire = "1965.1.1"
+	ideology = fascism_ideology
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Gianrico Tedeschi"
+	desc = "PODCAT_GIANRICO_TEDESCHI_DESC"
+	picture = "IAR_Gianrico_Tedeschi.dds"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Gianrico Tedeschi"
+	desc = "PODCAT_GIANRICO_TEDESCHI_DESC"
+	picture = "IAR_Gianrico_Tedeschi.dds"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "Gianrico Tedeschi"
+	desc = "PODCAT_GIANRICO_TEDESCHI_DESC"
+	picture = "IAR_Gianrico_Tedeschi.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+	}
+}
+
+set_stability = 0.50
+set_war_support = 0.60
+set_convoys = 5
+set_research_slots = 2
+
+set_country_flag = iop_puppet
+set_country_flag = iop_iar
