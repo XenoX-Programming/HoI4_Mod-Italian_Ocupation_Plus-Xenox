@@ -53,6 +53,30 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ISP }
+			# Only appears once Italy controls at least half of the required territory (10 of 20 states).
+			count_triggers = {
+				amount = 10
+				controls_state = 171
+				controls_state = 790
+				controls_state = 174
+				controls_state = 792
+				controls_state = 172
+				controls_state = 166
+				controls_state = 794
+				controls_state = 165
+				controls_state = 791
+				controls_state = 176
+				controls_state = 788
+				controls_state = 41
+				controls_state = 793
+				controls_state = 167
+				controls_state = 170
+				controls_state = 175
+				controls_state = 168
+				controls_state = 789
+				controls_state = 169
+				controls_state = 173
+			}
 		}
 
 		available = {
@@ -196,6 +220,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 118
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 118 = { is_core_of = ITA } }
 			country_exists = ISP
 		}
 		available = {
@@ -225,6 +251,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 177
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 177 = { is_core_of = ITA } }
 			country_exists = ISP
 		}
 		available = {

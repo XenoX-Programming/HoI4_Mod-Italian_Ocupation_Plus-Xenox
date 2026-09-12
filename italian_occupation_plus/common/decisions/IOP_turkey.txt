@@ -50,6 +50,26 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ITR }
+			# Only appears once Italy controls at least half of the required territory (8 of 16 states).
+			count_triggers = {
+				amount = 8
+				controls_state = 49
+				controls_state = 347
+				controls_state = 339
+				controls_state = 342
+				controls_state = 343
+				controls_state = 356
+				controls_state = 355
+				controls_state = 798
+				controls_state = 349
+				controls_state = 353
+				controls_state = 352
+				controls_state = 350
+				controls_state = 344
+				controls_state = 348
+				controls_state = 345
+				controls_state = 346
+			}
 		}
 
 		available = {
@@ -174,6 +194,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 341
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 341 = { is_core_of = ITA } }
 			OR = {
 				has_country_flag = iop_bulgaria_established
 				has_country_flag = iop_greece_established
@@ -218,6 +240,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 340
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 340 = { is_core_of = ITA } }
 			has_country_flag = iop_turkey_established
 			country_exists = ITR
 		}
@@ -245,6 +269,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 797
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 797 = { is_core_of = ITA } }
 			has_country_flag = iop_turkey_established
 			country_exists = ITR
 		}

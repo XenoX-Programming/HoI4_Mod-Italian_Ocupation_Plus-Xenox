@@ -37,6 +37,18 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IOC }
+			# Only appears once Italy controls at least half of the required territory (4 of 8 states).
+			count_triggers = {
+				amount = 4
+				controls_state = 33
+				controls_state = 25
+				controls_state = 19
+				controls_state = 806
+				controls_state = 31
+				controls_state = 26
+				controls_state = 20
+				controls_state = 22
+			}
 		}
 
 		available = {
@@ -119,9 +131,16 @@ iop_occupation = {
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
+			# At least one state must still be undecided (controlled but not an Italian core yet).
 			OR = {
-				controls_state = 32
-				controls_state = 21
+				AND = {
+					controls_state = 32
+					NOT = { 32 = { is_core_of = ITA } }
+				}
+				AND = {
+					controls_state = 21
+					NOT = { 21 = { is_core_of = ITA } }
+				}
 			}
 			country_exists = IOC
 		}
@@ -159,9 +178,16 @@ iop_occupation = {
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
+			# At least one state must still be undecided (controlled but not an Italian core yet).
 			OR = {
-				controls_state = 735
-				controls_state = 851
+				AND = {
+					controls_state = 735
+					NOT = { 735 = { is_core_of = ITA } }
+				}
+				AND = {
+					controls_state = 851
+					NOT = { 851 = { is_core_of = ITA } }
+				}
 			}
 			country_exists = IOC
 		}
@@ -198,6 +224,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 1
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 1 = { is_core_of = ITA } }
 			country_exists = IOC
 		}
 		available = {

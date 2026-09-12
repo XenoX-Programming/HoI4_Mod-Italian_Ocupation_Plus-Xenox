@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.26 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
+# Italian Occupation Plus — v0.0.28 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -82,7 +82,7 @@ Own tab: **"Italian Occupation"**. Hovering any decision outlines the state(s) i
 - Establish Military Occupation of North Africa — requires control of **Tripoli (448)** (starts Italian, so INA can be founded on day one), highlights all 8 Libyan states
 - Establish Military Occupation of Egypt — requires control of **Cairo (907)**, highlights all 6 initial states (Suez stays Italian until the Fall of Suez Canal; Sinai comes in a later update)
 
-Founding only needs the **capital state**. Any other initial states you control transfer automatically.
+Each founding decision only **appears** once you control **at least half of that puppet's initial states** (rounded up — e.g. 2 of 3 for Croatia, 10 of 20 for Spain), and still needs the **capital state** to click. Any other initial states you control transfer automatically.
 
 **Fall of Montenegro (special):** Montenegro is no longer founded directly. The **"Fall of Montenegro"** decision (requires control of **105** plus at least one of ICR / ISE / IAL already existing) fires an event with 4 options: **Integrate into Croatia / Serbia / Albania** (each must border Montenegro; transfers + cores the state) or **Create a new occupational government** (releases IMT as before).
 
@@ -266,6 +266,8 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 
 ## Changelog
 
+- **0.0.28** — Founding decisions ("Establish Military Occupation of …") now only **appear** once Italy controls **at least half of the required territory** (rounded up, via `count_triggers`: 2 of 3 Croatia, 1 of 2 Serbia/Albania, 2 of 4 Bulgaria/Greece, 8 of 16 Turkey, 4 of 8 North Africa/Occitania, 3 of 6 Egypt/Levant, 10 of 20 Spain, 3 of 5 Portugal/Iraq, 5 of 9 Arabia, 1 of 1 Armenia, 9 of 17 Iran). Clicking still needs the capital state. Montenegro unchanged (its Fall decision already needs control of 105).
+- **0.0.27** — Fixed annex-to-Italy fate decisions reappearing after integration (e.g. Dalmatia): every decision with an integrate option now hides once the state is an Italian core (`is_core_of = ITA` check in `visible`; grouped Provence, Savoy/Var and Azores/Madeira decisions stay visible until all their states are decided). Zara, Istria and Dodecanese start as Italian cores, so they use a decided-flag instead (`iop_zara_decided`, `iop_istria_decided`, `iop_dodecanese_decided`) — a core check there would have hidden them from the start and made ceding them to a puppet impossible.
 - **0.0.26** — Every occupation government now starts with the **Military Government** national spirit: −100% capitulation factor (cannot capitulate), −25% political power, −50% recruitable population factor.
 - **0.0.25** — Two new puppets: IAM (Governatorato di occupazione militare dell'Armenia, Yerevan, Drastamat "Dro" Kanayan) and IIR (Governatorato di occupazione militare dell'Iran, Tehran + 16 states, Giuseppe Pièche); Turkey no longer spawns with Trabzon/Van — new "Fate of Trabzon and Van" (Turkey or Armenia, bordering owner); "Fate of Dobrudja" (Bulgaria or Italy); ITR crescent centred right of the canton; ILV and IIQ flags now carry a full-height Italian tricolour.
 - **0.0.24** — Two new puppets: IIQ (Governatorato di occupazione militare dell'Irak, Baghdad + Mosul/Al Anbar/Al Hajara/Al Basrah, Nino Sozzani) and IAR (Governatorato di occupazione militare dell'Arabia, Riyadh/Nejd + 8 Saudi states, Gianrico Tedeschi); "Determine Fate of Kuwait" (Iraq, Arabia or Italy); grouped direct transfers to IAR: Yemen (North/South Yemen + Aden), Oman (Dhofar/Oman/Muscat), Abu Dhabi, Qatar.

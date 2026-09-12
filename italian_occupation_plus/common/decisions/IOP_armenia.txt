@@ -23,6 +23,11 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IAM }
+			# Only appears once Italy controls at least half of the required territory (1 of 1 states).
+			count_triggers = {
+				amount = 1
+				controls_state = 230
+			}
 		}
 
 		available = {
@@ -85,6 +90,27 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IIR }
+			# Only appears once Italy controls at least half of the required territory (9 of 17 states).
+			count_triggers = {
+				amount = 9
+				controls_state = 419
+				controls_state = 1000
+				controls_state = 420
+				controls_state = 1001
+				controls_state = 421
+				controls_state = 417
+				controls_state = 413
+				controls_state = 266
+				controls_state = 1004
+				controls_state = 416
+				controls_state = 418
+				controls_state = 411
+				controls_state = 1002
+				controls_state = 1003
+				controls_state = 412
+				controls_state = 414
+				controls_state = 410
+			}
 		}
 
 		available = {

@@ -41,6 +41,14 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IGR }
+			# Only appears once Italy controls at least half of the required territory (2 of 4 states).
+			count_triggers = {
+				amount = 2
+				controls_state = 47
+				controls_state = 186
+				controls_state = 185
+				controls_state = 187
+			}
 		}
 
 		available = {
@@ -189,6 +197,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 182
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 182 = { is_core_of = ITA } }
 			has_country_flag = iop_greece_established
 			country_exists = IGR
 		}
@@ -225,6 +235,9 @@ iop_occupation = {
 					country_exists = ITR
 				}
 			}
+			# Starts as Italian core land: a core check would hide this from the start,
+			# so use a decided-flag instead (set no matter which option is picked).
+			NOT = { has_country_flag = iop_dodecanese_decided }
 		}
 		available = {
 			controls_state = 164
@@ -235,6 +248,7 @@ iop_occupation = {
 		}
 		days_re_enable = 3
 		complete_effect = {
+			set_country_flag = iop_dodecanese_decided
 			country_event = { id = iop_greece.164 }
 		}
 		ai_will_do = { factor = 0 }
@@ -257,6 +271,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 77
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 77 = { is_core_of = ITA } }
 			country_exists = IBL
 		}
 		available = {

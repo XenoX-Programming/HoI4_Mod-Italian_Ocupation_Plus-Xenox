@@ -41,6 +41,16 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IEG }
+			# Only appears once Italy controls at least half of the required territory (3 of 6 states).
+			count_triggers = {
+				amount = 3
+				controls_state = 452
+				controls_state = 447
+				controls_state = 907
+				controls_state = 552
+				controls_state = 456
+				controls_state = 457
+			}
 		}
 
 		available = {
@@ -212,6 +222,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 446
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 446 = { is_core_of = ITA } }
 			country_exists = IEG
 		}
 		available = {

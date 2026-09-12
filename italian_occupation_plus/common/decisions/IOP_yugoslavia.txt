@@ -36,6 +36,13 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ICR }
+			# Only appears once Italy controls at least half of the required territory (2 of 3 states).
+			count_triggers = {
+				amount = 2
+				controls_state = 109
+				controls_state = 104
+				controls_state = 804
+			}
 		}
 
 		available = {
@@ -93,6 +100,12 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ISE }
+			# Only appears once Italy controls at least half of the required territory (1 of 2 states).
+			count_triggers = {
+				amount = 1
+				controls_state = 107
+				controls_state = 108
+			}
 		}
 
 		available = {
@@ -145,6 +158,12 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IAL }
+			# Only appears once Italy controls at least half of the required territory (1 of 2 states).
+			count_triggers = {
+				amount = 1
+				controls_state = 44
+				controls_state = 934
+			}
 		}
 
 		available = {
@@ -198,6 +217,14 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IBL }
+			# Only appears once Italy controls at least half of the required territory (2 of 4 states).
+			count_triggers = {
+				amount = 2
+				controls_state = 48
+				controls_state = 801
+				controls_state = 212
+				controls_state = 211
+			}
 		}
 
 		available = {
@@ -346,6 +373,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 853
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 853 = { is_core_of = ITA } }
 			country_exists = ICR
 		}
 		available = {
@@ -372,6 +401,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 103
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 103 = { is_core_of = ITA } }
 			country_exists = ICR
 		}
 		available = {
@@ -947,6 +978,9 @@ iop_occupation = {
 			controls_state = 163
 			has_country_flag = iop_croatia_established
 			country_exists = ICR
+			# Starts as Italian core land: a core check would hide this from the start,
+			# so use a decided-flag instead (set no matter which option is picked).
+			NOT = { has_country_flag = iop_zara_decided }
 		}
 		available = {
 			controls_state = 163
@@ -958,6 +992,7 @@ iop_occupation = {
 		}
 		days_re_enable = 3
 		complete_effect = {
+			set_country_flag = iop_zara_decided
 			country_event = { id = iop_yugo.163 }
 		}
 		ai_will_do = { factor = 0 }
@@ -977,6 +1012,9 @@ iop_occupation = {
 			controls_state = 852
 			has_country_flag = iop_croatia_established
 			country_exists = ICR
+			# Starts as Italian core land: a core check would hide this from the start,
+			# so use a decided-flag instead (set no matter which option is picked).
+			NOT = { has_country_flag = iop_istria_decided }
 		}
 		available = {
 			controls_state = 852
@@ -988,6 +1026,7 @@ iop_occupation = {
 		}
 		days_re_enable = 3
 		complete_effect = {
+			set_country_flag = iop_istria_decided
 			country_event = { id = iop_yugo.852 }
 		}
 		ai_will_do = { factor = 0 }

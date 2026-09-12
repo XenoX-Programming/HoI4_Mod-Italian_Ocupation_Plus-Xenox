@@ -38,6 +38,15 @@ iop_occupation = {
 			original_tag = ITA
 			NOT = { country_exists = IPG }
 			NOT = { has_country_flag = iop_iberia_united }
+			# Only appears once Italy controls at least half of the required territory (3 of 5 states).
+			count_triggers = {
+				amount = 3
+				controls_state = 180
+				controls_state = 181
+				controls_state = 112
+				controls_state = 795
+				controls_state = 179
+			}
 		}
 
 		available = {
@@ -104,6 +113,8 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 178
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 178 = { is_core_of = ITA } }
 			country_exists = ISP
 		}
 		available = {
@@ -133,9 +144,16 @@ iop_occupation = {
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
+			# At least one state must still be undecided (controlled but not an Italian core yet).
 			OR = {
-				controls_state = 698
-				controls_state = 697
+				AND = {
+					controls_state = 698
+					NOT = { 698 = { is_core_of = ITA } }
+				}
+				AND = {
+					controls_state = 697
+					NOT = { 697 = { is_core_of = ITA } }
+				}
 			}
 			OR = {
 				country_exists = IPG
