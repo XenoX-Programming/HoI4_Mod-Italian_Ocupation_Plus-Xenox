@@ -1,0 +1,281 @@
+# ============================================================
+# Italian Occupation Plus v0.0.29 - flavour events.
+# ROOT = Italy. Each event references a named puppet that must
+# already exist, so it only ever fires mid-occupation. Effects
+# hand out the timed iop_spirit_* ideas or small instant bonuses.
+# ============================================================
+
+add_namespace = iop_flavour
+
+# ---------------- 1 - Balkan partisan ambush (Croatia) ----------------
+country_event = {
+	id = iop_flavour.1
+	title = iop_flavour_1_title
+	desc = iop_flavour_1_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = no
+	mean_time_to_happen = { months = 30 }
+	trigger = {
+		original_tag = ITA
+		country_exists = ICR
+		NOT = { has_country_flag = iop_flavour_cooldown }
+	}
+	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
+	option = {
+		name = iop_flavour_1_a
+		ICR = { add_timed_idea = { idea = iop_spirit_reprisals days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_flavour_1_b
+		ICR = { add_timed_idea = { idea = iop_spirit_conciliation days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+}
+
+# ---------------- 2 - Aegean requisition crisis (Greece) ----------------
+country_event = {
+	id = iop_flavour.2
+	title = iop_flavour_2_title
+	desc = iop_flavour_2_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = no
+	mean_time_to_happen = { months = 30 }
+	trigger = {
+		original_tag = ITA
+		country_exists = IGR
+		NOT = { has_country_flag = iop_flavour_cooldown }
+	}
+	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
+	option = {
+		name = iop_flavour_2_a
+		IGR = { add_timed_idea = { idea = iop_spirit_requisition days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_flavour_2_b
+		IGR = { add_timed_idea = { idea = iop_spirit_provision days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+}
+
+# ---------------- 3 - Anatolian oil concession (Turkey) ----------------
+country_event = {
+	id = iop_flavour.3
+	title = iop_flavour_3_title
+	desc = iop_flavour_3_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = no
+	mean_time_to_happen = { months = 30 }
+	trigger = {
+		original_tag = ITA
+		country_exists = ITR
+		NOT = { has_country_flag = iop_flavour_cooldown }
+	}
+	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
+	option = {
+		name = iop_flavour_3_a
+		ITR = { add_timed_idea = { idea = iop_spirit_requisition days = 180 } }
+		add_political_power = 25
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_flavour_3_b
+		ITR = { add_timed_idea = { idea = iop_spirit_provision days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+}
+
+# ---------------- 4 - Desert supply column (North Africa) ----------------
+country_event = {
+	id = iop_flavour.4
+	title = iop_flavour_4_title
+	desc = iop_flavour_4_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = no
+	mean_time_to_happen = { months = 30 }
+	trigger = {
+		original_tag = ITA
+		country_exists = INA
+		NOT = { has_country_flag = iop_flavour_cooldown }
+	}
+	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
+	option = {
+		name = iop_flavour_4_a
+		INA = { add_timed_idea = { idea = iop_spirit_requisition days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_flavour_4_b
+		INA = { add_timed_idea = { idea = iop_spirit_provision days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+}
+
+# ---------------- 5 - Iberian industry drive (Spain) ----------------
+country_event = {
+	id = iop_flavour.5
+	title = iop_flavour_5_title
+	desc = iop_flavour_5_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = no
+	mean_time_to_happen = { months = 30 }
+	trigger = {
+		original_tag = ITA
+		country_exists = ISP
+		NOT = { has_country_flag = iop_flavour_cooldown }
+	}
+	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
+	option = {
+		name = iop_flavour_5_a
+		add_timed_idea = { idea = iop_spirit_directorate_efficiency days = 240 }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_flavour_5_b
+		add_timed_idea = { idea = iop_spirit_directorate_overreach days = 240 }
+		ai_chance = { factor = 50 }
+	}
+}
+
+# ---------------- 6 - Levantine bazaar (Levant) ----------------
+country_event = {
+	id = iop_flavour.6
+	title = iop_flavour_6_title
+	desc = iop_flavour_6_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = no
+	mean_time_to_happen = { months = 30 }
+	trigger = {
+		original_tag = ITA
+		country_exists = ILV
+		NOT = { has_country_flag = iop_flavour_cooldown }
+	}
+	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
+	option = {
+		name = iop_flavour_6_a
+		ILV = { add_timed_idea = { idea = iop_spirit_conciliation days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_flavour_6_b
+		ILV = { add_timed_idea = { idea = iop_spirit_reprisals days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+}
+
+# ---------------- 7 - Monument to the King (generic) ----------------
+country_event = {
+	id = iop_flavour.7
+	title = iop_flavour_7_title
+	desc = iop_flavour_7_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = no
+	mean_time_to_happen = { months = 36 }
+	trigger = {
+		original_tag = ITA
+		NOT = { has_country_flag = iop_flavour_cooldown }
+		OR = {
+			has_country_flag = iop_croatia_established
+			has_country_flag = iop_serbia_established
+			has_country_flag = iop_greece_established
+			has_country_flag = iop_spain_established
+			has_country_flag = iop_levant_established
+		}
+	}
+	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
+	option = {
+		name = iop_flavour_7_a
+		add_stability = 0.03
+		ai_chance = { factor = 60 }
+	}
+	option = {
+		name = iop_flavour_7_b
+		add_war_support = 0.03
+		ai_chance = { factor = 40 }
+	}
+}
+
+# ---------------- 8 - The governors quarrel (generic) ----------------
+country_event = {
+	id = iop_flavour.8
+	title = iop_flavour_8_title
+	desc = iop_flavour_8_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = no
+	mean_time_to_happen = { months = 36 }
+	trigger = {
+		original_tag = ITA
+		NOT = { has_country_flag = iop_flavour_cooldown }
+		OR = {
+			has_country_flag = iop_croatia_established
+			has_country_flag = iop_serbia_established
+			has_country_flag = iop_turkey_established
+			has_country_flag = iop_egypt_established
+			has_country_flag = iop_occitania_established
+		}
+	}
+	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
+	option = {
+		name = iop_flavour_8_a
+		add_political_power = 30
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_flavour_8_b
+		add_stability = 0.02
+		ai_chance = { factor = 50 }
+	}
+}
+
+# ---------------- 9 - Armenian highlands (Armenia) ----------------
+country_event = {
+	id = iop_flavour.9
+	title = iop_flavour_9_title
+	desc = iop_flavour_9_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = no
+	mean_time_to_happen = { months = 30 }
+	trigger = {
+		original_tag = ITA
+		country_exists = IAM
+		NOT = { has_country_flag = iop_flavour_cooldown }
+	}
+	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
+	option = {
+		name = iop_flavour_9_a
+		IAM = { add_timed_idea = { idea = iop_spirit_conciliation days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_flavour_9_b
+		IAM = { add_timed_idea = { idea = iop_spirit_reprisals days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+}
+
+# ---------------- 10 - Persian surveillance state (Iran) ----------------
+country_event = {
+	id = iop_flavour.10
+	title = iop_flavour_10_title
+	desc = iop_flavour_10_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = no
+	mean_time_to_happen = { months = 30 }
+	trigger = {
+		original_tag = ITA
+		country_exists = IIR
+		NOT = { has_country_flag = iop_flavour_cooldown }
+	}
+	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
+	option = {
+		name = iop_flavour_10_a
+		IIR = { add_timed_idea = { idea = iop_spirit_conciliation days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_flavour_10_b
+		IIR = { add_timed_idea = { idea = iop_spirit_reprisals days = 180 } }
+		ai_chance = { factor = 50 }
+	}
+}

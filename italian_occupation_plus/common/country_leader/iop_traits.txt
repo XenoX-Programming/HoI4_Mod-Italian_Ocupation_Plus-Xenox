@@ -1,0 +1,185 @@
+# ============================================================
+# Italian Occupation Plus - governor traits (v0.0.29 flavour)
+# Country leader traits; one per occupation-government governor.
+# Applied via the history files' create_country_leader "traits =".
+# All modifiers are documented HoI4 country modifiers.
+# ============================================================
+
+leader_traits = {
+
+	# ICR - Giuseppe Bastianini (diplomat, later Under-Secretary of Foreign Affairs)
+	iop_trait_diplomat_governor = {
+		random = no
+		modifier = {
+			political_power_gain = 0.10
+			trade_opinion_factor = 0.10
+			stability_factor = 0.05
+		}
+	}
+
+	# ISE - Tito Agosti (Carabinieri general; order through the gendarmerie)
+	iop_trait_carabinieri_officer = {
+		random = no
+		modifier = {
+			drift_defence_factor = 0.25
+			stability_factor = 0.05
+			political_power_factor = -0.05
+		}
+	}
+
+	# IMT - Alessandro Pirzio Biroli (Montenegro; iron-fisted counter-insurgency)
+	iop_trait_iron_hand = {
+		random = no
+		modifier = {
+			war_support_factor = 0.10
+			stability_factor = -0.05
+			attrition = -0.05
+			drift_defence_factor = 0.15
+		}
+	}
+
+	# IAL - Alfredo Guzzoni (Lieutenant of the King in Albania; courtly viceroy)
+	iop_trait_viceroy = {
+		random = no
+		modifier = {
+			political_power_factor = 0.10
+			stability_factor = 0.05
+			monthly_population = 0.05
+		}
+	}
+
+	# IBL - Attilio Biseo (air-force general; logistics-minded)
+	iop_trait_airman_governor = {
+		random = no
+		modifier = {
+			supply_consumption_factor = -0.05
+			attrition = -0.10
+			war_support_factor = 0.05
+		}
+	}
+
+	# IGR - Pietro Parini (civil administrator of the Aegean school)
+	iop_trait_civil_administrator = {
+		random = no
+		modifier = {
+			production_speed_buildings_factor = 0.10
+			consumer_goods_factor = 0.05
+			political_power_factor = -0.05
+		}
+	}
+
+	# ITR - Rodolfo Graziani (the "Butcher" of Cyrenaica; repression)
+	iop_trait_colonial_repressor = {
+		random = no
+		modifier = {
+			war_support_factor = 0.10
+			stability_factor = -0.10
+			attrition = -0.10
+			equipment_capture_factor = 0.10
+		}
+	}
+
+	# INA - Ettore Bastico (careful logistics organiser)
+	iop_trait_logistics_organiser = {
+		random = no
+		modifier = {
+			supply_consumption_factor = -0.15
+			out_of_supply_factor = 0.10
+			industry_repair_factor = 0.10
+		}
+	}
+
+	# IEG - Italo Gariboldi (cautious, methodical commander)
+	iop_trait_cautious_commander = {
+		random = no
+		modifier = {
+			out_of_supply_factor = 0.15
+			attrition = -0.10
+			war_support_factor = -0.05
+			stability_factor = 0.05
+		}
+	}
+
+	# ISP - Mario Roatta (hardline political soldier)
+	iop_trait_hardliner = {
+		random = no
+		modifier = {
+			drift_defence_factor = 0.30
+			war_support_factor = 0.10
+			stability_factor = -0.10
+			political_power_gain = 0.05
+		}
+	}
+
+	# IPG - Giuseppe Lombrassa (Admiralty bureaucrat turned governor)
+	iop_trait_bureaucrat = {
+		random = no
+		modifier = {
+			political_power_gain = 0.10
+			consumer_goods_factor = -0.05
+			stability_factor = 0.05
+		}
+	}
+
+	# IOC - Enea Navarini (staff officer; efficient extraction)
+	iop_trait_staff_officer = {
+		random = no
+		modifier = {
+			production_factory_efficiency_gain_factor = 0.10
+			industry_repair_factor = 0.15
+			political_power_factor = -0.05
+		}
+	}
+
+	# ILV - Niccolo Nicchiarelli (mandate-era political administrator)
+	iop_trait_mandate_administrator = {
+		random = no
+		modifier = {
+			trade_opinion_factor = 0.15
+			min_export = 0.05
+			stability_factor = 0.05
+		}
+	}
+
+	# IIQ - Nino Sozzani (oil and resource director)
+	iop_trait_oil_director = {
+		random = no
+		modifier = {
+			production_oil_factor = 0.25
+			local_resources_factor = 0.10
+			consumer_goods_factor = 0.05
+		}
+	}
+
+	# IAR - Gianrico Tedeschi (desert quartermaster)
+	iop_trait_desert_quartermaster = {
+		random = no
+		modifier = {
+			supply_consumption_factor = -0.10
+			heat_attrition_factor = -0.25
+			attrition = -0.05
+		}
+	}
+
+	# IAM - Drastamat "Dro" Kanayan (mountain-war specialist)
+	iop_trait_mountain_defender = {
+		random = no
+		modifier = {
+			attrition = -0.15
+			winter_attrition_factor = -0.30
+			war_support_factor = 0.10
+			stability_factor = -0.05
+		}
+	}
+
+	# IIR - Giuseppe Pieche (police chief; quiet surveillance state)
+	iop_trait_police_chief = {
+		random = no
+		modifier = {
+			drift_defence_factor = 0.30
+			stability_factor = 0.05
+			political_power_factor = -0.10
+			war_support_factor = -0.05
+		}
+	}
+}

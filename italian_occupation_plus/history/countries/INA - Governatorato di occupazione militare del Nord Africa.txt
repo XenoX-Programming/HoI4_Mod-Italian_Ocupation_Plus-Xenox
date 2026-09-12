@@ -36,6 +36,7 @@ create_country_leader = {
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
+		iop_trait_logistics_organiser
 	}
 }
 
@@ -46,6 +47,7 @@ create_country_leader = {
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
+		iop_trait_logistics_organiser
 	}
 }
 
@@ -56,6 +58,7 @@ create_country_leader = {
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
+		iop_trait_logistics_organiser
 	}
 }
 
@@ -66,6 +69,7 @@ create_country_leader = {
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
+		iop_trait_logistics_organiser
 	}
 }
 
@@ -78,5 +82,6 @@ set_country_flag = iop_puppet
 
 add_ideas = {
 	iop_military_government
+	iop_flavour_north_africa
 }
 set_country_flag = iop_north_africa

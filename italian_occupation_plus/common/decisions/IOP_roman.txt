@@ -1,0 +1,89 @@
+# ============================================================
+# Italian Occupation Plus v0.0.30 - Restore the Roman Empire
+# Appears only once every listed Mediterranean coastal state is
+# owned by Italy or one of its occupation governments. Completing
+# it renames Italy (Imperium Romanum) and switches every puppet
+# to the "Province" autonomy level.
+# ============================================================
+
+iop_occupation = {
+
+	iop_restore_roman_empire = {
+		icon = generic_form_nation
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 2
+				state = 797
+				state = 47
+				state = 448
+				state = 459
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { has_country_flag = iop_roman_empire }
+			# The whole Mediterranean ring must be Italian or an Italian subject.
+			169 = { iop_med_owned = yes }
+			165 = { iop_med_owned = yes }
+			22 = { iop_med_owned = yes }
+			20 = { iop_med_owned = yes }
+			109 = { iop_med_owned = yes }
+			103 = { iop_med_owned = yes }
+			105 = { iop_med_owned = yes }
+			47 = { iop_med_owned = yes }
+			186 = { iop_med_owned = yes }
+			182 = { iop_med_owned = yes }
+			164 = { iop_med_owned = yes }
+			797 = { iop_med_owned = yes }
+			342 = { iop_med_owned = yes }
+			339 = { iop_med_owned = yes }
+			553 = { iop_med_owned = yes }
+			454 = { iop_med_owned = yes }
+			447 = { iop_med_owned = yes }
+			448 = { iop_med_owned = yes }
+			450 = { iop_med_owned = yes }
+			458 = { iop_med_owned = yes }
+			459 = { iop_med_owned = yes }
+		}
+
+		available = {
+			169 = { iop_med_owned = yes }
+			165 = { iop_med_owned = yes }
+			22 = { iop_med_owned = yes }
+			20 = { iop_med_owned = yes }
+			109 = { iop_med_owned = yes }
+			103 = { iop_med_owned = yes }
+			105 = { iop_med_owned = yes }
+			47 = { iop_med_owned = yes }
+			186 = { iop_med_owned = yes }
+			182 = { iop_med_owned = yes }
+			164 = { iop_med_owned = yes }
+			797 = { iop_med_owned = yes }
+			342 = { iop_med_owned = yes }
+			339 = { iop_med_owned = yes }
+			553 = { iop_med_owned = yes }
+			454 = { iop_med_owned = yes }
+			447 = { iop_med_owned = yes }
+			448 = { iop_med_owned = yes }
+			450 = { iop_med_owned = yes }
+			458 = { iop_med_owned = yes }
+			459 = { iop_med_owned = yes }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			country_event = { id = iop_roman.1 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
