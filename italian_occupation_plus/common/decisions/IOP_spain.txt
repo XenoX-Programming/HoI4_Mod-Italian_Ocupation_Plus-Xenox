@@ -1,0 +1,268 @@
+# ============================================================
+# Italian Occupation Plus v0.0.18 - Spain
+# 1) As Italy, occupy Spanish land.
+# 2) Found ISP with the "Establish" decision.
+#    Founding requires controlling the capital state only (41 Madrid).
+#    Any other initial states you control transfer automatically.
+# 3) "Fall of Gibraltar" fires an event: give Gibraltar (118) to ISP
+#    OR integrate it into Italy proper. Needs ISP to OWN a state
+#    neighboring Gibraltar.
+# 4) "Fate of the Balearic Islands" fires an event: give Islas
+#    Baleares (177) to ISP OR integrate into Italy. Islands - no
+#    border check, ISP only needs to exist.
+# ============================================================
+
+iop_occupation = {
+
+	# ------------------------------------------------------------
+	# FOUNDING DECISION
+	# ------------------------------------------------------------
+
+	iop_establish_spain = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 171
+				state = 790
+				state = 174
+				state = 792
+				state = 172
+				state = 166
+				state = 794
+				state = 165
+				state = 791
+				state = 176
+				state = 788
+				state = 41
+				state = 793
+				state = 167
+				state = 170
+				state = 175
+				state = 168
+				state = 789
+				state = 169
+				state = 173
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = ISP }
+			# Only appears once Italy controls at least half of the required territory (10 of 20 states).
+			count_triggers = {
+				amount = 10
+				controls_state = 171
+				controls_state = 790
+				controls_state = 174
+				controls_state = 792
+				controls_state = 172
+				controls_state = 166
+				controls_state = 794
+				controls_state = 165
+				controls_state = 791
+				controls_state = 176
+				controls_state = 788
+				controls_state = 41
+				controls_state = 793
+				controls_state = 167
+				controls_state = 170
+				controls_state = 175
+				controls_state = 168
+				controls_state = 789
+				controls_state = 169
+				controls_state = 173
+			}
+		}
+
+		available = {
+			controls_state = 41
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_spain_tt
+			hidden_effect = {
+				set_country_flag = iop_spain_established
+				171 = { add_core_of = ISP }
+				790 = { add_core_of = ISP }
+				174 = { add_core_of = ISP }
+				792 = { add_core_of = ISP }
+				172 = { add_core_of = ISP }
+				166 = { add_core_of = ISP }
+				794 = { add_core_of = ISP }
+				165 = { add_core_of = ISP }
+				791 = { add_core_of = ISP }
+				176 = { add_core_of = ISP }
+				788 = { add_core_of = ISP }
+				41 = { add_core_of = ISP }
+				793 = { add_core_of = ISP }
+				167 = { add_core_of = ISP }
+				170 = { add_core_of = ISP }
+				175 = { add_core_of = ISP }
+				168 = { add_core_of = ISP }
+				789 = { add_core_of = ISP }
+				169 = { add_core_of = ISP }
+				173 = { add_core_of = ISP }
+				release_puppet = ISP
+				set_autonomy = {
+					target = ISP
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 171 }
+					ISP = { transfer_state = 171 }
+				}
+				if = {
+					limit = { controls_state = 790 }
+					ISP = { transfer_state = 790 }
+				}
+				if = {
+					limit = { controls_state = 174 }
+					ISP = { transfer_state = 174 }
+				}
+				if = {
+					limit = { controls_state = 792 }
+					ISP = { transfer_state = 792 }
+				}
+				if = {
+					limit = { controls_state = 172 }
+					ISP = { transfer_state = 172 }
+				}
+				if = {
+					limit = { controls_state = 166 }
+					ISP = { transfer_state = 166 }
+				}
+				if = {
+					limit = { controls_state = 794 }
+					ISP = { transfer_state = 794 }
+				}
+				if = {
+					limit = { controls_state = 165 }
+					ISP = { transfer_state = 165 }
+				}
+				if = {
+					limit = { controls_state = 791 }
+					ISP = { transfer_state = 791 }
+				}
+				if = {
+					limit = { controls_state = 176 }
+					ISP = { transfer_state = 176 }
+				}
+				if = {
+					limit = { controls_state = 788 }
+					ISP = { transfer_state = 788 }
+				}
+				if = {
+					limit = { controls_state = 41 }
+					ISP = { transfer_state = 41 }
+				}
+				if = {
+					limit = { controls_state = 793 }
+					ISP = { transfer_state = 793 }
+				}
+				if = {
+					limit = { controls_state = 167 }
+					ISP = { transfer_state = 167 }
+				}
+				if = {
+					limit = { controls_state = 170 }
+					ISP = { transfer_state = 170 }
+				}
+				if = {
+					limit = { controls_state = 175 }
+					ISP = { transfer_state = 175 }
+				}
+				if = {
+					limit = { controls_state = 168 }
+					ISP = { transfer_state = 168 }
+				}
+				if = {
+					limit = { controls_state = 789 }
+					ISP = { transfer_state = 789 }
+				}
+				if = {
+					limit = { controls_state = 169 }
+					ISP = { transfer_state = 169 }
+				}
+				if = {
+					limit = { controls_state = 173 }
+					ISP = { transfer_state = 173 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: FALL OF GIBRALTAR (118)
+	# Give Gibraltar to ISP OR integrate it into Italy proper.
+	# Needs ISP to OWN a neighboring state.
+	# ------------------------------------------------------------
+
+	iop_fall_of_gibraltar = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 118
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 118
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 118 = { is_core_of = ITA } }
+			country_exists = ISP
+		}
+		available = {
+			controls_state = 118
+			118 = { any_neighbor_state = { is_owned_by = ISP } }
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_spain.118 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: ISLAS BALEARES (177) - island, existence check only.
+	# ------------------------------------------------------------
+
+	iop_decide_177_baleares = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 177
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 177
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 177 = { is_core_of = ITA } }
+			country_exists = ISP
+		}
+		available = {
+			controls_state = 177
+			country_exists = ISP
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_spain.177 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

@@ -1,0 +1,288 @@
+# ============================================================
+# Italian Occupation Plus v0.0.14 - Greece
+# Works like the Yugoslavia file, but for Greece:
+# 1) As Italy, occupy Greek land.
+# 2) Found IGR with the "Establish" decision.
+#    Founding requires controlling the capital state only (47 Attica).
+#    Any other initial states you control transfer automatically.
+# 3) Use "Determine fate of ..." decisions to assign further
+#    states via event:
+#    - Central Macedonia (731) and Thrace (184): Greece (IGR)
+#      or Bulgaria (IBL), must border the state.
+#    - Crete (182) and Dodecanese (164) are special (islands, so
+#      no border check is possible): give to Greece (IGR) OR
+#      annex to Italy (adds Italian core).
+# 4) Northern Epirus (805) is handled in IOP_yugoslavia.txt:
+#    Albania (IAL) or Greece (IGR), must border the state.
+# ============================================================
+
+iop_occupation = {
+
+	# ------------------------------------------------------------
+	# FOUNDING DECISION
+	# ------------------------------------------------------------
+
+	iop_establish_greece = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 47
+				state = 186
+				state = 185
+				state = 187
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IGR }
+			# Only appears once Italy controls at least half of the required territory (2 of 4 states).
+			count_triggers = {
+				amount = 2
+				controls_state = 47
+				controls_state = 186
+				controls_state = 185
+				controls_state = 187
+			}
+		}
+
+		available = {
+			controls_state = 47
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_greece_tt
+			hidden_effect = {
+				set_country_flag = iop_greece_established
+				47 = { add_core_of = IGR }
+				186 = { add_core_of = IGR }
+				185 = { add_core_of = IGR }
+				187 = { add_core_of = IGR }
+				release_puppet = IGR
+				set_autonomy = {
+					target = IGR
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 47 }
+					IGR = { transfer_state = 47 }
+				}
+				if = {
+					limit = { controls_state = 186 }
+					IGR = { transfer_state = 186 }
+				}
+				if = {
+					limit = { controls_state = 185 }
+					IGR = { transfer_state = 185 }
+				}
+				if = {
+					limit = { controls_state = 187 }
+					IGR = { transfer_state = 187 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# DISTRIBUTION DECISIONS - each fires an event where you pick
+	# the recipient. Visible only while Italy controls the state
+	# and at least one eligible occupation government exists.
+	# ------------------------------------------------------------
+
+	# 731 - Central Macedonia (Greece or Bulgaria, must border)
+	iop_decide_731 = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 731
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 731
+			OR = {
+				has_country_flag = iop_greece_established
+				has_country_flag = iop_bulgaria_established
+			}
+		}
+		available = {
+			controls_state = 731
+			# Greece or Bulgaria must border the state,
+			# otherwise the fate event would have no valid recipient.
+			731 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = IGR
+						is_owned_by = IBL
+					}
+				}
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_greece.731 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# 184 - Thrace (Greece or Bulgaria, must border)
+	iop_decide_184 = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 184
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 184
+			OR = {
+				has_country_flag = iop_greece_established
+				has_country_flag = iop_bulgaria_established
+			}
+		}
+		available = {
+			controls_state = 184
+			# Greece or Bulgaria must border the state,
+			# otherwise the fate event would have no valid recipient.
+			184 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = IGR
+						is_owned_by = IBL
+					}
+				}
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_greece.184 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: CRETE (182) AND DODECANESE (164)
+	# Give to Greece (IGR) OR annex to Italy (adds Italian core).
+	# Both are islands, so no border check is possible - the
+	# decisions appear once the Greek occupation government exists.
+	# NOTE: Dodecanese starts as Italian territory, so its decision
+	# shows right after founding IGR.
+	# ------------------------------------------------------------
+
+	iop_decide_182_crete = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 182
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 182
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 182 = { is_core_of = ITA } }
+			has_country_flag = iop_greece_established
+			country_exists = IGR
+		}
+		available = {
+			controls_state = 182
+			country_exists = IGR
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_greece.182 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	iop_decide_164_dodecanese = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 164
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 164
+			OR = {
+				AND = {
+					has_country_flag = iop_greece_established
+					country_exists = IGR
+				}
+				AND = {
+					has_country_flag = iop_turkey_established
+					country_exists = ITR
+				}
+			}
+			# Starts as Italian core land: a core check would hide this from the start,
+			# so use a decided-flag instead (set no matter which option is picked).
+			NOT = { has_country_flag = iop_dodecanese_decided }
+		}
+		available = {
+			controls_state = 164
+			OR = {
+				country_exists = IGR
+				country_exists = ITR
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			set_country_flag = iop_dodecanese_decided
+			country_event = { id = iop_greece.164 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: DOBRUDJA (77) - Bulgaria (needs IBL to own a
+	# neighboring state) or integrate into Italy.
+	# ------------------------------------------------------------
+
+	iop_decide_77_dobrudja = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 77
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 77
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 77 = { is_core_of = ITA } }
+			country_exists = IBL
+		}
+		available = {
+			controls_state = 77
+			77 = { any_neighbor_state = { is_owned_by = IBL } }
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_greece.77 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

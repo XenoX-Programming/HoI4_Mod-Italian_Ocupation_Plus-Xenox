@@ -1,0 +1,216 @@
+# ============================================================
+# Italian Occupation Plus v0.0.22 - Levant
+# 1) Found ILV with the "Establish" decision (needs 454 Palestine).
+# 2) "Fate of Hatay" (799): Turkey (ITR) or Levant (ILV) - each needs
+#    to own a state bordering Hatay. No Italian option.
+# 3) "Fate of Sinai" (453): Levant, Egypt (each needs to own a
+#    bordering state) or integrate into Italy.
+# 4) "Fate of Cyprus" (183): island - Turkey, Levant (exist) or Italy.
+# ============================================================
+
+iop_occupation = {
+
+	iop_establish_levant = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 454
+				state = 455
+				state = 553
+				state = 554
+				state = 677
+				state = 680
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = ILV }
+			# Only appears once Italy controls at least half of the required territory (3 of 6 states).
+			count_triggers = {
+				amount = 3
+				controls_state = 454
+				controls_state = 455
+				controls_state = 553
+				controls_state = 554
+				controls_state = 677
+				controls_state = 680
+			}
+		}
+
+		available = {
+			controls_state = 454
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_levant_tt
+			hidden_effect = {
+				set_country_flag = iop_levant_established
+				454 = { add_core_of = ILV }
+				455 = { add_core_of = ILV }
+				553 = { add_core_of = ILV }
+				554 = { add_core_of = ILV }
+				677 = { add_core_of = ILV }
+				680 = { add_core_of = ILV }
+				release_puppet = ILV
+				set_autonomy = {
+					target = ILV
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 454 }
+					ILV = { transfer_state = 454 }
+				}
+				if = {
+					limit = { controls_state = 455 }
+					ILV = { transfer_state = 455 }
+				}
+				if = {
+					limit = { controls_state = 553 }
+					ILV = { transfer_state = 553 }
+				}
+				if = {
+					limit = { controls_state = 554 }
+					ILV = { transfer_state = 554 }
+				}
+				if = {
+					limit = { controls_state = 677 }
+					ILV = { transfer_state = 677 }
+				}
+				if = {
+					limit = { controls_state = 680 }
+					ILV = { transfer_state = 680 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: HATAY (799) - Turkey or Levant (bordering owner).
+	# ------------------------------------------------------------
+
+	iop_decide_799_hatay = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 799
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 799
+			OR = {
+				country_exists = ITR
+				country_exists = ILV
+			}
+		}
+		available = {
+			controls_state = 799
+			799 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ITR
+						is_owned_by = ILV
+					}
+				}
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_levant.799 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: SINAI (453) - Levant, Egypt (bordering owner) or Italy.
+	# ------------------------------------------------------------
+
+	iop_decide_453_sinai = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 453
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 453
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 453 = { is_core_of = ITA } }
+			OR = {
+				country_exists = ILV
+				country_exists = IEG
+			}
+		}
+		available = {
+			controls_state = 453
+			453 = {
+				any_neighbor_state = {
+					OR = {
+						is_owned_by = ILV
+						is_owned_by = IEG
+					}
+				}
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_levant.453 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: CYPRUS (183) - island: Turkey, Levant (existence
+	# only) or integrate into Italy.
+	# ------------------------------------------------------------
+
+	iop_decide_183_cyprus = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 183
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 183
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 183 = { is_core_of = ITA } }
+			OR = {
+				country_exists = ITR
+				country_exists = ILV
+			}
+		}
+		available = {
+			controls_state = 183
+			OR = {
+				country_exists = ITR
+				country_exists = ILV
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_levant.183 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

@@ -1,0 +1,23 @@
+# ============================================================
+# Italian Occupation Plus - national spirits
+# "Military Government" is applied to every occupation government
+# in its history file (add_ideas) - the puppet cannot capitulate,
+# has reduced political power and a much smaller recruitable pool.
+# ============================================================
+
+ideas = {
+	country = {
+		iop_military_government = {
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = generic_intel_bonus
+
+			modifier = {
+				capitulate_factor = -1.0
+				political_power_factor = -0.25
+				conscription_factor = -0.5
+			}
+		}
+	}
+}

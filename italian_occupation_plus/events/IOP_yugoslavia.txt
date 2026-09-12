@@ -8,6 +8,9 @@
 add_namespace = iop_yugo
 
 # ---------------- 102 - North Slovenia ----------------
+# Occupation governments (with cores) plus Germany and Austria
+# (plain handover, no cores) - each option only shows if that
+# country borders the state.
 country_event = {
 	id = iop_yugo.102
 	title = iop_yugo_fate_title
@@ -54,9 +57,27 @@ country_event = {
 		IAL = { transfer_state = 102 }
 		ai_chance = { factor = 0 }
 	}
+	option = {
+		name = iop_give_to_GER
+		trigger = {
+			country_exists = GER
+			102 = { any_neighbor_state = { is_owned_by = GER } }
+		}
+		GER = { transfer_state = 102 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_AUS
+		trigger = {
+			country_exists = AUS
+			102 = { any_neighbor_state = { is_owned_by = AUS } }
+		}
+		AUS = { transfer_state = 102 }
+		ai_chance = { factor = 0 }
+	}
 }
 
-# ---------------- 853 - Ljubljana ----------------
+# ---------------- 853 - Ljubljana (SPECIAL: Croatia / Italy) ----------------
 country_event = {
 	id = iop_yugo.853
 	title = iop_yugo_fate_title
@@ -74,38 +95,17 @@ country_event = {
 		ai_chance = { factor = 0 }
 	}
 	option = {
-		name = iop_give_to_ISE
-		trigger = {
-			country_exists = ISE
-			853 = { any_neighbor_state = { is_owned_by = ISE } }
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			853 = { add_core_of = ITA }
+			ITA = { transfer_state = 853 }
 		}
-		853 = { add_core_of = ISE }
-		ISE = { transfer_state = 853 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IMT
-		trigger = {
-			country_exists = IMT
-			853 = { any_neighbor_state = { is_owned_by = IMT } }
-		}
-		853 = { add_core_of = IMT }
-		IMT = { transfer_state = 853 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IAL
-		trigger = {
-			country_exists = IAL
-			853 = { any_neighbor_state = { is_owned_by = IAL } }
-		}
-		853 = { add_core_of = IAL }
-		IAL = { transfer_state = 853 }
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 100 }
 	}
 }
 
-# ---------------- 103 - Dalmatia ----------------
+# ---------------- 103 - Dalmatia (SPECIAL: Croatia / Italy) ----------------
 country_event = {
 	id = iop_yugo.103
 	title = iop_yugo_fate_title
@@ -123,34 +123,13 @@ country_event = {
 		ai_chance = { factor = 0 }
 	}
 	option = {
-		name = iop_give_to_ISE
-		trigger = {
-			country_exists = ISE
-			103 = { any_neighbor_state = { is_owned_by = ISE } }
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			103 = { add_core_of = ITA }
+			ITA = { transfer_state = 103 }
 		}
-		103 = { add_core_of = ISE }
-		ISE = { transfer_state = 103 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IMT
-		trigger = {
-			country_exists = IMT
-			103 = { any_neighbor_state = { is_owned_by = IMT } }
-		}
-		103 = { add_core_of = IMT }
-		IMT = { transfer_state = 103 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IAL
-		trigger = {
-			country_exists = IAL
-			103 = { any_neighbor_state = { is_owned_by = IAL } }
-		}
-		103 = { add_core_of = IAL }
-		IAL = { transfer_state = 103 }
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 100 }
 	}
 }
 
@@ -687,7 +666,10 @@ country_event = {
 		name = iop_give_zara_to_ICR
 		trigger = {
 			country_exists = ICR
-			163 = { any_neighbor_state = { is_owned_by = ICR } }
+			OR = {
+				163 = { any_neighbor_state = { is_owned_by = ICR } }
+				has_country_flag = iop_dalmatia_decided
+			}
 		}
 		163 = { add_core_of = ICR }
 		ICR = { transfer_state = 163 }
@@ -716,7 +698,10 @@ country_event = {
 		name = iop_give_istria_to_ICR
 		trigger = {
 			country_exists = ICR
-			852 = { any_neighbor_state = { is_owned_by = ICR } }
+			OR = {
+				852 = { any_neighbor_state = { is_owned_by = ICR } }
+				has_country_flag = iop_dalmatia_decided
+			}
 		}
 		852 = { add_core_of = ICR }
 		ICR = { transfer_state = 852 }
@@ -783,42 +768,13 @@ country_event = {
 }
 
 # ---------------- 805 - Northern Epirus ----------------
+# Albania (IAL) or Greece (IGR) only - must border the state.
 country_event = {
 	id = iop_yugo.805
 	title = iop_yugo_fate_title
 	desc = iop_yugo_805_desc
 	picture = GFX_report_event_generic
 	is_triggered_only = yes
-	option = {
-		name = iop_give_to_ICR
-		trigger = {
-			country_exists = ICR
-			805 = { any_neighbor_state = { is_owned_by = ICR } }
-		}
-		805 = { add_core_of = ICR }
-		ICR = { transfer_state = 805 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_ISE
-		trigger = {
-			country_exists = ISE
-			805 = { any_neighbor_state = { is_owned_by = ISE } }
-		}
-		805 = { add_core_of = ISE }
-		ISE = { transfer_state = 805 }
-		ai_chance = { factor = 0 }
-	}
-	option = {
-		name = iop_give_to_IMT
-		trigger = {
-			country_exists = IMT
-			805 = { any_neighbor_state = { is_owned_by = IMT } }
-		}
-		805 = { add_core_of = IMT }
-		IMT = { transfer_state = 805 }
-		ai_chance = { factor = 0 }
-	}
 	option = {
 		name = iop_give_to_IAL
 		trigger = {
@@ -827,6 +783,16 @@ country_event = {
 		}
 		805 = { add_core_of = IAL }
 		IAL = { transfer_state = 805 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IGR
+		trigger = {
+			country_exists = IGR
+			805 = { any_neighbor_state = { is_owned_by = IGR } }
+		}
+		805 = { add_core_of = IGR }
+		IGR = { transfer_state = 805 }
 		ai_chance = { factor = 0 }
 	}
 }

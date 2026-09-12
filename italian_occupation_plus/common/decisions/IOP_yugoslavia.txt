@@ -23,7 +23,6 @@ iop_occupation = {
 
 		highlight_states = {
 			highlight_state_targets = {
-				state = 103
 				state = 109
 				state = 104
 				state = 804
@@ -37,6 +36,13 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ICR }
+			# Only appears once Italy controls at least half of the required territory (2 of 3 states).
+			count_triggers = {
+				amount = 2
+				controls_state = 109
+				controls_state = 104
+				controls_state = 804
+			}
 		}
 
 		available = {
@@ -49,7 +55,6 @@ iop_occupation = {
 			custom_effect_tooltip = iop_establish_croatia_tt
 			hidden_effect = {
 				set_country_flag = iop_croatia_established
-				103 = { add_core_of = ICR }
 				109 = { add_core_of = ICR }
 				104 = { add_core_of = ICR }
 				804 = { add_core_of = ICR }
@@ -57,10 +62,6 @@ iop_occupation = {
 				set_autonomy = {
 					target = ICR
 					autonomous_state = autonomy_military_occupation
-				}
-				if = {
-					limit = { controls_state = 103 }
-					ICR = { transfer_state = 103 }
 				}
 				if = {
 					limit = { controls_state = 109 }
@@ -99,6 +100,12 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ISE }
+			# Only appears once Italy controls at least half of the required territory (1 of 2 states).
+			count_triggers = {
+				amount = 1
+				controls_state = 107
+				controls_state = 108
+			}
 		}
 
 		available = {
@@ -151,6 +158,12 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IAL }
+			# Only appears once Italy controls at least half of the required territory (1 of 2 states).
+			count_triggers = {
+				amount = 1
+				controls_state = 44
+				controls_state = 934
+			}
 		}
 
 		available = {
@@ -204,6 +217,14 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IBL }
+			# Only appears once Italy controls at least half of the required territory (2 of 4 states).
+			count_triggers = {
+				amount = 2
+				controls_state = 48
+				controls_state = 801
+				controls_state = 212
+				controls_state = 211
+			}
 		}
 
 		available = {
@@ -296,7 +317,7 @@ iop_occupation = {
 	# one occupation government exists.
 	# ------------------------------------------------------------
 
-	# 102 - North Slovenia
+	# 102 - North Slovenia (occupation governments, Germany or Austria)
 	iop_decide_102 = {
 		icon = generic_decision
 
@@ -314,15 +335,21 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				102 = { any_neighbor_state = { is_owned_by = GER } }
+				102 = { any_neighbor_state = { is_owned_by = AUS } }
 			}
 		}
 		available = {
 			controls_state = 102
-			# Croatia must border the state,
+			# Croatia, Germany or Austria must border the state,
 			# otherwise the fate event would have no valid recipient.
 			102 = {
 				any_neighbor_state = {
+					OR = {
 						is_owned_by = ICR
+						is_owned_by = GER
+						is_owned_by = AUS
+					}
 				}
 			}
 		}
@@ -333,7 +360,7 @@ iop_occupation = {
 		ai_will_do = { factor = 0 }
 	}
 
-	# 853 - Ljubljana (South Slovenia)
+	# 853 - Ljubljana (South Slovenia): Croatia (needs ICR to own a neighbor) or Italy
 	iop_decide_853 = {
 		icon = generic_decision
 
@@ -346,22 +373,13 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 853
-			OR = {
-				has_country_flag = iop_croatia_established
-				has_country_flag = iop_serbia_established
-				has_country_flag = iop_montenegro_established
-				has_country_flag = iop_albania_established
-			}
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 853 = { is_core_of = ITA } }
+			country_exists = ICR
 		}
 		available = {
 			controls_state = 853
-			# Croatia must border the state,
-			# otherwise the fate event would have no valid recipient.
-			853 = {
-				any_neighbor_state = {
-						is_owned_by = ICR
-				}
-			}
+			853 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
 		days_re_enable = 3
 		complete_effect = {
@@ -370,7 +388,7 @@ iop_occupation = {
 		ai_will_do = { factor = 0 }
 	}
 
-	# 103 - Dalmatia
+	# 103 - Dalmatia: Croatia (needs ICR to own a neighbor) or Italy
 	iop_decide_103 = {
 		icon = generic_decision
 
@@ -383,30 +401,17 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			controls_state = 103
-			OR = {
-				has_country_flag = iop_croatia_established
-				has_country_flag = iop_serbia_established
-				has_country_flag = iop_montenegro_established
-				has_country_flag = iop_albania_established
-			}
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 103 = { is_core_of = ITA } }
+			country_exists = ICR
 		}
 		available = {
 			controls_state = 103
-			# At least one occupation government must border the state,
-			# otherwise the fate event would have no valid recipient.
-			103 = {
-				any_neighbor_state = {
-					OR = {
-						is_owned_by = ICR
-						is_owned_by = ISE
-						is_owned_by = IMT
-						is_owned_by = IAL
-					}
-				}
-			}
+			103 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
 		days_re_enable = 3
 		complete_effect = {
+			set_country_flag = iop_dalmatia_decided
 			country_event = { id = iop_yugo.103 }
 		}
 		ai_will_do = { factor = 0 }
@@ -929,23 +934,19 @@ iop_occupation = {
 			original_tag = ITA
 			controls_state = 805
 			OR = {
-				has_country_flag = iop_croatia_established
-				has_country_flag = iop_serbia_established
-				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_greece_established
 			}
 		}
 		available = {
 			controls_state = 805
-			# At least one occupation government must border the state,
+			# Albania or Greece must border the state,
 			# otherwise the fate event would have no valid recipient.
 			805 = {
 				any_neighbor_state = {
 					OR = {
-						is_owned_by = ICR
-						is_owned_by = ISE
-						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IGR
 					}
 				}
 			}
@@ -977,14 +978,21 @@ iop_occupation = {
 			controls_state = 163
 			has_country_flag = iop_croatia_established
 			country_exists = ICR
+			# Starts as Italian core land: a core check would hide this from the start,
+			# so use a decided-flag instead (set no matter which option is picked).
+			NOT = { has_country_flag = iop_zara_decided }
 		}
 		available = {
 			controls_state = 163
-			# Croatia must border the state (for ceding or annexing).
-			163 = { any_neighbor_state = { is_owned_by = ICR } }
+			# Croatia must border the state, OR Dalmatia's fate must already be decided.
+			OR = {
+				163 = { any_neighbor_state = { is_owned_by = ICR } }
+				has_country_flag = iop_dalmatia_decided
+			}
 		}
 		days_re_enable = 3
 		complete_effect = {
+			set_country_flag = iop_zara_decided
 			country_event = { id = iop_yugo.163 }
 		}
 		ai_will_do = { factor = 0 }
@@ -1004,14 +1012,21 @@ iop_occupation = {
 			controls_state = 852
 			has_country_flag = iop_croatia_established
 			country_exists = ICR
+			# Starts as Italian core land: a core check would hide this from the start,
+			# so use a decided-flag instead (set no matter which option is picked).
+			NOT = { has_country_flag = iop_istria_decided }
 		}
 		available = {
 			controls_state = 852
-			# Croatia must border the state (for ceding or annexing).
-			852 = { any_neighbor_state = { is_owned_by = ICR } }
+			# Croatia must border the state, OR Dalmatia's fate must already be decided.
+			OR = {
+				852 = { any_neighbor_state = { is_owned_by = ICR } }
+				has_country_flag = iop_dalmatia_decided
+			}
 		}
 		days_re_enable = 3
 		complete_effect = {
+			set_country_flag = iop_istria_decided
 			country_event = { id = iop_yugo.852 }
 		}
 		ai_will_do = { factor = 0 }

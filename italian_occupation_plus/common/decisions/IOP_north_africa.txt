@@ -1,0 +1,332 @@
+# ============================================================
+# Italian Occupation Plus v0.0.16 - North Africa
+# 1) As Italy, control Tripoli (starts Italian - INA can be
+#    founded on day one).
+# 2) Found INA with the "Establish" decision.
+#    Founding requires controlling the capital state only (448 Tripoli).
+#    Any other initial states you control transfer automatically.
+# 3) Use the grouped "Transfer ..." decisions to hand further
+#    regions straight to INA (cores + transfer, no event - INA
+#    is the only recipient). Each needs INA to exist and Italy
+#    to control at least one state of the group; every controlled
+#    state of the group transfers.
+# 4) Sidi Ifni (783) is special: its decision fires an event to
+#    give it to INA OR integrate it into Italy proper.
+# NOTE: none of these redistributed states has any other fate
+# decision - each region is handled exactly once, here.
+# ============================================================
+
+iop_occupation = {
+
+	# ------------------------------------------------------------
+	# FOUNDING DECISION
+	# ------------------------------------------------------------
+
+	iop_establish_north_africa = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 448
+				state = 661
+				state = 449
+				state = 662
+				state = 450
+				state = 451
+				state = 663
+				state = 273
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = INA }
+			# Only appears once Italy controls at least half of the required territory (4 of 8 states).
+			count_triggers = {
+				amount = 4
+				controls_state = 448
+				controls_state = 661
+				controls_state = 449
+				controls_state = 662
+				controls_state = 450
+				controls_state = 451
+				controls_state = 663
+				controls_state = 273
+			}
+		}
+
+		available = {
+			controls_state = 448
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_north_africa_tt
+			hidden_effect = {
+				set_country_flag = iop_north_africa_established
+				448 = { add_core_of = INA }
+				661 = { add_core_of = INA }
+				449 = { add_core_of = INA }
+				662 = { add_core_of = INA }
+				450 = { add_core_of = INA }
+				451 = { add_core_of = INA }
+				663 = { add_core_of = INA }
+				273 = { add_core_of = INA }
+				release_puppet = INA
+				set_autonomy = {
+					target = INA
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 448 }
+					INA = { transfer_state = 448 }
+				}
+				if = {
+					limit = { controls_state = 661 }
+					INA = { transfer_state = 661 }
+				}
+				if = {
+					limit = { controls_state = 449 }
+					INA = { transfer_state = 449 }
+				}
+				if = {
+					limit = { controls_state = 662 }
+					INA = { transfer_state = 662 }
+				}
+				if = {
+					limit = { controls_state = 450 }
+					INA = { transfer_state = 450 }
+				}
+				if = {
+					limit = { controls_state = 451 }
+					INA = { transfer_state = 451 }
+				}
+				if = {
+					limit = { controls_state = 663 }
+					INA = { transfer_state = 663 }
+				}
+				if = {
+					limit = { controls_state = 273 }
+					INA = { transfer_state = 273 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# GROUPED TRANSFERS - hand whole regions straight to INA.
+	# Each decision needs INA to exist and Italy to control at
+	# least one state of the group. No border checks, no events.
+	# ------------------------------------------------------------
+
+	# Gabes (665) + Tunisia (458) -> INA
+	iop_give_tunisia = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 665
+				state = 458
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			country_exists = INA
+			OR = {
+				controls_state = 665
+				controls_state = 458
+			}
+		}
+		available = {
+			country_exists = INA
+			OR = {
+				controls_state = 665
+				controls_state = 458
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			if = {
+				limit = { controls_state = 665 }
+				665 = { add_core_of = INA }
+				INA = { transfer_state = 665 }
+			}
+			if = {
+				limit = { controls_state = 458 }
+				458 = { add_core_of = INA }
+				INA = { transfer_state = 458 }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# Algiers (459) + Constantine (460) + Tlemcen (513) + Algerian Desert (514) -> INA
+	iop_give_algeria = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 459
+				state = 460
+				state = 513
+				state = 514
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			country_exists = INA
+			OR = {
+				controls_state = 459
+				controls_state = 460
+				controls_state = 513
+				controls_state = 514
+			}
+		}
+		available = {
+			country_exists = INA
+			OR = {
+				controls_state = 459
+				controls_state = 460
+				controls_state = 513
+				controls_state = 514
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			if = {
+				limit = { controls_state = 459 }
+				459 = { add_core_of = INA }
+				INA = { transfer_state = 459 }
+			}
+			if = {
+				limit = { controls_state = 460 }
+				460 = { add_core_of = INA }
+				INA = { transfer_state = 460 }
+			}
+			if = {
+				limit = { controls_state = 513 }
+				513 = { add_core_of = INA }
+				INA = { transfer_state = 513 }
+			}
+			if = {
+				limit = { controls_state = 514 }
+				514 = { add_core_of = INA }
+				INA = { transfer_state = 514 }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# Casablanca (461) + Marrakech (462) -> INA
+	iop_give_morocco = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 461
+				state = 462
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			country_exists = INA
+			OR = {
+				controls_state = 461
+				controls_state = 462
+			}
+		}
+		available = {
+			country_exists = INA
+			OR = {
+				controls_state = 461
+				controls_state = 462
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			if = {
+				limit = { controls_state = 461 }
+				461 = { add_core_of = INA }
+				INA = { transfer_state = 461 }
+			}
+			if = {
+				limit = { controls_state = 462 }
+				462 = { add_core_of = INA }
+				INA = { transfer_state = 462 }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# Spanish Africa (290) -> INA
+	iop_give_spanish_africa = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 290
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			country_exists = INA
+			controls_state = 290
+		}
+		available = {
+			country_exists = INA
+			controls_state = 290
+		}
+		days_re_enable = 3
+		complete_effect = {
+			290 = { add_core_of = INA }
+			INA = { transfer_state = 290 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: SIDI IFNI (783)
+	# Give to INA OR integrate into Italy proper (adds Italian
+	# core). Needs INA to exist. No border check.
+	# ------------------------------------------------------------
+
+	iop_decide_783_ifni = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 783
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 783
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 783 = { is_core_of = ITA } }
+			country_exists = INA
+		}
+		available = {
+			controls_state = 783
+			country_exists = INA
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_africa.783 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

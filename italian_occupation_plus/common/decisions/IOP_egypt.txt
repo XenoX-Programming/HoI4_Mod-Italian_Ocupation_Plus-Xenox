@@ -1,0 +1,241 @@
+# ============================================================
+# Italian Occupation Plus v0.0.17 - Egypt
+# 1) As Italy, occupy Egyptian land.
+# 2) Found IEG with the "Establish" decision.
+#    Founding requires controlling the capital state only (907 Cairo).
+#    Any other initial states you control transfer automatically.
+# 3) Use "Transfer Sudan to Egypt" to hand all of Sudan straight
+#    to IEG (cores + transfer, no event - IEG is the only
+#    recipient). Needs IEG to exist and Italy to control at least
+#    one Sudanese state; every controlled state transfers.
+# 4) "Fall of Suez Canal" fires an event: give Suez (446) to IEG
+#    OR integrate it into Italy proper. Needs IEG to control a
+#    state neighboring Suez.
+# Sinai (453) is handled in IOP_levant.txt.
+# ============================================================
+
+iop_occupation = {
+
+	# ------------------------------------------------------------
+	# FOUNDING DECISION
+	# ------------------------------------------------------------
+
+	iop_establish_egypt = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 452
+				state = 447
+				state = 907
+				state = 552
+				state = 456
+				state = 457
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IEG }
+			# Only appears once Italy controls at least half of the required territory (3 of 6 states).
+			count_triggers = {
+				amount = 3
+				controls_state = 452
+				controls_state = 447
+				controls_state = 907
+				controls_state = 552
+				controls_state = 456
+				controls_state = 457
+			}
+		}
+
+		available = {
+			controls_state = 907
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_egypt_tt
+			hidden_effect = {
+				set_country_flag = iop_egypt_established
+				452 = { add_core_of = IEG }
+				447 = { add_core_of = IEG }
+				907 = { add_core_of = IEG }
+				552 = { add_core_of = IEG }
+				456 = { add_core_of = IEG }
+				457 = { add_core_of = IEG }
+				release_puppet = IEG
+				set_autonomy = {
+					target = IEG
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 452 }
+					IEG = { transfer_state = 452 }
+				}
+				if = {
+					limit = { controls_state = 447 }
+					IEG = { transfer_state = 447 }
+				}
+				if = {
+					limit = { controls_state = 907 }
+					IEG = { transfer_state = 907 }
+				}
+				if = {
+					limit = { controls_state = 552 }
+					IEG = { transfer_state = 552 }
+				}
+				if = {
+					limit = { controls_state = 456 }
+					IEG = { transfer_state = 456 }
+				}
+				if = {
+					limit = { controls_state = 457 }
+					IEG = { transfer_state = 457 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# GROUPED TRANSFER - hand all of Sudan straight to IEG.
+	# Needs IEG to exist and Italy to control at least one
+	# Sudanese state. No border checks, no event.
+	# ------------------------------------------------------------
+
+	# North Darfur (767) + Khartoum (551) + Kassala (883) + Blue Nile (886)
+	# + Kurdufan (549) + South Darfur (887) + Upper Nile (884)
+	# + Bahr al Ghazal (885) -> IEG
+	iop_give_sudan = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 767
+				state = 551
+				state = 883
+				state = 886
+				state = 549
+				state = 887
+				state = 884
+				state = 885
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			country_exists = IEG
+			OR = {
+				controls_state = 767
+				controls_state = 551
+				controls_state = 883
+				controls_state = 886
+				controls_state = 549
+				controls_state = 887
+				controls_state = 884
+				controls_state = 885
+			}
+		}
+		available = {
+			country_exists = IEG
+			OR = {
+				controls_state = 767
+				controls_state = 551
+				controls_state = 883
+				controls_state = 886
+				controls_state = 549
+				controls_state = 887
+				controls_state = 884
+				controls_state = 885
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			if = {
+				limit = { controls_state = 767 }
+				767 = { add_core_of = IEG }
+				IEG = { transfer_state = 767 }
+			}
+			if = {
+				limit = { controls_state = 551 }
+				551 = { add_core_of = IEG }
+				IEG = { transfer_state = 551 }
+			}
+			if = {
+				limit = { controls_state = 883 }
+				883 = { add_core_of = IEG }
+				IEG = { transfer_state = 883 }
+			}
+			if = {
+				limit = { controls_state = 886 }
+				886 = { add_core_of = IEG }
+				IEG = { transfer_state = 886 }
+			}
+			if = {
+				limit = { controls_state = 549 }
+				549 = { add_core_of = IEG }
+				IEG = { transfer_state = 549 }
+			}
+			if = {
+				limit = { controls_state = 887 }
+				887 = { add_core_of = IEG }
+				IEG = { transfer_state = 887 }
+			}
+			if = {
+				limit = { controls_state = 884 }
+				884 = { add_core_of = IEG }
+				IEG = { transfer_state = 884 }
+			}
+			if = {
+				limit = { controls_state = 885 }
+				885 = { add_core_of = IEG }
+				IEG = { transfer_state = 885 }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: FALL OF SUEZ CANAL (446)
+	# Give Suez to IEG OR integrate it into Italy proper (adds
+	# Italian core). Needs IEG to control a neighboring state.
+	# ------------------------------------------------------------
+
+	iop_fall_of_suez = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 446
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 446
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 446 = { is_core_of = ITA } }
+			country_exists = IEG
+		}
+		available = {
+			controls_state = 446
+			# Egypt must control a state neighboring Suez,
+			# otherwise the event would have no valid recipient.
+			446 = { any_neighbor_state = { is_controlled_by = IEG } }
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_egypt.446 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

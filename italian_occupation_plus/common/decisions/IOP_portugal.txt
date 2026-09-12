@@ -1,0 +1,285 @@
+# ============================================================
+# Italian Occupation Plus v0.0.19 - Portugal + Iberia
+# 1) Found IPG with the "Establish" decision (needs 112 Lisbon).
+# 2) "Fate of the Canary Islands" (178): ISP or Italy.
+# 3) "Fate of Azores and Madeira" (698 + 697): IPG, ISP or Italy.
+#    Islands: no border checks, each option only needs its
+#    recipient to exist.
+# 4) "Unite the Iberian Peninsula": visible once IPG has been
+#    founded and ISP exists. ISP annexes IPG and becomes the
+#    Governatorato di occupazione militare della penisola Iberica
+#    (cosmetic tag ISP_iberia).
+# ============================================================
+
+iop_occupation = {
+
+	# ------------------------------------------------------------
+	# FOUNDING DECISION
+	# ------------------------------------------------------------
+
+	iop_establish_portugal = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 180
+				state = 181
+				state = 112
+				state = 795
+				state = 179
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IPG }
+			NOT = { has_country_flag = iop_iberia_united }
+			# Only appears once Italy controls at least half of the required territory (3 of 5 states).
+			count_triggers = {
+				amount = 3
+				controls_state = 180
+				controls_state = 181
+				controls_state = 112
+				controls_state = 795
+				controls_state = 179
+			}
+		}
+
+		available = {
+			controls_state = 112
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			custom_effect_tooltip = iop_establish_portugal_tt
+			hidden_effect = {
+				set_country_flag = iop_portugal_established
+				180 = { add_core_of = IPG }
+				181 = { add_core_of = IPG }
+				112 = { add_core_of = IPG }
+				795 = { add_core_of = IPG }
+				179 = { add_core_of = IPG }
+				release_puppet = IPG
+				set_autonomy = {
+					target = IPG
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 180 }
+					IPG = { transfer_state = 180 }
+				}
+				if = {
+					limit = { controls_state = 181 }
+					IPG = { transfer_state = 181 }
+				}
+				if = {
+					limit = { controls_state = 112 }
+					IPG = { transfer_state = 112 }
+				}
+				if = {
+					limit = { controls_state = 795 }
+					IPG = { transfer_state = 795 }
+				}
+				if = {
+					limit = { controls_state = 179 }
+					IPG = { transfer_state = 179 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: ISLAS CANARIAS (178) - island: ISP or Italy.
+	# ------------------------------------------------------------
+
+	iop_decide_178_canarias = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 178
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 178
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 178 = { is_core_of = ITA } }
+			country_exists = ISP
+		}
+		available = {
+			controls_state = 178
+			country_exists = ISP
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_portugal.178 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# SPECIAL: AZORES (698) + MADEIRA (697) - islands: IPG, ISP or Italy.
+	# ------------------------------------------------------------
+
+	iop_decide_698_azores_madeira = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 698
+				state = 697
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			# At least one state must still be undecided (controlled but not an Italian core yet).
+			OR = {
+				AND = {
+					controls_state = 698
+					NOT = { 698 = { is_core_of = ITA } }
+				}
+				AND = {
+					controls_state = 697
+					NOT = { 697 = { is_core_of = ITA } }
+				}
+			}
+			OR = {
+				country_exists = IPG
+				country_exists = ISP
+			}
+		}
+		available = {
+			OR = {
+				controls_state = 698
+				controls_state = 697
+			}
+			OR = {
+				country_exists = IPG
+				country_exists = ISP
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_portugal.698 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# UNITE THE IBERIAN PENINSULA
+	# Visible once IPG has been founded and ISP exists.
+	# ISP annexes IPG and takes the Iberian cosmetic tag.
+	# ------------------------------------------------------------
+
+	iop_unite_iberia = {
+		icon = generic_form_nation
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 180
+				state = 181
+				state = 112
+				state = 795
+				state = 179
+				state = 171
+				state = 790
+				state = 174
+				state = 792
+				state = 172
+				state = 166
+				state = 794
+				state = 165
+				state = 791
+				state = 176
+				state = 788
+				state = 41
+				state = 793
+				state = 167
+				state = 170
+				state = 175
+				state = 168
+				state = 789
+				state = 169
+				state = 173
+				state = 118
+			}
+		}
+
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			has_country_flag = iop_portugal_established
+			country_exists = ISP
+			NOT = { has_country_flag = iop_iberia_united }
+		}
+		available = {
+			country_exists = ISP
+			country_exists = IPG
+			ISP = { is_subject_of = ROOT }
+			IPG = { is_subject_of = ROOT }
+		}
+		fire_only_once = yes
+		complete_effect = {
+			custom_effect_tooltip = iop_unite_iberia_tt
+			hidden_effect = {
+				set_country_flag = iop_iberia_united
+				180 = { add_core_of = ISP }
+				181 = { add_core_of = ISP }
+				112 = { add_core_of = ISP }
+				795 = { add_core_of = ISP }
+				179 = { add_core_of = ISP }
+				ISP = {
+					annex_country = { target = IPG transfer_troops = yes }
+					set_cosmetic_tag = ISP_iberia
+					set_country_flag = iop_iberia
+					# Roatta becomes Governor of Spain and Portugal
+					create_country_leader = {
+						name = "Mario Roatta"
+						desc = "PODCAT_MARIO_ROATTA_IBERIA_DESC"
+						picture = "ISP_Mario_Roatta.dds"
+						expire = "1965.1.1"
+						ideology = fascism_ideology
+						traits = { }
+					}
+					create_country_leader = {
+						name = "Mario Roatta"
+						desc = "PODCAT_MARIO_ROATTA_IBERIA_DESC"
+						picture = "ISP_Mario_Roatta.dds"
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = { }
+					}
+					create_country_leader = {
+						name = "Mario Roatta"
+						desc = "PODCAT_MARIO_ROATTA_IBERIA_DESC"
+						picture = "ISP_Mario_Roatta.dds"
+						expire = "1965.1.1"
+						ideology = liberalism
+						traits = { }
+					}
+					create_country_leader = {
+						name = "Mario Roatta"
+						desc = "PODCAT_MARIO_ROATTA_IBERIA_DESC"
+						picture = "ISP_Mario_Roatta.dds"
+						expire = "1965.1.1"
+						ideology = marxism
+						traits = { }
+					}
+				}
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

@@ -1,0 +1,105 @@
+# ============================================================
+# Italian Occupation Plus v0.0.15 - Turkey events
+# Fired by "Determine fate of ..." decisions. ROOT = Italy.
+# Edirne (341): Bulgaria / Greece / Annex to Italy.
+# Bursa (340) and Istanbul (797): Turkey / Annex to Italy.
+# ============================================================
+
+add_namespace = iop_turkey
+
+# ---------------- 341 - Edirne ----------------
+# Bulgaria (IBL) or Greece (IGR), must border - or annex to Italy.
+country_event = {
+	id = iop_turkey.341
+	title = iop_turkey_edirne_title
+	desc = iop_turkey_341_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_IBL
+		trigger = {
+			country_exists = IBL
+			341 = { any_neighbor_state = { is_owned_by = IBL } }
+		}
+		341 = { add_core_of = IBL }
+		IBL = { transfer_state = 341 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IGR
+		trigger = {
+			country_exists = IGR
+			341 = { any_neighbor_state = { is_owned_by = IGR } }
+		}
+		341 = { add_core_of = IGR }
+		IGR = { transfer_state = 341 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			341 = { add_core_of = ITA }
+			ITA = { transfer_state = 341 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 340 - Bursa (SPECIAL) ----------------
+# Give to Turkey OR annex to Italy (adds Italian core).
+country_event = {
+	id = iop_turkey.340
+	title = iop_turkey_bursa_title
+	desc = iop_turkey_340_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_bursa_to_ITR
+		trigger = {
+			country_exists = ITR
+			340 = { any_neighbor_state = { is_owned_by = ITR } }
+		}
+		340 = { add_core_of = ITR }
+		ITR = { transfer_state = 340 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			340 = { add_core_of = ITA }
+			ITA = { transfer_state = 340 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 797 - Istanbul (SPECIAL) ----------------
+# Give to Turkey OR annex to Italy (adds Italian core).
+country_event = {
+	id = iop_turkey.797
+	title = iop_turkey_istanbul_title
+	desc = iop_turkey_797_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_istanbul_to_ITR
+		trigger = {
+			country_exists = ITR
+			797 = { any_neighbor_state = { is_owned_by = ITR } }
+		}
+		797 = { add_core_of = ITR }
+		ITR = { transfer_state = 797 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			797 = { add_core_of = ITA }
+			ITA = { transfer_state = 797 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}

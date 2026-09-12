@@ -1,0 +1,36 @@
+# ============================================================
+# Italian Occupation Plus v0.0.16 - North Africa events
+# Fired by the Sidi Ifni decision. ROOT = Italy.
+# Sidi Ifni (783): North Africa / Integrate into Italy.
+# (All other North African transfers are direct decisions.)
+# ============================================================
+
+add_namespace = iop_africa
+
+# ---------------- 783 - Sidi Ifni (SPECIAL) ----------------
+# Give to INA OR integrate into Italy proper (adds Italian core).
+country_event = {
+	id = iop_africa.783
+	title = iop_africa_ifni_title
+	desc = iop_africa_783_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_ifni_to_INA
+		trigger = {
+			country_exists = INA
+		}
+		783 = { add_core_of = INA }
+		INA = { transfer_state = 783 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			783 = { add_core_of = ITA }
+			ITA = { transfer_state = 783 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}

@@ -1,0 +1,43 @@
+# ============================================================
+# Italian Occupation Plus v0.0.24 - Iraq/Arabia events. ROOT = Italy.
+# ============================================================
+
+add_namespace = iop_arabia
+
+# ---------------- 656 - Kuwait: IIQ / IAR / Italy ----------------
+country_event = {
+	id = iop_arabia.656
+	title = iop_arabia_kuwait_title
+	desc = iop_arabia_656_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_kuwait_to_IIQ
+		trigger = {
+			country_exists = IIQ
+			656 = { any_neighbor_state = { is_owned_by = IIQ } }
+		}
+		656 = { add_core_of = IIQ }
+		IIQ = { transfer_state = 656 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_kuwait_to_IAR
+		trigger = {
+			country_exists = IAR
+			656 = { any_neighbor_state = { is_owned_by = IAR } }
+		}
+		656 = { add_core_of = IAR }
+		IAR = { transfer_state = 656 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			656 = { add_core_of = ITA }
+			ITA = { transfer_state = 656 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}

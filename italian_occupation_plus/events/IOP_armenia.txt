@@ -1,0 +1,56 @@
+# ============================================================
+# Italian Occupation Plus v0.0.25 - Armenia events. ROOT = Italy.
+# ============================================================
+
+add_namespace = iop_armenia
+
+# ---------------- 354 + 800 - Trabzon + Van: ITR / IAM ----------------
+country_event = {
+	id = iop_armenia.354
+	title = iop_armenia_trabzon_van_title
+	desc = iop_armenia_354_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_trabzon_van_to_ITR
+		trigger = {
+			country_exists = ITR
+			OR = {
+				354 = { any_neighbor_state = { is_owned_by = ITR } }
+				800 = { any_neighbor_state = { is_owned_by = ITR } }
+			}
+		}
+		if = {
+			limit = { controls_state = 354 }
+			354 = { add_core_of = ITR }
+			ITR = { transfer_state = 354 }
+		}
+		if = {
+			limit = { controls_state = 800 }
+			800 = { add_core_of = ITR }
+			ITR = { transfer_state = 800 }
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_trabzon_van_to_IAM
+		trigger = {
+			country_exists = IAM
+			OR = {
+				354 = { any_neighbor_state = { is_owned_by = IAM } }
+				800 = { any_neighbor_state = { is_owned_by = IAM } }
+			}
+		}
+		if = {
+			limit = { controls_state = 354 }
+			354 = { add_core_of = IAM }
+			IAM = { transfer_state = 354 }
+		}
+		if = {
+			limit = { controls_state = 800 }
+			800 = { add_core_of = IAM }
+			IAM = { transfer_state = 800 }
+		}
+		ai_chance = { factor = 0 }
+	}
+}

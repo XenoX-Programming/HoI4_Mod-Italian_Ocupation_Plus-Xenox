@@ -1,0 +1,132 @@
+# ============================================================
+# Italian Occupation Plus v0.0.20 - Occitania events. ROOT = Italy.
+# ============================================================
+
+add_namespace = iop_occitania
+
+# ---------------- 32 + 21 - Provence: IOC / Italy ----------------
+country_event = {
+	id = iop_occitania.32
+	title = iop_occitania_provence_title
+	desc = iop_occitania_32_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_provence_to_IOC
+		trigger = {
+			country_exists = IOC
+			OR = {
+				32 = { any_neighbor_state = { is_owned_by = IOC } }
+				21 = { any_neighbor_state = { is_owned_by = IOC } }
+			}
+		}
+		if = {
+			limit = { controls_state = 32 }
+			32 = { add_core_of = IOC }
+			IOC = { transfer_state = 32 }
+		}
+		if = {
+			limit = { controls_state = 21 }
+			21 = { add_core_of = IOC }
+			IOC = { transfer_state = 21 }
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			if = {
+				limit = { controls_state = 32 }
+				32 = { add_core_of = ITA }
+				ITA = { transfer_state = 32 }
+			}
+			if = {
+				limit = { controls_state = 21 }
+				21 = { add_core_of = ITA }
+				ITA = { transfer_state = 21 }
+			}
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 735 + 851 - Savoy + Var: IOC / Italy ----------------
+country_event = {
+	id = iop_occitania.735
+	title = iop_occitania_savoy_var_title
+	desc = iop_occitania_735_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_savoy_var_to_IOC
+		trigger = {
+			country_exists = IOC
+			OR = {
+				735 = { any_neighbor_state = { is_owned_by = IOC } }
+				851 = { any_neighbor_state = { is_owned_by = IOC } }
+			}
+		}
+		if = {
+			limit = { controls_state = 735 }
+			735 = { add_core_of = IOC }
+			IOC = { transfer_state = 735 }
+		}
+		if = {
+			limit = { controls_state = 851 }
+			851 = { add_core_of = IOC }
+			IOC = { transfer_state = 851 }
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			if = {
+				limit = { controls_state = 735 }
+				735 = { add_core_of = ITA }
+				ITA = { transfer_state = 735 }
+			}
+			if = {
+				limit = { controls_state = 851 }
+				851 = { add_core_of = ITA }
+				ITA = { transfer_state = 851 }
+			}
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 1 - Corsica (island): IOC / Italy ----------------
+country_event = {
+	id = iop_occitania.1
+	title = iop_occitania_corsica_title
+	desc = iop_occitania_1_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_corsica_to_IOC
+		trigger = {
+			country_exists = IOC
+		}
+		if = {
+			limit = { controls_state = 1 }
+			1 = { add_core_of = IOC }
+			IOC = { transfer_state = 1 }
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			if = {
+				limit = { controls_state = 1 }
+				1 = { add_core_of = ITA }
+				ITA = { transfer_state = 1 }
+			}
+		}
+		ai_chance = { factor = 100 }
+	}
+}
