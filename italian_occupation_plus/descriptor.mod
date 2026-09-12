@@ -1,8 +1,8 @@
-version="0.0.13"
+version="0.0.14"
 tags={
 	"Gameplay"
-	"Map"
-	"National Focuses"
+	"Events"
+	"Alternative History"
 }
 name="Italian Occupation Plus"
 supported_version="1.19.2"

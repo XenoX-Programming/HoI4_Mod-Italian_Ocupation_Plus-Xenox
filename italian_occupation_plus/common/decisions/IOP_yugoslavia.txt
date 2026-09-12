@@ -1,12 +1,17 @@
 # ============================================================
-# Italian Occupation Plus v0.1 - Yugoslavia
+# Italian Occupation Plus v0.0.14 - Yugoslavia + Albania + Bulgaria
 # Works like Reichskommissariats Plus, but for Italy:
 # 1) As Italy, occupy Yugoslav land.
 # 2) Found ICR / ISE / IMT with the "Establish" decisions.
-#    Founding requires controlling the capital state only.
+#    They only show up once Italy controls at least 50% of the
+#    puppet's required states (count_triggers); firing them still
+#    requires controlling the capital state.
 #    Any other initial states you control transfer automatically.
+#    The "Determine fate of ..." decisions are fire_only_once, so a
+#    state can never be assigned twice.
 # 3) Use "Determine fate of ..." decisions to assign further
-#    states via event (choose Croatia / Serbia / Montenegro).
+#    states via event (choose Croatia / Serbia / Montenegro /
+#    Albania / Bulgaria - only bordering recipients are offered).
 # 4) Zara (163) and Istria (852) are special: give to Croatia
 #    OR annex to Italy (adds Italian core).
 # ============================================================
@@ -37,6 +42,15 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ICR }
+			# Only shows up in the decision tab once at least half of the
+			# required states are under Italian control (2 of 4).
+			count_triggers = {
+				amount = 2
+				controls_state = 103
+				controls_state = 109
+				controls_state = 104
+				controls_state = 804
+			}
 		}
 
 		available = {
@@ -99,6 +113,13 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ISE }
+			# Only shows up in the decision tab once at least half of the
+			# required states are under Italian control (1 of 2).
+			count_triggers = {
+				amount = 1
+				controls_state = 107
+				controls_state = 108
+			}
 		}
 
 		available = {
@@ -151,6 +172,13 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IAL }
+			# Only shows up in the decision tab once at least half of the
+			# required states are under Italian control (1 of 2).
+			count_triggers = {
+				amount = 1
+				controls_state = 44
+				controls_state = 934
+			}
 		}
 
 		available = {
@@ -204,6 +232,15 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IBL }
+			# Only shows up in the decision tab once at least half of the
+			# required states are under Italian control (2 of 4).
+			count_triggers = {
+				amount = 2
+				controls_state = 48
+				controls_state = 801
+				controls_state = 212
+				controls_state = 211
+			}
 		}
 
 		available = {
@@ -277,8 +314,7 @@ iop_occupation = {
 			}
 		}
 
-		fire_only_once = no
-		days_re_enable = 3
+		fire_only_once = yes
 
 		complete_effect = {
 			country_event = { id = iop_yugo.1000 }
@@ -291,7 +327,8 @@ iop_occupation = {
 
 	# ------------------------------------------------------------
 	# DISTRIBUTION DECISIONS - each fires an event where you pick
-	# the recipient (Croatia / Serbia / Montenegro / Keep).
+	# the recipient (Croatia / Serbia / Montenegro / Albania / Bulgaria).
+	# Every occupation government that borders the state is offered.
 	# Visible only while Italy controls the state and at least
 	# one occupation government exists.
 	# ------------------------------------------------------------
@@ -314,6 +351,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -326,7 +364,10 @@ iop_occupation = {
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.102 }
 		}
@@ -351,6 +392,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -363,7 +405,10 @@ iop_occupation = {
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.853 }
 		}
@@ -388,6 +433,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -401,11 +447,15 @@ iop_occupation = {
 						is_owned_by = ISE
 						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.103 }
 		}
@@ -431,6 +481,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -444,11 +495,15 @@ iop_occupation = {
 						is_owned_by = ISE
 						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.109 }
 		}
@@ -473,6 +528,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -486,11 +542,15 @@ iop_occupation = {
 						is_owned_by = ISE
 						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.104 }
 		}
@@ -515,6 +575,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -528,11 +589,15 @@ iop_occupation = {
 						is_owned_by = ISE
 						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.804 }
 		}
@@ -558,6 +623,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -571,11 +637,15 @@ iop_occupation = {
 						is_owned_by = ISE
 						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.105 }
 		}
@@ -601,6 +671,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -614,11 +685,15 @@ iop_occupation = {
 						is_owned_by = ISE
 						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.107 }
 		}
@@ -645,6 +720,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -660,7 +736,10 @@ iop_occupation = {
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.45 }
 		}
@@ -685,6 +764,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -700,7 +780,10 @@ iop_occupation = {
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.764 }
 		}
@@ -725,6 +808,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -738,11 +822,15 @@ iop_occupation = {
 						is_owned_by = ISE
 						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.802 }
 		}
@@ -783,7 +871,10 @@ iop_occupation = {
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.803 }
 		}
@@ -824,7 +915,10 @@ iop_occupation = {
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.106 }
 		}
@@ -849,6 +943,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -862,11 +957,15 @@ iop_occupation = {
 						is_owned_by = ISE
 						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.970 }
 		}
@@ -892,6 +991,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -905,11 +1005,15 @@ iop_occupation = {
 						is_owned_by = ISE
 						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.44 }
 		}
@@ -933,6 +1037,7 @@ iop_occupation = {
 				has_country_flag = iop_serbia_established
 				has_country_flag = iop_montenegro_established
 				has_country_flag = iop_albania_established
+				has_country_flag = iop_bulgaria_established
 			}
 		}
 		available = {
@@ -946,11 +1051,15 @@ iop_occupation = {
 						is_owned_by = ISE
 						is_owned_by = IMT
 						is_owned_by = IAL
+						is_owned_by = IBL
 					}
 				}
 			}
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.805 }
 		}
@@ -983,7 +1092,10 @@ iop_occupation = {
 			# Croatia must border the state (for ceding or annexing).
 			163 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.163 }
 		}
@@ -1010,7 +1122,10 @@ iop_occupation = {
 			# Croatia must border the state (for ceding or annexing).
 			852 = { any_neighbor_state = { is_owned_by = ICR } }
 		}
-		days_re_enable = 3
+		# One-shot: once a state has been assigned it must not come back
+		# (by default a taken decision reappears the very next day).
+		fire_only_once = yes
+
 		complete_effect = {
 			country_event = { id = iop_yugo.852 }
 		}

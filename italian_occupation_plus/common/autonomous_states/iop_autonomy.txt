@@ -5,6 +5,16 @@
 # civilian AND military industry to the overlord are both 100%.
 # Only available to subjects of Italy (see allowed block).
 # Assigned automatically by the founding decisions via set_autonomy.
+#
+# Vanilla min_freedom_level values (verified against 1.19):
+#   collaboration_government 0.0 | reichskommissariat 0.2 | integrated_puppet 0.2
+#   puppet 0.4 | reichsprotectorate 0.5 | colony 0.6 | supervised_state 0.75
+#   satellite 0.8 | dominion 0.8
+# So 0.1 is unique (the game mis-orders levels that share a value) and
+# places Military Occupation directly below Integrated Puppet / RK.
+#
+# No `default = yes`: this level must never be offered automatically in
+# peace conferences - it is granted only by the founding decisions.
 # ============================================================
 
 autonomy_state = {
@@ -13,14 +23,18 @@ autonomy_state = {
 	is_puppet = yes
 	use_overlord_color = no
 
-	# Annexed = 0.0, Integrated Puppet = 0.2, Reichskommissariat > 0.2.
-	# 0.1 puts Military Occupation between annexation and RK.
+	# Annexed / collaboration government = 0.0, Integrated Puppet = 0.2.
+	# 0.1 puts Military Occupation between annexation and the puppet levels.
 	# (Never reuse a min_freedom_level used by another state.)
 	min_freedom_level = 0.1
 
 	manpower_influence = 0.5
 
 	rule = {
+		# Vanilla autonomy levels carry this so the subject rules section of
+		# the diplomacy screen gets its header. Without it the header is blank.
+		desc = "RULE_DESC_IS_A_SUBJECT"
+
 		can_not_declare_war = yes
 		can_decline_call_to_war = no
 		units_deployed_to_overlord = yes
@@ -37,14 +51,29 @@ autonomy_state = {
 		cic_to_overlord_factor = 1.0
 		mic_to_overlord_factor = 1.0
 		research_sharing_per_country_bonus_factor = -0.5
+		# Occupation governments must not slowly earn their way up the autonomy
+		# ladder. Vanilla Reichskommissariat uses -0.3; without it the subject
+		# accrues autonomy points at the normal rate and (given a long war)
+		# climbs out of Military Occupation towards RK / puppet / independence.
+		autonomy_gain_global_factor = -0.3
 	}
 
+	# Both AI factors at 0.0 (as in vanilla collaboration_government) so the
+	# puppet AI never spends its autonomy points and the Italian AI never
+	# tries to lower the level. A human player can still change it manually.
+	# If you want the level hard-locked against the player too, uncomment:
+	#   allowed_levels_filter = { autonomy_military_occupation }
 	ai_subject_wants_higher = {
-		factor = 1.0
+		factor = 0.0
 	}
 
 	ai_overlord_wants_lower = {
-		factor = 1.0
+		factor = 0.0
+	}
+
+	# Keep the Italian AI garrisoning its occupation governments, like vanilla RK.
+	ai_overlord_wants_garrison = {
+		always = yes
 	}
 
 	# Only Italy's subjects can hold this level, so it never shows up

@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.13 (Yugoslavia + Albania + Bulgaria)
+# Italian Occupation Plus — v0.0.14 (Yugoslavia + Albania + Bulgaria)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -6,7 +6,7 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 
 > **Version scheme:** `0.0.x` — future updates increment only the last number (0.0.4, 0.0.5, …).
 
-## What's in v0.0.3
+## What's in v0.0.14
 
 ### 5 new puppet nations
 
@@ -38,23 +38,28 @@ Between **annexation** and **Reichskommissariat** on the freedom scale (`min_fre
 | Manpower to overlord | 100% |
 | Trade to overlord / overlord trade cost | 100% / −90% |
 | Overlord can build in subject | Yes |
+| Autonomy gain | −30% |
 | Subject rules | Cannot declare war, cannot decline call to war, deployed units go to overlord, no spymaster/operatives/collab governments |
 
 - Assigned **automatically** when a puppet is founded (`set_autonomy` in the founding decision).
 - Restricted to **Italian subjects only** (`allowed` block), so it never pollutes other nations' UI, peace deals, or subject interactions.
 - Has its own 35×35 icon (`gfx/interface/autonomy/` + `interface/iop_autonomy.gfx`).
+- **Does not drift.** `ai_subject_wants_higher` and `ai_overlord_wants_lower` are both `0.0` (as in vanilla *Collaboration Government*) and autonomy gain is −30%, so an occupation government stays at this level for the whole war instead of slowly climbing to Reichskommissariat / puppet / independence. `ai_overlord_wants_garrison = { always = yes }` keeps the Italian AI garrisoning them. A human player can still change the level manually — to hard-lock it against the player too, uncomment `allowed_levels_filter` in `iop_autonomy.txt`.
+- Not a peace-conference default (no `default = yes`), so it is never offered to other nations.
 
 ### 23 decisions — all free, all with map highlighting
 
 Own tab: **"Italian Occupation"**. Hovering any decision outlines the state(s) it needs/changes.
 
 **Founding (one per puppet, repeatable if the puppet is destroyed):**
-- Establish Military Occupation of Croatia — requires control of **Croatia (109)**, highlights all 4 initial states
-- Establish Military Occupation of Serbia — requires control of **Serbia (107)**, highlights both initial states
-- Establish Military Occupation of Albania — requires control of **Albania (44)**, highlights Albania and Shkoder (Northern Epirus stays Italian until you assign it via its fate decision)
-- Establish Military Occupation of Bulgaria — requires control of **Sofia (48)**, highlights all 4 initial states
+- Establish Military Occupation of Croatia — appears at **2 of 4** states, enacted by control of **Croatia (109)**, highlights all 4 initial states
+- Establish Military Occupation of Serbia — appears at **1 of 2** states, enacted by **Serbia (107)**, highlights both initial states
+- Establish Military Occupation of Albania — appears at **1 of 2** states, enacted by **Albania (44)**, highlights Albania and Shkoder (Northern Epirus stays Italian until you assign it via its fate decision)
+- Establish Military Occupation of Bulgaria — appears at **2 of 4** states, enacted by **Sofia (48)**, highlights all 4 initial states
 
-Founding only needs the **capital state**. Any other initial states you control transfer automatically.
+**50% rule:** a founding decision only *appears in the decision tab* once Italy controls at least half of that puppet's required states (`count_triggers = { amount = … }`), then sits greyed until you also hold the **capital state**, which is what actually enacts it. The required-state list in the gate is the same list the decision highlights on the map, so hovering it shows exactly what you are counting towards. Founding stays **repeatable** — if a puppet is later destroyed, its decision comes back.
+
+Any other initial states you control transfer automatically.
 
 **Fall of Montenegro (special):** Montenegro is no longer founded directly. The **"Fall of Montenegro"** decision (requires control of **105** plus at least one of ICR / ISE / IAL already existing) fires an event with 4 options: **Integrate into Croatia / Serbia / Albania** (each must border Montenegro; transfers + cores the state) or **Create a new occupational government** (releases IMT as before).
 
@@ -64,24 +69,24 @@ Founding only needs the **capital state**. Any other initial states you control 
 |----------|-------|-----------|
 | 102 | North Slovenia | any bordering puppet (decision needs ICR border) |
 | 853 | Ljubljana | any bordering puppet (decision needs ICR border) |
-| 103 | Dalmatia | bordering puppets only |
-| 109 | Croatia | bordering puppets only |
-| 104 | Bosnia | bordering puppets only |
-| 804 | Herzegovina | bordering puppets only |
-| 105 | Montenegro | bordering puppets only |
-| 107 | Serbia | bordering puppets only |
+| 103 | Dalmatia | any bordering puppet (incl. Bulgaria) |
+| 109 | Croatia | any bordering puppet (incl. Bulgaria) |
+| 104 | Bosnia | any bordering puppet (incl. Bulgaria) |
+| 804 | Herzegovina | any bordering puppet (incl. Bulgaria) |
+| 105 | Montenegro | any bordering puppet (incl. Bulgaria) |
+| 107 | Serbia | any bordering puppet (incl. Bulgaria) |
 | 45 | Vojvodina (Backa) | ICR or ISE only (must border) |
 | 764 | West Banat | ICR or ISE only (must border) |
-| 802 | Kosovo | bordering puppets only |
+| 802 | Kosovo | any bordering puppet (incl. Bulgaria) |
 | 803 | Southern Serbia | any bordering puppet (decision needs ISE or IBL border) |
 | 106 | Macedonia | any bordering puppet (decision needs ISE or IBL border) |
-| 970 | Debar | bordering puppets only |
-| 44 | Albania (capital — reassignable only after IAL exists) | bordering puppets only |
-| 805 | Northern Epirus | bordering puppets only |
+| 970 | Debar | any bordering puppet (incl. Bulgaria) |
+| 44 | Albania (capital — reassignable only after IAL exists) | any bordering puppet (incl. Bulgaria) |
+| 805 | Northern Epirus | any bordering puppet (incl. Bulgaria) |
 | **163** | **Zara (special)** | **Decision needs ICR border; then Croatia OR annex to Italy** |
 | **852** | **Istria (special)** | **Decision needs ICR border; then Croatia OR annex to Italy** |
 
-Only **Zara and Istria** keep an annex-to-Italy option (core gain is intentionally not shown) — all other transfers must go to a bordering puppet. Bačka (45) and West Banat (764) can only go to Croatia or Serbia. Zara and Istria decisions need Croatia to border the state. North Slovenia (102) and Ljubljana (853) decisions need Croatia to border, but any bordering puppet can receive. Southern Serbia (803) and Macedonia (106) decisions need Serbia or Bulgaria to border, but any bordering puppet (including Bulgaria) can receive. A distribution decision stays unavailable (greyed) until at least one puppet borders its state, so the event can never fire without a valid recipient. Capital states (Croatia 109, Serbia 107, Montenegro 105, Albania 44) have no redistribution decision at all while their puppet can still be created — found (or settle) the puppet first.
+Only **Zara and Istria** keep an annex-to-Italy option (core gain is intentionally not shown) — all other transfers must go to a bordering puppet. Bačka (45) and West Banat (764) can only go to Croatia or Serbia. Zara and Istria decisions need Croatia to border the state. North Slovenia (102) and Ljubljana (853) decisions need Croatia to border, but any bordering puppet can receive. Southern Serbia (803) and Macedonia (106) decisions need Serbia or Bulgaria to border, but any bordering puppet (including Bulgaria) can receive. **Bulgaria is a full recipient:** IBL is offered in all 14 generic fate events and counted by the border/visibility checks of the matching decisions, so Debar (970) and Kosovo (802) can no longer dead-end once Bulgaria holds Macedonia or Southern Serbia. It is still excluded from the four intentionally restricted decisions — Bačka (45) and West Banat (764) go to Croatia or Serbia only, Zara (163) and Istria (852) are Croatia-or-annex — and from *Fall of Montenegro*, where 105 may only be integrated into Croatia, Serbia or Albania (the later *Determine Fate of Montenegro* decision does offer Bulgaria, if it borders). A distribution decision stays unavailable (greyed) until at least one puppet borders its state, so the event can never fire without a valid recipient. Every *Determine Fate of …* decision — and *Fall of Montenegro* — is `fire_only_once = yes`, so **a state's fate is decided exactly once**. (Before this, taking the Zara/Istria *annex to Italy* option left Italy in control of the state, so the decision reappeared three days later and could be fired forever.) Capital states (Croatia 109, Serbia 107, Montenegro 105, Albania 44) have no redistribution decision at all while their puppet can still be created — found (or settle) the puppet first.
 
 ## Installation
 
@@ -111,6 +116,19 @@ Only **Zara and Istria** keep an annex-to-Italy option (core gain is intentional
 - Localisation files are UTF-8 **with BOM** (required by HOI4).
 - Flags are placeholders: local colors + Italian tricolor canton, in all 3 sizes × 5 ideologies.
 
+## Validation before release
+
+`tools/validate_mod.py` (repo root, run with Python 3) statically checks everything that otherwise only shows up in `error.log` — or not at all:
+
+```bash
+python3 tools/validate_mod.py            # 0 errors / 0 warnings expected
+python3 tools/validate_mod.py --strict   # treat warnings as failures (for CI)
+```
+
+It verifies: the two descriptors agree on `version` / `name` / `supported_version` / `tags` and that `path=` exists **only** in the outer `.mod`; brace balance, LF endings and tab indentation in every script file; UTF‑8 BOM and `l_english:` header on every loc file, with no duplicate key carrying different text; every event fired by a decision exists and no event is orphaned; every decision has `icon` / `allowed` / `visible` / `available` / `complete_effect` / `ai_will_do`; every referenced and every engine-implicit loc key is defined; **no softlock** — any tag that can satisfy a decision's border gate is also offered by its event; all five tags resolve to a `common/countries/` file and a `history/countries/` file; leader portraits exist in `gfx/leaders/<TAG>/` and are named `<TAG>_*`; every sprite's `texturefile` exists; TGA/DDS assets are valid (DXT5); `min_freedom_level` doesn't collide with a vanilla autonomy level; state IDs are within the verified 1.19 set; and the two progression rules hold — every founding decision's `count_triggers` gate lists exactly its highlighted required states with `amount` = 50% (rounded up) and founding stays repeatable, while every integration decision is `fire_only_once = yes` with no leftover `days_re_enable`.
+
+Run it after any edit — it is what caught the missing Bulgaria event options, the two same-line `}` + `option = {` formatting glitches and the dead `tech_support` grant.
+
 ## File map
 
 ```
@@ -135,7 +153,8 @@ italian_occupation_plus/
 ├── interface/iop_autonomy.gfx               # autonomy icon sprite
 ├── interface/iop_decisions.gfx               # category icon sprite
 ├── gfx/
-│   ├── flags/ (+ medium/, small/)           # 60 placeholder .tga flags (12 per tag: 4 ideologies x 3 sizes)
+│   ├── flags/ (+ medium/, small/)           # 72 placeholder .tga flags (ICR/ISE/IMT/IAL: base + 4 ideologies;
+│   │                                        #  IBL: 4 ideologies - fascist puppets need no base flag) x 3 sizes
 │   └── interface/autonomy/                  # Military Occupation .dds icon
 └── localisation/english/IOP_*_l_english.yml # countries / decisions / events / autonomy (BOM!)
 ```
@@ -165,6 +184,7 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 
 ## Changelog
 
+- **0.0.14** — **Founding decisions now appear only at 50% control:** each *Establish Military Occupation* decision gained a `count_triggers` gate in `visible` over exactly the states it highlights — Croatia 2 of 4 (103/109/104/804), Bulgaria 2 of 4 (48/801/212/211), Serbia 1 of 2 (107/108), Albania 1 of 2 (44/934) — so the tab no longer lists governments you cannot yet build; the capital-state requirement to *enact* is unchanged, and founding stays repeatable if a puppet is destroyed. **Integration decisions are now one-shot:** all 18 *Determine Fate of …* decisions plus *Fall of Montenegro* use `fire_only_once = yes` (and dropped the now-meaningless `days_re_enable = 3`), which fixes them reappearing after being taken — most visibly Zara/Istria, where *annex to Italy* left Italy in control and re-offered the decision every 3 days. Loc updated for all 24 affected decision descs and the category blurb. Bulgaria promoted to a full recipient: added the IBL option to all 12 generic fate events that were missing it (102, 853, 103, 109, 104, 804, 105, 107, 802, 970, 44, 805) and added IBL to the border checks of those decisions, plus `iop_bulgaria_established` to all 14 visibility lists that lacked it — Debar and Kosovo can no longer dead-end when only Bulgaria holds the neighbouring states. Restricted decisions are unchanged by design (Bačka 45 / West Banat 764 → Croatia or Serbia; Zara 163 / Istria 852 → Croatia or annex; *Fall of Montenegro* → Croatia, Serbia or Albania). Autonomy level hardened against drift: `autonomy_gain_global_factor = -0.3`, `ai_subject_wants_higher` and `ai_overlord_wants_lower` set to 0.0, `ai_overlord_wants_garrison = { always = yes }`, and the missing `desc = "RULE_DESC_IS_A_SUBJECT"` header added to the rule block. Dead code removed: `tech_support` (the garrison template has no support companies) and the five never-read per-region country flags (`iop_puppet` is kept and documented as the marker for IOP subjects). Cosmetic: two same-line `}` + `option = {` glitches and four stray blank lines fixed in the events file; `iop_decide_105` renamed from "Reassign Montenegro" to "Determine Fate of Montenegro"; corrected the stale comment claiming Reichskommissariat sits above 0.2 (it is exactly 0.2, same as Integrated Puppet — 0.1 remains unique). Metadata: Workshop tags are now Gameplay / Events / Alternative History (the mod changes no map and adds no focus tree); version bumped in both descriptors; README resynced (stale "What's in v0.0.3" heading, wrong flag count, missing Bulgaria rules). New: `tools/validate_mod.py` static checker.
 - **0.0.13** — New 5th puppet: IBL (Governatorato di occupazione militare della Bulgaria), founded from Sofia with Moesia/Plovdiv/Burgas, led by Attilio Biseo (Governor of Bulgaria, your portrait); Southern Serbia and Macedonia decisions now need Serbia or Bulgaria to border, and Bulgaria can receive them; Serbia gets your Tito Agosti portrait (Governor of Serbia).
 - **0.0.12** — Zara/Istria decisions now require Croatia to border the state (for ceding and annexing alike); North Slovenia/Ljubljana decisions need a Croatian border too, though any bordering puppet can still receive them; IAL gets your Alfredo Guzzoni portrait (Governor of Albania).
 - **0.0.11** — IMT renamed to Governatorato del Montenegro, with your custom Pirzio Biroli portrait (Governor of Montenegro); Bastianini is now Governor of Croatia; removed the Morava and Shkoder fate decisions (plus their now-dead events); Albania founding no longer takes Northern Epirus — assign it later via its fate decision; Bačka and West Banat can only go to Croatia or Serbia; Zara/Istria verified Croatia-or-annex only (no change needed).
