@@ -25,9 +25,6 @@ iop_occupation = {
 		highlight_states = {
 			highlight_state_targets = {
 				state = 49
-				state = 347
-				state = 339
-				state = 342
 				state = 343
 				state = 356
 				state = 355
@@ -50,13 +47,10 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ITR }
-			# Only appears once Italy controls at least half of the required territory (8 of 16 states).
+			# Only appears once Italy controls at least half of the required territory (7 of 13 states).
 			count_triggers = {
-				amount = 8
+				amount = 7
 				controls_state = 49
-				controls_state = 347
-				controls_state = 339
-				controls_state = 342
 				controls_state = 343
 				controls_state = 356
 				controls_state = 355
@@ -79,13 +73,16 @@ iop_occupation = {
 		fire_only_once = no
 
 		complete_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_idea = iop_occupation_directorate } }
+					add_ideas = iop_occupation_directorate
+				}
+			}
 			custom_effect_tooltip = iop_establish_turkey_tt
 			hidden_effect = {
 				set_country_flag = iop_turkey_established
 				49 = { add_core_of = ITR }
-				347 = { add_core_of = ITR }
-				339 = { add_core_of = ITR }
-				342 = { add_core_of = ITR }
 				343 = { add_core_of = ITR }
 				356 = { add_core_of = ITR }
 				355 = { add_core_of = ITR }
@@ -108,16 +105,10 @@ iop_occupation = {
 					ITR = { transfer_state = 49 }
 				}
 				if = {
-					limit = { controls_state = 347 }
-					ITR = { transfer_state = 347 }
 				}
 				if = {
-					limit = { controls_state = 339 }
-					ITR = { transfer_state = 339 }
 				}
 				if = {
-					limit = { controls_state = 342 }
-					ITR = { transfer_state = 342 }
 				}
 				if = {
 					limit = { controls_state = 343 }
@@ -243,12 +234,15 @@ iop_occupation = {
 			# Hide once integrated into Italy (the annex option adds an Italian core).
 			NOT = { 340 = { is_core_of = ITA } }
 			has_country_flag = iop_turkey_established
-			country_exists = ITR
+			OR = {
+				country_exists = ITR
+				country_exists = IGR
+			}
 		}
 		available = {
 			controls_state = 340
-			# Turkey must border the state (for ceding or annexing).
-			340 = { any_neighbor_state = { is_owned_by = ITR } }
+			# Turkey or Greece must border the state (for ceding or annexing).
+			340 = { any_neighbor_state = { OR = { is_owned_by = ITR is_owned_by = IGR } } }
 		}
 		days_re_enable = 3
 		complete_effect = {
@@ -272,17 +266,81 @@ iop_occupation = {
 			# Hide once integrated into Italy (the annex option adds an Italian core).
 			NOT = { 797 = { is_core_of = ITA } }
 			has_country_flag = iop_turkey_established
-			country_exists = ITR
+			OR = {
+				country_exists = ITR
+				country_exists = IGR
+			}
 		}
 		available = {
 			controls_state = 797
-			# Turkey must border the state (for ceding or annexing).
-			797 = { any_neighbor_state = { is_owned_by = ITR } }
+			# Turkey or Greece must border the state (for ceding or annexing).
+			797 = { any_neighbor_state = { OR = { is_owned_by = ITR is_owned_by = IGR } } }
 		}
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_turkey.797 }
 		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# v0.0.31 - Izmit / Izmir / Antalya fates (+ Greece options)
+	# ------------------------------------------------------------
+
+	iop_decide_347_izmit = {
+		icon = generic_decision
+		highlight_states = { highlight_state_targets = { state = 347 } }
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 347
+			NOT = { 347 = { is_core_of = ITA } }
+			OR = { country_exists = ITR country_exists = IGR }
+		}
+		available = {
+			controls_state = 347
+			347 = { any_neighbor_state = { OR = { is_owned_by = ITR is_owned_by = IGR } } }
+		}
+		days_re_enable = 3
+		complete_effect = { country_event = { id = iop_turkey.347 } }
+		ai_will_do = { factor = 0 }
+	}
+
+	iop_decide_339_izmir = {
+		icon = generic_decision
+		highlight_states = { highlight_state_targets = { state = 339 } }
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 339
+			NOT = { 339 = { is_core_of = ITA } }
+			OR = { country_exists = ITR country_exists = IGR }
+		}
+		available = {
+			controls_state = 339
+			339 = { any_neighbor_state = { OR = { is_owned_by = ITR is_owned_by = IGR } } }
+		}
+		days_re_enable = 3
+		complete_effect = { country_event = { id = iop_turkey.339 } }
+		ai_will_do = { factor = 0 }
+	}
+
+	iop_decide_342_antalya = {
+		icon = generic_decision
+		highlight_states = { highlight_state_targets = { state = 342 } }
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 342
+			NOT = { 342 = { is_core_of = ITA } }
+			OR = { country_exists = ITR country_exists = IGR }
+		}
+		available = {
+			controls_state = 342
+			342 = { any_neighbor_state = { OR = { is_owned_by = ITR is_owned_by = IGR } } }
+		}
+		days_re_enable = 3
+		complete_effect = { country_event = { id = iop_turkey.342 } }
 		ai_will_do = { factor = 0 }
 	}
 }

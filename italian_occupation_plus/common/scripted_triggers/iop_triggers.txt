@@ -1,0 +1,13 @@
+# ============================================================
+# Italian Occupation Plus - shared scripted triggers (v0.0.30)
+# ============================================================
+
+# A Mediterranean coastal state held by Italy itself or by one of
+# Italy's subjects (occupation governments). Used by the
+# "Restore the Roman Empire" decision.
+iop_med_owned = {
+	OR = {
+		is_owned_by = ITA
+		OWNER = { is_subject_of = ITA }
+	}
+}

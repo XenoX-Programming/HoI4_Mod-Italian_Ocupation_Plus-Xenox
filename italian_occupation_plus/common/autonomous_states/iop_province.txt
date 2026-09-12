@@ -1,0 +1,65 @@
+# ============================================================
+# Italian Occupation Plus - "Province" autonomy level (v0.0.30)
+# Granted to every occupation government when Italy restores the
+# Roman Empire. Tighter than Military Occupation (0.1): sits at
+# 0.05, just above annexation. The provinces keep their own
+# administration but are fully folded into the imperial economy:
+# everything flows to Rome, in exchange for imperial investment
+# and order - at the cost of politics, manpower and research.
+# Only Italy's subjects can hold this level.
+# ============================================================
+
+autonomy_state = {
+	id = autonomy_province
+
+	is_puppet = yes
+	use_overlord_color = yes
+
+	# Between annexation (0.0) and Military Occupation (0.1).
+	# (Never reuse a min_freedom_level used by another state.)
+	min_freedom_level = 0.05
+
+	manpower_influence = 1.0
+
+	rule = {
+		can_not_declare_war = yes
+		can_decline_call_to_war = no
+		units_deployed_to_overlord = yes
+		can_be_spymaster = no
+		contributes_operatives = no
+		can_create_collaboration_government = no
+	}
+
+	modifier = {
+		autonomy_manpower_share = 1.0
+		can_master_build_for_us = 1
+		extra_trade_to_overlord_factor = 1.0
+		overlord_trade_cost_factor = -0.9
+		cic_to_overlord_factor = 1.0
+		mic_to_overlord_factor = 1.0
+
+		# Imperial investment and the Pax Romana (bonuses).
+		production_speed_buildings_factor = 0.10
+		stability_factor = 0.05
+		industry_repair_factor = 0.15
+
+		# A province has no army, no politics, no scholars (debuffs).
+		political_power_factor = -0.35
+		conscription_factor = -0.6
+		research_speed_factor = -0.10
+	}
+
+	ai_subject_wants_higher = {
+		factor = 1.0
+	}
+
+	ai_overlord_wants_lower = {
+		factor = 1.0
+	}
+
+	allowed = {
+		OVERLORD = {
+			original_tag = ITA
+		}
+	}
+}

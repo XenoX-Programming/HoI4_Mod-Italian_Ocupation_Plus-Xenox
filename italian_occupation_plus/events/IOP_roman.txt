@@ -1,0 +1,31 @@
+# ============================================================
+# Italian Occupation Plus v0.0.30 - Roman Empire events. ROOT = Italy.
+# ============================================================
+
+add_namespace = iop_roman
+
+# ---------------- 1 - The Empire Restored ----------------
+country_event = {
+	id = iop_roman.1
+	title = iop_roman_1_title
+	desc = iop_roman_1_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = {
+		name = iop_roman_1_a
+		set_country_flag = iop_roman_empire
+		set_cosmetic_tag = ITA_roman
+		add_stability = 0.10
+		add_war_support = 0.10
+		# Every occupation government becomes a Province of the Empire.
+		hidden_effect = {
+			every_country = {
+				limit = { is_subject_of = ITA has_idea = iop_military_government }
+				set_autonomy = { target = THIS autonomous_state = autonomy_province }
+			}
+		}
+		custom_effect_tooltip = iop_roman_province_tt
+		ai_chance = { factor = 100 }
+	}
+}

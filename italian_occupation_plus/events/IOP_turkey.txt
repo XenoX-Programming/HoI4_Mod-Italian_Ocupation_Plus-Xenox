@@ -65,7 +65,17 @@ country_event = {
 		ai_chance = { factor = 0 }
 	}
 	option = {
-		name = iop_annex_to_italy
+			option = {
+		name = iop_give_to_IGR
+		trigger = {
+			country_exists = IGR
+			340 = { any_neighbor_state = { is_owned_by = IGR } }
+		}
+		340 = { add_core_of = IGR }
+		IGR = { transfer_state = 340 }
+		ai_chance = { factor = 0 }
+	}
+name = iop_annex_to_italy
 		custom_effect_tooltip = iop_annex_to_italy_tt
 		hidden_effect = {
 			340 = { add_core_of = ITA }
@@ -94,12 +104,109 @@ country_event = {
 		ai_chance = { factor = 0 }
 	}
 	option = {
-		name = iop_annex_to_italy
+			option = {
+		name = iop_give_to_IGR
+		trigger = {
+			country_exists = IGR
+			797 = { any_neighbor_state = { is_owned_by = IGR } }
+		}
+		797 = { add_core_of = IGR }
+		IGR = { transfer_state = 797 }
+		ai_chance = { factor = 0 }
+	}
+name = iop_annex_to_italy
 		custom_effect_tooltip = iop_annex_to_italy_tt
 		hidden_effect = {
 			797 = { add_core_of = ITA }
 			ITA = { transfer_state = 797 }
 		}
 		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 347 - Izmit: Greece / Turkey / Italy ----------------
+country_event = {
+	id = iop_turkey.347
+	title = iop_turkey_izmit_title
+	desc = iop_turkey_347_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_IGR
+		trigger = { country_exists = IGR 347 = { any_neighbor_state = { is_owned_by = IGR } } }
+		347 = { add_core_of = IGR }
+		IGR = { transfer_state = 347 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ITR
+		trigger = { country_exists = ITR 347 = { any_neighbor_state = { is_owned_by = ITR } } }
+		347 = { add_core_of = ITR }
+		ITR = { transfer_state = 347 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = { 347 = { add_core_of = ITA } ITA = { transfer_state = 347 } }
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 339 - Izmir: Greece / Turkey / Italy ----------------
+country_event = {
+	id = iop_turkey.339
+	title = iop_turkey_izmir_title
+	desc = iop_turkey_339_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_to_IGR
+		trigger = { country_exists = IGR 339 = { any_neighbor_state = { is_owned_by = IGR } } }
+		339 = { add_core_of = IGR }
+		IGR = { transfer_state = 339 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_ITR
+		trigger = { country_exists = ITR 339 = { any_neighbor_state = { is_owned_by = ITR } } }
+		339 = { add_core_of = ITR }
+		ITR = { transfer_state = 339 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = { 339 = { add_core_of = ITA } ITA = { transfer_state = 339 } }
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 342 - Antalya: annex Italy / Turkey / Greece ----------------
+country_event = {
+	id = iop_turkey.342
+	title = iop_turkey_antalya_title
+	desc = iop_turkey_342_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = { 342 = { add_core_of = ITA } ITA = { transfer_state = 342 } }
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = iop_give_to_ITR
+		trigger = { country_exists = ITR 342 = { any_neighbor_state = { is_owned_by = ITR } } }
+		342 = { add_core_of = ITR }
+		ITR = { transfer_state = 342 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_to_IGR
+		trigger = { country_exists = IGR 342 = { any_neighbor_state = { is_owned_by = IGR } } }
+		342 = { add_core_of = IGR }
+		IGR = { transfer_state = 342 }
+		ai_chance = { factor = 0 }
 	}
 }
