@@ -276,8 +276,13 @@ iop_occupation = {
 		ai_will_do = { factor = 0 }
 	}
 
-	# Spanish Africa (290) -> INA
-	iop_give_spanish_africa = {
+	# ------------------------------------------------------------
+	# SPECIAL: SPANISH AFRICA (290)
+	# v0.0.32: fires an event - give it to North Africa (INA) or
+	# Morocco (IMR), or annex it to Italy proper (adds Italian core).
+	# ------------------------------------------------------------
+
+	iop_decide_290_spanish_africa = {
 		icon = generic_decision
 
 		highlight_states = {
@@ -288,17 +293,24 @@ iop_occupation = {
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
-			country_exists = INA
 			controls_state = 290
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 290 = { is_core_of = ITA } }
+			OR = {
+				country_exists = INA
+				country_exists = IMR
+			}
 		}
 		available = {
-			country_exists = INA
 			controls_state = 290
+			OR = {
+				country_exists = INA
+				country_exists = IMR
+			}
 		}
 		days_re_enable = 3
 		complete_effect = {
-			290 = { add_core_of = INA }
-			INA = { transfer_state = 290 }
+			country_event = { id = iop_africa.290 }
 		}
 		ai_will_do = { factor = 0 }
 	}

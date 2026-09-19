@@ -5,7 +5,7 @@
 #    to own a state bordering Hatay. No Italian option.
 # 3) "Fate of Sinai" (453): Levant, Egypt (each needs to own a
 #    bordering state) or integrate into Italy.
-# 4) "Fate of Cyprus" (183): island - Turkey, Levant (exist) or Italy.
+# 4) "Fate of Cyprus" (183): island - Turkey, Levant, Greece (exist) or Italy.
 # ============================================================
 
 iop_occupation = {
@@ -204,6 +204,7 @@ iop_occupation = {
 			OR = {
 				country_exists = ITR
 				country_exists = ILV
+				country_exists = IGR
 			}
 		}
 		available = {
@@ -211,6 +212,7 @@ iop_occupation = {
 			OR = {
 				country_exists = ITR
 				country_exists = ILV
+				country_exists = IGR
 			}
 		}
 		days_re_enable = 3

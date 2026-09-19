@@ -14,6 +14,8 @@
 #      annex to Italy (adds Italian core).
 # 4) Northern Epirus (805) is handled in IOP_yugoslavia.txt:
 #    Albania (IAL) or Greece (IGR), must border the state.
+# 5) v0.0.32 - Northern Dobruja (971): Bulgaria (IBL, must border)
+#    or annex to Italy (adds Italian core).
 # ============================================================
 
 iop_occupation = {
@@ -288,6 +290,39 @@ iop_occupation = {
 		days_re_enable = 3
 		complete_effect = {
 			country_event = { id = iop_greece.77 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+
+	# ------------------------------------------------------------
+	# v0.0.32 - NORTHERN DOBRUJA (971, Constanta)
+	# Bulgaria (IBL, must own a neighboring state - i.e. Southern
+	# Dobruja or the lower Danube) or annex to Italy.
+	# ------------------------------------------------------------
+
+	iop_decide_971_north_dobrudja = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 971
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 971
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 971 = { is_core_of = ITA } }
+			country_exists = IBL
+		}
+		available = {
+			controls_state = 971
+			971 = { any_neighbor_state = { is_owned_by = IBL } }
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_greece.971 }
 		}
 		ai_will_do = { factor = 0 }
 	}

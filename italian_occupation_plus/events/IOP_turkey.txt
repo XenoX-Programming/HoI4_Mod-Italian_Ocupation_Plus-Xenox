@@ -1,8 +1,9 @@
 # ============================================================
-# Italian Occupation Plus v0.0.15 - Turkey events
+# Italian Occupation Plus v0.0.32 - Turkey events
 # Fired by "Determine fate of ..." decisions. ROOT = Italy.
 # Edirne (341): Bulgaria / Greece / Annex to Italy.
-# Bursa (340) and Istanbul (797): Turkey / Annex to Italy.
+# Bursa (340), Istanbul (797), Izmit (347), Izmir (339),
+# Antalya (342): Turkey / Greece / Annex to Italy.
 # ============================================================
 
 add_namespace = iop_turkey
@@ -65,7 +66,6 @@ country_event = {
 		ai_chance = { factor = 0 }
 	}
 	option = {
-			option = {
 		name = iop_give_to_IGR
 		trigger = {
 			country_exists = IGR
@@ -75,7 +75,8 @@ country_event = {
 		IGR = { transfer_state = 340 }
 		ai_chance = { factor = 0 }
 	}
-name = iop_annex_to_italy
+	option = {
+		name = iop_annex_to_italy
 		custom_effect_tooltip = iop_annex_to_italy_tt
 		hidden_effect = {
 			340 = { add_core_of = ITA }

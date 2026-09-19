@@ -159,3 +159,31 @@ country_event = {
 		ai_chance = { factor = 100 }
 	}
 }
+
+# ---------------- 971 - Northern Dobruja (SPECIAL): Bulgaria / Italy ----------------
+country_event = {
+	id = iop_greece.971
+	title = iop_greece_north_dobrudja_title
+	desc = iop_greece_971_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_north_dobrudja_to_IBL
+		trigger = {
+			country_exists = IBL
+			971 = { any_neighbor_state = { is_owned_by = IBL } }
+		}
+		971 = { add_core_of = IBL }
+		IBL = { transfer_state = 971 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			971 = { add_core_of = ITA }
+			ITA = { transfer_state = 971 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}

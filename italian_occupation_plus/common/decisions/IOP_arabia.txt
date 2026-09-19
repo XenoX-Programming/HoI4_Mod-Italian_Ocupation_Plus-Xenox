@@ -303,8 +303,14 @@ iop_occupation = {
 		ai_will_do = { factor = 0 }
 	}
 
-	# Dhofar (1016) + Oman (1015) + Muscat (294) -> IAR
-	iop_give_oman = {
+	# ------------------------------------------------------------
+	# v0.0.32 - OMAN: Dhofar (1016) + Oman (1015) + Muscat (294)
+	# Fires an event: hand the territory to the Arabian occupation
+	# government (IAR), restore the Sultanate of Oman (IMO) as a
+	# separate military occupation under Sultan Said bin Taimur,
+	# or - if the Sultanate already exists - expand it.
+	# ------------------------------------------------------------
+	iop_decide_oman = {
 		icon = generic_decision
 
 		highlight_states = {
@@ -317,7 +323,6 @@ iop_occupation = {
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
-			country_exists = IAR
 			OR = {
 				controls_state = 1016
 				controls_state = 1015
@@ -325,7 +330,6 @@ iop_occupation = {
 			}
 		}
 		available = {
-			country_exists = IAR
 			OR = {
 				controls_state = 1016
 				controls_state = 1015
@@ -334,21 +338,7 @@ iop_occupation = {
 		}
 		days_re_enable = 3
 		complete_effect = {
-			if = {
-				limit = { controls_state = 1016 }
-				1016 = { add_core_of = IAR }
-				IAR = { transfer_state = 1016 }
-			}
-			if = {
-				limit = { controls_state = 1015 }
-				1015 = { add_core_of = IAR }
-				IAR = { transfer_state = 1015 }
-			}
-			if = {
-				limit = { controls_state = 294 }
-				294 = { add_core_of = IAR }
-				IAR = { transfer_state = 294 }
-			}
+			country_event = { id = iop_arabia.294 }
 		}
 		ai_will_do = { factor = 0 }
 	}

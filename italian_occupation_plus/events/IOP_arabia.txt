@@ -41,3 +41,88 @@ country_event = {
 		ai_chance = { factor = 100 }
 	}
 }
+
+# ---------------- 294 - Oman: IAR / Sultanate of Oman ----------------
+# Hand the Omani coast to the Arabian occupation government, restore
+# the Sultanate of Oman (IMO) as a separate military occupation under
+# Sultan Said bin Taimur, or - if the Sultanate already exists -
+# cede further controlled territory to it.
+country_event = {
+	id = iop_arabia.294
+	title = iop_arabia_oman_title
+	desc = iop_arabia_294_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_oman_to_IAR
+		trigger = { country_exists = IAR }
+		hidden_effect = {
+			if = {
+				limit = { controls_state = 1016 }
+				1016 = { add_core_of = IAR }
+				IAR = { transfer_state = 1016 }
+			}
+			if = {
+				limit = { controls_state = 1015 }
+				1015 = { add_core_of = IAR }
+				IAR = { transfer_state = 1015 }
+			}
+			if = {
+				limit = { controls_state = 294 }
+				294 = { add_core_of = IAR }
+				IAR = { transfer_state = 294 }
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_establish_oman_sultanate
+		custom_effect_tooltip = iop_establish_oman_tt
+		trigger = { NOT = { country_exists = IMO } }
+		hidden_effect = {
+			1016 = { add_core_of = IMO }
+			1015 = { add_core_of = IMO }
+			294 = { add_core_of = IMO }
+			release_puppet = IMO
+			set_autonomy = {
+				target = IMO
+				autonomous_state = autonomy_military_occupation
+			}
+			if = {
+				limit = { controls_state = 1016 }
+				IMO = { transfer_state = 1016 }
+			}
+			if = {
+				limit = { controls_state = 1015 }
+				IMO = { transfer_state = 1015 }
+			}
+			if = {
+				limit = { controls_state = 294 }
+				IMO = { transfer_state = 294 }
+			}
+		}
+		ai_chance = { factor = 100 }
+	}
+	option = {
+		name = iop_give_oman_to_IMO
+		trigger = { country_exists = IMO }
+		hidden_effect = {
+			if = {
+				limit = { controls_state = 1016 }
+				1016 = { add_core_of = IMO }
+				IMO = { transfer_state = 1016 }
+			}
+			if = {
+				limit = { controls_state = 1015 }
+				1015 = { add_core_of = IMO }
+				IMO = { transfer_state = 1015 }
+			}
+			if = {
+				limit = { controls_state = 294 }
+				294 = { add_core_of = IMO }
+				IMO = { transfer_state = 294 }
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+}

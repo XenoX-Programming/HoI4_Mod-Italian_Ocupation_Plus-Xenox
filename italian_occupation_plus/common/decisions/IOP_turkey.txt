@@ -105,12 +105,6 @@ iop_occupation = {
 					ITR = { transfer_state = 49 }
 				}
 				if = {
-				}
-				if = {
-				}
-				if = {
-				}
-				if = {
 					limit = { controls_state = 343 }
 					ITR = { transfer_state = 343 }
 				}

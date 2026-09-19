@@ -1,0 +1,88 @@
+# Italian Occupation Plus
+# IMO - Sultanato dell'Oman (Sultanate of Oman)
+# Capital: 294 Muscat. Initial states: Dhofar (1016), Oman (1015), Muscat (294).
+# Released by the "Determine Fate of Oman" decision when the player
+# chooses to restore the Sultan instead of handing the coast to IAR.
+# Cores are added by the decision at release time, so no history/states
+# overrides are needed.
+
+capital = 294
+oob = "IOP_empty"
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+}
+
+set_politics = {
+	ruling_party = fascism
+	last_election = 1936.1.1
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	democratic = 5
+	fascism = 70
+	communism = 5
+	neutrality = 20
+}
+
+# Said bin Taimur, Sultan of Muscat and Oman (ruled 1932-1970).
+# No custom portrait: like the vanilla-portrait leaders, the picture
+# key is omitted so the game uses the default portrait with no log
+# errors (lesson of v0.0.10 - vanilla portraits cannot resolve for
+# custom tags).
+create_country_leader = {
+	name = "Said bin Taimur"
+	desc = "PODCAT_SAID_BIN_TAIMUR_DESC"
+	expire = "1965.1.1"
+	ideology = fascism_ideology
+	traits = {
+		iop_trait_sultan
+	}
+}
+
+create_country_leader = {
+	name = "Said bin Taimur"
+	desc = "PODCAT_SAID_BIN_TAIMUR_DESC"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+		iop_trait_sultan
+	}
+}
+
+create_country_leader = {
+	name = "Said bin Taimur"
+	desc = "PODCAT_SAID_BIN_TAIMUR_DESC"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+		iop_trait_sultan
+	}
+}
+
+create_country_leader = {
+	name = "Said bin Taimur"
+	desc = "PODCAT_SAID_BIN_TAIMUR_DESC"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		iop_trait_sultan
+	}
+}
+
+set_stability = 0.50
+set_war_support = 0.60
+set_convoys = 5
+set_research_slots = 2
+
+set_country_flag = iop_puppet
+
+add_ideas = {
+	iop_military_government
+	iop_flavour_levant
+}
+set_country_flag = iop_oman

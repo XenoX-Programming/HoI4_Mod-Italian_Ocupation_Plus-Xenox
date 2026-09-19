@@ -1,0 +1,120 @@
+# ============================================================
+# Italian Occupation Plus v0.0.32 - Morocco
+# 1) Found IMR with the "Establish" decision (needs 461 Casablanca).
+#    Shakib Arslan, "Amir al-Bayan", heads the occupation government.
+# 2) Expansion, via events (each recipient only needs to exist):
+#    - Spanish Africa (290): North Africa (INA), Morocco (IMR) or Italy
+#    - Sidi Ifni (783):      North Africa (INA), Morocco (IMR) or Italy
+#    - Rio de Oro (699):     North Africa (INA), Morocco (IMR) or Italy
+# ============================================================
+
+iop_occupation = {
+
+	# ------------------------------------------------------------
+	# FOUNDING DECISION
+	# ------------------------------------------------------------
+
+	iop_establish_morocco = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 461
+				state = 462
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IMR }
+			# Only appears once Italy controls at least half of the
+			# required territory (1 of 2 states).
+			count_triggers = {
+				amount = 1
+				controls_state = 461
+				controls_state = 462
+			}
+		}
+
+		available = {
+			controls_state = 461
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			hidden_effect = {
+				if = {
+					limit = { NOT = { has_idea = iop_occupation_directorate } }
+					add_ideas = iop_occupation_directorate
+				}
+			}
+			custom_effect_tooltip = iop_establish_morocco_tt
+			hidden_effect = {
+				set_country_flag = iop_morocco_established
+				461 = { add_core_of = IMR }
+				462 = { add_core_of = IMR }
+				release_puppet = IMR
+				set_autonomy = {
+					target = IMR
+					autonomous_state = autonomy_military_occupation
+				}
+				if = {
+					limit = { controls_state = 461 }
+					IMR = { transfer_state = 461 }
+				}
+				if = {
+					limit = { controls_state = 462 }
+					IMR = { transfer_state = 462 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# EXPANSION: RIO DE ORO (699)
+	# North Africa (INA), Morocco (IMR) - existence check only, the
+	# coast is considered contiguous - or annex to Italy.
+	# ------------------------------------------------------------
+
+	iop_decide_699_rio_de_oro = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 699
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			controls_state = 699
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 699 = { is_core_of = ITA } }
+			OR = {
+				country_exists = INA
+				country_exists = IMR
+			}
+		}
+		available = {
+			controls_state = 699
+			OR = {
+				country_exists = INA
+				country_exists = IMR
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			country_event = { id = iop_africa.699 }
+		}
+		ai_will_do = { factor = 0 }
+	}
+}

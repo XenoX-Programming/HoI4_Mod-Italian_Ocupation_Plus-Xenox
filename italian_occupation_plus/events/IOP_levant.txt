@@ -71,7 +71,7 @@ country_event = {
 	}
 }
 
-# ---------------- 183 - Cyprus (island): ITR / ILV / Italy ----------------
+# ---------------- 183 - Cyprus (island): ITR / ILV / IGR / Italy ----------------
 country_event = {
 	id = iop_levant.183
 	title = iop_levant_cyprus_title
@@ -90,6 +90,13 @@ country_event = {
 		trigger = { country_exists = ILV }
 		183 = { add_core_of = ILV }
 		ILV = { transfer_state = 183 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_cyprus_to_IGR
+		trigger = { country_exists = IGR }
+		183 = { add_core_of = IGR }
+		IGR = { transfer_state = 183 }
 		ai_chance = { factor = 0 }
 	}
 	option = {

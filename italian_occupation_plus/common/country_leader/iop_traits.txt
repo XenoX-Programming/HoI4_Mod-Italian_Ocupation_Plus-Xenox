@@ -182,4 +182,24 @@ leader_traits = {
 			war_support_factor = -0.05
 		}
 	}
+
+	# IMO - Said bin Taimur (Sultan of Muscat and Oman; remote, austere, exacting)
+	iop_trait_sultan = {
+		random = no
+		modifier = {
+			stability_factor = 0.10
+			drift_defence_factor = 0.15
+			political_power_gain = 0.05
+		}
+	}
+
+	# IMR - Shakib Arslan, "Amir al-Bayan" (pan-Arab orator and organizer)
+	iop_trait_amir_al_bayan = {
+		random = no
+		modifier = {
+			political_power_gain = 0.15
+			trade_opinion_factor = 0.10
+			drift_defence_factor = 0.15
+		}
+	}
 }

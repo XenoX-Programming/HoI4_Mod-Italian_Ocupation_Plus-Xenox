@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.31 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
+# Italian Occupation Plus — v0.0.32 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Morocco + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -8,7 +8,7 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 
 ## What's in v0.0.3
 
-### 17 new puppet nations
+### 18 new puppet nations
 
 | Tag | Full name | Capital | Initial states (state IDs) |
 |-----|-----------|---------|----------------------------|
@@ -29,6 +29,7 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 | **IAR** | Governatorato di occupazione militare dell'Arabia | Nejd (292, Riyadh) | Jawf (854), Tabuk (855), Al-Qassim (857), Madinah (679), Dammam (859), Nejd (292), Asir-Makkah (856), Rub al Khali (678), Najiran (858) |
 | **IAM** | Governatorato di occupazione militare dell'Armenia | Armenia (230, Yerevan) | Armenia (230) |
 | **IIR** | Governatorato di occupazione militare dell'Iran | Tehran (266) | West Azerbaijan (419), East Azerbaijan (1000), Gilan (420), Kurdistan (1001), Ilam (421), Hamadan (417), Khuzestan (413), Tehran (266), North Khorasan (1004), Khorasan (416), Semnan (418), Isfahan (411), Yazd (1002), South Khorasan (1003), Fars (412), Kerman (414), Sistan (410) |
+| **IMR** | Governo Militare di Occupazione del Marocco | Casablanca (461) | Casablanca (461), Marrakech (462) — expands into Spanish Africa (290), Sidi Ifni (783), Rio de Oro (699) |
 
 > **Why ISE and not ISR?** `ISR` is already used by vanilla HOI4 for **Israel** (releasable by the UK). Using it would overwrite Israel. `ISE` (Italian SErbia) keeps the `Ixx` pattern and is free in vanilla.
 
@@ -50,6 +51,8 @@ Puppet leaders (historical placeholders, all fascist):
 - **IAR** — Gianrico Tedeschi (Governor of Arabia, custom portrait included)
 - **IAM** — Drastamat "Dro" Kanayan (Governor of Armenia, custom portrait included)
 - **IIR** — Giuseppe Pièche (Governor of Iran, custom portrait included)
+- **IMR** — Shakib Arslan, "Amir al-Bayan" (Governor of Morocco, custom portrait included)
+- **IMO** — Said bin Taimur (Sultan of Muscat and Oman — created from the Oman fate event, no custom portrait)
 
 ### New autonomy level: Military Occupation
 
@@ -68,7 +71,7 @@ Between **annexation** and **Reichskommissariat** on the freedom scale (`min_fre
 - Restricted to **Italian subjects only** (`allowed` block), so it never pollutes other nations' UI, peace deals, or subject interactions.
 - Has its own 35×35 icon (`gfx/interface/autonomy/` + `interface/iop_autonomy.gfx`).
 
-### 68 decisions — all free, all with map highlighting
+### 75 decisions — all free, all with map highlighting
 
 Own tab: **"Italian Occupation"**. Hovering any decision outlines the state(s) it needs/changes.
 
@@ -113,12 +116,16 @@ Each founding decision only **appears** once you control **at least half of that
 | **182** | **Crete (special, island — no border check)** | **Needs IGR to exist; then Greece OR annex to Italy** |
 | **164** | **Dodecanese (special, island — no border check)** | **Needs IGR or ITR to exist; then Greece, Turkey OR annex to Italy** |
 | **341** | **Edirne (special)** | **Needs IBL or IGR to border; then Bulgaria, Greece OR annex to Italy** |
-| **340** | **Bursa (special)** | **Needs ITR border; then Turkey OR annex to Italy** |
-| **797** | **Istanbul (special)** | **Needs ITR border; then Turkey OR annex to Italy** |
+| **340** | **Bursa (special)** | **Needs ITR or IGR border; then Turkey, Greece OR annex to Italy** |
+| **797** | **Istanbul (special)** | **Needs ITR or IGR border; then Turkey, Greece OR annex to Italy** |
+| **347** | **Izmit (special)** | **Needs ITR or IGR border; then Turkey, Greece OR annex to Italy** |
+| 339 | Izmir | Turkey or Greece (must border) OR annex to Italy |
+| 342 | Antalya | annex to Italy OR Turkey/Greece (must border) |
 | 665 + 458 | Tunisia: Gabès + Tunisia (grouped) | INA only — direct transfer, no event |
 | 459 + 460 + 513 + 514 | Algeria: Algiers + Constantine + Tlemcen + Algerian Desert (grouped) | INA only — direct transfer, no event |
-| 461 + 462 | Morocco: Casablanca + Marrakech (grouped) | INA only — direct transfer, no event |
-| 290 | Spanish Africa | INA only — direct transfer, no event |
+| 461 + 462 | Morocco: Casablanca + Marrakech | **Establish Military Occupation of Morocco (IMR)** — or the old INA-only direct transfer |
+| **290** | **Spanish Africa (special)** | **Needs INA or IMR to exist; then North Africa, Morocco OR annex to Italy** |
+| **699** | **Rio de Oro (special)** | **Needs INA or IMR to exist; then North Africa, Morocco OR annex to Italy** |
 | **783** | **Sidi Ifni (special)** | **Needs INA to exist; then North Africa OR integrate into Italy** |
 | 767 + 551 + 883 + 886 + 549 + 887 + 884 + 885 | Sudan (grouped) | IEG only — direct transfer, no event |
 | **446** | **Suez / Fall of Suez Canal (special)** | **Needs IEG to control a neighboring state; then Egypt OR integrate into Italy** |
@@ -131,13 +138,14 @@ Each founding decision only **appears** once you control **at least half of that
 | **1** | **Corsica (special, island)** | **Needs IOC to exist; then Occitania OR integrate into Italy** |
 | **799** | **Hatay (special)** | **Turkey OR Levant — each must own a bordering state; no Italian option** |
 | **453** | **Sinai (special)** | **Levant OR Egypt (each must own a bordering state) OR integrate into Italy** |
-| **183** | **Cyprus (special, island)** | **Turkey OR Levant (exist) OR integrate into Italy** |
+| **183** | **Cyprus (special, island)** | **Turkey, Levant OR Greece (exist) OR integrate into Italy** |
 | **656** | **Kuwait (special)** | **Iraq OR Arabia (each must own a bordering state) OR integrate into Italy** |
 | 293 + 659 + 992 | Yemen: North Yemen + South Yemen + Aden (grouped) | IAR only — direct transfer, no event |
-| 1016 + 1015 + 294 | Oman: Dhofar + Oman + Muscat (grouped) | IAR only — direct transfer, no event |
+| **1016 + 1015 + 294** | **Oman: Dhofar + Oman + Muscat (grouped, special)** | **IAR, OR restore the Sultanate of Oman (IMO — separate Military Occupation under Sultan Said bin Taimur); afterwards cede further coast to IMO** |
 | 658 | Abu Dhabi | IAR only — direct transfer, no event |
 | 765 | Qatar | IAR only — direct transfer, no event |
 | **77** | **Dobrudja (special)** | **Needs IBL to own a bordering state; then Bulgaria OR integrate into Italy** |
+| **971** | **Northern Dobruja (special)** | **Needs IBL to own a bordering state; then Bulgaria OR integrate into Italy** |
 | **354 + 800** | **Trabzon + Van (special, grouped)** | **Turkey OR Armenia — each must own a bordering state; no Italian option** |
 | 23 | Poitou | IOC only — direct transfer, no event (owned/controlled by Italy or a subject) |
 | — | **Unite the Iberian Peninsula** | **Visible once IPG founded and ISP exists; ISP annexes IPG, gains cores on all Portuguese states and becomes the Governatorato di occupazione militare della penisola Iberica (cosmetic tag `ISP_iberia`); afterwards all "cede to Spain" options read "cede to Iberia"** |
@@ -204,7 +212,7 @@ italian_occupation_plus/
 ├── README.md
 ├── common/
 │   ├── autonomous_states/iop_autonomy.txt   # Military Occupation level
-│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA / IEG / ISP / IPG / IOC / ILV / IIQ / IAR / IAM / IIR
+│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA / IEG / ISP / IPG / IOC / ILV / IIQ / IAR / IAM / IIR / IMR / IMO
 │   ├── countries/Italy_*.txt                # gfx culture + map color
 │   ├── decisions/categories/iop_categories.txt # "Italian Occupation" tab (note: categories/ subfolder!)
 │   ├── decisions/IOP_yugoslavia.txt         # 4 founding + Fall of Montenegro + 18 distribution decisions
@@ -217,10 +225,11 @@ italian_occupation_plus/
 │   ├── decisions/IOP_occitania.txt                # 1 founding (IOC) + provence + savoy/var + corsica + poitou
 │   ├── decisions/IOP_levant.txt                   # 1 founding (ILV) + hatay + sinai + cyprus
 │   ├── ideas/IOP_ideas.txt                        # "Military Government" national spirit (all puppets)
-│   ├── decisions/IOP_arabia.txt                   # 2 foundings (IIQ, IAR) + kuwait + yemen/oman/abu dhabi/qatar transfers
+│   ├── decisions/IOP_arabia.txt                   # 2 foundings (IIQ, IAR) + kuwait + yemen/abu dhabi/qatar transfers + oman fate
+│   ├── decisions/IOP_morocco.txt                  # 1 founding (IMR) + rio de oro fate
 │   └── decisions/IOP_armenia.txt                  # 2 foundings (IAM, IIR) + trabzon/van
 ├── history/
-│   ├── countries/ICR|ISE|IMT|IAL|IBL|IGR|ITR|INA|IEG|ISP|IPG|IOC|ILV|IIQ|IAR|IAM|IIR*.txt       # capitals, leaders, tech
+│   ├── countries/ICR|ISE|IMT|IAL|IBL|IGR|ITR|INA|IEG|ISP|IPG|IOC|ILV|IIQ|IAR|IAM|IIR|IMR|IMO*.txt  # capitals, leaders, tech
 │   └── units/IOP_empty.txt                  # empty puppet OOB
 ├── gfx/leaders/ICR/ICR_Giuseppe_Bastianini.dds # custom ICR portrait (tag subfolder required!)
 ├── gfx/leaders/IMT/IMT_Alessandro_Pirzio_Biroli.dds # custom IMT portrait
@@ -241,14 +250,15 @@ italian_occupation_plus/
 ├── events/IOP_levant.txt                    # 3 events (iop_levant.799, .453, .183)
 ├── gfx/leaders/IIQ/IIQ_Nino_Sozzani.dds     # custom IIQ portrait
 ├── gfx/leaders/IAR/IAR_Gianrico_Tedeschi.dds # custom IAR portrait
-├── events/IOP_arabia.txt                    # 1 event (iop_arabia.656)
+├── events/IOP_arabia.txt                    # 2 events (iop_arabia.656, .294)
 ├── gfx/leaders/IAM/IAM_Drastamat_Dro_Kanayan.dds # custom IAM portrait
 ├── gfx/leaders/IIR/IIR_Giuseppe_Pieche.dds  # custom IIR portrait
+├── gfx/leaders/IMR/IMR_Shakib_Arslan.dds    # custom IMR portrait (Shakib Arslan)
 ├── events/IOP_armenia.txt                   # 1 event (iop_armenia.354)
 ├── events/IOP_yugoslavia.txt                # 19 events (iop_yugo.102, .103, ...)
 ├── events/IOP_greece.txt                    # 4 events (iop_greece.731, .184, .182, .164)
 ├── events/IOP_turkey.txt                    # 3 events (iop_turkey.341, .340, .797)
-├── events/IOP_north_africa.txt               # 1 event (iop_africa.783)
+├── events/IOP_north_africa.txt               # 3 events (iop_africa.783, .290, .699)
 ├── events/IOP_egypt.txt                         # 1 event (iop_egypt.446)
 ├── interface/iop_autonomy.gfx               # autonomy icon sprite
 ├── interface/iop_decisions.gfx               # category icon sprite
@@ -290,6 +300,7 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 
 ## Changelog
 
+- **0.0.32** — Greece can now receive Constantinople (Istanbul), Bursa, Cyprus and Izmit: their fate events/decisions gained Greek occupation-government options (and the malformed nested-option blocks in the Bursa and Istanbul events were repaired). New 18th puppet: IMR (Governo Militare di Occupazione del Marocco, Casablanca + Marrakech, Shakib Arslan "Amir al-Bayan" with custom portrait, trait and tricolour-canton Moroccan flag) — its expansion events cover Spanish Africa, Sidi Ifni and Rio de Oro (INA, IMR or annex-to-Italy). "Transfer Oman to Arabia" became "Determine Fate of Oman": hand the coast to IAR, or restore the Sultanate of Oman (IMO) under Sultan Said bin Taimur as a separate Military Occupation (own tag, history, flag and sultan trait; repeatable to expand it). Spanish Africa lost its direct INA-only transfer and gained a full fate decision (INA / IMR / Italy). New "Determine Fate of Northern Dobruja" (971): Bulgarian occupation government (must border) or annex to Italy. Removed three leftover empty `if = {}` blocks from the Turkish founding decision.
 - **0.0.31** — Small shared national focus tree for all occupation puppets (`iop_puppet_focus`), 10 focuses with one-off rewards.
 - **0.0.30** — Anatolian fate decisions (Izmit/Izmir/Antalya, Greece options on Bursa/Istanbul), Dobruja-to-Bulgaria confirmed, and the Restore-the-Roman-Empire decision with the Imperium Romanum cosmetic tag and the Province autonomy level.
 - **0.0.29** — Flavour update: `surrender_limit = 1.0` replaces the invalid `capitulate_factor` in the Military Government spirit; six regional occupation spirits; the Italy-side Occupation Directorate spirit; 17 governor traits; 10 flavour events; 7 new idea icons.
