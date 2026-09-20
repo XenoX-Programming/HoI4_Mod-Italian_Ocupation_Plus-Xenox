@@ -44,7 +44,7 @@ country_event = {
 
 # ---------------- 294 - Oman: IAR / Sultanate of Oman ----------------
 # Hand the Omani coast to the Arabian occupation government, restore
-# the Sultanate of Oman (IMO) as a separate military occupation under
+# the Sultanate of Oman (IOM) as a separate military occupation under
 # Sultan Said bin Taimur, or - if the Sultanate already exists -
 # cede further controlled territory to it.
 country_event = {
@@ -78,49 +78,51 @@ country_event = {
 	option = {
 		name = iop_establish_oman_sultanate
 		custom_effect_tooltip = iop_establish_oman_tt
-		trigger = { NOT = { country_exists = IMO } }
+		custom_effect_tooltip = iop_directorate_zone_tt
+		trigger = { NOT = { country_exists = IOM } }
 		hidden_effect = {
-			1016 = { add_core_of = IMO }
-			1015 = { add_core_of = IMO }
-			294 = { add_core_of = IMO }
-			release_puppet = IMO
+			iop_grant_zone_oman = yes
+			1016 = { add_core_of = IOM }
+			1015 = { add_core_of = IOM }
+			294 = { add_core_of = IOM }
+			release_puppet = IOM
 			set_autonomy = {
-				target = IMO
+				target = IOM
 				autonomous_state = autonomy_military_occupation
 			}
 			if = {
 				limit = { controls_state = 1016 }
-				IMO = { transfer_state = 1016 }
+				IOM = { transfer_state = 1016 }
 			}
 			if = {
 				limit = { controls_state = 1015 }
-				IMO = { transfer_state = 1015 }
+				IOM = { transfer_state = 1015 }
 			}
 			if = {
 				limit = { controls_state = 294 }
-				IMO = { transfer_state = 294 }
+				IOM = { transfer_state = 294 }
 			}
 		}
 		ai_chance = { factor = 100 }
 	}
 	option = {
-		name = iop_give_oman_to_IMO
-		trigger = { country_exists = IMO }
+		name = iop_give_oman_to_IOM
+		trigger = { country_exists = IOM }
 		hidden_effect = {
 			if = {
 				limit = { controls_state = 1016 }
-				1016 = { add_core_of = IMO }
-				IMO = { transfer_state = 1016 }
+				1016 = { add_core_of = IOM }
+				IOM = { transfer_state = 1016 }
 			}
 			if = {
 				limit = { controls_state = 1015 }
-				1015 = { add_core_of = IMO }
-				IMO = { transfer_state = 1015 }
+				1015 = { add_core_of = IOM }
+				IOM = { transfer_state = 1015 }
 			}
 			if = {
 				limit = { controls_state = 294 }
-				294 = { add_core_of = IMO }
-				IMO = { transfer_state = 294 }
+				294 = { add_core_of = IOM }
+				IOM = { transfer_state = 294 }
 			}
 		}
 		ai_chance = { factor = 0 }

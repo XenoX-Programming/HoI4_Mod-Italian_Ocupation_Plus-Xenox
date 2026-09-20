@@ -143,7 +143,7 @@
  iop_give_yemen_desc:0 "Give control of North Yemen (293), South Yemen (659) and the Province of Aden (992) to the Arabian occupation government (IAR). Requires IAR to exist; every controlled state of the group transfers."
  iop_decide_oman:0 "Determine Fate of Oman"
  iop_decide_oman_desc:0 "Dhofar (1016), Oman (1015) and Muscat (294) are under Italian control. Hand the coast to the Arabian occupation government (IAR), restore the Sultanate of Oman under Sultan Said bin Taimur as a separate Military Occupation of Italy, or - if the Sultanate already exists - cede further territory to it."
- iop_establish_oman_tt:0 "Restores §YIMO§! - Sultanato dell'Oman - under Sultan Said bin Taimur as a Military Occupation of Italy."
+ iop_establish_oman_tt:0 "Restores §YIOM§! - Sultanato dell'Oman - under Sultan Said bin Taimur as a Military Occupation of Italy."
  iop_give_abu_dhabi:0 "Transfer Abu Dhabi to Arabia"
  iop_give_abu_dhabi_desc:0 "Give control of Abu Dhabi (658) to the Arabian occupation government (IAR). Requires IAR to exist."
  iop_give_qatar:0 "Transfer Qatar to Arabia"

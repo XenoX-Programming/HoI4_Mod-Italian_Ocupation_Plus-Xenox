@@ -61,12 +61,10 @@ iop_occupation = {
 
 		complete_effect = {
 			hidden_effect = {
-				if = {
-					limit = { NOT = { has_idea = iop_occupation_directorate } }
-					add_ideas = iop_occupation_directorate
-				}
+				iop_grant_zone_egypt = yes
 			}
 			custom_effect_tooltip = iop_establish_egypt_tt
+			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_egypt_established
 				452 = { add_core_of = IEG }

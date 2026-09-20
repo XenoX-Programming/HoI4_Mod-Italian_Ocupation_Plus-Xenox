@@ -836,7 +836,11 @@ country_event = {
 	}
 	option = {
 		name = iop_create_montenegro_govt
+		custom_effect_tooltip = iop_directorate_zone_tt
 		set_country_flag = iop_montenegro_established
+		hidden_effect = {
+			iop_grant_zone_montenegro = yes
+		}
 		105 = { add_core_of = IMT }
 		release_puppet = IMT
 		set_autonomy = {

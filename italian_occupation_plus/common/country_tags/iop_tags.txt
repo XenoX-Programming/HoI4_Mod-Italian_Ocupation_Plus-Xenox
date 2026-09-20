@@ -1,5 +1,9 @@
 # Italian Occupation Plus - custom country tags (v0.1 Yugoslavia)
 # NOTE: ISR is vanilla Israel, so Italian Serbia uses ISE instead.
+# NOTE: IMO is also unusable - the per-file map colour was ignored
+# for it in-game (vanilla keeps its own IMO colour entry, so the
+# Sultanate showed tan instead of occupation green). Omani tag is
+# IOM instead (v0.0.34).
 ICR = "countries/Italy_Croatia.txt"
 ISE = "countries/Italy_Serbia.txt"
 IMT = "countries/Italy_Montenegro.txt"
@@ -18,4 +22,4 @@ IAR = "countries/Italy_Arabia.txt"
 IAM = "countries/Italy_Armenia.txt"
 IIR = "countries/Italy_Iran.txt"
 IMR = "countries/Italy_Morocco.txt"
-IMO = "countries/Italy_Oman.txt"
+IOM = "countries/Italy_Oman.txt"

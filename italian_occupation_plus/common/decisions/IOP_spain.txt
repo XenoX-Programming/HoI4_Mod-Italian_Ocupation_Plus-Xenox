@@ -87,12 +87,10 @@ iop_occupation = {
 
 		complete_effect = {
 			hidden_effect = {
-				if = {
-					limit = { NOT = { has_idea = iop_occupation_directorate } }
-					add_ideas = iop_occupation_directorate
-				}
+				iop_grant_zone_spain = yes
 			}
 			custom_effect_tooltip = iop_establish_spain_tt
+			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_spain_established
 				171 = { add_core_of = ISP }

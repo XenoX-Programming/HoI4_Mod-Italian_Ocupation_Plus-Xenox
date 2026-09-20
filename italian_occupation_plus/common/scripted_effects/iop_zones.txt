@@ -1,0 +1,238 @@
+# ============================================================
+# Italian Occupation Plus - zone-grant scripted effects (v0.0.34)
+# Called once by every founding (17 founding decisions + the
+# Montenegro and Oman event options). Each effect ensures Italy
+# holds the Occupation Directorate hub spirit, then grants that
+# zone's own dynamic modifier - once ever per zone (flag-guarded,
+# so re-founding a destroyed puppet grants nothing new).
+#
+# Usage (inside hidden_effect):  iop_grant_zone_croatia = yes
+# ============================================================
+
+iop_grant_zone_croatia = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_croatia } }
+		set_country_flag = iop_zone_croatia
+		add_dynamic_modifier = { modifier = iop_zone_croatia }
+	}
+}
+
+iop_grant_zone_serbia = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_serbia } }
+		set_country_flag = iop_zone_serbia
+		add_dynamic_modifier = { modifier = iop_zone_serbia }
+	}
+}
+
+iop_grant_zone_montenegro = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_montenegro } }
+		set_country_flag = iop_zone_montenegro
+		add_dynamic_modifier = { modifier = iop_zone_montenegro }
+	}
+}
+
+iop_grant_zone_albania = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_albania } }
+		set_country_flag = iop_zone_albania
+		add_dynamic_modifier = { modifier = iop_zone_albania }
+	}
+}
+
+iop_grant_zone_bulgaria = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_bulgaria } }
+		set_country_flag = iop_zone_bulgaria
+		add_dynamic_modifier = { modifier = iop_zone_bulgaria }
+	}
+}
+
+iop_grant_zone_greece = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_greece } }
+		set_country_flag = iop_zone_greece
+		add_dynamic_modifier = { modifier = iop_zone_greece }
+	}
+}
+
+iop_grant_zone_turkey = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_turkey } }
+		set_country_flag = iop_zone_turkey
+		add_dynamic_modifier = { modifier = iop_zone_turkey }
+	}
+}
+
+iop_grant_zone_north_africa = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_north_africa } }
+		set_country_flag = iop_zone_north_africa
+		add_dynamic_modifier = { modifier = iop_zone_north_africa }
+	}
+}
+
+iop_grant_zone_egypt = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_egypt } }
+		set_country_flag = iop_zone_egypt
+		add_dynamic_modifier = { modifier = iop_zone_egypt }
+	}
+}
+
+iop_grant_zone_spain = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_spain } }
+		set_country_flag = iop_zone_spain
+		add_dynamic_modifier = { modifier = iop_zone_spain }
+	}
+}
+
+iop_grant_zone_portugal = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_portugal } }
+		set_country_flag = iop_zone_portugal
+		add_dynamic_modifier = { modifier = iop_zone_portugal }
+	}
+}
+
+iop_grant_zone_occitania = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_occitania } }
+		set_country_flag = iop_zone_occitania
+		add_dynamic_modifier = { modifier = iop_zone_occitania }
+	}
+}
+
+iop_grant_zone_levant = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_levant } }
+		set_country_flag = iop_zone_levant
+		add_dynamic_modifier = { modifier = iop_zone_levant }
+	}
+}
+
+iop_grant_zone_iraq = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_iraq } }
+		set_country_flag = iop_zone_iraq
+		add_dynamic_modifier = { modifier = iop_zone_iraq }
+	}
+}
+
+iop_grant_zone_arabia = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_arabia } }
+		set_country_flag = iop_zone_arabia
+		add_dynamic_modifier = { modifier = iop_zone_arabia }
+	}
+}
+
+iop_grant_zone_armenia = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_armenia } }
+		set_country_flag = iop_zone_armenia
+		add_dynamic_modifier = { modifier = iop_zone_armenia }
+	}
+}
+
+iop_grant_zone_iran = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_iran } }
+		set_country_flag = iop_zone_iran
+		add_dynamic_modifier = { modifier = iop_zone_iran }
+	}
+}
+
+iop_grant_zone_morocco = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_morocco } }
+		set_country_flag = iop_zone_morocco
+		add_dynamic_modifier = { modifier = iop_zone_morocco }
+	}
+}
+
+iop_grant_zone_oman = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_oman } }
+		set_country_flag = iop_zone_oman
+		add_dynamic_modifier = { modifier = iop_zone_oman }
+	}
+}

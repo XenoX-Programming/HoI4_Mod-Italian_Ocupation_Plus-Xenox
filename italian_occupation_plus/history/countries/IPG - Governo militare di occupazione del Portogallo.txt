@@ -78,8 +78,4 @@ set_research_slots = 2
 
 set_country_flag = iop_puppet
 
-add_ideas = {
-	iop_military_government
-	iop_flavour_iberia
-}
 set_country_flag = iop_portugal

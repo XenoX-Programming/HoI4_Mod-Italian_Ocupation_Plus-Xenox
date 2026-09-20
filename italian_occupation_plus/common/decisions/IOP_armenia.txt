@@ -38,12 +38,10 @@ iop_occupation = {
 
 		complete_effect = {
 			hidden_effect = {
-				if = {
-					limit = { NOT = { has_idea = iop_occupation_directorate } }
-					add_ideas = iop_occupation_directorate
-				}
+				iop_grant_zone_armenia = yes
 			}
 			custom_effect_tooltip = iop_establish_armenia_tt
+			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_armenia_established
 				230 = { add_core_of = IAM }
@@ -127,12 +125,10 @@ iop_occupation = {
 
 		complete_effect = {
 			hidden_effect = {
-				if = {
-					limit = { NOT = { has_idea = iop_occupation_directorate } }
-					add_ideas = iop_occupation_directorate
-				}
+				iop_grant_zone_iran = yes
 			}
 			custom_effect_tooltip = iop_establish_iran_tt
+			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_iran_established
 				419 = { add_core_of = IIR }

@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.33 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Morocco + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
+# Italian Occupation Plus — v0.0.34 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Morocco + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -52,7 +52,7 @@ Puppet leaders (historical placeholders, all fascist):
 - **IAM** — Drastamat "Dro" Kanayan (Governor of Armenia, custom portrait included)
 - **IIR** — Giuseppe Pièche (Governor of Iran, custom portrait included)
 - **IMR** — Shakib Arslan, "Amir al-Bayan" (Governor of Morocco, custom portrait included)
-- **IMO** — Said bin Taimur (Sultan of Muscat and Oman — created from the Oman fate event, no custom portrait)
+- **IOM** — Said bin Taimur (Sultan of Muscat and Oman — created from the Oman fate event, no custom portrait)
 
 ### New autonomy level: Military Occupation
 
@@ -141,7 +141,7 @@ Each founding decision only **appears** once **Italy or its subjects (the occupa
 | **183** | **Cyprus (special, island)** | **Turkey, Levant OR Greece (exist) OR integrate into Italy** |
 | **656** | **Kuwait (special)** | **Iraq OR Arabia (each must own a bordering state) OR integrate into Italy** |
 | 293 + 659 + 992 | Yemen: North Yemen + South Yemen + Aden (grouped) | IAR only — direct transfer, no event |
-| **1016 + 1015 + 294** | **Oman: Dhofar + Oman + Muscat (grouped, special)** | **IAR, OR restore the Sultanate of Oman (IMO — separate Military Occupation under Sultan Said bin Taimur); afterwards cede further coast to IMO** |
+| **1016 + 1015 + 294** | **Oman: Dhofar + Oman + Muscat (grouped, special)** | **IAR, OR restore the Sultanate of Oman (IOM — separate Military Occupation under Sultan Said bin Taimur); afterwards cede further coast to IOM** |
 | 658 | Abu Dhabi | IAR only — direct transfer, no event |
 | 765 | Qatar | IAR only — direct transfer, no event |
 | **77** | **Dobrudja (special)** | **Needs IBL to own a bordering state; then Bulgaria OR integrate into Italy** |
@@ -171,9 +171,16 @@ All new modifiers were checked against the HOI4 wiki modifier list; all new loca
 - **Restore the Roman Empire**: once every listed Mediterranean coastal state is owned by Italy or an Italian subject, a one-time decision appears. Completing it renames Italy to **Imperium Romanum** (cosmetic tag `ITA_roman` with new flags) and switches every occupation government to a new **Province** autonomy level (`autonomy_province`, min_freedom 0.05): full industry/manpower/trade to Rome plus construction & stability bonuses, at the cost of −35% PP, −60% recruitable population and −10% research.
 - All new modifiers verified against the HOI4 wiki modifier list; new localisation in `IOP_roman_l_english.yml` (UTF-8 BOM).
 
+## What's in v0.0.34 (zone bonuses replace puppet spirits + Oman rework)
+
+- **Puppet national spirits removed.** With Military Occupation funnelling all industry, manpower and trade to Italy, puppet-side modifiers were dead weight: `iop_military_government`, all six `iop_flavour_*` regionals and the four puppet-side timed spirits are gone (governor traits and the shared focus tree stay — the tree is now gated on the `iop_puppet` country flag instead).
+- **Occupation Zone bonuses on Italy.** Each founding now grants the **Occupation Directorate** hub spirit (slimmed to −10% garrisons, +5% compliance growth, −25% subject autonomy gain) **plus that zone's own stacking bonus** — 19 dynamic modifiers, each different: Croatia cuts attrition, Serbia cuts garrisons, Iraq/Iran/Arabia pump oil, Portugal trims consumer goods, Oman tributes political power, and so on (see `common/dynamic_modifiers/iop_zones.txt`). One-shot per zone: re-founding a destroyed puppet grants nothing new. Montenegro and Oman foundings now grant the Directorate too (they previously didn't).
+- **Flavour events retargeted.** The 10 events still fire for Italy, but their options now pay out Italian bonuses (stability, war support, PP, army XP, manpower) instead of puppet spirits.
+- **Oman rework.** The Sultanate's tag changed **IMO → IOM** (IMO ignored the per-file map colour and showed tan in-game; IOM renders occupation green like the rest), and Sultan Said bin Taimur now uses the **vanilla HOI4 leader portrait** (`gfx/leaders/IOM/`).
+
 ## What's in v0.0.31 (puppet national focuses)
 
-- Every occupation government now gets a **small shared focus tree** (`common/national_focus/iop_puppet.txt`, id `iop_puppet_focus`). It applies to any country carrying the `iop_military_government` spirit, so all current and future puppets pick it up automatically.
+- Every occupation government now gets a **small shared focus tree** (`common/national_focus/iop_puppet.txt`, id `iop_puppet_focus`). It applies to any country carrying the `iop_puppet` country flag, so all current and future puppets pick it up automatically.
 - 10 focuses, 5 rows: *Consolidate the Occupation* → *Local Police / Census* → *Carabinieri Reforms / Repair the Railways* → *Garrison Drills / Labour Levies / Resource Extraction* → capstones *The Model Province / Tribute to Rome*.
 - All completion rewards are one-off, documented effects (PP, stability, war support, army XP, manpower, instant construction) and use vanilla `GFX_goal_generic_*` icons - no new art, no new spirits. Cost 5 each; localisation in `IOP_focus_l_english.yml` (UTF-8 BOM).
 
@@ -213,7 +220,7 @@ italian_occupation_plus/
 ├── README.md
 ├── common/
 │   ├── autonomous_states/iop_autonomy.txt   # Military Occupation level
-│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA / IEG / ISP / IPG / IOC / ILV / IIQ / IAR / IAM / IIR / IMR / IMO
+│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA / IEG / ISP / IPG / IOC / ILV / IIQ / IAR / IAM / IIR / IMR / IOM
 │   ├── countries/Italy_*.txt                # gfx culture + map color
 │   ├── decisions/categories/iop_categories.txt # "Italian Occupation" tab (note: categories/ subfolder!)
 │   ├── decisions/IOP_yugoslavia.txt         # 4 founding + Fall of Montenegro + 18 distribution decisions
@@ -230,7 +237,7 @@ italian_occupation_plus/
 │   ├── decisions/IOP_morocco.txt                  # 1 founding (IMR) + rio de oro fate
 │   └── decisions/IOP_armenia.txt                  # 2 foundings (IAM, IIR) + trabzon/van
 ├── history/
-│   ├── countries/ICR|ISE|IMT|IAL|IBL|IGR|ITR|INA|IEG|ISP|IPG|IOC|ILV|IIQ|IAR|IAM|IIR|IMR|IMO*.txt  # capitals, leaders, tech
+│   ├── countries/ICR|ISE|IMT|IAL|IBL|IGR|ITR|INA|IEG|ISP|IPG|IOC|ILV|IIQ|IAR|IAM|IIR|IMR|IOM*.txt  # capitals, leaders, tech
 │   └── units/IOP_empty.txt                  # empty puppet OOB
 ├── gfx/leaders/ICR/ICR_Giuseppe_Bastianini.dds # custom ICR portrait (tag subfolder required!)
 ├── gfx/leaders/IMT/IMT_Alessandro_Pirzio_Biroli.dds # custom IMT portrait
@@ -263,6 +270,7 @@ italian_occupation_plus/
 ├── events/IOP_egypt.txt                         # 1 event (iop_egypt.446)
 ├── interface/iop_autonomy.gfx               # autonomy icon sprite
 ├── interface/iop_decisions.gfx               # category icon sprite
+├── interface/iop_directorate.gfx             # Occupation Directorate idea icon sprite
 ├── gfx/
 │   ├── flags/ (+ medium/, small/)           # placeholder .tga flags (base + 4 ideologies x 3 sizes per tag)
 │   └── interface/autonomy/                  # Military Occupation .dds icon
@@ -277,8 +285,7 @@ The pattern per new region is:
 │   ├── decisions/IOP_greece.txt             # 1 founding (IGR) + 4 distribution decisions (731/184/182/164)
 │   ├── decisions/IOP_turkey.txt             # 1 founding (ITR) + 3 distribution decisions (341/340/797)
 │   ├── decisions/IOP_north_africa.txt        # 1 founding (INA) + 5 distribution decisions (tunisia/algeria/morocco/spanish_africa/783)
-│   ├── decisions/IOP_egypt.txt                    # 1 founding (IEG) + 2 distribution decisions (sudan/suez)
-│   ├── decisions/IOP_spain.txt                    # 1 founding (ISP) + 2 distribution decisions (gibraltar/baleares)
+│   ├── decisions/IOP_egy── decisions/IOP_spain.txt                    # 1 founding (ISP) + 2 distribution decisions (gibraltar/baleares)
 │   ├── decisions/IOP_portugal.txt                 # 1 founding (IPG) + canarias + azores/madeira + unite iberia
 │   ├── decisions/IOP_occitania.txt                # 1 founding (IOC) + provence + savoy/var + corsica + poitou
 │   └── decisions/IOP_levant.txt                   # 1 founding (ILV) + hatay + sinai
@@ -301,8 +308,10 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 
 ## Changelog
 
+- **0.0.35** — Occupation Directorate is now a container spirit: its description dynamically lists exactly the zones founded (19 scripted-localisation tokens + `iop_zone_list_*` loc keys, empty fallback for the rest); zone modifiers themselves unchanged.
+- **0.0.34** — Puppet national spirits removed (Military Government, six regionals, four puppet-side timed spirits — dead weight under 100% extraction); Italy's Occupation Directorate is now a slim hub (−10% garrisons, +5% compliance, −25% subject autonomy gain) with 19 different stacking per-zone bonuses (dynamic modifiers, one-shot per zone via `iop_grant_zone_*` scripted effects); flavour events pay Italian bonuses instead; shared focus tree and Roman-Empire filter re-gated on the `iop_puppet` flag; Oman retagged IMO → IOM (IMO ignored the map colour) with the vanilla Said bin Taimur portrait; regional flavour icons deleted.
 - **0.0.33** — "Transfer Poitou to Occitania" can no longer reappear after being taken (one-shot `fire_only_once` + `iop_poitou_given` country-flag guard; its "owner is a subject" trigger stayed true after the transfer — every other decision was audited and already self-hides, terminal one-shots are flag-guarded). Founding checks reworked: the "at least half of the initial states" count and the capital check now accept states controlled by Italy **or its subjects**, and founding pulls in every initial state controlled by Italy or a subject (puppet occupation zones count and are pooled into the new government; scripted trigger `iop_med_controlled`). New "Transfer Aquitaine and the Pyrénées-Atlantiques to Occitania" direct decision (19 + 806 → IOC). Istanbul/Constantinople can now also be restored to Greece itself (GRE existence check, plain handover — no cores). Rebuilt the Bursa and Istanbul events: the v0.0.32 nested-option repair had mis-fired and shipped malformed blocks (now rebuilt cleanly and covered by a parser-based validator).
-- **0.0.32** — Greece can now receive Constantinople (Istanbul), Bursa, Cyprus and Izmit: their fate events/decisions gained Greek occupation-government options (and the malformed nested-option blocks in the Bursa and Istanbul events were repaired). New 18th puppet: IMR (Governo Militare di Occupazione del Marocco, Casablanca + Marrakech, Shakib Arslan "Amir al-Bayan" with custom portrait, trait and tricolour-canton Moroccan flag) — its expansion events cover Spanish Africa, Sidi Ifni and Rio de Oro (INA, IMR or annex-to-Italy). "Transfer Oman to Arabia" became "Determine Fate of Oman": hand the coast to IAR, or restore the Sultanate of Oman (IMO) under Sultan Said bin Taimur as a separate Military Occupation (own tag, history, flag and sultan trait; repeatable to expand it). Spanish Africa lost its direct INA-only transfer and gained a full fate decision (INA / IMR / Italy). New "Determine Fate of Northern Dobruja" (971): Bulgarian occupation government (must border) or annex to Italy. Removed three leftover empty `if = {}` blocks from the Turkish founding decision.
+- **0.0.32** — Greece can now receive Constantinople (Istanbul), Bursa, Cyprus and Izmit: their fate events/decisions gained Greek occupation-government options (and the malformed nested-option blocks in the Bursa and Istanbul events were repaired). New 18th puppet: IMR (Governo Militare di Occupazione del Marocco, Casablanca + Marrakech, Shakib Arslan "Amir al-Bayan" with custom portrait, trait and tricolour-canton Moroccan flag) — its expansion events cover Spanish Africa, Sidi Ifni and Rio de Oro (INA, IMR or annex-to-Italy). "Transfer Oman to Arabia" became "Determine Fate of Oman": hand the coast to IAR, or restore the Sultanate of Oman (IOM) under Sultan Said bin Taimur as a separate Military Occupation (own tag, history, flag and sultan trait; repeatable to expand it). Spanish Africa lost its direct INA-only transfer and gained a full fate decision (INA / IMR / Italy). New "Determine Fate of Northern Dobruja" (971): Bulgarian occupation government (must border) or annex to Italy. Removed three leftover empty `if = {}` blocks from the Turkish founding decision.
 - **0.0.31** — Small shared national focus tree for all occupation puppets (`iop_puppet_focus`), 10 focuses with one-off rewards.
 - **0.0.30** — Anatolian fate decisions (Izmit/Izmir/Antalya, Greece options on Bursa/Istanbul), Dobruja-to-Bulgaria confirmed, and the Restore-the-Roman-Empire decision with the Imperium Romanum cosmetic tag and the Province autonomy level.
 - **0.0.29** — Flavour update: `surrender_limit = 1.0` replaces the invalid `capitulate_factor` in the Military Government spirit; six regional occupation spirits; the Italy-side Occupation Directorate spirit; 17 governor traits; 10 flavour events; 7 new idea icons.
@@ -334,3 +343,4 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 - **0.0.3** — Military Occupation autonomy level (0.1, RK-like, 100% civ+mil industry, Italy-only, custom icon); new "Italian Occupation" decision category; map highlighting on all 20 decisions; all decisions free; transfers restricted to bordering puppets (Zara/Istria keep annex-to-Italy); version scheme reset to 0.0.x.
 - **0.1.1** — Hotfix: vanilla category, `country_exists` triggers, state-scope cores, repeatable founding, `supported_version` 1.18.*.
 - **0.1.0** — First version: ICR / ISE / IMT, Yugoslavia founding + distribution, Zara/Istria special annexation, placeholder flags, English localisation.
+r flags, English localisation.

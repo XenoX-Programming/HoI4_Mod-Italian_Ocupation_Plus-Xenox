@@ -2,7 +2,9 @@
 # Italian Occupation Plus v0.0.29 - flavour events.
 # ROOT = Italy. Each event references a named puppet that must
 # already exist, so it only ever fires mid-occupation. Effects
-# hand out the timed iop_spirit_* ideas or small instant bonuses.
+# grant Italy small instant bonuses (or the timed Directorate
+# ideas in event 5). Since v0.0.34 nothing is granted to the
+# puppets themselves - they carry no national spirits.
 # ============================================================
 
 add_namespace = iop_flavour
@@ -23,12 +25,13 @@ country_event = {
 	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
 	option = {
 		name = iop_flavour_1_a
-		ICR = { add_timed_idea = { idea = iop_spirit_reprisals days = 180 } }
+		army_experience = 10
+		add_war_support = 0.03
 		ai_chance = { factor = 50 }
 	}
 	option = {
 		name = iop_flavour_1_b
-		ICR = { add_timed_idea = { idea = iop_spirit_conciliation days = 180 } }
+		add_stability = 0.04
 		ai_chance = { factor = 50 }
 	}
 }
@@ -49,12 +52,12 @@ country_event = {
 	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
 	option = {
 		name = iop_flavour_2_a
-		IGR = { add_timed_idea = { idea = iop_spirit_requisition days = 180 } }
+		add_war_support = 0.04
 		ai_chance = { factor = 50 }
 	}
 	option = {
 		name = iop_flavour_2_b
-		IGR = { add_timed_idea = { idea = iop_spirit_provision days = 180 } }
+		add_stability = 0.04
 		ai_chance = { factor = 50 }
 	}
 }
@@ -75,13 +78,13 @@ country_event = {
 	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
 	option = {
 		name = iop_flavour_3_a
-		ITR = { add_timed_idea = { idea = iop_spirit_requisition days = 180 } }
-		add_political_power = 25
+		add_political_power = 50
 		ai_chance = { factor = 50 }
 	}
 	option = {
 		name = iop_flavour_3_b
-		ITR = { add_timed_idea = { idea = iop_spirit_provision days = 180 } }
+		add_stability = 0.03
+		add_war_support = 0.02
 		ai_chance = { factor = 50 }
 	}
 }
@@ -102,12 +105,14 @@ country_event = {
 	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
 	option = {
 		name = iop_flavour_4_a
-		INA = { add_timed_idea = { idea = iop_spirit_requisition days = 180 } }
+		add_political_power = 30
+		add_war_support = 0.02
 		ai_chance = { factor = 50 }
 	}
 	option = {
 		name = iop_flavour_4_b
-		INA = { add_timed_idea = { idea = iop_spirit_provision days = 180 } }
+		add_political_power = -25
+		add_stability = 0.05
 		ai_chance = { factor = 50 }
 	}
 }
@@ -154,12 +159,13 @@ country_event = {
 	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
 	option = {
 		name = iop_flavour_6_a
-		ILV = { add_timed_idea = { idea = iop_spirit_conciliation days = 180 } }
+		add_stability = 0.03
+		add_political_power = 15
 		ai_chance = { factor = 50 }
 	}
 	option = {
 		name = iop_flavour_6_b
-		ILV = { add_timed_idea = { idea = iop_spirit_reprisals days = 180 } }
+		add_political_power = 50
 		ai_chance = { factor = 50 }
 	}
 }
@@ -244,12 +250,12 @@ country_event = {
 	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
 	option = {
 		name = iop_flavour_9_a
-		IAM = { add_timed_idea = { idea = iop_spirit_conciliation days = 180 } }
+		add_stability = 0.04
 		ai_chance = { factor = 50 }
 	}
 	option = {
 		name = iop_flavour_9_b
-		IAM = { add_timed_idea = { idea = iop_spirit_reprisals days = 180 } }
+		add_manpower = 20000
 		ai_chance = { factor = 50 }
 	}
 }
@@ -270,12 +276,12 @@ country_event = {
 	immediate = { set_country_flag = { flag = iop_flavour_cooldown days = 300 value = 1 } }
 	option = {
 		name = iop_flavour_10_a
-		IIR = { add_timed_idea = { idea = iop_spirit_conciliation days = 180 } }
+		add_stability = 0.04
 		ai_chance = { factor = 50 }
 	}
 	option = {
 		name = iop_flavour_10_b
-		IIR = { add_timed_idea = { idea = iop_spirit_reprisals days = 180 } }
+		add_political_power = 40
 		ai_chance = { factor = 50 }
 	}
 }
