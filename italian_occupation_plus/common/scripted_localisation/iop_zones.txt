@@ -1,0 +1,217 @@
+# Italian Occupation Plus (v0.0.35)
+# Scripted localisation: the Occupation Directorate national spirit "contains"
+# the per-zone dynamic modifiers by listing exactly the zones Italy has
+# founded. Each defined_text below resolves to that zone's list line
+# (iop_zone_list_*, defined in IOP_zones_l_english.yml, trailing newline
+# included) when the zone flag exists, or to the empty string otherwise, so
+# the hub description only ever shows active zones. Scope at render time is
+# the idea holder (Italy), hence has_country_flag.
+
+defined_text = {
+	name = Iop_Zone_List_Croatia
+	text = {
+		trigger = { has_country_flag = iop_zone_croatia }
+		localization_key = iop_zone_list_croatia
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Serbia
+	text = {
+		trigger = { has_country_flag = iop_zone_serbia }
+		localization_key = iop_zone_list_serbia
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Montenegro
+	text = {
+		trigger = { has_country_flag = iop_zone_montenegro }
+		localization_key = iop_zone_list_montenegro
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Albania
+	text = {
+		trigger = { has_country_flag = iop_zone_albania }
+		localization_key = iop_zone_list_albania
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Bulgaria
+	text = {
+		trigger = { has_country_flag = iop_zone_bulgaria }
+		localization_key = iop_zone_list_bulgaria
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Greece
+	text = {
+		trigger = { has_country_flag = iop_zone_greece }
+		localization_key = iop_zone_list_greece
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Turkey
+	text = {
+		trigger = { has_country_flag = iop_zone_turkey }
+		localization_key = iop_zone_list_turkey
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Armenia
+	text = {
+		trigger = { has_country_flag = iop_zone_armenia }
+		localization_key = iop_zone_list_armenia
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Iran
+	text = {
+		trigger = { has_country_flag = iop_zone_iran }
+		localization_key = iop_zone_list_iran
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Iraq
+	text = {
+		trigger = { has_country_flag = iop_zone_iraq }
+		localization_key = iop_zone_list_iraq
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Arabia
+	text = {
+		trigger = { has_country_flag = iop_zone_arabia }
+		localization_key = iop_zone_list_arabia
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Oman
+	text = {
+		trigger = { has_country_flag = iop_zone_oman }
+		localization_key = iop_zone_list_oman
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Levant
+	text = {
+		trigger = { has_country_flag = iop_zone_levant }
+		localization_key = iop_zone_list_levant
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Egypt
+	text = {
+		trigger = { has_country_flag = iop_zone_egypt }
+		localization_key = iop_zone_list_egypt
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_North_Africa
+	text = {
+		trigger = { has_country_flag = iop_zone_north_africa }
+		localization_key = iop_zone_list_north_africa
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Morocco
+	text = {
+		trigger = { has_country_flag = iop_zone_morocco }
+		localization_key = iop_zone_list_morocco
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Portugal
+	text = {
+		trigger = { has_country_flag = iop_zone_portugal }
+		localization_key = iop_zone_list_portugal
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Spain
+	text = {
+		trigger = { has_country_flag = iop_zone_spain }
+		localization_key = iop_zone_list_spain
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}
+
+defined_text = {
+	name = Iop_Zone_List_Occitania
+	text = {
+		trigger = { has_country_flag = iop_zone_occitania }
+		localization_key = iop_zone_list_occitania
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}

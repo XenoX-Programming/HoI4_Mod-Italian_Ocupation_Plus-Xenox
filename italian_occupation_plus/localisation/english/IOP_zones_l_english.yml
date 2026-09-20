@@ -38,3 +38,28 @@
  iop_zone_morocco_desc:0 "Captured French stocks arm new divisions."
  iop_zone_oman:0 "Omani Occupation Zone"
  iop_zone_oman_desc:0 "The Sultan's tribute fills the political coffers."
+
+ # List lines for the Occupation Directorate container spirit (v0.0.35).
+ # Each line ends with a newline so the scripted localisation tokens in the
+ # hub description stack vertically; iop_zone_empty renders non-founded
+ # zones as nothing.
+ iop_zone_list_croatia:0 "Croatian Occupation Zone\n"
+ iop_zone_list_serbia:0 "Serbian Occupation Zone\n"
+ iop_zone_list_montenegro:0 "Montenegrin Occupation Zone\n"
+ iop_zone_list_albania:0 "Albanian Occupation Zone\n"
+ iop_zone_list_bulgaria:0 "Bulgarian Occupation Zone\n"
+ iop_zone_list_greece:0 "Greek Occupation Zone\n"
+ iop_zone_list_turkey:0 "Turkish Occupation Zone\n"
+ iop_zone_list_armenia:0 "Armenian Occupation Zone\n"
+ iop_zone_list_iran:0 "Iranian Occupation Zone\n"
+ iop_zone_list_iraq:0 "Iraqi Occupation Zone\n"
+ iop_zone_list_arabia:0 "Arabian Occupation Zone\n"
+ iop_zone_list_oman:0 "Omani Occupation Zone\n"
+ iop_zone_list_levant:0 "Levantine Occupation Zone\n"
+ iop_zone_list_egypt:0 "Egyptian Occupation Zone\n"
+ iop_zone_list_north_africa:0 "North African Occupation Zone\n"
+ iop_zone_list_morocco:0 "Moroccan Occupation Zone\n"
+ iop_zone_list_portugal:0 "Portuguese Occupation Zone\n"
+ iop_zone_list_spain:0 "Spanish Occupation Zone\n"
+ iop_zone_list_occitania:0 "Occitan Occupation Zone\n"
+ iop_zone_empty:0 ""
