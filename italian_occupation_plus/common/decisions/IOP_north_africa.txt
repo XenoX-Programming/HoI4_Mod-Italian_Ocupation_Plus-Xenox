@@ -3,8 +3,8 @@
 # 1) As Italy, control Tripoli (starts Italian - INA can be
 #    founded on day one).
 # 2) Found INA with the "Establish" decision.
-#    Founding requires controlling the capital state only (448 Tripoli).
-#    Any other initial states you control transfer automatically.
+#    Founding requires the capital state to be controlled by Italy or one of its subjects (448 Tripoli).
+#    Any other initial states controlled by Italy or its subjects transfer automatically.
 # 3) Use the grouped "Transfer ..." decisions to hand further
 #    regions straight to INA (cores + transfer, no event - INA
 #    is the only recipient). Each needs INA to exist and Italy
@@ -45,22 +45,22 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = INA }
-			# Only appears once Italy controls at least half of the required territory (4 of 8 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (4 of 8 states).
 			count_triggers = {
 				amount = 4
-				controls_state = 448
-				controls_state = 661
-				controls_state = 449
-				controls_state = 662
-				controls_state = 450
-				controls_state = 451
-				controls_state = 663
-				controls_state = 273
+				448 = { iop_med_controlled = yes }
+				661 = { iop_med_controlled = yes }
+				449 = { iop_med_controlled = yes }
+				662 = { iop_med_controlled = yes }
+				450 = { iop_med_controlled = yes }
+				451 = { iop_med_controlled = yes }
+				663 = { iop_med_controlled = yes }
+				273 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 448
+			448 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -89,35 +89,35 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 448 }
+					limit = { 448 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 448 }
 				}
 				if = {
-					limit = { controls_state = 661 }
+					limit = { 661 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 661 }
 				}
 				if = {
-					limit = { controls_state = 449 }
+					limit = { 449 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 449 }
 				}
 				if = {
-					limit = { controls_state = 662 }
+					limit = { 662 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 662 }
 				}
 				if = {
-					limit = { controls_state = 450 }
+					limit = { 450 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 450 }
 				}
 				if = {
-					limit = { controls_state = 451 }
+					limit = { 451 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 451 }
 				}
 				if = {
-					limit = { controls_state = 663 }
+					limit = { 663 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 663 }
 				}
 				if = {
-					limit = { controls_state = 273 }
+					limit = { 273 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 273 }
 				}
 			}

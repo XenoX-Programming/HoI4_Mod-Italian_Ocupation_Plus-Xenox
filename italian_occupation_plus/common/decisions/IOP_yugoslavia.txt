@@ -3,8 +3,8 @@
 # Works like Reichskommissariats Plus, but for Italy:
 # 1) As Italy, occupy Yugoslav land.
 # 2) Found ICR / ISE / IMT with the "Establish" decisions.
-#    Founding requires controlling the capital state only.
-#    Any other initial states you control transfer automatically.
+#    Founding requires the capital state to be controlled by Italy or one of its subjects.
+#    Any other initial states controlled by Italy or its subjects transfer automatically.
 # 3) Use "Determine fate of ..." decisions to assign further
 #    states via event (choose Croatia / Serbia / Montenegro).
 # 4) Zara (163) and Istria (852) are special: give to Croatia
@@ -36,17 +36,17 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ICR }
-			# Only appears once Italy controls at least half of the required territory (2 of 3 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (2 of 3 states).
 			count_triggers = {
 				amount = 2
-				controls_state = 109
-				controls_state = 104
-				controls_state = 804
+				109 = { iop_med_controlled = yes }
+				104 = { iop_med_controlled = yes }
+				804 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 109
+			109 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -70,15 +70,15 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 109 }
+					limit = { 109 = { iop_med_controlled = yes } }
 					ICR = { transfer_state = 109 }
 				}
 				if = {
-					limit = { controls_state = 104 }
+					limit = { 104 = { iop_med_controlled = yes } }
 					ICR = { transfer_state = 104 }
 				}
 				if = {
-					limit = { controls_state = 804 }
+					limit = { 804 = { iop_med_controlled = yes } }
 					ICR = { transfer_state = 804 }
 				}
 			}
@@ -106,16 +106,16 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ISE }
-			# Only appears once Italy controls at least half of the required territory (1 of 2 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (1 of 2 states).
 			count_triggers = {
 				amount = 1
-				controls_state = 107
-				controls_state = 108
+				107 = { iop_med_controlled = yes }
+				108 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 107
+			107 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -138,11 +138,11 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 107 }
+					limit = { 107 = { iop_med_controlled = yes } }
 					ISE = { transfer_state = 107 }
 				}
 				if = {
-					limit = { controls_state = 108 }
+					limit = { 108 = { iop_med_controlled = yes } }
 					ISE = { transfer_state = 108 }
 				}
 			}
@@ -170,16 +170,16 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IAL }
-			# Only appears once Italy controls at least half of the required territory (1 of 2 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (1 of 2 states).
 			count_triggers = {
 				amount = 1
-				controls_state = 44
-				controls_state = 934
+				44 = { iop_med_controlled = yes }
+				934 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 44
+			44 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -202,11 +202,11 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 44 }
+					limit = { 44 = { iop_med_controlled = yes } }
 					IAL = { transfer_state = 44 }
 				}
 				if = {
-					limit = { controls_state = 934 }
+					limit = { 934 = { iop_med_controlled = yes } }
 					IAL = { transfer_state = 934 }
 				}
 			}
@@ -235,18 +235,18 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IBL }
-			# Only appears once Italy controls at least half of the required territory (2 of 4 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (2 of 4 states).
 			count_triggers = {
 				amount = 2
-				controls_state = 48
-				controls_state = 801
-				controls_state = 212
-				controls_state = 211
+				48 = { iop_med_controlled = yes }
+				801 = { iop_med_controlled = yes }
+				212 = { iop_med_controlled = yes }
+				211 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 48
+			48 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -271,19 +271,19 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 48 }
+					limit = { 48 = { iop_med_controlled = yes } }
 					IBL = { transfer_state = 48 }
 				}
 				if = {
-					limit = { controls_state = 801 }
+					limit = { 801 = { iop_med_controlled = yes } }
 					IBL = { transfer_state = 801 }
 				}
 				if = {
-					limit = { controls_state = 212 }
+					limit = { 212 = { iop_med_controlled = yes } }
 					IBL = { transfer_state = 212 }
 				}
 				if = {
-					limit = { controls_state = 211 }
+					limit = { 211 = { iop_med_controlled = yes } }
 					IBL = { transfer_state = 211 }
 				}
 			}

@@ -31,17 +31,17 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IMR }
-			# Only appears once Italy controls at least half of the
+			# Only appears once Italy or its subjects control at least half of the
 			# required territory (1 of 2 states).
 			count_triggers = {
 				amount = 1
-				controls_state = 461
-				controls_state = 462
+				461 = { iop_med_controlled = yes }
+				462 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 461
+			461 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -64,11 +64,11 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 461 }
+					limit = { 461 = { iop_med_controlled = yes } }
 					IMR = { transfer_state = 461 }
 				}
 				if = {
-					limit = { controls_state = 462 }
+					limit = { 462 = { iop_med_controlled = yes } }
 					IMR = { transfer_state = 462 }
 				}
 			}

@@ -23,15 +23,15 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IAM }
-			# Only appears once Italy controls at least half of the required territory (1 of 1 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (1 of 1 states).
 			count_triggers = {
 				amount = 1
-				controls_state = 230
+				230 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 230
+			230 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -53,7 +53,7 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 230 }
+					limit = { 230 = { iop_med_controlled = yes } }
 					IAM = { transfer_state = 230 }
 				}
 			}
@@ -96,31 +96,31 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IIR }
-			# Only appears once Italy controls at least half of the required territory (9 of 17 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (9 of 17 states).
 			count_triggers = {
 				amount = 9
-				controls_state = 419
-				controls_state = 1000
-				controls_state = 420
-				controls_state = 1001
-				controls_state = 421
-				controls_state = 417
-				controls_state = 413
-				controls_state = 266
-				controls_state = 1004
-				controls_state = 416
-				controls_state = 418
-				controls_state = 411
-				controls_state = 1002
-				controls_state = 1003
-				controls_state = 412
-				controls_state = 414
-				controls_state = 410
+				419 = { iop_med_controlled = yes }
+				1000 = { iop_med_controlled = yes }
+				420 = { iop_med_controlled = yes }
+				1001 = { iop_med_controlled = yes }
+				421 = { iop_med_controlled = yes }
+				417 = { iop_med_controlled = yes }
+				413 = { iop_med_controlled = yes }
+				266 = { iop_med_controlled = yes }
+				1004 = { iop_med_controlled = yes }
+				416 = { iop_med_controlled = yes }
+				418 = { iop_med_controlled = yes }
+				411 = { iop_med_controlled = yes }
+				1002 = { iop_med_controlled = yes }
+				1003 = { iop_med_controlled = yes }
+				412 = { iop_med_controlled = yes }
+				414 = { iop_med_controlled = yes }
+				410 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 266
+			266 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -158,71 +158,71 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 419 }
+					limit = { 419 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 419 }
 				}
 				if = {
-					limit = { controls_state = 1000 }
+					limit = { 1000 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 1000 }
 				}
 				if = {
-					limit = { controls_state = 420 }
+					limit = { 420 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 420 }
 				}
 				if = {
-					limit = { controls_state = 1001 }
+					limit = { 1001 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 1001 }
 				}
 				if = {
-					limit = { controls_state = 421 }
+					limit = { 421 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 421 }
 				}
 				if = {
-					limit = { controls_state = 417 }
+					limit = { 417 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 417 }
 				}
 				if = {
-					limit = { controls_state = 413 }
+					limit = { 413 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 413 }
 				}
 				if = {
-					limit = { controls_state = 266 }
+					limit = { 266 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 266 }
 				}
 				if = {
-					limit = { controls_state = 1004 }
+					limit = { 1004 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 1004 }
 				}
 				if = {
-					limit = { controls_state = 416 }
+					limit = { 416 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 416 }
 				}
 				if = {
-					limit = { controls_state = 418 }
+					limit = { 418 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 418 }
 				}
 				if = {
-					limit = { controls_state = 411 }
+					limit = { 411 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 411 }
 				}
 				if = {
-					limit = { controls_state = 1002 }
+					limit = { 1002 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 1002 }
 				}
 				if = {
-					limit = { controls_state = 1003 }
+					limit = { 1003 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 1003 }
 				}
 				if = {
-					limit = { controls_state = 412 }
+					limit = { 412 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 412 }
 				}
 				if = {
-					limit = { controls_state = 414 }
+					limit = { 414 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 414 }
 				}
 				if = {
-					limit = { controls_state = 410 }
+					limit = { 410 = { iop_med_controlled = yes } }
 					IIR = { transfer_state = 410 }
 				}
 			}

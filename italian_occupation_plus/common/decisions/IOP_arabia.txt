@@ -30,19 +30,19 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IIQ }
-			# Only appears once Italy controls at least half of the required territory (3 of 5 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (3 of 5 states).
 			count_triggers = {
 				amount = 3
-				controls_state = 676
-				controls_state = 1010
-				controls_state = 291
-				controls_state = 675
-				controls_state = 1011
+				676 = { iop_med_controlled = yes }
+				1010 = { iop_med_controlled = yes }
+				291 = { iop_med_controlled = yes }
+				675 = { iop_med_controlled = yes }
+				1011 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 291
+			291 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -68,23 +68,23 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 676 }
+					limit = { 676 = { iop_med_controlled = yes } }
 					IIQ = { transfer_state = 676 }
 				}
 				if = {
-					limit = { controls_state = 1010 }
+					limit = { 1010 = { iop_med_controlled = yes } }
 					IIQ = { transfer_state = 1010 }
 				}
 				if = {
-					limit = { controls_state = 291 }
+					limit = { 291 = { iop_med_controlled = yes } }
 					IIQ = { transfer_state = 291 }
 				}
 				if = {
-					limit = { controls_state = 675 }
+					limit = { 675 = { iop_med_controlled = yes } }
 					IIQ = { transfer_state = 675 }
 				}
 				if = {
-					limit = { controls_state = 1011 }
+					limit = { 1011 = { iop_med_controlled = yes } }
 					IIQ = { transfer_state = 1011 }
 				}
 			}
@@ -119,23 +119,23 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IAR }
-			# Only appears once Italy controls at least half of the required territory (5 of 9 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (5 of 9 states).
 			count_triggers = {
 				amount = 5
-				controls_state = 854
-				controls_state = 855
-				controls_state = 857
-				controls_state = 679
-				controls_state = 859
-				controls_state = 292
-				controls_state = 856
-				controls_state = 678
-				controls_state = 858
+				854 = { iop_med_controlled = yes }
+				855 = { iop_med_controlled = yes }
+				857 = { iop_med_controlled = yes }
+				679 = { iop_med_controlled = yes }
+				859 = { iop_med_controlled = yes }
+				292 = { iop_med_controlled = yes }
+				856 = { iop_med_controlled = yes }
+				678 = { iop_med_controlled = yes }
+				858 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 292
+			292 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -165,39 +165,39 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 854 }
+					limit = { 854 = { iop_med_controlled = yes } }
 					IAR = { transfer_state = 854 }
 				}
 				if = {
-					limit = { controls_state = 855 }
+					limit = { 855 = { iop_med_controlled = yes } }
 					IAR = { transfer_state = 855 }
 				}
 				if = {
-					limit = { controls_state = 857 }
+					limit = { 857 = { iop_med_controlled = yes } }
 					IAR = { transfer_state = 857 }
 				}
 				if = {
-					limit = { controls_state = 679 }
+					limit = { 679 = { iop_med_controlled = yes } }
 					IAR = { transfer_state = 679 }
 				}
 				if = {
-					limit = { controls_state = 859 }
+					limit = { 859 = { iop_med_controlled = yes } }
 					IAR = { transfer_state = 859 }
 				}
 				if = {
-					limit = { controls_state = 292 }
+					limit = { 292 = { iop_med_controlled = yes } }
 					IAR = { transfer_state = 292 }
 				}
 				if = {
-					limit = { controls_state = 856 }
+					limit = { 856 = { iop_med_controlled = yes } }
 					IAR = { transfer_state = 856 }
 				}
 				if = {
-					limit = { controls_state = 678 }
+					limit = { 678 = { iop_med_controlled = yes } }
 					IAR = { transfer_state = 678 }
 				}
 				if = {
-					limit = { controls_state = 858 }
+					limit = { 858 = { iop_med_controlled = yes } }
 					IAR = { transfer_state = 858 }
 				}
 			}

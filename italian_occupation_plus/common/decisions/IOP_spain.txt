@@ -2,8 +2,8 @@
 # Italian Occupation Plus v0.0.18 - Spain
 # 1) As Italy, occupy Spanish land.
 # 2) Found ISP with the "Establish" decision.
-#    Founding requires controlling the capital state only (41 Madrid).
-#    Any other initial states you control transfer automatically.
+#    Founding requires the capital state to be controlled by Italy or one of its subjects (41 Madrid).
+#    Any other initial states controlled by Italy or its subjects transfer automatically.
 # 3) "Fall of Gibraltar" fires an event: give Gibraltar (118) to ISP
 #    OR integrate it into Italy proper. Needs ISP to OWN a state
 #    neighboring Gibraltar.
@@ -53,34 +53,34 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ISP }
-			# Only appears once Italy controls at least half of the required territory (10 of 20 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (10 of 20 states).
 			count_triggers = {
 				amount = 10
-				controls_state = 171
-				controls_state = 790
-				controls_state = 174
-				controls_state = 792
-				controls_state = 172
-				controls_state = 166
-				controls_state = 794
-				controls_state = 165
-				controls_state = 791
-				controls_state = 176
-				controls_state = 788
-				controls_state = 41
-				controls_state = 793
-				controls_state = 167
-				controls_state = 170
-				controls_state = 175
-				controls_state = 168
-				controls_state = 789
-				controls_state = 169
-				controls_state = 173
+				171 = { iop_med_controlled = yes }
+				790 = { iop_med_controlled = yes }
+				174 = { iop_med_controlled = yes }
+				792 = { iop_med_controlled = yes }
+				172 = { iop_med_controlled = yes }
+				166 = { iop_med_controlled = yes }
+				794 = { iop_med_controlled = yes }
+				165 = { iop_med_controlled = yes }
+				791 = { iop_med_controlled = yes }
+				176 = { iop_med_controlled = yes }
+				788 = { iop_med_controlled = yes }
+				41 = { iop_med_controlled = yes }
+				793 = { iop_med_controlled = yes }
+				167 = { iop_med_controlled = yes }
+				170 = { iop_med_controlled = yes }
+				175 = { iop_med_controlled = yes }
+				168 = { iop_med_controlled = yes }
+				789 = { iop_med_controlled = yes }
+				169 = { iop_med_controlled = yes }
+				173 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 41
+			41 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -121,83 +121,83 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 171 }
+					limit = { 171 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 171 }
 				}
 				if = {
-					limit = { controls_state = 790 }
+					limit = { 790 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 790 }
 				}
 				if = {
-					limit = { controls_state = 174 }
+					limit = { 174 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 174 }
 				}
 				if = {
-					limit = { controls_state = 792 }
+					limit = { 792 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 792 }
 				}
 				if = {
-					limit = { controls_state = 172 }
+					limit = { 172 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 172 }
 				}
 				if = {
-					limit = { controls_state = 166 }
+					limit = { 166 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 166 }
 				}
 				if = {
-					limit = { controls_state = 794 }
+					limit = { 794 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 794 }
 				}
 				if = {
-					limit = { controls_state = 165 }
+					limit = { 165 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 165 }
 				}
 				if = {
-					limit = { controls_state = 791 }
+					limit = { 791 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 791 }
 				}
 				if = {
-					limit = { controls_state = 176 }
+					limit = { 176 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 176 }
 				}
 				if = {
-					limit = { controls_state = 788 }
+					limit = { 788 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 788 }
 				}
 				if = {
-					limit = { controls_state = 41 }
+					limit = { 41 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 41 }
 				}
 				if = {
-					limit = { controls_state = 793 }
+					limit = { 793 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 793 }
 				}
 				if = {
-					limit = { controls_state = 167 }
+					limit = { 167 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 167 }
 				}
 				if = {
-					limit = { controls_state = 170 }
+					limit = { 170 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 170 }
 				}
 				if = {
-					limit = { controls_state = 175 }
+					limit = { 175 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 175 }
 				}
 				if = {
-					limit = { controls_state = 168 }
+					limit = { 168 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 168 }
 				}
 				if = {
-					limit = { controls_state = 789 }
+					limit = { 789 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 789 }
 				}
 				if = {
-					limit = { controls_state = 169 }
+					limit = { 169 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 169 }
 				}
 				if = {
-					limit = { controls_state = 173 }
+					limit = { 173 = { iop_med_controlled = yes } }
 					ISP = { transfer_state = 173 }
 				}
 			}

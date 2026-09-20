@@ -48,7 +48,8 @@ country_event = {
 }
 
 # ---------------- 340 - Bursa (SPECIAL) ----------------
-# Give to Turkey OR annex to Italy (adds Italian core).
+# Give to Turkey or Greece occupation governments (must border) OR annex
+# to Italy (adds Italian core).
 country_event = {
 	id = iop_turkey.340
 	title = iop_turkey_bursa_title
@@ -86,8 +87,10 @@ country_event = {
 	}
 }
 
-# ---------------- 797 - Istanbul (SPECIAL) ----------------
-# Give to Turkey OR annex to Italy (adds Italian core).
+# ---------------- 797 - Istanbul / Constantinople (SPECIAL) ----------------
+# Give to the Turkish or Greek occupation government (must border), restore
+# Constantinople to Greece itself (GRE existence check, plain handover), or
+# annex to Italy (adds Italian core).
 country_event = {
 	id = iop_turkey.797
 	title = iop_turkey_istanbul_title
@@ -105,7 +108,6 @@ country_event = {
 		ai_chance = { factor = 0 }
 	}
 	option = {
-			option = {
 		name = iop_give_to_IGR
 		trigger = {
 			country_exists = IGR
@@ -115,7 +117,14 @@ country_event = {
 		IGR = { transfer_state = 797 }
 		ai_chance = { factor = 0 }
 	}
-name = iop_annex_to_italy
+	option = {
+		name = iop_give_istanbul_to_GRE
+		trigger = { country_exists = GRE }
+		GRE = { transfer_state = 797 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
 		custom_effect_tooltip = iop_annex_to_italy_tt
 		hidden_effect = {
 			797 = { add_core_of = ITA }

@@ -3,8 +3,8 @@
 # Works like the Yugoslavia file, but for Greece:
 # 1) As Italy, occupy Greek land.
 # 2) Found IGR with the "Establish" decision.
-#    Founding requires controlling the capital state only (47 Attica).
-#    Any other initial states you control transfer automatically.
+#    Founding requires the capital state to be controlled by Italy or one of its subjects (47 Attica).
+#    Any other initial states controlled by Italy or its subjects transfer automatically.
 # 3) Use "Determine fate of ..." decisions to assign further
 #    states via event:
 #    - Central Macedonia (731) and Thrace (184): Greece (IGR)
@@ -43,18 +43,18 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IGR }
-			# Only appears once Italy controls at least half of the required territory (2 of 4 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (2 of 4 states).
 			count_triggers = {
 				amount = 2
-				controls_state = 47
-				controls_state = 186
-				controls_state = 185
-				controls_state = 187
+				47 = { iop_med_controlled = yes }
+				186 = { iop_med_controlled = yes }
+				185 = { iop_med_controlled = yes }
+				187 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 47
+			47 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -79,19 +79,19 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 47 }
+					limit = { 47 = { iop_med_controlled = yes } }
 					IGR = { transfer_state = 47 }
 				}
 				if = {
-					limit = { controls_state = 186 }
+					limit = { 186 = { iop_med_controlled = yes } }
 					IGR = { transfer_state = 186 }
 				}
 				if = {
-					limit = { controls_state = 185 }
+					limit = { 185 = { iop_med_controlled = yes } }
 					IGR = { transfer_state = 185 }
 				}
 				if = {
-					limit = { controls_state = 187 }
+					limit = { 187 = { iop_med_controlled = yes } }
 					IGR = { transfer_state = 187 }
 				}
 			}

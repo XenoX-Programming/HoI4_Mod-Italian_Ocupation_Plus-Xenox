@@ -2,8 +2,8 @@
 # Italian Occupation Plus v0.0.15 - Turkey
 # 1) As Italy, occupy Turkish land.
 # 2) Found ITR with the "Establish" decision.
-#    Founding requires controlling the capital state only (49 Ankara).
-#    Any other initial states you control transfer automatically.
+#    Founding requires the capital state to be controlled by Italy or one of its subjects (49 Ankara).
+#    Any other initial states controlled by Italy or its subjects transfer automatically.
 # 3) Use "Determine fate of ..." decisions to assign further
 #    states via event:
 #    - Edirne (341): Bulgaria (IBL) or Greece (IGR), must border,
@@ -47,27 +47,27 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ITR }
-			# Only appears once Italy controls at least half of the required territory (7 of 13 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (7 of 13 states).
 			count_triggers = {
 				amount = 7
-				controls_state = 49
-				controls_state = 343
-				controls_state = 356
-				controls_state = 355
-				controls_state = 798
-				controls_state = 349
-				controls_state = 353
-				controls_state = 352
-				controls_state = 350
-				controls_state = 344
-				controls_state = 348
-				controls_state = 345
-				controls_state = 346
+				49 = { iop_med_controlled = yes }
+				343 = { iop_med_controlled = yes }
+				356 = { iop_med_controlled = yes }
+				355 = { iop_med_controlled = yes }
+				798 = { iop_med_controlled = yes }
+				349 = { iop_med_controlled = yes }
+				353 = { iop_med_controlled = yes }
+				352 = { iop_med_controlled = yes }
+				350 = { iop_med_controlled = yes }
+				344 = { iop_med_controlled = yes }
+				348 = { iop_med_controlled = yes }
+				345 = { iop_med_controlled = yes }
+				346 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 49
+			49 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -101,55 +101,55 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 49 }
+					limit = { 49 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 49 }
 				}
 				if = {
-					limit = { controls_state = 343 }
+					limit = { 343 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 343 }
 				}
 				if = {
-					limit = { controls_state = 356 }
+					limit = { 356 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 356 }
 				}
 				if = {
-					limit = { controls_state = 355 }
+					limit = { 355 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 355 }
 				}
 				if = {
-					limit = { controls_state = 798 }
+					limit = { 798 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 798 }
 				}
 				if = {
-					limit = { controls_state = 349 }
+					limit = { 349 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 349 }
 				}
 				if = {
-					limit = { controls_state = 353 }
+					limit = { 353 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 353 }
 				}
 				if = {
-					limit = { controls_state = 352 }
+					limit = { 352 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 352 }
 				}
 				if = {
-					limit = { controls_state = 350 }
+					limit = { 350 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 350 }
 				}
 				if = {
-					limit = { controls_state = 344 }
+					limit = { 344 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 344 }
 				}
 				if = {
-					limit = { controls_state = 348 }
+					limit = { 348 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 348 }
 				}
 				if = {
-					limit = { controls_state = 345 }
+					limit = { 345 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 345 }
 				}
 				if = {
-					limit = { controls_state = 346 }
+					limit = { 346 = { iop_med_controlled = yes } }
 					ITR = { transfer_state = 346 }
 				}
 			}
@@ -263,12 +263,18 @@ iop_occupation = {
 			OR = {
 				country_exists = ITR
 				country_exists = IGR
+				# Constantinople may always be restored to Greece itself.
+				country_exists = GRE
 			}
 		}
 		available = {
 			controls_state = 797
-			# Turkey or Greece must border the state (for ceding or annexing).
-			797 = { any_neighbor_state = { OR = { is_owned_by = ITR is_owned_by = IGR } } }
+			OR = {
+				# The Turkish or Greek occupation government must border the state.
+				797 = { any_neighbor_state = { OR = { is_owned_by = ITR is_owned_by = IGR } } }
+				# Greece itself only needs to exist (Megali Idea claim).
+				country_exists = GRE
+			}
 		}
 		days_re_enable = 3
 		complete_effect = {
