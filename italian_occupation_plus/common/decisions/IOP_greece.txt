@@ -63,7 +63,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_greece = yes
 			}
-			custom_effect_tooltip = iop_establish_greece_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_greece_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_greece_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_greece_established

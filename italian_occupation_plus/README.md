@@ -142,7 +142,7 @@ Each founding decision only **appears** once **Italy or its subjects (the occupa
 | **656** | **Kuwait (special)** | **Iraq OR Arabia (each must own a bordering state) OR integrate into Italy** |
 | 293 + 659 + 992 | Yemen: North Yemen + South Yemen + Aden (grouped) | IAR only — direct transfer, no event |
 | **1016 + 1015 + 294** | **Oman: Dhofar + Oman + Muscat (grouped, special)** | **IAR, OR restore the Sultanate of Oman (IOM — separate Military Occupation under Sultan Said bin Taimur); afterwards cede further coast to IOM** |
-| 658 | Abu Dhabi | IAR only — direct transfer, no event |
+| **658** | **Abu Dhabi (special)** | **Arabia (IAR) OR Sultanate of Oman (IOM) OR integrate into Italy** |
 | 765 | Qatar | IAR only — direct transfer, no event |
 | **77** | **Dobrudja (special)** | **Needs IBL to own a bordering state; then Bulgaria OR integrate into Italy** |
 | **971** | **Northern Dobruja (special)** | **Needs IBL to own a bordering state; then Bulgaria OR integrate into Italy** |

@@ -1,0 +1,390 @@
+# ============================================================
+# Italian Occupation Plus - Scripted Localisation for Decisions
+# Dynamically adjusts decision titles and descriptions depending
+# on whether the Roman Empire has been proclaimed (iop_roman_empire).
+# ============================================================
+
+defined_text = {
+	name = GetIopCategoryName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_occupation_roman
+	}
+	text = {
+		localization_key = iop_occupation_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishCroatiaName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_croatia_roman
+	}
+	text = {
+		localization_key = iop_establish_croatia_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishCroatiaDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_croatia_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_croatia_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishSerbiaName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_serbia_roman
+	}
+	text = {
+		localization_key = iop_establish_serbia_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishSerbiaDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_serbia_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_serbia_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishAlbaniaName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_albania_roman
+	}
+	text = {
+		localization_key = iop_establish_albania_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishAlbaniaDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_albania_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_albania_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishBulgariaName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_bulgaria_roman
+	}
+	text = {
+		localization_key = iop_establish_bulgaria_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishBulgariaDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_bulgaria_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_bulgaria_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishGreeceName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_greece_roman
+	}
+	text = {
+		localization_key = iop_establish_greece_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishGreeceDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_greece_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_greece_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishTurkeyName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_turkey_roman
+	}
+	text = {
+		localization_key = iop_establish_turkey_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishTurkeyDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_turkey_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_turkey_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishNorthAfricaName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_north_africa_roman
+	}
+	text = {
+		localization_key = iop_establish_north_africa_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishNorthAfricaDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_north_africa_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_north_africa_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishEgyptName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_egypt_roman
+	}
+	text = {
+		localization_key = iop_establish_egypt_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishEgyptDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_egypt_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_egypt_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishSpainName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_spain_roman
+	}
+	text = {
+		localization_key = iop_establish_spain_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishSpainDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_spain_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_spain_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishPortugalName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_portugal_roman
+	}
+	text = {
+		localization_key = iop_establish_portugal_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishPortugalDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_portugal_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_portugal_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishOccitaniaName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_occitania_roman
+	}
+	text = {
+		localization_key = iop_establish_occitania_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishOccitaniaDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_occitania_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_occitania_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishLevantName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_levant_roman
+	}
+	text = {
+		localization_key = iop_establish_levant_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishLevantDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_levant_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_levant_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishIraqName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_iraq_roman
+	}
+	text = {
+		localization_key = iop_establish_iraq_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishIraqDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_iraq_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_iraq_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishArabiaName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_arabia_roman
+	}
+	text = {
+		localization_key = iop_establish_arabia_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishArabiaDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_arabia_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_arabia_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishArmeniaName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_armenia_roman
+	}
+	text = {
+		localization_key = iop_establish_armenia_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishArmeniaDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_armenia_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_armenia_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishIranName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_iran_roman
+	}
+	text = {
+		localization_key = iop_establish_iran_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishIranDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_iran_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_iran_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetEstablishMoroccoName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_morocco_roman
+	}
+	text = {
+		localization_key = iop_establish_morocco_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishMoroccoDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_morocco_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_morocco_normal_desc
+	}
+}

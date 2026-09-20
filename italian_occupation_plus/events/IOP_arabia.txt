@@ -138,3 +138,35 @@ country_event = {
 		ai_chance = { factor = 0 }
 	}
 }
+
+# ---------------- 658 - Abu Dhabi: IAR / IOM / Italy ----------------
+country_event = {
+	id = iop_arabia.658
+	title = iop_arabia_abu_dhabi_title
+	desc = iop_arabia_658_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_abu_dhabi_to_IAR
+		trigger = { country_exists = IAR }
+		658 = { add_core_of = IAR }
+		IAR = { transfer_state = 658 }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_give_abu_dhabi_to_IOM
+		trigger = { country_exists = IOM }
+		658 = { add_core_of = IOM }
+		IOM = { transfer_state = 658 }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			658 = { add_core_of = ITA }
+			ITA = { transfer_state = 658 }
+		}
+		ai_chance = { factor = 0 }
+	}
+}

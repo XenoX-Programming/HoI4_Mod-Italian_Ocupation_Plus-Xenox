@@ -55,7 +55,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_croatia = yes
 			}
-			custom_effect_tooltip = iop_establish_croatia_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_croatia_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_croatia_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_croatia_established
@@ -132,7 +138,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_serbia = yes
 			}
-			custom_effect_tooltip = iop_establish_serbia_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_serbia_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_serbia_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_serbia_established
@@ -204,7 +216,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_albania = yes
 			}
-			custom_effect_tooltip = iop_establish_albania_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_albania_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_albania_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_albania_established
@@ -279,7 +297,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_bulgaria = yes
 			}
-			custom_effect_tooltip = iop_establish_bulgaria_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_bulgaria_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_bulgaria_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_bulgaria_established

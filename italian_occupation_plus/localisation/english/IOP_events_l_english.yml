@@ -140,3 +140,8 @@
  iop_turkey_antalya_title:0 "Fate of Antalya"
  iop_turkey_342_desc:0 "Antalya is under Italian control. Which occupation government should administer it, or shall it be integrated into Italy proper?"
  iop_give_to_ITR:0 "Cede to Turkey"
+
+ iop_arabia_abu_dhabi_title:0 "Fate of Abu Dhabi"
+ iop_arabia_658_desc:0 "Abu Dhabi is under Italian control. Shall its administration be granted to the Arabian occupation government, to the Sultanate of Oman, or be annexed directly into Italy?"
+ iop_give_abu_dhabi_to_IAR:0 "Cede Abu Dhabi to Arabia"
+ iop_give_abu_dhabi_to_IOM:0 "Cede Abu Dhabi to Oman"
