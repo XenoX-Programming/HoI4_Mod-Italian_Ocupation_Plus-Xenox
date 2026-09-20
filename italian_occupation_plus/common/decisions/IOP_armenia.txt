@@ -46,9 +46,19 @@ iop_occupation = {
 				set_country_flag = iop_armenia_established
 				230 = { add_core_of = IAM }
 				release_puppet = IAM
-				set_autonomy = {
-					target = IAM
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IAM
+						autonomous_state = autonomy_province
+					}
+					IAM = { set_cosmetic_tag = IAM_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IAM
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 230 = { iop_med_controlled = yes } }
@@ -149,9 +159,19 @@ iop_occupation = {
 				414 = { add_core_of = IIR }
 				410 = { add_core_of = IIR }
 				release_puppet = IIR
-				set_autonomy = {
-					target = IIR
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IIR
+						autonomous_state = autonomy_province
+					}
+					IIR = { set_cosmetic_tag = IIR_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IIR
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 419 = { iop_med_controlled = yes } }

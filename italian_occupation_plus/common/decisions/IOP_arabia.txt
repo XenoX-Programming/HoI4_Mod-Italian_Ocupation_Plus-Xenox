@@ -61,9 +61,19 @@ iop_occupation = {
 				675 = { add_core_of = IIQ }
 				1011 = { add_core_of = IIQ }
 				release_puppet = IIQ
-				set_autonomy = {
-					target = IIQ
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IIQ
+						autonomous_state = autonomy_province
+					}
+					IIQ = { set_cosmetic_tag = IIQ_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IIQ
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 676 = { iop_med_controlled = yes } }
@@ -156,9 +166,19 @@ iop_occupation = {
 				678 = { add_core_of = IAR }
 				858 = { add_core_of = IAR }
 				release_puppet = IAR
-				set_autonomy = {
-					target = IAR
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IAR
+						autonomous_state = autonomy_province
+					}
+					IAR = { set_cosmetic_tag = IAR_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IAR
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 854 = { iop_med_controlled = yes } }

@@ -1,5 +1,5 @@
 # ============================================================
-# Italian Occupation Plus v0.0.30 - Roman Empire events. ROOT = Italy.
+# Italian Occupation Plus - Roman Empire events. ROOT = Italy.
 # ============================================================
 
 add_namespace = iop_roman
@@ -18,11 +18,115 @@ country_event = {
 		set_cosmetic_tag = ITA_roman
 		add_stability = 0.10
 		add_war_support = 0.10
-		# Every occupation government becomes a Province of the Empire.
+
+		# Every occupation government becomes a Province of the Empire with its Roman name and color.
 		hidden_effect = {
 			every_country = {
-				limit = { is_subject_of = ITA has_country_flag = iop_puppet }
-				set_autonomy = { target = THIS autonomous_state = autonomy_province }
+				limit = {
+					is_subject_of = ROOT
+					has_country_flag = iop_puppet
+				}
+				ROOT = {
+					set_autonomy = {
+						target = PREV
+						autonomous_state = autonomy_province
+					}
+				}
+			}
+			if = {
+				limit = { country_exists = ICR ICR = { is_subject_of = ROOT } }
+				set_autonomy = { target = ICR autonomous_state = autonomy_province }
+				ICR = { set_cosmetic_tag = ICR_roman }
+			}
+			if = {
+				limit = { country_exists = ISE ISE = { is_subject_of = ROOT } }
+				set_autonomy = { target = ISE autonomous_state = autonomy_province }
+				ISE = { set_cosmetic_tag = ISE_roman }
+			}
+			if = {
+				limit = { country_exists = IMT IMT = { is_subject_of = ROOT } }
+				set_autonomy = { target = IMT autonomous_state = autonomy_province }
+				IMT = { set_cosmetic_tag = IMT_roman }
+			}
+			if = {
+				limit = { country_exists = IAL IAL = { is_subject_of = ROOT } }
+				set_autonomy = { target = IAL autonomous_state = autonomy_province }
+				IAL = { set_cosmetic_tag = IAL_roman }
+			}
+			if = {
+				limit = { country_exists = IBL IBL = { is_subject_of = ROOT } }
+				set_autonomy = { target = IBL autonomous_state = autonomy_province }
+				IBL = { set_cosmetic_tag = IBL_roman }
+			}
+			if = {
+				limit = { country_exists = IGR IGR = { is_subject_of = ROOT } }
+				set_autonomy = { target = IGR autonomous_state = autonomy_province }
+				IGR = { set_cosmetic_tag = IGR_roman }
+			}
+			if = {
+				limit = { country_exists = ITR ITR = { is_subject_of = ROOT } }
+				set_autonomy = { target = ITR autonomous_state = autonomy_province }
+				ITR = { set_cosmetic_tag = ITR_roman }
+			}
+			if = {
+				limit = { country_exists = INA INA = { is_subject_of = ROOT } }
+				set_autonomy = { target = INA autonomous_state = autonomy_province }
+				INA = { set_cosmetic_tag = INA_roman }
+			}
+			if = {
+				limit = { country_exists = IEG IEG = { is_subject_of = ROOT } }
+				set_autonomy = { target = IEG autonomous_state = autonomy_province }
+				IEG = { set_cosmetic_tag = IEG_roman }
+			}
+			if = {
+				limit = { country_exists = ISP ISP = { is_subject_of = ROOT } }
+				set_autonomy = { target = ISP autonomous_state = autonomy_province }
+				ISP = { set_cosmetic_tag = ISP_roman }
+			}
+			if = {
+				limit = { country_exists = IPG IPG = { is_subject_of = ROOT } }
+				set_autonomy = { target = IPG autonomous_state = autonomy_province }
+				IPG = { set_cosmetic_tag = IPG_roman }
+			}
+			if = {
+				limit = { country_exists = IOC IOC = { is_subject_of = ROOT } }
+				set_autonomy = { target = IOC autonomous_state = autonomy_province }
+				IOC = { set_cosmetic_tag = IOC_roman }
+			}
+			if = {
+				limit = { country_exists = ILV ILV = { is_subject_of = ROOT } }
+				set_autonomy = { target = ILV autonomous_state = autonomy_province }
+				ILV = { set_cosmetic_tag = ILV_roman }
+			}
+			if = {
+				limit = { country_exists = IIQ IIQ = { is_subject_of = ROOT } }
+				set_autonomy = { target = IIQ autonomous_state = autonomy_province }
+				IIQ = { set_cosmetic_tag = IIQ_roman }
+			}
+			if = {
+				limit = { country_exists = IAR IAR = { is_subject_of = ROOT } }
+				set_autonomy = { target = IAR autonomous_state = autonomy_province }
+				IAR = { set_cosmetic_tag = IAR_roman }
+			}
+			if = {
+				limit = { country_exists = IAM IAM = { is_subject_of = ROOT } }
+				set_autonomy = { target = IAM autonomous_state = autonomy_province }
+				IAM = { set_cosmetic_tag = IAM_roman }
+			}
+			if = {
+				limit = { country_exists = IIR IIR = { is_subject_of = ROOT } }
+				set_autonomy = { target = IIR autonomous_state = autonomy_province }
+				IIR = { set_cosmetic_tag = IIR_roman }
+			}
+			if = {
+				limit = { country_exists = IMR IMR = { is_subject_of = ROOT } }
+				set_autonomy = { target = IMR autonomous_state = autonomy_province }
+				IMR = { set_cosmetic_tag = IMR_roman }
+			}
+			if = {
+				limit = { country_exists = IOM IOM = { is_subject_of = ROOT } }
+				set_autonomy = { target = IOM autonomous_state = autonomy_province }
+				IOM = { set_cosmetic_tag = IOM_roman }
 			}
 		}
 		custom_effect_tooltip = iop_roman_province_tt

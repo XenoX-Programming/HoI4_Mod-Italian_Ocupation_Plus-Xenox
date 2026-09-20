@@ -1,9 +1,10 @@
 # ============================================================
-# Italian Occupation Plus v0.0.30 - Restore the Roman Empire
-# Appears only once every listed Mediterranean coastal state is
-# owned by Italy or one of its occupation governments. Completing
-# it renames Italy (Imperium Romanum) and switches every puppet
-# to the "Province" autonomy level.
+# Italian Occupation Plus - Restore the Roman Empire
+# Appears for Italy in the decisions tab once Italy exists.
+# Requires every Mediterranean coastal state to be owned by Italy
+# or one of its occupation governments. Completing it declares
+# Imperivm Romanvm (#A84232) and switches every puppet to the
+# "Province" autonomy level with Roman province names and colors (#702318).
 # ============================================================
 
 iop_occupation = {
@@ -13,10 +14,26 @@ iop_occupation = {
 
 		highlight_states = {
 			highlight_state_targets = {
-				state = 2
-				state = 797
+				state = 169
+				state = 165
+				state = 22
+				state = 20
+				state = 109
+				state = 103
+				state = 105
 				state = 47
+				state = 186
+				state = 182
+				state = 164
+				state = 797
+				state = 342
+				state = 339
+				state = 553
+				state = 454
+				state = 447
 				state = 448
+				state = 450
+				state = 458
 				state = 459
 			}
 		}
@@ -28,28 +45,6 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { has_country_flag = iop_roman_empire }
-			# The whole Mediterranean ring must be Italian or an Italian subject.
-			169 = { iop_med_owned = yes }
-			165 = { iop_med_owned = yes }
-			22 = { iop_med_owned = yes }
-			20 = { iop_med_owned = yes }
-			109 = { iop_med_owned = yes }
-			103 = { iop_med_owned = yes }
-			105 = { iop_med_owned = yes }
-			47 = { iop_med_owned = yes }
-			186 = { iop_med_owned = yes }
-			182 = { iop_med_owned = yes }
-			164 = { iop_med_owned = yes }
-			797 = { iop_med_owned = yes }
-			342 = { iop_med_owned = yes }
-			339 = { iop_med_owned = yes }
-			553 = { iop_med_owned = yes }
-			454 = { iop_med_owned = yes }
-			447 = { iop_med_owned = yes }
-			448 = { iop_med_owned = yes }
-			450 = { iop_med_owned = yes }
-			458 = { iop_med_owned = yes }
-			459 = { iop_med_owned = yes }
 		}
 
 		available = {

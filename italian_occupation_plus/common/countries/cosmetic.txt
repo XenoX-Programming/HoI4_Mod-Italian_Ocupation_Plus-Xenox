@@ -1,0 +1,117 @@
+# ============================================================
+# Italian Occupation Plus - Cosmetic Tag Colors
+# Cosmetic tags define map and UI colors for special regimes.
+# ============================================================
+
+# Imperivm Romanvm (Restored Roman Empire - Italy) #A84232
+ITA_roman = {
+	color = rgb { 168 66 50 }
+	color_ui = rgb { 168 66 50 }
+}
+
+# Restored Roman Provinces (Darker Red #702318)
+ICR_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+ISE_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IMT_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IAL_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IBL_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IGR_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+ITR_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+INA_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IEG_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+ISP_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IPG_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IOC_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+ILV_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IIQ_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IAR_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IAM_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IIR_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IMR_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+IOM_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+ISP_iberia_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+# Unified Iberian Occupation Government (Pre-Rome Green)
+ISP_iberia = {
+	color = rgb { 25 100 14 }
+	color_ui = rgb { 25 100 14 }
+}

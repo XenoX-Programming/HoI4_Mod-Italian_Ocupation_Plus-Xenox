@@ -114,9 +114,19 @@ iop_occupation = {
 				169 = { add_core_of = ISP }
 				173 = { add_core_of = ISP }
 				release_puppet = ISP
-				set_autonomy = {
-					target = ISP
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = ISP
+						autonomous_state = autonomy_province
+					}
+					ISP = { set_cosmetic_tag = ISP_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = ISP
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 171 = { iop_med_controlled = yes } }

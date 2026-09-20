@@ -74,9 +74,19 @@ iop_occupation = {
 				456 = { add_core_of = IEG }
 				457 = { add_core_of = IEG }
 				release_puppet = IEG
-				set_autonomy = {
-					target = IEG
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IEG
+						autonomous_state = autonomy_province
+					}
+					IEG = { set_cosmetic_tag = IEG_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IEG
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 452 = { iop_med_controlled = yes } }

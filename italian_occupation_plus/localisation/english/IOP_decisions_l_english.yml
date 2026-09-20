@@ -170,3 +170,10 @@
 
  iop_give_aquitaine:0 "Transfer Aquitaine and the Pyrénées-Atlantiques to Occitania"
  iop_give_aquitaine_desc:0 "Give control of Aquitaine (19) and Pyrénées-Atlantiques (806) to the Occitan occupation government (IOC). Requires IOC to exist; every controlled state of the group transfers."
+
+ iop_decide_347_izmit:0 "Determine Fate of Izmit"
+ iop_decide_347_izmit_desc:0 "Cede Izmit (347) to the Turkish or Greek occupation government, or integrate it into Italy proper. Requires a neighboring occupation government."
+ iop_decide_339_izmir:0 "Determine Fate of Izmir"
+ iop_decide_339_izmir_desc:0 "Cede Izmir (339) to the Turkish or Greek occupation government, or integrate it into Italy proper. Requires a neighboring occupation government."
+ iop_decide_342_antalya:0 "Determine Fate of Antalya"
+ iop_decide_342_antalya_desc:0 "Cede Antalya (342) to the Turkish or Greek occupation government, or integrate it into Italy proper. Requires a neighboring occupation government."

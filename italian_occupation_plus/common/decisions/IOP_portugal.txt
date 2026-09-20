@@ -69,9 +69,19 @@ iop_occupation = {
 				795 = { add_core_of = IPG }
 				179 = { add_core_of = IPG }
 				release_puppet = IPG
-				set_autonomy = {
-					target = IPG
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IPG
+						autonomous_state = autonomy_province
+					}
+					IPG = { set_cosmetic_tag = IPG_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IPG
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 180 = { iop_med_controlled = yes } }
@@ -246,7 +256,13 @@ iop_occupation = {
 				179 = { add_core_of = ISP }
 				ISP = {
 					annex_country = { target = IPG transfer_troops = yes }
-					set_cosmetic_tag = ISP_iberia
+					if = {
+						limit = { ROOT = { has_country_flag = iop_roman_empire } }
+						set_cosmetic_tag = ISP_roman
+					}
+					else = {
+						set_cosmetic_tag = ISP_iberia
+					}
 					set_country_flag = iop_iberia
 					# Roatta becomes Governor of Spain and Portugal
 					create_country_leader = {

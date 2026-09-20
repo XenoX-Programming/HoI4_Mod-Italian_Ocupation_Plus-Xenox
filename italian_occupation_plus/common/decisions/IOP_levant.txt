@@ -64,9 +64,19 @@ iop_occupation = {
 				677 = { add_core_of = ILV }
 				680 = { add_core_of = ILV }
 				release_puppet = ILV
-				set_autonomy = {
-					target = ILV
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = ILV
+						autonomous_state = autonomy_province
+					}
+					ILV = { set_cosmetic_tag = ILV_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = ILV
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 454 = { iop_med_controlled = yes } }
