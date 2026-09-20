@@ -26,11 +26,11 @@ set_popularities = {
 	neutrality = 15
 }
 
-# Governor of Levant.
+# Local Palestinian Arab-nationalist client: Amin al-Husseini.
 create_country_leader = {
-	name = "Niccolò Nicchiarelli"
-	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
-	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	name = "Amin al-Husseini"
+	desc = "PODCAT_AMIN_AL_HUSSEINI_DESC"
+	picture = GFX_portrait_PAL_amin_al_husseini
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
@@ -39,9 +39,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Niccolò Nicchiarelli"
-	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
-	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	name = "Amin al-Husseini"
+	desc = "PODCAT_AMIN_AL_HUSSEINI_DESC"
+	picture = GFX_portrait_PAL_amin_al_husseini
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
@@ -50,9 +50,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Niccolò Nicchiarelli"
-	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
-	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	name = "Amin al-Husseini"
+	desc = "PODCAT_AMIN_AL_HUSSEINI_DESC"
+	picture = GFX_portrait_PAL_amin_al_husseini
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
@@ -61,9 +61,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Niccolò Nicchiarelli"
-	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
-	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	name = "Amin al-Husseini"
+	desc = "PODCAT_AMIN_AL_HUSSEINI_DESC"
+	picture = GFX_portrait_PAL_amin_al_husseini
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {

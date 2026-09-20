@@ -44,13 +44,13 @@ Puppet leaders (historical placeholders, all fascist):
 - **INA** — Ettore Bastico (Governor of North Africa, custom portrait included)
 - **IEG** — Italo Gariboldi (Governor of Egypt, custom portrait included)
 - **ISP** — Mario Roatta (Governor of Spain, custom portrait included)
-- **IPG** — Giuseppe Lombrassa (Governor of Portugal, custom portrait included)
+- **IPG** — António de Oliveira Salazar (Portuguese authoritarian ruler/client, vanilla CL-U portrait)
 - **IOC** — Enea Navarini (Governor of Occitania, custom portrait included)
-- **ILV** — Niccolò Nicchiarelli (Governor of Levant, custom portrait included)
-- **IIQ** — Nino Sozzani (Governor of Iraq, custom portrait included)
+- **ILV** — Amin al-Husseini (Palestinian Arab-nationalist client, vanilla CL-U portrait)
+- **IIQ** — Rashid Ali al-Gaylani (Iraqi Arab-nationalist client-ruler, vanilla CL-U portrait)
 - **IAR** — Gianrico Tedeschi (Governor of Arabia, custom portrait included)
 - **IAM** — Drastamat "Dro" Kanayan (Governor of Armenia, custom portrait included)
-- **IIR** — Giuseppe Pièche (Governor of Iran, custom portrait included)
+- **IIR** — Reza Shah Pahlavi (Iranian sovereign/client, vanilla CL-U portrait)
 - **IMR** — Shakib Arslan, "Amir al-Bayan" (Governor of Morocco, custom portrait included)
 - **IOM** — Said bin Taimur (Sultan of Muscat and Oman — created from the Oman fate event, no custom portrait)
 
@@ -251,17 +251,13 @@ italian_occupation_plus/
 ├── gfx/leaders/IEG/IEG_Italo_Gariboldi.dds # custom IEG portrait
 ├── gfx/leaders/ISP/ISP_Mario_Roatta.dds    # custom ISP portrait
 ├── events/IOP_spain.txt                     # 2 events (iop_spain.118, .177)
-├── gfx/leaders/IPG/IPG_Giuseppe_Lombrassa.dds # custom IPG portrait
 ├── events/IOP_portugal.txt                  # 2 events (iop_portugal.178, .698)
 ├── gfx/leaders/IOC/IOC_Enea_Navarini.dds   # custom IOC portrait
 ├── events/IOP_occitania.txt                 # 3 events (iop_occitania.32, .735, .1)
-├── gfx/leaders/ILV/ILV_Niccolo_Nicchiarelli.dds # custom ILV portrait
 ├── events/IOP_levant.txt                    # 3 events (iop_levant.799, .453, .183)
-├── gfx/leaders/IIQ/IIQ_Nino_Sozzani.dds     # custom IIQ portrait
 ├── gfx/leaders/IAR/IAR_Gianrico_Tedeschi.dds # custom IAR portrait
 ├── events/IOP_arabia.txt                    # 2 events (iop_arabia.656, .294)
 ├── gfx/leaders/IAM/IAM_Drastamat_Dro_Kanayan.dds # custom IAM portrait
-├── gfx/leaders/IIR/IIR_Giuseppe_Pieche.dds  # custom IIR portrait
 ├── gfx/leaders/IMR/IMR_Shakib_Arslan.dds    # custom IMR portrait (Shakib Arslan)
 ├── events/IOP_armenia.txt                   # 1 event (iop_armenia.354)
 ├── events/IOP_yugoslavia.txt                # 19 events (iop_yugo.102, .103, ...)
@@ -305,7 +301,7 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 - **Mod shows as outdated:** edit `supported_version` in both `.mod` files to match your game (e.g. `1.20.*`).
 - **"Military Occupation" level missing/wrong:** check `error.log` for `autonomy_military_occupation` — most likely the `.gfx` sprite or `.dds` path. The icon falling back to `?` is cosmetic only.
 - **Check errors:** after running the game, look at `Documents\Paradox Interactive\Hearts of Iron IV\logs\error.log` and search for `iop`.
-- **Missing portraits:** if a leader shows a silhouette, the portrait `.dds` name doesn't exist in your game version — replace `picture = ...` in the history file with another vanilla portrait. It never crashes, it's cosmetic.
+- **Missing portraits:** if a leader shows a silhouette, the referenced vanilla portrait GFX name or portrait `.dds` path does not exist in your game version — replace `picture = ...` in the history file with another vanilla portrait. It never crashes, it's cosmetic.
 
 ## Changelog
 
