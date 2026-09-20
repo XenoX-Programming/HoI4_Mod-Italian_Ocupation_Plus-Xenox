@@ -105,6 +105,11 @@ IOM_roman = {
 	color_ui = rgb { 112 35 24 }
 }
 
+AOI_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
 ISP_iberia_roman = {
 	color = rgb { 112 35 24 }
 	color_ui = rgb { 112 35 24 }

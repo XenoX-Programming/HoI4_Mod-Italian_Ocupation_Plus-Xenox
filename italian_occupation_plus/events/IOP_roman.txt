@@ -128,6 +128,11 @@ country_event = {
 				set_autonomy = { target = IOM autonomous_state = autonomy_province }
 				IOM = { set_cosmetic_tag = IOM_roman }
 			}
+			if = {
+				limit = { country_exists = AOI AOI = { is_subject_of = ROOT } }
+				set_autonomy = { target = AOI autonomous_state = autonomy_province }
+				AOI = { set_cosmetic_tag = AOI_roman }
+			}
 		}
 		custom_effect_tooltip = iop_roman_province_tt
 		ai_chance = { factor = 100 }
