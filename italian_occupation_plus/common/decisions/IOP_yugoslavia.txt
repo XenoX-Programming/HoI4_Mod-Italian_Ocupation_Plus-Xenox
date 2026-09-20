@@ -55,7 +55,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_croatia = yes
 			}
-			custom_effect_tooltip = iop_establish_croatia_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_croatia_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_croatia_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_croatia_established
@@ -63,9 +69,19 @@ iop_occupation = {
 				104 = { add_core_of = ICR }
 				804 = { add_core_of = ICR }
 				release_puppet = ICR
-				set_autonomy = {
-					target = ICR
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = ICR
+						autonomous_state = autonomy_province
+					}
+					ICR = { set_cosmetic_tag = ICR_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = ICR
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 109 = { iop_med_controlled = yes } }
@@ -122,16 +138,32 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_serbia = yes
 			}
-			custom_effect_tooltip = iop_establish_serbia_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_serbia_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_serbia_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_serbia_established
 				107 = { add_core_of = ISE }
 				108 = { add_core_of = ISE }
 				release_puppet = ISE
-				set_autonomy = {
-					target = ISE
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = ISE
+						autonomous_state = autonomy_province
+					}
+					ISE = { set_cosmetic_tag = ISE_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = ISE
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 107 = { iop_med_controlled = yes } }
@@ -184,16 +216,32 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_albania = yes
 			}
-			custom_effect_tooltip = iop_establish_albania_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_albania_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_albania_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_albania_established
 				44 = { add_core_of = IAL }
 				934 = { add_core_of = IAL }
 				release_puppet = IAL
-				set_autonomy = {
-					target = IAL
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IAL
+						autonomous_state = autonomy_province
+					}
+					IAL = { set_cosmetic_tag = IAL_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IAL
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 44 = { iop_med_controlled = yes } }
@@ -249,7 +297,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_bulgaria = yes
 			}
-			custom_effect_tooltip = iop_establish_bulgaria_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_bulgaria_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_bulgaria_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_bulgaria_established
@@ -258,9 +312,19 @@ iop_occupation = {
 				212 = { add_core_of = IBL }
 				211 = { add_core_of = IBL }
 				release_puppet = IBL
-				set_autonomy = {
-					target = IBL
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IBL
+						autonomous_state = autonomy_province
+					}
+					IBL = { set_cosmetic_tag = IBL_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IBL
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 48 = { iop_med_controlled = yes } }

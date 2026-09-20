@@ -843,10 +843,20 @@ country_event = {
 		}
 		105 = { add_core_of = IMT }
 		release_puppet = IMT
-		set_autonomy = {
-			target = IMT
-			autonomous_state = autonomy_military_occupation
-		}
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IMT
+						autonomous_state = autonomy_province
+					}
+					IMT = { set_cosmetic_tag = IMT_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IMT
+						autonomous_state = autonomy_military_occupation
+					}
+				}
 		IMT = { transfer_state = 105 }
 		ai_chance = { factor = 100 }
 	}

@@ -13,7 +13,7 @@ autonomy_state = {
 	id = autonomy_province
 
 	is_puppet = yes
-	use_overlord_color = yes
+	use_overlord_color = no
 
 	# Between annexation (0.0) and Military Occupation (0.1).
 	# (Never reuse a min_freedom_level used by another state.)

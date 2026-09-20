@@ -40,15 +40,31 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_armenia = yes
 			}
-			custom_effect_tooltip = iop_establish_armenia_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_armenia_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_armenia_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_armenia_established
 				230 = { add_core_of = IAM }
 				release_puppet = IAM
-				set_autonomy = {
-					target = IAM
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IAM
+						autonomous_state = autonomy_province
+					}
+					IAM = { set_cosmetic_tag = IAM_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IAM
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 230 = { iop_med_controlled = yes } }
@@ -127,7 +143,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_iran = yes
 			}
-			custom_effect_tooltip = iop_establish_iran_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_iran_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_iran_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_iran_established
@@ -149,9 +171,19 @@ iop_occupation = {
 				414 = { add_core_of = IIR }
 				410 = { add_core_of = IIR }
 				release_puppet = IIR
-				set_autonomy = {
-					target = IIR
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IIR
+						autonomous_state = autonomy_province
+					}
+					IIR = { set_cosmetic_tag = IIR_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IIR
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 419 = { iop_med_controlled = yes } }

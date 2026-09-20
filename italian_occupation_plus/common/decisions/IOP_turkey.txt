@@ -76,7 +76,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_turkey = yes
 			}
-			custom_effect_tooltip = iop_establish_turkey_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_turkey_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_turkey_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_turkey_established
@@ -94,9 +100,19 @@ iop_occupation = {
 				345 = { add_core_of = ITR }
 				346 = { add_core_of = ITR }
 				release_puppet = ITR
-				set_autonomy = {
-					target = ITR
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = ITR
+						autonomous_state = autonomy_province
+					}
+					ITR = { set_cosmetic_tag = ITR_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = ITR
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 49 = { iop_med_controlled = yes } }

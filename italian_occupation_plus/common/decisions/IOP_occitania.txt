@@ -61,7 +61,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_occitania = yes
 			}
-			custom_effect_tooltip = iop_establish_occitania_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_occitania_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_occitania_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_occitania_established
@@ -74,9 +80,19 @@ iop_occupation = {
 				20 = { add_core_of = IOC }
 				22 = { add_core_of = IOC }
 				release_puppet = IOC
-				set_autonomy = {
-					target = IOC
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IOC
+						autonomous_state = autonomy_province
+					}
+					IOC = { set_cosmetic_tag = IOC_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IOC
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 33 = { iop_med_controlled = yes } }

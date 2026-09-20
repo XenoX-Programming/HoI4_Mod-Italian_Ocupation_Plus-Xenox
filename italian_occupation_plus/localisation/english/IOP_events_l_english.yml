@@ -132,3 +132,16 @@
  iop_greece_north_dobrudja_title:0 "Fate of Northern Dobruja"
  iop_greece_971_desc:0 "Northern Dobruja is under Italian control. Do we annex it into Italy proper, or cede its administration to the Bulgarian occupation government?"
  iop_give_north_dobrudja_to_IBL:0 "Cede Northern Dobruja to Bulgaria"
+
+ iop_turkey_izmit_title:0 "Fate of Izmit"
+ iop_turkey_347_desc:0 "Izmit is under Italian control. Which occupation government should administer it, or shall it be integrated into Italy proper?"
+ iop_turkey_izmir_title:0 "Fate of Izmir"
+ iop_turkey_339_desc:0 "Izmir is under Italian control. Which occupation government should administer it, or shall it be integrated into Italy proper?"
+ iop_turkey_antalya_title:0 "Fate of Antalya"
+ iop_turkey_342_desc:0 "Antalya is under Italian control. Which occupation government should administer it, or shall it be integrated into Italy proper?"
+ iop_give_to_ITR:0 "Cede to Turkey"
+
+ iop_arabia_abu_dhabi_title:0 "Fate of Abu Dhabi"
+ iop_arabia_658_desc:0 "Abu Dhabi is under Italian control. Shall its administration be granted to the Arabian occupation government, to the Sultanate of Oman, or be annexed directly into Italy?"
+ iop_give_abu_dhabi_to_IAR:0 "Cede Abu Dhabi to Arabia"
+ iop_give_abu_dhabi_to_IOM:0 "Cede Abu Dhabi to Oman"

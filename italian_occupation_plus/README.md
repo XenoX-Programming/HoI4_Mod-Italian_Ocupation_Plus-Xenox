@@ -142,7 +142,7 @@ Each founding decision only **appears** once **Italy or its subjects (the occupa
 | **656** | **Kuwait (special)** | **Iraq OR Arabia (each must own a bordering state) OR integrate into Italy** |
 | 293 + 659 + 992 | Yemen: North Yemen + South Yemen + Aden (grouped) | IAR only — direct transfer, no event |
 | **1016 + 1015 + 294** | **Oman: Dhofar + Oman + Muscat (grouped, special)** | **IAR, OR restore the Sultanate of Oman (IOM — separate Military Occupation under Sultan Said bin Taimur); afterwards cede further coast to IOM** |
-| 658 | Abu Dhabi | IAR only — direct transfer, no event |
+| **658** | **Abu Dhabi (special)** | **Arabia (IAR) OR Sultanate of Oman (IOM) OR integrate into Italy** |
 | 765 | Qatar | IAR only — direct transfer, no event |
 | **77** | **Dobrudja (special)** | **Needs IBL to own a bordering state; then Bulgaria OR integrate into Italy** |
 | **971** | **Northern Dobruja (special)** | **Needs IBL to own a bordering state; then Bulgaria OR integrate into Italy** |
@@ -168,7 +168,8 @@ All new modifiers were checked against the HOI4 wiki modifier list; all new loca
 
 - **New Anatolian fate decisions**: Izmit (347) and Izmir (339) leave Turkey's initial set and get "Determine Fate" decisions (Greece / Turkey / annex Italy). Bursa (340) and Istanbul/Constantinople (797) gain a **Greece** option alongside Turkey/annex. **Antalya (342)** gets its own decision to annex it to Italy (or cede to Turkey/Greece).
 - **Dobruja (77)**: the existing "Fate of Dobrudja" decision gives it to Bulgaria (IBL) or integrates it into Italy - confirmed working.
-- **Restore the Roman Empire**: once every listed Mediterranean coastal state is owned by Italy or an Italian subject, a one-time decision appears. Completing it renames Italy to **Imperium Romanum** (cosmetic tag `ITA_roman` with new flags) and switches every occupation government to a new **Province** autonomy level (`autonomy_province`, min_freedom 0.05): full industry/manpower/trade to Rome plus construction & stability bonuses, at the cost of −35% PP, −60% recruitable population and −10% research.
+- **Restore the Roman Empire**: once every listed Mediterranean coastal state is owned by Italy or an Italian subject, a one-time decision appears. Completing it renames Italy to **Imperivm Romanvm** (cosmetic tag `ITA_roman` with imperial flags and map color `#A84232`), changes the names of all occupation governments (and vanilla Italian East Africa **AOI** $\rightarrow$ **Aethiopia**) to their historical Roman province counterparts with U replaced with V (e.g. `Illyricvm`, `Aegyptvs`, `Lvsitania`, `Hispania`, `Mavretania Tingitana`, `Africa Proconsvlaris`, `Aethiopia`, `Moesia Svperior`, `Epirvs Nova`, `Gallia Narbonensis`, `Asia Minor`, `Syria Palaestina`, `Mesopotamia`, `Arabia Felix`, `Armenia Maior`, `Parthia`, `Thracia`, `Achaea`, `Praevalitana`, `Omana`), sets their map color to a distinct darker red (`#702318`), and switches every occupation government to the **Province** autonomy level (`autonomy_province`, min_freedom 0.05): full industry/manpower/trade to Rome plus construction & stability bonuses, at the cost of −35% PP, −60% recruitable population and −10% research.
+- **Dynamic Post-Restoration Integration**: any puppet released after the Roman Empire is proclaimed automatically receives the Province autonomy level, darker red color, and Roman province cosmetic tag.
 - All new modifiers verified against the HOI4 wiki modifier list; new localisation in `IOP_roman_l_english.yml` (UTF-8 BOM).
 
 ## What's in v0.0.34 (zone bonuses replace puppet spirits + Oman rework)

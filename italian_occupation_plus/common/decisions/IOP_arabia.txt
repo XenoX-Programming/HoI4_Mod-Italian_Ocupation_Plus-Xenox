@@ -51,7 +51,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_iraq = yes
 			}
-			custom_effect_tooltip = iop_establish_iraq_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_iraq_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_iraq_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_iraq_established
@@ -61,9 +67,19 @@ iop_occupation = {
 				675 = { add_core_of = IIQ }
 				1011 = { add_core_of = IIQ }
 				release_puppet = IIQ
-				set_autonomy = {
-					target = IIQ
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IIQ
+						autonomous_state = autonomy_province
+					}
+					IIQ = { set_cosmetic_tag = IIQ_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IIQ
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 676 = { iop_med_controlled = yes } }
@@ -142,7 +158,13 @@ iop_occupation = {
 			hidden_effect = {
 				iop_grant_zone_arabia = yes
 			}
-			custom_effect_tooltip = iop_establish_arabia_tt
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_arabia_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_arabia_tt
+			}
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_arabia_established
@@ -156,9 +178,19 @@ iop_occupation = {
 				678 = { add_core_of = IAR }
 				858 = { add_core_of = IAR }
 				release_puppet = IAR
-				set_autonomy = {
-					target = IAR
-					autonomous_state = autonomy_military_occupation
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IAR
+						autonomous_state = autonomy_province
+					}
+					IAR = { set_cosmetic_tag = IAR_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IAR
+						autonomous_state = autonomy_military_occupation
+					}
 				}
 				if = {
 					limit = { 854 = { iop_med_controlled = yes } }
@@ -339,8 +371,10 @@ iop_occupation = {
 		ai_will_do = { factor = 0 }
 	}
 
-	# Abu Dhabi (658) -> IAR
-	iop_give_abu_dhabi = {
+	# ------------------------------------------------------------
+	# ABU DHABI (658) - Arabia (IAR), Oman (IOM) or Italy.
+	# ------------------------------------------------------------
+	iop_decide_658_abu_dhabi = {
 		icon = generic_decision
 
 		highlight_states = {
@@ -351,24 +385,23 @@ iop_occupation = {
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
-			country_exists = IAR
+			controls_state = 658
+			NOT = { 658 = { is_core_of = ITA } }
 			OR = {
-				controls_state = 658
+				country_exists = IAR
+				country_exists = IOM
 			}
 		}
 		available = {
-			country_exists = IAR
+			controls_state = 658
 			OR = {
-				controls_state = 658
+				country_exists = IAR
+				country_exists = IOM
 			}
 		}
 		days_re_enable = 3
 		complete_effect = {
-			if = {
-				limit = { controls_state = 658 }
-				658 = { add_core_of = IAR }
-				IAR = { transfer_state = 658 }
-			}
+			country_event = { id = iop_arabia.658 }
 		}
 		ai_will_do = { factor = 0 }
 	}

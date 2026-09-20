@@ -86,10 +86,20 @@ country_event = {
 			1015 = { add_core_of = IOM }
 			294 = { add_core_of = IOM }
 			release_puppet = IOM
-			set_autonomy = {
-				target = IOM
-				autonomous_state = autonomy_military_occupation
-			}
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IOM
+						autonomous_state = autonomy_province
+					}
+					IOM = { set_cosmetic_tag = IOM_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IOM
+						autonomous_state = autonomy_military_occupation
+					}
+				}
 			if = {
 				limit = { controls_state = 1016 }
 				IOM = { transfer_state = 1016 }
@@ -124,6 +134,38 @@ country_event = {
 				294 = { add_core_of = IOM }
 				IOM = { transfer_state = 294 }
 			}
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+# ---------------- 658 - Abu Dhabi: IAR / IOM / Italy ----------------
+country_event = {
+	id = iop_arabia.658
+	title = iop_arabia_abu_dhabi_title
+	desc = iop_arabia_658_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_abu_dhabi_to_IAR
+		trigger = { country_exists = IAR }
+		658 = { add_core_of = IAR }
+		IAR = { transfer_state = 658 }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_give_abu_dhabi_to_IOM
+		trigger = { country_exists = IOM }
+		658 = { add_core_of = IOM }
+		IOM = { transfer_state = 658 }
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			658 = { add_core_of = ITA }
+			ITA = { transfer_state = 658 }
 		}
 		ai_chance = { factor = 0 }
 	}
