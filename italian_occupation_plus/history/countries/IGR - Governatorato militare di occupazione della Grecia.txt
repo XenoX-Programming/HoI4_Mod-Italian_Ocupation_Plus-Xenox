@@ -26,48 +26,51 @@ set_popularities = {
 	neutrality = 15
 }
 
-# Governor of Greece.
+# Quadrumvir of the March on Rome and former Governor of the Dodecanese.
+
 create_country_leader = {
-	name = "Pietro Parini"
-	desc = "PODCAT_PIETRO_PARINI_DESC"
-	picture = "IGR_Pietro_Parini.dds"
+	name = "Cesare Maria De Vecchi"
+	desc = "PODCAT_CESARE_MARIA_DE_VECCHI_DESC"
+	picture = "IGR_Cesare_Maria_De_Vecchi.dds"
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
-		iop_trait_civil_administrator
+		iop_trait_quadrumvir
 	}
 }
 
 create_country_leader = {
-	name = "Pietro Parini"
-	desc = "PODCAT_PIETRO_PARINI_DESC"
-	picture = "IGR_Pietro_Parini.dds"
+	name = "Cesare Maria De Vecchi"
+	desc = "PODCAT_CESARE_MARIA_DE_VECCHI_DESC"
+	picture = "IGR_Cesare_Maria_De_Vecchi.dds"
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
-		iop_trait_civil_administrator
+		iop_trait_quadrumvir
 	}
 }
 
+# Governor under a liberal restoration.
 create_country_leader = {
-	name = "Pietro Parini"
-	desc = "PODCAT_PIETRO_PARINI_DESC"
-	picture = "IGR_Pietro_Parini.dds"
+	name = "Cesare Maria De Vecchi"
+	desc = "PODCAT_CESARE_MARIA_DE_VECCHI_DESC"
+	picture = "IGR_Cesare_Maria_De_Vecchi.dds"
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
-		iop_trait_civil_administrator
+		iop_trait_quadrumvir
 	}
 }
 
+# Governor under a revolutionary government.
 create_country_leader = {
-	name = "Pietro Parini"
-	desc = "PODCAT_PIETRO_PARINI_DESC"
-	picture = "IGR_Pietro_Parini.dds"
+	name = "Cesare Maria De Vecchi"
+	desc = "PODCAT_CESARE_MARIA_DE_VECCHI_DESC"
+	picture = "IGR_Cesare_Maria_De_Vecchi.dds"
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
-		iop_trait_civil_administrator
+		iop_trait_quadrumvir
 	}
 }
 

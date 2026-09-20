@@ -26,11 +26,12 @@ set_popularities = {
 	neutrality = 15
 }
 
-# Governor of Arabia.
+# Veteran of the Ethiopian and East African campaigns; a colonial soldier of the old school.
+
 create_country_leader = {
-	name = "Gianrico Tedeschi"
-	desc = "PODCAT_GIANRICO_TEDESCHI_DESC"
-	picture = "IAR_Gianrico_Tedeschi.dds"
+	name = "Guglielmo Nasi"
+	desc = "PODCAT_GUGLIELMO_NASI_DESC"
+	picture = "IAR_Guglielmo_Nasi.dds"
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
@@ -39,9 +40,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Gianrico Tedeschi"
-	desc = "PODCAT_GIANRICO_TEDESCHI_DESC"
-	picture = "IAR_Gianrico_Tedeschi.dds"
+	name = "Guglielmo Nasi"
+	desc = "PODCAT_GUGLIELMO_NASI_DESC"
+	picture = "IAR_Guglielmo_Nasi.dds"
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
@@ -49,10 +50,11 @@ create_country_leader = {
 	}
 }
 
+# Governor under a liberal restoration.
 create_country_leader = {
-	name = "Gianrico Tedeschi"
-	desc = "PODCAT_GIANRICO_TEDESCHI_DESC"
-	picture = "IAR_Gianrico_Tedeschi.dds"
+	name = "Guglielmo Nasi"
+	desc = "PODCAT_GUGLIELMO_NASI_DESC"
+	picture = "IAR_Guglielmo_Nasi.dds"
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
@@ -60,10 +62,11 @@ create_country_leader = {
 	}
 }
 
+# Governor under a revolutionary government.
 create_country_leader = {
-	name = "Gianrico Tedeschi"
-	desc = "PODCAT_GIANRICO_TEDESCHI_DESC"
-	picture = "IAR_Gianrico_Tedeschi.dds"
+	name = "Guglielmo Nasi"
+	desc = "PODCAT_GUGLIELMO_NASI_DESC"
+	picture = "IAR_Guglielmo_Nasi.dds"
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {

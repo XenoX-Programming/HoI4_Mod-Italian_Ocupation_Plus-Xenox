@@ -26,48 +26,51 @@ set_popularities = {
 	neutrality = 15
 }
 
-# Governor of Iraq.
+# Prime Minister of Iraq during the 1941 Golden Square coup; fled to Berlin when it collapsed.
+
 create_country_leader = {
-	name = "Nino Sozzani"
-	desc = "PODCAT_NINO_SOZZANI_DESC"
-	picture = "IIQ_Nino_Sozzani.dds"
+	name = "Rashid Ali al-Gaylani"
+	desc = "PODCAT_RASHID_ALI_AL_GAYLANI_DESC"
+	picture = "IIQ_Rashid_Ali_al-Gaylani.dds"
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
-		iop_trait_oil_director
+		iop_trait_arab_nationalist
 	}
 }
 
 create_country_leader = {
-	name = "Nino Sozzani"
-	desc = "PODCAT_NINO_SOZZANI_DESC"
-	picture = "IIQ_Nino_Sozzani.dds"
+	name = "Rashid Ali al-Gaylani"
+	desc = "PODCAT_RASHID_ALI_AL_GAYLANI_DESC"
+	picture = "IIQ_Rashid_Ali_al-Gaylani.dds"
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
-		iop_trait_oil_director
+		iop_trait_arab_nationalist
 	}
 }
 
+# Governor under a liberal restoration.
 create_country_leader = {
-	name = "Nino Sozzani"
-	desc = "PODCAT_NINO_SOZZANI_DESC"
-	picture = "IIQ_Nino_Sozzani.dds"
+	name = "Rashid Ali al-Gaylani"
+	desc = "PODCAT_RASHID_ALI_AL_GAYLANI_DESC"
+	picture = "IIQ_Rashid_Ali_al-Gaylani.dds"
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
-		iop_trait_oil_director
+		iop_trait_arab_nationalist
 	}
 }
 
+# Governor under a revolutionary government.
 create_country_leader = {
-	name = "Nino Sozzani"
-	desc = "PODCAT_NINO_SOZZANI_DESC"
-	picture = "IIQ_Nino_Sozzani.dds"
+	name = "Rashid Ali al-Gaylani"
+	desc = "PODCAT_RASHID_ALI_AL_GAYLANI_DESC"
+	picture = "IIQ_Rashid_Ali_al-Gaylani.dds"
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
-		iop_trait_oil_director
+		iop_trait_arab_nationalist
 	}
 }
 

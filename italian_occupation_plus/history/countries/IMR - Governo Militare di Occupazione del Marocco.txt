@@ -31,48 +31,51 @@ set_popularities = {
 
 # Shakib Arslan - "Amir al-Bayan" (Prince of Eloquence), Druze prince,
 # pan-Arab nationalist and close partner of Axis propaganda. Custom
-# portrait: Graphics/aa1.png -> gfx/leaders/IMR/IMR_Shakib_Arslan.dds.
+# Tetouan nationalist leader of the Reform Party, who courted both Madrid and Berlin.
+
 create_country_leader = {
-	name = "Shakib Arslan"
-	desc = "PODCAT_SHAKIB_ARSLAN_DESC"
-	picture = "IMR_Shakib_Arslan.dds"
-	expire = "1946.12.9"
+	name = "Abdelkhalek Torres"
+	desc = "PODCAT_ABDELKHALEK_TORRES_DESC"
+	picture = "IMR_Abdelkhalek_Torres.dds"
+	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
-		iop_trait_amir_al_bayan
+		iop_trait_reformist_nationalist
 	}
 }
 
 create_country_leader = {
-	name = "Shakib Arslan"
-	desc = "PODCAT_SHAKIB_ARSLAN_DESC"
-	picture = "IMR_Shakib_Arslan.dds"
-	expire = "1946.12.9"
+	name = "Abdelkhalek Torres"
+	desc = "PODCAT_ABDELKHALEK_TORRES_DESC"
+	picture = "IMR_Abdelkhalek_Torres.dds"
+	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
-		iop_trait_amir_al_bayan
+		iop_trait_reformist_nationalist
 	}
 }
 
+# Governor under a liberal restoration.
 create_country_leader = {
-	name = "Shakib Arslan"
-	desc = "PODCAT_SHAKIB_ARSLAN_DESC"
-	picture = "IMR_Shakib_Arslan.dds"
-	expire = "1946.12.9"
+	name = "Abdelkhalek Torres"
+	desc = "PODCAT_ABDELKHALEK_TORRES_DESC"
+	picture = "IMR_Abdelkhalek_Torres.dds"
+	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
-		iop_trait_amir_al_bayan
+		iop_trait_reformist_nationalist
 	}
 }
 
+# Governor under a revolutionary government.
 create_country_leader = {
-	name = "Shakib Arslan"
-	desc = "PODCAT_SHAKIB_ARSLAN_DESC"
-	picture = "IMR_Shakib_Arslan.dds"
-	expire = "1946.12.9"
+	name = "Abdelkhalek Torres"
+	desc = "PODCAT_ABDELKHALEK_TORRES_DESC"
+	picture = "IMR_Abdelkhalek_Torres.dds"
+	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
-		iop_trait_amir_al_bayan
+		iop_trait_reformist_nationalist
 	}
 }
 

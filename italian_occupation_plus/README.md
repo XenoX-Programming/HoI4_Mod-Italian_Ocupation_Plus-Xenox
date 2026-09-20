@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.34 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Morocco + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
+# Italian Occupation Plus — v0.0.36 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Morocco + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -6,7 +6,7 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 
 > **Version scheme:** `0.0.x` — future updates increment only the last number (0.0.4, 0.0.5, …).
 
-## What's in v0.0.3
+## What's in v0.0.29 (the original release)
 
 ### 18 new puppet nations
 
@@ -33,26 +33,35 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 
 > **Why ISE and not ISR?** `ISR` is already used by vanilla HOI4 for **Israel** (releasable by the UK). Using it would overwrite Israel. `ISE` (Italian SErbia) keeps the `Ixx` pattern and is free in vanilla.
 
-Puppet leaders (historical placeholders, all fascist):
-- **ICR** — Giuseppe Bastianini (Governor of Croatia, custom portrait included)
-- **ISE** — Tito Agosti (Governor of Serbia, custom portrait included)
-- **IMT** — Alessandro Pirzio Biroli (Governor of Montenegro, custom portrait included)
-- **IAL** — Alfredo Guzzoni (Governor of Albania, custom portrait included)
-- **IBL** — Attilio Biseo (Governor of Bulgaria, custom portrait included)
-- **IGR** — Pietro Parini (Governor of Greece, custom portrait included)
-- **ITR** — Rodolfo Graziani (Governor of Turkey, custom portrait included)
-- **INA** — Ettore Bastico (Governor of North Africa, custom portrait included)
-- **IEG** — Italo Gariboldi (Governor of Egypt, custom portrait included)
-- **ISP** — Mario Roatta (Governor of Spain, custom portrait included)
-- **IPG** — Giuseppe Lombrassa (Governor of Portugal, custom portrait included)
-- **IOC** — Enea Navarini (Governor of Occitania, custom portrait included)
-- **ILV** — Niccolò Nicchiarelli (Governor of Levant, custom portrait included)
-- **IIQ** — Nino Sozzani (Governor of Iraq, custom portrait included)
-- **IAR** — Gianrico Tedeschi (Governor of Arabia, custom portrait included)
-- **IAM** — Drastamat "Dro" Kanayan (Governor of Armenia, custom portrait included)
-- **IIR** — Giuseppe Pièche (Governor of Iran, custom portrait included)
-- **IMR** — Shakib Arslan, "Amir al-Bayan" (Governor of Morocco, custom portrait included)
-- **IOM** — Said bin Taimur (Sultan of Muscat and Oman — created from the Oman fate event, no custom portrait)
+Puppet leaders (historical figures, all fascist, each with a bespoke governor trait and custom portrait):
+
+| Tag | Governor | Basis |
+|-----|----------|-------|
+| **ICR** | Giuseppe Bastianini | *was* Governor of Dalmatia — niche diplomat-governor |
+| **ISE** | Milan Nedić | head of the Serbian collaborationist government |
+| **IMT** | Alessandro Pirzio Biroli | *was* Governor of Montenegro |
+| **IAL** | Alfredo Guzzoni | commanded the invasion of Albania |
+| **IBL** | Attilio Biseo | air-force general, Sofia mission |
+| **IGR** | Cesare Maria De Vecchi | Quadrumvir of the March on Rome, ex-Governor of the Dodecanese |
+| **ITR** | Rodolfo Graziani | the "Butcher of Cyrenaica" |
+| **INA** | Ettore Bastico | *was* Governor of Libya |
+| **IEG** | Farouk I | the playboy King who flirted with the Axis |
+| **ISP** | Mario Roatta | commanded the Italian corps in the Spanish Civil War |
+| **IPG** | Rolão Preto | exiled chief of the Portuguese Blueshirts |
+| **IOC** | Enea Navarini | staff officer |
+| **ILV** | Shakib Arslan, "Amir al-Bayan" | Lebanese Druze pan-Arabist, sought Axis backing |
+| **IIQ** | Rashid Ali al-Gaylani | author of the 1941 coup in Baghdad, fled to Berlin |
+| **IAR** | Guglielmo Nasi | veteran of the East African campaigns |
+| **IAM** | Drastamat "Dro" Kanayan | Armenian general and Axis collaborator |
+| **IIR** | Reza Shah Pahlavi | deposed in 1941 for his Axis sympathies — restored |
+| **IMR** | Abdelkhalek Torres | Tetouan reformist who courted Madrid and Berlin |
+| **IOM** | Said bin Taimur | the real Sultan, restored by the Oman fate event |
+
+> **Legacy traits.** Traits belonging to replaced governors (`iop_trait_carabinieri_officer`,
+> `iop_trait_civil_administrator`, `iop_trait_bureaucrat`, `iop_trait_oil_director`,
+> `iop_trait_cautious_commander`, `iop_trait_police_chief`, `iop_trait_desert_quartermaster`,
+> `iop_trait_mandate_administrator`) remain defined and are reused by other governors or
+> reserved for event-driven governor appointments.
 
 ### New autonomy level: Military Occupation
 
@@ -307,6 +316,8 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 - **Missing portraits:** if a leader shows a silhouette, the portrait `.dds` name doesn't exist in your game version — replace `picture = ...` in the history file with another vanilla portrait. It never crashes, it's cosmetic.
 
 ## Changelog
+
+- **0.0.36** — **Governor roster rework.** Eight governors replaced with figures who actually belong to their territory: ISE Tito Agosti → **Milan Nedić** (Quisling Premier), IGR Pietro Parini → **Cesare Maria De Vecchi** (Quadrumvir), IEG Italo Gariboldi → **King Farouk I** (Playboy Monarch), IPG Giuseppe Lombrassa → **Rolão Preto** (Blueshirt Chief), IIQ Nino Sozzani → **Rashid Ali al-Gaylani** (Pan-Arab Agitator), IAR Gianrico Tedeschi — *a film actor, not a general* — → **Guglielmo Nasi** (recycled Desert Quartermaster), IIR Giuseppe Pièche → **Reza Shah Pahlavi** (Modernising Autocrat), IMR Shakib Arslan → **Abdelkhalek Torres** (Reformist Nationalist). Arslan was not dropped but **moved to ILV**, where a Lebanese pan-Arabist belongs (replacing Niccolò Nicchiarelli). Seven new bespoke governor traits + eight new `PODCAT_*_DESC` entries. All eight portraits regenerated in the existing colorized-photograph style at 156×210 DXT5. **Flag fixes:** Oman's five medium flags existed only under the retired `IMO` tag — renamed to `IOM` (Oman had no medium flag at all); Bulgaria's base `IBL.tga` was missing in all three sizes and is now present, so all 19 tags have the full 15-file flag set.
 
 - **0.0.35** — Occupation Directorate is now a container spirit: its description dynamically lists exactly the zones founded (19 scripted-localisation tokens + `iop_zone_list_*` loc keys, empty fallback for the rest); zone modifiers themselves unchanged.
 - **0.0.34** — Puppet national spirits removed (Military Government, six regionals, four puppet-side timed spirits — dead weight under 100% extraction); Italy's Occupation Directorate is now a slim hub (−10% garrisons, +5% compliance, −25% subject autonomy gain) with 19 different stacking per-zone bonuses (dynamic modifiers, one-shot per zone via `iop_grant_zone_*` scripted effects); flavour events pay Italian bonuses instead; shared focus tree and Roman-Empire filter re-gated on the `iop_puppet` flag; Oman retagged IMO → IOM (IMO ignored the map colour) with the vanilla Said bin Taimur portrait; regional flavour icons deleted.

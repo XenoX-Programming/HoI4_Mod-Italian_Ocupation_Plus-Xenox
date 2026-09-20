@@ -27,48 +27,51 @@ set_popularities = {
 	neutrality = 15
 }
 
-# Governor of Egypt.
+# King of Egypt, whose court flirted openly with the Axis until the Abdeen Palace incident of 1942.
+
 create_country_leader = {
-	name = "Italo Gariboldi"
-	desc = "PODCAT_ITALO_GARIBOLDI_DESC"
-	picture = "IEG_Italo_Gariboldi.dds"
+	name = "Farouk I"
+	desc = "PODCAT_FAROUK_I_DESC"
+	picture = "IEG_King_Farouk_I.dds"
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
-		iop_trait_cautious_commander
+		iop_trait_playboy_monarch
 	}
 }
 
 create_country_leader = {
-	name = "Italo Gariboldi"
-	desc = "PODCAT_ITALO_GARIBOLDI_DESC"
-	picture = "IEG_Italo_Gariboldi.dds"
+	name = "Farouk I"
+	desc = "PODCAT_FAROUK_I_DESC"
+	picture = "IEG_King_Farouk_I.dds"
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
-		iop_trait_cautious_commander
+		iop_trait_playboy_monarch
 	}
 }
 
+# Governor under a liberal restoration.
 create_country_leader = {
-	name = "Italo Gariboldi"
-	desc = "PODCAT_ITALO_GARIBOLDI_DESC"
-	picture = "IEG_Italo_Gariboldi.dds"
+	name = "Farouk I"
+	desc = "PODCAT_FAROUK_I_DESC"
+	picture = "IEG_King_Farouk_I.dds"
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
-		iop_trait_cautious_commander
+		iop_trait_playboy_monarch
 	}
 }
 
+# Governor under a revolutionary government.
 create_country_leader = {
-	name = "Italo Gariboldi"
-	desc = "PODCAT_ITALO_GARIBOLDI_DESC"
-	picture = "IEG_Italo_Gariboldi.dds"
+	name = "Farouk I"
+	desc = "PODCAT_FAROUK_I_DESC"
+	picture = "IEG_King_Farouk_I.dds"
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
-		iop_trait_cautious_commander
+		iop_trait_playboy_monarch
 	}
 }
 

@@ -26,48 +26,51 @@ set_popularities = {
 	neutrality = 15
 }
 
-# Governor of Iran.
+# Deposed by the Anglo-Soviet invasion of 1941 for his Axis sympathies; restored by Italy.
+
 create_country_leader = {
-	name = "Giuseppe Pièche"
-	desc = "PODCAT_GIUSEPPE_PIECHE_DESC"
-	picture = "IIR_Giuseppe_Pieche.dds"
+	name = "Reza Shah Pahlavi"
+	desc = "PODCAT_REZA_SHAH_PAHLAVI_DESC"
+	picture = "IIR_Reza_Shah_Pahlavi.dds"
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
-		iop_trait_police_chief
+		iop_trait_modernising_autocrat
 	}
 }
 
 create_country_leader = {
-	name = "Giuseppe Pièche"
-	desc = "PODCAT_GIUSEPPE_PIECHE_DESC"
-	picture = "IIR_Giuseppe_Pieche.dds"
+	name = "Reza Shah Pahlavi"
+	desc = "PODCAT_REZA_SHAH_PAHLAVI_DESC"
+	picture = "IIR_Reza_Shah_Pahlavi.dds"
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
-		iop_trait_police_chief
+		iop_trait_modernising_autocrat
 	}
 }
 
+# Governor under a liberal restoration.
 create_country_leader = {
-	name = "Giuseppe Pièche"
-	desc = "PODCAT_GIUSEPPE_PIECHE_DESC"
-	picture = "IIR_Giuseppe_Pieche.dds"
+	name = "Reza Shah Pahlavi"
+	desc = "PODCAT_REZA_SHAH_PAHLAVI_DESC"
+	picture = "IIR_Reza_Shah_Pahlavi.dds"
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
-		iop_trait_police_chief
+		iop_trait_modernising_autocrat
 	}
 }
 
+# Governor under a revolutionary government.
 create_country_leader = {
-	name = "Giuseppe Pièche"
-	desc = "PODCAT_GIUSEPPE_PIECHE_DESC"
-	picture = "IIR_Giuseppe_Pieche.dds"
+	name = "Reza Shah Pahlavi"
+	desc = "PODCAT_REZA_SHAH_PAHLAVI_DESC"
+	picture = "IIR_Reza_Shah_Pahlavi.dds"
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
-		iop_trait_police_chief
+		iop_trait_modernising_autocrat
 	}
 }
 

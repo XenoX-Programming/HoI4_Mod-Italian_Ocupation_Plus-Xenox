@@ -27,48 +27,51 @@ set_popularities = {
 	neutrality = 15
 }
 
-# Italian Chief of Staff, responsible for the Balkans theatre - historical choice for v1.
+# Head of the Serbian collaborationist government under German occupation.
+
 create_country_leader = {
-	name = "Tito Agosti"
-	desc = "PODCAT_TITO_AGOSTI_DESC"
-	picture = "ISE_Tito_Agosti.dds"
+	name = "Milan Nedić"
+	desc = "PODCAT_MILAN_NEDIC_DESC"
+	picture = "ISE_Milan_Nedic.dds"
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
-		iop_trait_carabinieri_officer
+		iop_trait_quisling_premier
 	}
 }
 
 create_country_leader = {
-	name = "Tito Agosti"
-	desc = "PODCAT_TITO_AGOSTI_DESC"
-	picture = "ISE_Tito_Agosti.dds"
+	name = "Milan Nedić"
+	desc = "PODCAT_MILAN_NEDIC_DESC"
+	picture = "ISE_Milan_Nedic.dds"
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
-		iop_trait_carabinieri_officer
+		iop_trait_quisling_premier
 	}
 }
 
+# Governor under a liberal restoration.
 create_country_leader = {
-	name = "Tito Agosti"
-	desc = "PODCAT_TITO_AGOSTI_DESC"
-	picture = "ISE_Tito_Agosti.dds"
+	name = "Milan Nedić"
+	desc = "PODCAT_MILAN_NEDIC_DESC"
+	picture = "ISE_Milan_Nedic.dds"
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
-		iop_trait_carabinieri_officer
+		iop_trait_quisling_premier
 	}
 }
 
+# Governor under a revolutionary government.
 create_country_leader = {
-	name = "Tito Agosti"
-	desc = "PODCAT_TITO_AGOSTI_DESC"
-	picture = "ISE_Tito_Agosti.dds"
+	name = "Milan Nedić"
+	desc = "PODCAT_MILAN_NEDIC_DESC"
+	picture = "ISE_Milan_Nedic.dds"
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
-		iop_trait_carabinieri_officer
+		iop_trait_quisling_premier
 	}
 }
 

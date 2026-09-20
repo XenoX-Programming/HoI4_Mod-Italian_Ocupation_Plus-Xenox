@@ -28,46 +28,46 @@ set_popularities = {
 
 # Governor of Levant.
 create_country_leader = {
-	name = "Niccolò Nicchiarelli"
-	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
-	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	name = "Shakib Arslan"
+	desc = "PODCAT_SHAKIB_ARSLAN_DESC"
+	picture = "ILV_Shakib_Arslan.dds"
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
-		iop_trait_mandate_administrator
+		iop_trait_amir_al_bayan
 	}
 }
 
 create_country_leader = {
-	name = "Niccolò Nicchiarelli"
-	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
-	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	name = "Shakib Arslan"
+	desc = "PODCAT_SHAKIB_ARSLAN_DESC"
+	picture = "ILV_Shakib_Arslan.dds"
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
-		iop_trait_mandate_administrator
+		iop_trait_amir_al_bayan
 	}
 }
 
 create_country_leader = {
-	name = "Niccolò Nicchiarelli"
-	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
-	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	name = "Shakib Arslan"
+	desc = "PODCAT_SHAKIB_ARSLAN_DESC"
+	picture = "ILV_Shakib_Arslan.dds"
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
-		iop_trait_mandate_administrator
+		iop_trait_amir_al_bayan
 	}
 }
 
 create_country_leader = {
-	name = "Niccolò Nicchiarelli"
-	desc = "PODCAT_NICCOLO_NICCHIARELLI_DESC"
-	picture = "ILV_Niccolo_Nicchiarelli.dds"
+	name = "Shakib Arslan"
+	desc = "PODCAT_SHAKIB_ARSLAN_DESC"
+	picture = "ILV_Shakib_Arslan.dds"
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
-		iop_trait_mandate_administrator
+		iop_trait_amir_al_bayan
 	}
 }
 

@@ -151,7 +151,7 @@ leader_traits = {
 		}
 	}
 
-	# IAR - Gianrico Tedeschi (desert quartermaster)
+	# IAR - Guglielmo Nasi (veteran of the East African campaigns; desert quartermaster)
 	iop_trait_desert_quartermaster = {
 		random = no
 		modifier = {
@@ -202,4 +202,80 @@ leader_traits = {
 			drift_defence_factor = 0.15
 		}
 	}
+
+	# ------------------------------------------------ v0.0.36 governors
+	# IIQ - Rashid Ali al-Gaylani (author of the 1941 coup; pan-Arab agitator)
+	iop_trait_arab_nationalist = {
+		random = no
+		modifier = {
+			political_power_gain = 0.10
+			war_support_factor = 0.10
+			drift_defence_factor = 0.20
+			stability_factor = -0.05
+		}
+	}
+
+	# IEG - King Farouk I (popular, frivolous, and on the take)
+	iop_trait_playboy_monarch = {
+		random = no
+		modifier = {
+			stability_factor = 0.10
+			consumer_goods_factor = 0.10
+			political_power_gain = -0.10
+		}
+	}
+
+	# IIR - Reza Shah Pahlavi (railways, factories and an iron will)
+	iop_trait_modernising_autocrat = {
+		random = no
+		modifier = {
+			production_speed_buildings_factor = 0.10
+			industrial_capacity_factory = 0.05
+			war_support_factor = 0.05
+			stability_factor = -0.05
+		}
+	}
+
+	# IMR - Abdelkhalek Torres (Tetouan reformist; legitimacy through the notables)
+	iop_trait_reformist_nationalist = {
+		random = no
+		modifier = {
+			compliance_growth_on_our_occupied_states = 0.05
+			political_power_gain = 0.05
+			trade_opinion_factor = 0.10
+		}
+	}
+
+	# IPG - Rolao Preto (exiled Blueshirt chief; militia politics)
+	iop_trait_blueshirt_leader = {
+		random = no
+		modifier = {
+			war_support_factor = 0.10
+			drift_defence_factor = 0.25
+			stability_factor = -0.05
+		}
+	}
+
+	# ISE - Milan Nedic (the quisling premier of Belgrade)
+	iop_trait_quisling_premier = {
+		random = no
+		modifier = {
+			compliance_growth_on_our_occupied_states = 0.10
+			resistance_growth_on_our_occupied_states = -0.05
+			stability_factor = 0.05
+			political_power_factor = -0.05
+		}
+	}
+
+	# IGR - Cesare Maria De Vecchi (Quadrumvir of the March on Rome)
+	iop_trait_quadrumvir = {
+		random = no
+		modifier = {
+			war_support_factor = 0.10
+			drift_defence_factor = 0.20
+			required_garrison_factor = -0.05
+			stability_factor = -0.10
+		}
+	}
+
 }
