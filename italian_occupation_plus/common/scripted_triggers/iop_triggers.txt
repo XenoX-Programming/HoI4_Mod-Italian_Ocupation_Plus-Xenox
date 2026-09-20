@@ -1,5 +1,5 @@
 # ============================================================
-# Italian Occupation Plus - shared scripted triggers (v0.0.30)
+# Italian Occupation Plus - shared scripted triggers (v0.0.33)
 # ============================================================
 
 # A Mediterranean coastal state held by Italy itself or by one of
@@ -9,5 +9,16 @@ iop_med_owned = {
 	OR = {
 		is_owned_by = ITA
 		OWNER = { is_subject_of = ITA }
+	}
+}
+
+# A state controlled by Italy itself or by one of Italy's subjects
+# (occupation governments). Used by the founding decisions, so that
+# territory under puppet occupation counts toward founding a new
+# occupation government.
+iop_med_controlled = {
+	OR = {
+		is_controlled_by = ITA
+		CONTROLLER = { is_subject_of = ITA }
 	}
 }

@@ -1,14 +1,16 @@
 # ============================================================
-# Italian Occupation Plus v0.0.16 - North Africa events
-# Fired by the Sidi Ifni decision. ROOT = Italy.
-# Sidi Ifni (783): North Africa / Integrate into Italy.
+# Italian Occupation Plus v0.0.32 - North Africa events
+# Fired by the Sidi Ifni / Spanish Africa / Rio de Oro decisions.
+# ROOT = Italy.
+# Sidi Ifni (783), Spanish Africa (290), Rio de Oro (699):
+# North Africa (INA) / Morocco (IMR) / Integrate into Italy.
 # (All other North African transfers are direct decisions.)
 # ============================================================
 
 add_namespace = iop_africa
 
 # ---------------- 783 - Sidi Ifni (SPECIAL) ----------------
-# Give to INA OR integrate into Italy proper (adds Italian core).
+# Give to INA or IMR, or integrate into Italy proper (adds Italian core).
 country_event = {
 	id = iop_africa.783
 	title = iop_africa_ifni_title
@@ -25,11 +27,94 @@ country_event = {
 		ai_chance = { factor = 0 }
 	}
 	option = {
+		name = iop_give_ifni_to_IMR
+		trigger = {
+			country_exists = IMR
+		}
+		783 = { add_core_of = IMR }
+		IMR = { transfer_state = 783 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
 		name = iop_annex_to_italy
 		custom_effect_tooltip = iop_annex_to_italy_tt
 		hidden_effect = {
 			783 = { add_core_of = ITA }
 			ITA = { transfer_state = 783 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 290 - Spanish Africa (SPECIAL) ----------------
+# Give to INA or IMR, or annex to Italy proper (adds Italian core).
+country_event = {
+	id = iop_africa.290
+	title = iop_africa_spanish_africa_title
+	desc = iop_africa_290_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_spanish_africa_to_INA
+		trigger = {
+			country_exists = INA
+		}
+		290 = { add_core_of = INA }
+		INA = { transfer_state = 290 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_spanish_africa_to_IMR
+		trigger = {
+			country_exists = IMR
+		}
+		290 = { add_core_of = IMR }
+		IMR = { transfer_state = 290 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			290 = { add_core_of = ITA }
+			ITA = { transfer_state = 290 }
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+# ---------------- 699 - Rio de Oro (SPECIAL) ----------------
+# Give to INA or IMR, or annex to Italy proper (adds Italian core).
+country_event = {
+	id = iop_africa.699
+	title = iop_africa_rio_de_oro_title
+	desc = iop_africa_699_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+	option = {
+		name = iop_give_rio_de_oro_to_INA
+		trigger = {
+			country_exists = INA
+		}
+		699 = { add_core_of = INA }
+		INA = { transfer_state = 699 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_give_rio_de_oro_to_IMR
+		trigger = {
+			country_exists = IMR
+		}
+		699 = { add_core_of = IMR }
+		IMR = { transfer_state = 699 }
+		ai_chance = { factor = 0 }
+	}
+	option = {
+		name = iop_annex_to_italy
+		custom_effect_tooltip = iop_annex_to_italy_tt
+		hidden_effect = {
+			699 = { add_core_of = ITA }
+			ITA = { transfer_state = 699 }
 		}
 		ai_chance = { factor = 100 }
 	}

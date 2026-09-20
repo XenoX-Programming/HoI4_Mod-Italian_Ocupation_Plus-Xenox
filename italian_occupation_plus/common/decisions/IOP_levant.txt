@@ -5,7 +5,7 @@
 #    to own a state bordering Hatay. No Italian option.
 # 3) "Fate of Sinai" (453): Levant, Egypt (each needs to own a
 #    bordering state) or integrate into Italy.
-# 4) "Fate of Cyprus" (183): island - Turkey, Levant (exist) or Italy.
+# 4) "Fate of Cyprus" (183): island - Turkey, Levant, Greece (exist) or Italy.
 # ============================================================
 
 iop_occupation = {
@@ -31,20 +31,20 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = ILV }
-			# Only appears once Italy controls at least half of the required territory (3 of 6 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (3 of 6 states).
 			count_triggers = {
 				amount = 3
-				controls_state = 454
-				controls_state = 455
-				controls_state = 553
-				controls_state = 554
-				controls_state = 677
-				controls_state = 680
+				454 = { iop_med_controlled = yes }
+				455 = { iop_med_controlled = yes }
+				553 = { iop_med_controlled = yes }
+				554 = { iop_med_controlled = yes }
+				677 = { iop_med_controlled = yes }
+				680 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 454
+			454 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -71,27 +71,27 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 454 }
+					limit = { 454 = { iop_med_controlled = yes } }
 					ILV = { transfer_state = 454 }
 				}
 				if = {
-					limit = { controls_state = 455 }
+					limit = { 455 = { iop_med_controlled = yes } }
 					ILV = { transfer_state = 455 }
 				}
 				if = {
-					limit = { controls_state = 553 }
+					limit = { 553 = { iop_med_controlled = yes } }
 					ILV = { transfer_state = 553 }
 				}
 				if = {
-					limit = { controls_state = 554 }
+					limit = { 554 = { iop_med_controlled = yes } }
 					ILV = { transfer_state = 554 }
 				}
 				if = {
-					limit = { controls_state = 677 }
+					limit = { 677 = { iop_med_controlled = yes } }
 					ILV = { transfer_state = 677 }
 				}
 				if = {
-					limit = { controls_state = 680 }
+					limit = { 680 = { iop_med_controlled = yes } }
 					ILV = { transfer_state = 680 }
 				}
 			}
@@ -204,6 +204,7 @@ iop_occupation = {
 			OR = {
 				country_exists = ITR
 				country_exists = ILV
+				country_exists = IGR
 			}
 		}
 		available = {
@@ -211,6 +212,7 @@ iop_occupation = {
 			OR = {
 				country_exists = ITR
 				country_exists = ILV
+				country_exists = IGR
 			}
 		}
 		days_re_enable = 3

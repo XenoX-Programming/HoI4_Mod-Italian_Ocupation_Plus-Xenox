@@ -38,19 +38,19 @@ iop_occupation = {
 			original_tag = ITA
 			NOT = { country_exists = IPG }
 			NOT = { has_country_flag = iop_iberia_united }
-			# Only appears once Italy controls at least half of the required territory (3 of 5 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (3 of 5 states).
 			count_triggers = {
 				amount = 3
-				controls_state = 180
-				controls_state = 181
-				controls_state = 112
-				controls_state = 795
-				controls_state = 179
+				180 = { iop_med_controlled = yes }
+				181 = { iop_med_controlled = yes }
+				112 = { iop_med_controlled = yes }
+				795 = { iop_med_controlled = yes }
+				179 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 112
+			112 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -76,23 +76,23 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 180 }
+					limit = { 180 = { iop_med_controlled = yes } }
 					IPG = { transfer_state = 180 }
 				}
 				if = {
-					limit = { controls_state = 181 }
+					limit = { 181 = { iop_med_controlled = yes } }
 					IPG = { transfer_state = 181 }
 				}
 				if = {
-					limit = { controls_state = 112 }
+					limit = { 112 = { iop_med_controlled = yes } }
 					IPG = { transfer_state = 112 }
 				}
 				if = {
-					limit = { controls_state = 795 }
+					limit = { 795 = { iop_med_controlled = yes } }
 					IPG = { transfer_state = 795 }
 				}
 				if = {
-					limit = { controls_state = 179 }
+					limit = { 179 = { iop_med_controlled = yes } }
 					IPG = { transfer_state = 179 }
 				}
 			}

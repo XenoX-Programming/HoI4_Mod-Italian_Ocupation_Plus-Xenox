@@ -99,3 +99,8 @@
  iop_flavour_10_desc:0 "The governor's political police report quiet streets - bought with informers and fear."
  iop_flavour_10_a:0 "Ease the police measures."
  iop_flavour_10_b:0 "Expand the informant network."
+
+ iop_trait_sultan:0 "Sultan of Muscat and Oman"
+ iop_trait_sultan_desc:0 "Austere and remote, the Sultan rules through the diwan and keeps his own counsel."
+ iop_trait_amir_al_bayan:0 "Amir al-Bayan"
+ iop_trait_amir_al_bayan_desc:0 "The Prince of Eloquence: pan-Arab orator, agitator-organizer, and partner of Rome."

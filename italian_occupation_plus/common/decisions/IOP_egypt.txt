@@ -2,8 +2,8 @@
 # Italian Occupation Plus v0.0.17 - Egypt
 # 1) As Italy, occupy Egyptian land.
 # 2) Found IEG with the "Establish" decision.
-#    Founding requires controlling the capital state only (907 Cairo).
-#    Any other initial states you control transfer automatically.
+#    Founding requires the capital state to be controlled by Italy or one of its subjects (907 Cairo).
+#    Any other initial states controlled by Italy or its subjects transfer automatically.
 # 3) Use "Transfer Sudan to Egypt" to hand all of Sudan straight
 #    to IEG (cores + transfer, no event - IEG is the only
 #    recipient). Needs IEG to exist and Italy to control at least
@@ -41,20 +41,20 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IEG }
-			# Only appears once Italy controls at least half of the required territory (3 of 6 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (3 of 6 states).
 			count_triggers = {
 				amount = 3
-				controls_state = 452
-				controls_state = 447
-				controls_state = 907
-				controls_state = 552
-				controls_state = 456
-				controls_state = 457
+				452 = { iop_med_controlled = yes }
+				447 = { iop_med_controlled = yes }
+				907 = { iop_med_controlled = yes }
+				552 = { iop_med_controlled = yes }
+				456 = { iop_med_controlled = yes }
+				457 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 907
+			907 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -81,27 +81,27 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 452 }
+					limit = { 452 = { iop_med_controlled = yes } }
 					IEG = { transfer_state = 452 }
 				}
 				if = {
-					limit = { controls_state = 447 }
+					limit = { 447 = { iop_med_controlled = yes } }
 					IEG = { transfer_state = 447 }
 				}
 				if = {
-					limit = { controls_state = 907 }
+					limit = { 907 = { iop_med_controlled = yes } }
 					IEG = { transfer_state = 907 }
 				}
 				if = {
-					limit = { controls_state = 552 }
+					limit = { 552 = { iop_med_controlled = yes } }
 					IEG = { transfer_state = 552 }
 				}
 				if = {
-					limit = { controls_state = 456 }
+					limit = { 456 = { iop_med_controlled = yes } }
 					IEG = { transfer_state = 456 }
 				}
 				if = {
-					limit = { controls_state = 457 }
+					limit = { 457 = { iop_med_controlled = yes } }
 					IEG = { transfer_state = 457 }
 				}
 			}

@@ -37,22 +37,22 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = IOC }
-			# Only appears once Italy controls at least half of the required territory (4 of 8 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (4 of 8 states).
 			count_triggers = {
 				amount = 4
-				controls_state = 33
-				controls_state = 25
-				controls_state = 19
-				controls_state = 806
-				controls_state = 31
-				controls_state = 26
-				controls_state = 20
-				controls_state = 22
+				33 = { iop_med_controlled = yes }
+				25 = { iop_med_controlled = yes }
+				19 = { iop_med_controlled = yes }
+				806 = { iop_med_controlled = yes }
+				31 = { iop_med_controlled = yes }
+				26 = { iop_med_controlled = yes }
+				20 = { iop_med_controlled = yes }
+				22 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 19
+			19 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -81,35 +81,35 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 33 }
+					limit = { 33 = { iop_med_controlled = yes } }
 					IOC = { transfer_state = 33 }
 				}
 				if = {
-					limit = { controls_state = 25 }
+					limit = { 25 = { iop_med_controlled = yes } }
 					IOC = { transfer_state = 25 }
 				}
 				if = {
-					limit = { controls_state = 19 }
+					limit = { 19 = { iop_med_controlled = yes } }
 					IOC = { transfer_state = 19 }
 				}
 				if = {
-					limit = { controls_state = 806 }
+					limit = { 806 = { iop_med_controlled = yes } }
 					IOC = { transfer_state = 806 }
 				}
 				if = {
-					limit = { controls_state = 31 }
+					limit = { 31 = { iop_med_controlled = yes } }
 					IOC = { transfer_state = 31 }
 				}
 				if = {
-					limit = { controls_state = 26 }
+					limit = { 26 = { iop_med_controlled = yes } }
 					IOC = { transfer_state = 26 }
 				}
 				if = {
-					limit = { controls_state = 20 }
+					limit = { 20 = { iop_med_controlled = yes } }
 					IOC = { transfer_state = 20 }
 				}
 				if = {
-					limit = { controls_state = 22 }
+					limit = { 22 = { iop_med_controlled = yes } }
 					IOC = { transfer_state = 22 }
 				}
 			}
@@ -251,6 +251,54 @@ iop_occupation = {
 	# the state.
 	# ------------------------------------------------------------
 
+	# ------------------------------------------------------------
+	# v0.0.33 - AQUITAINE (19) + PYRENEES-ATLANTIQUES (806)
+	# Direct transfer to the Occitan occupation government (every
+	# controlled state of the group transfers). Self-hiding: once
+	# neither state is under Italian control the decision disappears.
+	# ------------------------------------------------------------
+
+	iop_give_aquitaine = {
+		icon = generic_decision
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 19
+				state = 806
+			}
+		}
+		allowed = { original_tag = ITA }
+		visible = {
+			original_tag = ITA
+			country_exists = IOC
+			OR = {
+				controls_state = 19
+				controls_state = 806
+			}
+		}
+		available = {
+			country_exists = IOC
+			OR = {
+				controls_state = 19
+				controls_state = 806
+			}
+		}
+		days_re_enable = 3
+		complete_effect = {
+			if = {
+				limit = { controls_state = 19 }
+				19 = { add_core_of = IOC }
+				IOC = { transfer_state = 19 }
+			}
+			if = {
+				limit = { controls_state = 806 }
+				806 = { add_core_of = IOC }
+				IOC = { transfer_state = 806 }
+			}
+		}
+		ai_will_do = { factor = 0 }
+	}
+
 	iop_give_poitou = {
 		icon = generic_decision
 
@@ -263,6 +311,9 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			country_exists = IOC
+			# One-shot: the transfer itself keeps "owner is a subject"
+			# true, so without this flag the decision would reappear.
+			NOT = { has_country_flag = iop_poitou_given }
 			OR = {
 				controls_state = 23
 				owns_state = 23
@@ -277,8 +328,12 @@ iop_occupation = {
 				23 = { owner = { is_subject_of = ROOT } }
 			}
 		}
+		fire_only_once = yes
 		days_re_enable = 3
 		complete_effect = {
+			hidden_effect = {
+				set_country_flag = iop_poitou_given
+			}
 			23 = { add_core_of = IOC }
 			IOC = { transfer_state = 23 }
 		}

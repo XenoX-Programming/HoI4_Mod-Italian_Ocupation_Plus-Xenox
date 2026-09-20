@@ -3,8 +3,8 @@
 # 1) As Italy, control Tripoli (starts Italian - INA can be
 #    founded on day one).
 # 2) Found INA with the "Establish" decision.
-#    Founding requires controlling the capital state only (448 Tripoli).
-#    Any other initial states you control transfer automatically.
+#    Founding requires the capital state to be controlled by Italy or one of its subjects (448 Tripoli).
+#    Any other initial states controlled by Italy or its subjects transfer automatically.
 # 3) Use the grouped "Transfer ..." decisions to hand further
 #    regions straight to INA (cores + transfer, no event - INA
 #    is the only recipient). Each needs INA to exist and Italy
@@ -45,22 +45,22 @@ iop_occupation = {
 		visible = {
 			original_tag = ITA
 			NOT = { country_exists = INA }
-			# Only appears once Italy controls at least half of the required territory (4 of 8 states).
+			# Only appears once Italy or its subjects control at least half of the required territory (4 of 8 states).
 			count_triggers = {
 				amount = 4
-				controls_state = 448
-				controls_state = 661
-				controls_state = 449
-				controls_state = 662
-				controls_state = 450
-				controls_state = 451
-				controls_state = 663
-				controls_state = 273
+				448 = { iop_med_controlled = yes }
+				661 = { iop_med_controlled = yes }
+				449 = { iop_med_controlled = yes }
+				662 = { iop_med_controlled = yes }
+				450 = { iop_med_controlled = yes }
+				451 = { iop_med_controlled = yes }
+				663 = { iop_med_controlled = yes }
+				273 = { iop_med_controlled = yes }
 			}
 		}
 
 		available = {
-			controls_state = 448
+			448 = { iop_med_controlled = yes }
 		}
 
 		fire_only_once = no
@@ -89,35 +89,35 @@ iop_occupation = {
 					autonomous_state = autonomy_military_occupation
 				}
 				if = {
-					limit = { controls_state = 448 }
+					limit = { 448 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 448 }
 				}
 				if = {
-					limit = { controls_state = 661 }
+					limit = { 661 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 661 }
 				}
 				if = {
-					limit = { controls_state = 449 }
+					limit = { 449 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 449 }
 				}
 				if = {
-					limit = { controls_state = 662 }
+					limit = { 662 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 662 }
 				}
 				if = {
-					limit = { controls_state = 450 }
+					limit = { 450 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 450 }
 				}
 				if = {
-					limit = { controls_state = 451 }
+					limit = { 451 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 451 }
 				}
 				if = {
-					limit = { controls_state = 663 }
+					limit = { 663 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 663 }
 				}
 				if = {
-					limit = { controls_state = 273 }
+					limit = { 273 = { iop_med_controlled = yes } }
 					INA = { transfer_state = 273 }
 				}
 			}
@@ -276,8 +276,13 @@ iop_occupation = {
 		ai_will_do = { factor = 0 }
 	}
 
-	# Spanish Africa (290) -> INA
-	iop_give_spanish_africa = {
+	# ------------------------------------------------------------
+	# SPECIAL: SPANISH AFRICA (290)
+	# v0.0.32: fires an event - give it to North Africa (INA) or
+	# Morocco (IMR), or annex it to Italy proper (adds Italian core).
+	# ------------------------------------------------------------
+
+	iop_decide_290_spanish_africa = {
 		icon = generic_decision
 
 		highlight_states = {
@@ -288,17 +293,24 @@ iop_occupation = {
 		allowed = { original_tag = ITA }
 		visible = {
 			original_tag = ITA
-			country_exists = INA
 			controls_state = 290
+			# Hide once integrated into Italy (the annex option adds an Italian core).
+			NOT = { 290 = { is_core_of = ITA } }
+			OR = {
+				country_exists = INA
+				country_exists = IMR
+			}
 		}
 		available = {
-			country_exists = INA
 			controls_state = 290
+			OR = {
+				country_exists = INA
+				country_exists = IMR
+			}
 		}
 		days_re_enable = 3
 		complete_effect = {
-			290 = { add_core_of = INA }
-			INA = { transfer_state = 290 }
+			country_event = { id = iop_africa.290 }
 		}
 		ai_will_do = { factor = 0 }
 	}
