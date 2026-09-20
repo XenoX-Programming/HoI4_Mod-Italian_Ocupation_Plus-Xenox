@@ -26,11 +26,11 @@ set_popularities = {
 	neutrality = 15
 }
 
-# Governor of Iraq.
+# Local Iraqi Arab-nationalist client-ruler: Rashid Ali al-Gaylani.
 create_country_leader = {
-	name = "Nino Sozzani"
-	desc = "PODCAT_NINO_SOZZANI_DESC"
-	picture = "IIQ_Nino_Sozzani.dds"
+	name = "Rashid Ali al-Gaylani"
+	desc = "PODCAT_RASHID_AL_GAYLANI_DESC"
+	picture = GFX_portrait_iraq_rashid_al_gaylani
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
@@ -39,9 +39,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Nino Sozzani"
-	desc = "PODCAT_NINO_SOZZANI_DESC"
-	picture = "IIQ_Nino_Sozzani.dds"
+	name = "Rashid Ali al-Gaylani"
+	desc = "PODCAT_RASHID_AL_GAYLANI_DESC"
+	picture = GFX_portrait_iraq_rashid_al_gaylani
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
@@ -50,9 +50,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Nino Sozzani"
-	desc = "PODCAT_NINO_SOZZANI_DESC"
-	picture = "IIQ_Nino_Sozzani.dds"
+	name = "Rashid Ali al-Gaylani"
+	desc = "PODCAT_RASHID_AL_GAYLANI_DESC"
+	picture = GFX_portrait_iraq_rashid_al_gaylani
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
@@ -61,9 +61,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Nino Sozzani"
-	desc = "PODCAT_NINO_SOZZANI_DESC"
-	picture = "IIQ_Nino_Sozzani.dds"
+	name = "Rashid Ali al-Gaylani"
+	desc = "PODCAT_RASHID_AL_GAYLANI_DESC"
+	picture = GFX_portrait_iraq_rashid_al_gaylani
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {

@@ -111,7 +111,7 @@ leader_traits = {
 		}
 	}
 
-	# IPG - Giuseppe Lombrassa (Admiralty bureaucrat turned governor)
+	# IPG - António de Oliveira Salazar (Portuguese authoritarian ruler/client)
 	iop_trait_bureaucrat = {
 		random = no
 		modifier = {
@@ -131,7 +131,7 @@ leader_traits = {
 		}
 	}
 
-	# ILV - Niccolo Nicchiarelli (mandate-era political administrator)
+	# ILV - Amin al-Husseini (Palestinian Arab-nationalist client)
 	iop_trait_mandate_administrator = {
 		random = no
 		modifier = {
@@ -141,7 +141,7 @@ leader_traits = {
 		}
 	}
 
-	# IIQ - Nino Sozzani (oil and resource director)
+	# IIQ - Rashid Ali al-Gaylani (Iraqi Arab-nationalist client-ruler)
 	iop_trait_oil_director = {
 		random = no
 		modifier = {
@@ -172,7 +172,7 @@ leader_traits = {
 		}
 	}
 
-	# IIR - Giuseppe Pieche (police chief; quiet surveillance state)
+	# IIR - Reza Shah Pahlavi (Iranian sovereign/client)
 	iop_trait_police_chief = {
 		random = no
 		modifier = {

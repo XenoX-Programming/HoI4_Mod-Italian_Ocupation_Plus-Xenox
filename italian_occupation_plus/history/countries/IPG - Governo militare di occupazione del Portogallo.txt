@@ -26,11 +26,11 @@ set_popularities = {
 	neutrality = 15
 }
 
-# Governor of Portugal.
+# Local Portuguese authoritarian ruler/client: António de Oliveira Salazar.
 create_country_leader = {
-	name = "Giuseppe Lombrassa"
-	desc = "PODCAT_GIUSEPPE_LOMBRASSA_DESC"
-	picture = "IPG_Giuseppe_Lombrassa.dds"
+	name = "António de Oliveira Salazar"
+	desc = "PODCAT_ANTONIO_DE_OLIVEIRA_SALAZAR_DESC"
+	picture = GFX_portrait_POR_antonio_de_oliveira_salazar
 	expire = "1965.1.1"
 	ideology = fascism_ideology
 	traits = {
@@ -39,9 +39,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Giuseppe Lombrassa"
-	desc = "PODCAT_GIUSEPPE_LOMBRASSA_DESC"
-	picture = "IPG_Giuseppe_Lombrassa.dds"
+	name = "António de Oliveira Salazar"
+	desc = "PODCAT_ANTONIO_DE_OLIVEIRA_SALAZAR_DESC"
+	picture = GFX_portrait_POR_antonio_de_oliveira_salazar
 	expire = "1965.1.1"
 	ideology = despotism
 	traits = {
@@ -50,9 +50,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Giuseppe Lombrassa"
-	desc = "PODCAT_GIUSEPPE_LOMBRASSA_DESC"
-	picture = "IPG_Giuseppe_Lombrassa.dds"
+	name = "António de Oliveira Salazar"
+	desc = "PODCAT_ANTONIO_DE_OLIVEIRA_SALAZAR_DESC"
+	picture = GFX_portrait_POR_antonio_de_oliveira_salazar
 	expire = "1965.1.1"
 	ideology = liberalism
 	traits = {
@@ -61,9 +61,9 @@ create_country_leader = {
 }
 
 create_country_leader = {
-	name = "Giuseppe Lombrassa"
-	desc = "PODCAT_GIUSEPPE_LOMBRASSA_DESC"
-	picture = "IPG_Giuseppe_Lombrassa.dds"
+	name = "António de Oliveira Salazar"
+	desc = "PODCAT_ANTONIO_DE_OLIVEIRA_SALAZAR_DESC"
+	picture = GFX_portrait_POR_antonio_de_oliveira_salazar
 	expire = "1965.1.1"
 	ideology = marxism
 	traits = {
