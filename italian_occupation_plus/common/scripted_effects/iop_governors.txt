@@ -1,0 +1,3908 @@
+# ============================================================
+# Italian Occupation Plus - governor appointment effects (v0.0.37)
+#
+# Called by the iop_gov.<n> governor appointment events (ROOT = Italy).
+# Every occupation government has three effects, one per style:
+#
+#   iop_appoint_<zone>_order   Italian general / proconsul (incumbent)
+#   iop_appoint_<zone>_legit   local collaborator, monarch or cleric
+#   iop_appoint_<zone>_party   Fascist Party appointee
+#
+# An appointment clears the zone's previous style (handing its Italy-side
+# contribution back), installs the new governor in the puppet for all four
+# ideologies, swaps the puppet's governor spirit, and updates Rome's
+# variable-scaled governor dynamic modifiers. All of it is hidden: the
+# event option carries the tooltip.
+# ============================================================
+
+# ------------------------------------------------ Rome-side plumbing
+# One dynamic modifier per style, scaled by these variables, so the
+# Directorate's character grows with every zone run a given way.
+
+iop_gov_add_order = {
+	if = { limit = { NOT = { has_variable = iop_gov_order_garrison } } set_variable = { iop_gov_order_garrison = 0 } }
+	if = { limit = { NOT = { has_variable = iop_gov_order_resistance } } set_variable = { iop_gov_order_resistance = 0 } }
+	subtract_from_variable = { iop_gov_order_garrison = 0.01 }
+	subtract_from_variable = { iop_gov_order_resistance = 0.01 }
+	add_dynamic_modifier = { modifier = iop_gov_order }
+	force_update_dynamic_modifier = yes
+}
+
+iop_gov_drop_order = {
+	if = { limit = { has_variable = iop_gov_order_garrison } add_to_variable = { iop_gov_order_garrison = 0.01 } }
+	if = { limit = { has_variable = iop_gov_order_resistance } add_to_variable = { iop_gov_order_resistance = 0.01 } }
+	force_update_dynamic_modifier = yes
+}
+
+iop_gov_add_legit = {
+	if = { limit = { NOT = { has_variable = iop_gov_legit_compliance } } set_variable = { iop_gov_legit_compliance = 0 } }
+	if = { limit = { NOT = { has_variable = iop_gov_legit_autonomy } } set_variable = { iop_gov_legit_autonomy = 0 } }
+	add_to_variable = { iop_gov_legit_compliance = 0.01 }
+	add_to_variable = { iop_gov_legit_autonomy = 0.03 }
+	add_dynamic_modifier = { modifier = iop_gov_legit }
+	force_update_dynamic_modifier = yes
+}
+
+iop_gov_drop_legit = {
+	if = { limit = { has_variable = iop_gov_legit_compliance } subtract_from_variable = { iop_gov_legit_compliance = 0.01 } }
+	if = { limit = { has_variable = iop_gov_legit_autonomy } subtract_from_variable = { iop_gov_legit_autonomy = 0.03 } }
+	force_update_dynamic_modifier = yes
+}
+
+iop_gov_add_party = {
+	if = { limit = { NOT = { has_variable = iop_gov_party_pp } } set_variable = { iop_gov_party_pp = 0 } }
+	if = { limit = { NOT = { has_variable = iop_gov_party_resources } } set_variable = { iop_gov_party_resources = 0 } }
+	if = { limit = { NOT = { has_variable = iop_gov_party_resistance } } set_variable = { iop_gov_party_resistance = 0 } }
+	add_to_variable = { iop_gov_party_pp = 0.02 }
+	add_to_variable = { iop_gov_party_resources = 0.01 }
+	add_to_variable = { iop_gov_party_resistance = 0.01 }
+	add_dynamic_modifier = { modifier = iop_gov_party }
+	force_update_dynamic_modifier = yes
+}
+
+iop_gov_drop_party = {
+	if = { limit = { has_variable = iop_gov_party_pp } subtract_from_variable = { iop_gov_party_pp = 0.02 } }
+	if = { limit = { has_variable = iop_gov_party_resources } subtract_from_variable = { iop_gov_party_resources = 0.01 } }
+	if = { limit = { has_variable = iop_gov_party_resistance } subtract_from_variable = { iop_gov_party_resistance = 0.01 } }
+	force_update_dynamic_modifier = yes
+}
+
+# ------------------------------------------------ appointments
+# ---------------- ICR - Croatia ----------------
+iop_appoint_croatia_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_croatia_legit }
+				clr_country_flag = iop_gov_croatia_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_croatia_party }
+				clr_country_flag = iop_gov_croatia_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_croatia_order } }
+				set_country_flag = iop_gov_croatia_order
+				iop_gov_add_order = yes
+			}
+			ICR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Giuseppe Bastianini"
+					desc = "PODCAT_GIUSEPPE_BASTIANINI_DESC"
+					picture = "ICR_Giuseppe_Bastianini.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Giuseppe Bastianini"
+					desc = "PODCAT_GIUSEPPE_BASTIANINI_DESC"
+					picture = "ICR_Giuseppe_Bastianini.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Giuseppe Bastianini"
+					desc = "PODCAT_GIUSEPPE_BASTIANINI_DESC"
+					picture = "ICR_Giuseppe_Bastianini.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Giuseppe Bastianini"
+					desc = "PODCAT_GIUSEPPE_BASTIANINI_DESC"
+					picture = "ICR_Giuseppe_Bastianini.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_croatia_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_croatia_order }
+				clr_country_flag = iop_gov_croatia_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_croatia_party }
+				clr_country_flag = iop_gov_croatia_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_croatia_legit } }
+				set_country_flag = iop_gov_croatia_legit
+				iop_gov_add_legit = yes
+			}
+			ICR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Ante Pavelić"
+					desc = "IOP_gov_croatia_legit_desc"
+					picture = "ICR_Ante_Pavelic.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Ante Pavelić"
+					desc = "IOP_gov_croatia_legit_desc"
+					picture = "ICR_Ante_Pavelic.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Ante Pavelić"
+					desc = "IOP_gov_croatia_legit_desc"
+					picture = "ICR_Ante_Pavelic.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Ante Pavelić"
+					desc = "IOP_gov_croatia_legit_desc"
+					picture = "ICR_Ante_Pavelic.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_croatia_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_croatia_order }
+				clr_country_flag = iop_gov_croatia_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_croatia_legit }
+				clr_country_flag = iop_gov_croatia_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_croatia_party } }
+				set_country_flag = iop_gov_croatia_party
+				iop_gov_add_party = yes
+			}
+			ICR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Roberto Farinacci"
+					desc = "IOP_gov_croatia_party_desc"
+					picture = "ICR_Roberto_Farinacci.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Roberto Farinacci"
+					desc = "IOP_gov_croatia_party_desc"
+					picture = "ICR_Roberto_Farinacci.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Roberto Farinacci"
+					desc = "IOP_gov_croatia_party_desc"
+					picture = "ICR_Roberto_Farinacci.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Roberto Farinacci"
+					desc = "IOP_gov_croatia_party_desc"
+					picture = "ICR_Roberto_Farinacci.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+			}
+		}
+}
+
+# ---------------- ISE - Serbia ----------------
+iop_appoint_serbia_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_serbia_legit }
+				clr_country_flag = iop_gov_serbia_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_serbia_party }
+				clr_country_flag = iop_gov_serbia_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_serbia_order } }
+				set_country_flag = iop_gov_serbia_order
+				iop_gov_add_order = yes
+			}
+			ISE = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Milan Nedić"
+					desc = "PODCAT_MILAN_NEDIC_DESC"
+					picture = "ISE_Milan_Nedic.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Milan Nedić"
+					desc = "PODCAT_MILAN_NEDIC_DESC"
+					picture = "ISE_Milan_Nedic.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Milan Nedić"
+					desc = "PODCAT_MILAN_NEDIC_DESC"
+					picture = "ISE_Milan_Nedic.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Milan Nedić"
+					desc = "PODCAT_MILAN_NEDIC_DESC"
+					picture = "ISE_Milan_Nedic.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_serbia_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_serbia_order }
+				clr_country_flag = iop_gov_serbia_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_serbia_party }
+				clr_country_flag = iop_gov_serbia_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_serbia_legit } }
+				set_country_flag = iop_gov_serbia_legit
+				iop_gov_add_legit = yes
+			}
+			ISE = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Dimitrije Ljotić"
+					desc = "IOP_gov_serbia_legit_desc"
+					picture = "ISE_Dimitrije_Ljotic.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+				create_country_leader = {
+					name = "Dimitrije Ljotić"
+					desc = "IOP_gov_serbia_legit_desc"
+					picture = "ISE_Dimitrije_Ljotic.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+				create_country_leader = {
+					name = "Dimitrije Ljotić"
+					desc = "IOP_gov_serbia_legit_desc"
+					picture = "ISE_Dimitrije_Ljotic.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+				create_country_leader = {
+					name = "Dimitrije Ljotić"
+					desc = "IOP_gov_serbia_legit_desc"
+					picture = "ISE_Dimitrije_Ljotic.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_serbia_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_serbia_order }
+				clr_country_flag = iop_gov_serbia_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_serbia_legit }
+				clr_country_flag = iop_gov_serbia_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_serbia_party } }
+				set_country_flag = iop_gov_serbia_party
+				iop_gov_add_party = yes
+			}
+			ISE = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Alessandro Pavolini"
+					desc = "IOP_gov_serbia_party_desc"
+					picture = "ISE_Alessandro_Pavolini.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Alessandro Pavolini"
+					desc = "IOP_gov_serbia_party_desc"
+					picture = "ISE_Alessandro_Pavolini.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Alessandro Pavolini"
+					desc = "IOP_gov_serbia_party_desc"
+					picture = "ISE_Alessandro_Pavolini.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Alessandro Pavolini"
+					desc = "IOP_gov_serbia_party_desc"
+					picture = "ISE_Alessandro_Pavolini.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IMT - Montenegro ----------------
+iop_appoint_montenegro_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_montenegro_legit }
+				clr_country_flag = iop_gov_montenegro_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_montenegro_party }
+				clr_country_flag = iop_gov_montenegro_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_montenegro_order } }
+				set_country_flag = iop_gov_montenegro_order
+				iop_gov_add_order = yes
+			}
+			IMT = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Alessandro Pirzio Biroli"
+					desc = "PODCAT_ALESSANDRO_PIRZIO_BIROLI_DESC"
+					picture = "IMT_Alessandro_Pirzio_Biroli.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_iron_hand
+					}
+				}
+				create_country_leader = {
+					name = "Alessandro Pirzio Biroli"
+					desc = "PODCAT_ALESSANDRO_PIRZIO_BIROLI_DESC"
+					picture = "IMT_Alessandro_Pirzio_Biroli.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_iron_hand
+					}
+				}
+				create_country_leader = {
+					name = "Alessandro Pirzio Biroli"
+					desc = "PODCAT_ALESSANDRO_PIRZIO_BIROLI_DESC"
+					picture = "IMT_Alessandro_Pirzio_Biroli.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_iron_hand
+					}
+				}
+				create_country_leader = {
+					name = "Alessandro Pirzio Biroli"
+					desc = "PODCAT_ALESSANDRO_PIRZIO_BIROLI_DESC"
+					picture = "IMT_Alessandro_Pirzio_Biroli.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_iron_hand
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_montenegro_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_montenegro_order }
+				clr_country_flag = iop_gov_montenegro_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_montenegro_party }
+				clr_country_flag = iop_gov_montenegro_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_montenegro_legit } }
+				set_country_flag = iop_gov_montenegro_legit
+				iop_gov_add_legit = yes
+			}
+			IMT = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Sekula Drljević"
+					desc = "IOP_gov_montenegro_legit_desc"
+					picture = "IMT_Sekula_Drljevic.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+				create_country_leader = {
+					name = "Sekula Drljević"
+					desc = "IOP_gov_montenegro_legit_desc"
+					picture = "IMT_Sekula_Drljevic.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+				create_country_leader = {
+					name = "Sekula Drljević"
+					desc = "IOP_gov_montenegro_legit_desc"
+					picture = "IMT_Sekula_Drljevic.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+				create_country_leader = {
+					name = "Sekula Drljević"
+					desc = "IOP_gov_montenegro_legit_desc"
+					picture = "IMT_Sekula_Drljevic.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_montenegro_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_montenegro_order }
+				clr_country_flag = iop_gov_montenegro_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_montenegro_legit }
+				clr_country_flag = iop_gov_montenegro_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_montenegro_party } }
+				set_country_flag = iop_gov_montenegro_party
+				iop_gov_add_party = yes
+			}
+			IMT = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Ettore Muti"
+					desc = "IOP_gov_montenegro_party_desc"
+					picture = "IMT_Ettore_Muti.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Ettore Muti"
+					desc = "IOP_gov_montenegro_party_desc"
+					picture = "IMT_Ettore_Muti.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Ettore Muti"
+					desc = "IOP_gov_montenegro_party_desc"
+					picture = "IMT_Ettore_Muti.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Ettore Muti"
+					desc = "IOP_gov_montenegro_party_desc"
+					picture = "IMT_Ettore_Muti.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IAL - Albania ----------------
+iop_appoint_albania_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_albania_legit }
+				clr_country_flag = iop_gov_albania_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_albania_party }
+				clr_country_flag = iop_gov_albania_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_albania_order } }
+				set_country_flag = iop_gov_albania_order
+				iop_gov_add_order = yes
+			}
+			IAL = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Alfredo Guzzoni"
+					desc = "PODCAT_ALFREDO_GUZZONI_DESC"
+					picture = "IAL_Alfredo_Guzzoni.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_viceroy
+					}
+				}
+				create_country_leader = {
+					name = "Alfredo Guzzoni"
+					desc = "PODCAT_ALFREDO_GUZZONI_DESC"
+					picture = "IAL_Alfredo_Guzzoni.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_viceroy
+					}
+				}
+				create_country_leader = {
+					name = "Alfredo Guzzoni"
+					desc = "PODCAT_ALFREDO_GUZZONI_DESC"
+					picture = "IAL_Alfredo_Guzzoni.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_viceroy
+					}
+				}
+				create_country_leader = {
+					name = "Alfredo Guzzoni"
+					desc = "PODCAT_ALFREDO_GUZZONI_DESC"
+					picture = "IAL_Alfredo_Guzzoni.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_viceroy
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_albania_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_albania_order }
+				clr_country_flag = iop_gov_albania_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_albania_party }
+				clr_country_flag = iop_gov_albania_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_albania_legit } }
+				set_country_flag = iop_gov_albania_legit
+				iop_gov_add_legit = yes
+			}
+			IAL = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Shefqet Vërlaci"
+					desc = "IOP_gov_albania_legit_desc"
+					picture = "IAL_Shefqet_Verlaci.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+				create_country_leader = {
+					name = "Shefqet Vërlaci"
+					desc = "IOP_gov_albania_legit_desc"
+					picture = "IAL_Shefqet_Verlaci.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+				create_country_leader = {
+					name = "Shefqet Vërlaci"
+					desc = "IOP_gov_albania_legit_desc"
+					picture = "IAL_Shefqet_Verlaci.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+				create_country_leader = {
+					name = "Shefqet Vërlaci"
+					desc = "IOP_gov_albania_legit_desc"
+					picture = "IAL_Shefqet_Verlaci.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_albania_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_albania_order }
+				clr_country_flag = iop_gov_albania_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_albania_legit }
+				clr_country_flag = iop_gov_albania_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_albania_party } }
+				set_country_flag = iop_gov_albania_party
+				iop_gov_add_party = yes
+			}
+			IAL = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Carlo Scorza"
+					desc = "IOP_gov_albania_party_desc"
+					picture = "IAL_Carlo_Scorza.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Carlo Scorza"
+					desc = "IOP_gov_albania_party_desc"
+					picture = "IAL_Carlo_Scorza.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Carlo Scorza"
+					desc = "IOP_gov_albania_party_desc"
+					picture = "IAL_Carlo_Scorza.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Carlo Scorza"
+					desc = "IOP_gov_albania_party_desc"
+					picture = "IAL_Carlo_Scorza.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IBL - Bulgaria ----------------
+iop_appoint_bulgaria_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_bulgaria_legit }
+				clr_country_flag = iop_gov_bulgaria_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_bulgaria_party }
+				clr_country_flag = iop_gov_bulgaria_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_bulgaria_order } }
+				set_country_flag = iop_gov_bulgaria_order
+				iop_gov_add_order = yes
+			}
+			IBL = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Attilio Biseo"
+					desc = "PODCAT_ATTILIO_BISEO_DESC"
+					picture = "IBL_Attilio_Biseo.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_airman_governor
+					}
+				}
+				create_country_leader = {
+					name = "Attilio Biseo"
+					desc = "PODCAT_ATTILIO_BISEO_DESC"
+					picture = "IBL_Attilio_Biseo.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_airman_governor
+					}
+				}
+				create_country_leader = {
+					name = "Attilio Biseo"
+					desc = "PODCAT_ATTILIO_BISEO_DESC"
+					picture = "IBL_Attilio_Biseo.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_airman_governor
+					}
+				}
+				create_country_leader = {
+					name = "Attilio Biseo"
+					desc = "PODCAT_ATTILIO_BISEO_DESC"
+					picture = "IBL_Attilio_Biseo.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_airman_governor
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_bulgaria_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_bulgaria_order }
+				clr_country_flag = iop_gov_bulgaria_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_bulgaria_party }
+				clr_country_flag = iop_gov_bulgaria_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_bulgaria_legit } }
+				set_country_flag = iop_gov_bulgaria_legit
+				iop_gov_add_legit = yes
+			}
+			IBL = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Bogdan Filov"
+					desc = "IOP_gov_bulgaria_legit_desc"
+					picture = "IBL_Bogdan_Filov.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_civil_administrator
+					}
+				}
+				create_country_leader = {
+					name = "Bogdan Filov"
+					desc = "IOP_gov_bulgaria_legit_desc"
+					picture = "IBL_Bogdan_Filov.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_civil_administrator
+					}
+				}
+				create_country_leader = {
+					name = "Bogdan Filov"
+					desc = "IOP_gov_bulgaria_legit_desc"
+					picture = "IBL_Bogdan_Filov.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_civil_administrator
+					}
+				}
+				create_country_leader = {
+					name = "Bogdan Filov"
+					desc = "IOP_gov_bulgaria_legit_desc"
+					picture = "IBL_Bogdan_Filov.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_civil_administrator
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_bulgaria_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_bulgaria_order }
+				clr_country_flag = iop_gov_bulgaria_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_bulgaria_legit }
+				clr_country_flag = iop_gov_bulgaria_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_bulgaria_party } }
+				set_country_flag = iop_gov_bulgaria_party
+				iop_gov_add_party = yes
+			}
+			IBL = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Giovanni Marinelli"
+					desc = "IOP_gov_bulgaria_party_desc"
+					picture = "IBL_Giovanni_Marinelli.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_bureaucrat
+					}
+				}
+				create_country_leader = {
+					name = "Giovanni Marinelli"
+					desc = "IOP_gov_bulgaria_party_desc"
+					picture = "IBL_Giovanni_Marinelli.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_bureaucrat
+					}
+				}
+				create_country_leader = {
+					name = "Giovanni Marinelli"
+					desc = "IOP_gov_bulgaria_party_desc"
+					picture = "IBL_Giovanni_Marinelli.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_bureaucrat
+					}
+				}
+				create_country_leader = {
+					name = "Giovanni Marinelli"
+					desc = "IOP_gov_bulgaria_party_desc"
+					picture = "IBL_Giovanni_Marinelli.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_bureaucrat
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IGR - Greece ----------------
+iop_appoint_greece_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_greece_legit }
+				clr_country_flag = iop_gov_greece_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_greece_party }
+				clr_country_flag = iop_gov_greece_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_greece_order } }
+				set_country_flag = iop_gov_greece_order
+				iop_gov_add_order = yes
+			}
+			IGR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Cesare Maria De Vecchi"
+					desc = "PODCAT_CESARE_MARIA_DE_VECCHI_DESC"
+					picture = "IGR_Cesare_Maria_De_Vecchi.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_quadrumvir
+					}
+				}
+				create_country_leader = {
+					name = "Cesare Maria De Vecchi"
+					desc = "PODCAT_CESARE_MARIA_DE_VECCHI_DESC"
+					picture = "IGR_Cesare_Maria_De_Vecchi.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_quadrumvir
+					}
+				}
+				create_country_leader = {
+					name = "Cesare Maria De Vecchi"
+					desc = "PODCAT_CESARE_MARIA_DE_VECCHI_DESC"
+					picture = "IGR_Cesare_Maria_De_Vecchi.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_quadrumvir
+					}
+				}
+				create_country_leader = {
+					name = "Cesare Maria De Vecchi"
+					desc = "PODCAT_CESARE_MARIA_DE_VECCHI_DESC"
+					picture = "IGR_Cesare_Maria_De_Vecchi.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_quadrumvir
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_greece_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_greece_order }
+				clr_country_flag = iop_gov_greece_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_greece_party }
+				clr_country_flag = iop_gov_greece_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_greece_legit } }
+				set_country_flag = iop_gov_greece_legit
+				iop_gov_add_legit = yes
+			}
+			IGR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Ioannis Rallis"
+					desc = "IOP_gov_greece_legit_desc"
+					picture = "IGR_Ioannis_Rallis.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Ioannis Rallis"
+					desc = "IOP_gov_greece_legit_desc"
+					picture = "IGR_Ioannis_Rallis.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Ioannis Rallis"
+					desc = "IOP_gov_greece_legit_desc"
+					picture = "IGR_Ioannis_Rallis.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Ioannis Rallis"
+					desc = "IOP_gov_greece_legit_desc"
+					picture = "IGR_Ioannis_Rallis.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_greece_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_greece_order }
+				clr_country_flag = iop_gov_greece_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_greece_legit }
+				clr_country_flag = iop_gov_greece_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_greece_party } }
+				set_country_flag = iop_gov_greece_party
+				iop_gov_add_party = yes
+			}
+			IGR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Renato Ricci"
+					desc = "IOP_gov_greece_party_desc"
+					picture = "IGR_Renato_Ricci.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Renato Ricci"
+					desc = "IOP_gov_greece_party_desc"
+					picture = "IGR_Renato_Ricci.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Renato Ricci"
+					desc = "IOP_gov_greece_party_desc"
+					picture = "IGR_Renato_Ricci.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Renato Ricci"
+					desc = "IOP_gov_greece_party_desc"
+					picture = "IGR_Renato_Ricci.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+			}
+		}
+}
+
+# ---------------- ITR - Turkey ----------------
+iop_appoint_turkey_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_turkey_legit }
+				clr_country_flag = iop_gov_turkey_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_turkey_party }
+				clr_country_flag = iop_gov_turkey_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_turkey_order } }
+				set_country_flag = iop_gov_turkey_order
+				iop_gov_add_order = yes
+			}
+			ITR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Rodolfo Graziani"
+					desc = "PODCAT_RODOLFO_GRAZIANI_DESC"
+					picture = "ITR_Rodolfo_Graziani.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_colonial_repressor
+					}
+				}
+				create_country_leader = {
+					name = "Rodolfo Graziani"
+					desc = "PODCAT_RODOLFO_GRAZIANI_DESC"
+					picture = "ITR_Rodolfo_Graziani.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_colonial_repressor
+					}
+				}
+				create_country_leader = {
+					name = "Rodolfo Graziani"
+					desc = "PODCAT_RODOLFO_GRAZIANI_DESC"
+					picture = "ITR_Rodolfo_Graziani.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_colonial_repressor
+					}
+				}
+				create_country_leader = {
+					name = "Rodolfo Graziani"
+					desc = "PODCAT_RODOLFO_GRAZIANI_DESC"
+					picture = "ITR_Rodolfo_Graziani.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_colonial_repressor
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_turkey_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_turkey_order }
+				clr_country_flag = iop_gov_turkey_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_turkey_party }
+				clr_country_flag = iop_gov_turkey_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_turkey_legit } }
+				set_country_flag = iop_gov_turkey_legit
+				iop_gov_add_legit = yes
+			}
+			ITR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Nuri Killigil"
+					desc = "IOP_gov_turkey_legit_desc"
+					picture = "ITR_Nuri_Killigil.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_warlord
+					}
+				}
+				create_country_leader = {
+					name = "Nuri Killigil"
+					desc = "IOP_gov_turkey_legit_desc"
+					picture = "ITR_Nuri_Killigil.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_warlord
+					}
+				}
+				create_country_leader = {
+					name = "Nuri Killigil"
+					desc = "IOP_gov_turkey_legit_desc"
+					picture = "ITR_Nuri_Killigil.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_warlord
+					}
+				}
+				create_country_leader = {
+					name = "Nuri Killigil"
+					desc = "IOP_gov_turkey_legit_desc"
+					picture = "ITR_Nuri_Killigil.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_warlord
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_turkey_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_turkey_order }
+				clr_country_flag = iop_gov_turkey_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_turkey_legit }
+				clr_country_flag = iop_gov_turkey_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_turkey_party } }
+				set_country_flag = iop_gov_turkey_party
+				iop_gov_add_party = yes
+			}
+			ITR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Galeazzo Ciano"
+					desc = "IOP_gov_turkey_party_desc"
+					picture = "ITR_Galeazzo_Ciano.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Galeazzo Ciano"
+					desc = "IOP_gov_turkey_party_desc"
+					picture = "ITR_Galeazzo_Ciano.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Galeazzo Ciano"
+					desc = "IOP_gov_turkey_party_desc"
+					picture = "ITR_Galeazzo_Ciano.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Galeazzo Ciano"
+					desc = "IOP_gov_turkey_party_desc"
+					picture = "ITR_Galeazzo_Ciano.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+			}
+		}
+}
+
+# ---------------- INA - North Africa ----------------
+iop_appoint_north_africa_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_north_africa_legit }
+				clr_country_flag = iop_gov_north_africa_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_north_africa_party }
+				clr_country_flag = iop_gov_north_africa_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_north_africa_order } }
+				set_country_flag = iop_gov_north_africa_order
+				iop_gov_add_order = yes
+			}
+			INA = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Ettore Bastico"
+					desc = "PODCAT_ETTORE_BASTICO_DESC"
+					picture = "INA_Ettore_Bastico.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_logistics_organiser
+					}
+				}
+				create_country_leader = {
+					name = "Ettore Bastico"
+					desc = "PODCAT_ETTORE_BASTICO_DESC"
+					picture = "INA_Ettore_Bastico.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_logistics_organiser
+					}
+				}
+				create_country_leader = {
+					name = "Ettore Bastico"
+					desc = "PODCAT_ETTORE_BASTICO_DESC"
+					picture = "INA_Ettore_Bastico.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_logistics_organiser
+					}
+				}
+				create_country_leader = {
+					name = "Ettore Bastico"
+					desc = "PODCAT_ETTORE_BASTICO_DESC"
+					picture = "INA_Ettore_Bastico.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_logistics_organiser
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_north_africa_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_north_africa_order }
+				clr_country_flag = iop_gov_north_africa_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_north_africa_party }
+				clr_country_flag = iop_gov_north_africa_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_north_africa_legit } }
+				set_country_flag = iop_gov_north_africa_legit
+				iop_gov_add_legit = yes
+			}
+			INA = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Idris I of Cyrenaica"
+					desc = "IOP_gov_north_africa_legit_desc"
+					picture = "INA_Idris_of_Cyrenaica.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_restored_monarch
+					}
+				}
+				create_country_leader = {
+					name = "Idris I of Cyrenaica"
+					desc = "IOP_gov_north_africa_legit_desc"
+					picture = "INA_Idris_of_Cyrenaica.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_restored_monarch
+					}
+				}
+				create_country_leader = {
+					name = "Idris I of Cyrenaica"
+					desc = "IOP_gov_north_africa_legit_desc"
+					picture = "INA_Idris_of_Cyrenaica.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_restored_monarch
+					}
+				}
+				create_country_leader = {
+					name = "Idris I of Cyrenaica"
+					desc = "IOP_gov_north_africa_legit_desc"
+					picture = "INA_Idris_of_Cyrenaica.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_restored_monarch
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_north_africa_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_north_africa_order }
+				clr_country_flag = iop_gov_north_africa_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_north_africa_legit }
+				clr_country_flag = iop_gov_north_africa_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_north_africa_party } }
+				set_country_flag = iop_gov_north_africa_party
+				iop_gov_add_party = yes
+			}
+			INA = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Italo Balbo"
+					desc = "IOP_gov_north_africa_party_desc"
+					picture = "INA_Italo_Balbo.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_airman_governor
+					}
+				}
+				create_country_leader = {
+					name = "Italo Balbo"
+					desc = "IOP_gov_north_africa_party_desc"
+					picture = "INA_Italo_Balbo.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_airman_governor
+					}
+				}
+				create_country_leader = {
+					name = "Italo Balbo"
+					desc = "IOP_gov_north_africa_party_desc"
+					picture = "INA_Italo_Balbo.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_airman_governor
+					}
+				}
+				create_country_leader = {
+					name = "Italo Balbo"
+					desc = "IOP_gov_north_africa_party_desc"
+					picture = "INA_Italo_Balbo.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_airman_governor
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IEG - Egypt ----------------
+iop_appoint_egypt_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_egypt_legit }
+				clr_country_flag = iop_gov_egypt_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_egypt_party }
+				clr_country_flag = iop_gov_egypt_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_egypt_order } }
+				set_country_flag = iop_gov_egypt_order
+				iop_gov_add_order = yes
+			}
+			IEG = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Farouk I"
+					desc = "PODCAT_FAROUK_I_DESC"
+					picture = "IEG_King_Farouk_I.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_playboy_monarch
+					}
+				}
+				create_country_leader = {
+					name = "Farouk I"
+					desc = "PODCAT_FAROUK_I_DESC"
+					picture = "IEG_King_Farouk_I.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_playboy_monarch
+					}
+				}
+				create_country_leader = {
+					name = "Farouk I"
+					desc = "PODCAT_FAROUK_I_DESC"
+					picture = "IEG_King_Farouk_I.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_playboy_monarch
+					}
+				}
+				create_country_leader = {
+					name = "Farouk I"
+					desc = "PODCAT_FAROUK_I_DESC"
+					picture = "IEG_King_Farouk_I.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_playboy_monarch
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_egypt_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_egypt_order }
+				clr_country_flag = iop_gov_egypt_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_egypt_party }
+				clr_country_flag = iop_gov_egypt_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_egypt_legit } }
+				set_country_flag = iop_gov_egypt_legit
+				iop_gov_add_legit = yes
+			}
+			IEG = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Ali Mahir Pasha"
+					desc = "IOP_gov_egypt_legit_desc"
+					picture = "IEG_Ali_Mahir_Pasha.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Ali Mahir Pasha"
+					desc = "IOP_gov_egypt_legit_desc"
+					picture = "IEG_Ali_Mahir_Pasha.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Ali Mahir Pasha"
+					desc = "IOP_gov_egypt_legit_desc"
+					picture = "IEG_Ali_Mahir_Pasha.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Ali Mahir Pasha"
+					desc = "IOP_gov_egypt_legit_desc"
+					picture = "IEG_Ali_Mahir_Pasha.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_egypt_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_egypt_order }
+				clr_country_flag = iop_gov_egypt_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_egypt_legit }
+				clr_country_flag = iop_gov_egypt_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_egypt_party } }
+				set_country_flag = iop_gov_egypt_party
+				iop_gov_add_party = yes
+			}
+			IEG = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Aziz Ali al-Misri"
+					desc = "IOP_gov_egypt_party_desc"
+					picture = "IEG_Aziz_Ali_al_Misri.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_cautious_commander
+					}
+				}
+				create_country_leader = {
+					name = "Aziz Ali al-Misri"
+					desc = "IOP_gov_egypt_party_desc"
+					picture = "IEG_Aziz_Ali_al_Misri.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_cautious_commander
+					}
+				}
+				create_country_leader = {
+					name = "Aziz Ali al-Misri"
+					desc = "IOP_gov_egypt_party_desc"
+					picture = "IEG_Aziz_Ali_al_Misri.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_cautious_commander
+					}
+				}
+				create_country_leader = {
+					name = "Aziz Ali al-Misri"
+					desc = "IOP_gov_egypt_party_desc"
+					picture = "IEG_Aziz_Ali_al_Misri.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_cautious_commander
+					}
+				}
+			}
+		}
+}
+
+# ---------------- ISP - Spain ----------------
+iop_appoint_spain_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_spain_legit }
+				clr_country_flag = iop_gov_spain_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_spain_party }
+				clr_country_flag = iop_gov_spain_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_spain_order } }
+				set_country_flag = iop_gov_spain_order
+				iop_gov_add_order = yes
+			}
+			ISP = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Mario Roatta"
+					desc = "PODCAT_MARIO_ROATTA_DESC"
+					picture = "ISP_Mario_Roatta.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_hardliner
+					}
+				}
+				create_country_leader = {
+					name = "Mario Roatta"
+					desc = "PODCAT_MARIO_ROATTA_DESC"
+					picture = "ISP_Mario_Roatta.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_hardliner
+					}
+				}
+				create_country_leader = {
+					name = "Mario Roatta"
+					desc = "PODCAT_MARIO_ROATTA_DESC"
+					picture = "ISP_Mario_Roatta.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_hardliner
+					}
+				}
+				create_country_leader = {
+					name = "Mario Roatta"
+					desc = "PODCAT_MARIO_ROATTA_DESC"
+					picture = "ISP_Mario_Roatta.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_hardliner
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_spain_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_spain_order }
+				clr_country_flag = iop_gov_spain_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_spain_party }
+				clr_country_flag = iop_gov_spain_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_spain_legit } }
+				set_country_flag = iop_gov_spain_legit
+				iop_gov_add_legit = yes
+			}
+			ISP = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Ramón Serrano Suñer"
+					desc = "IOP_gov_spain_legit_desc"
+					picture = "ISP_Ramon_Serrano_Suner.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Ramón Serrano Suñer"
+					desc = "IOP_gov_spain_legit_desc"
+					picture = "ISP_Ramon_Serrano_Suner.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Ramón Serrano Suñer"
+					desc = "IOP_gov_spain_legit_desc"
+					picture = "ISP_Ramon_Serrano_Suner.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+				create_country_leader = {
+					name = "Ramón Serrano Suñer"
+					desc = "IOP_gov_spain_legit_desc"
+					picture = "ISP_Ramon_Serrano_Suner.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_fascist_ras
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_spain_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_spain_order }
+				clr_country_flag = iop_gov_spain_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_spain_legit }
+				clr_country_flag = iop_gov_spain_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_spain_party } }
+				set_country_flag = iop_gov_spain_party
+				iop_gov_add_party = yes
+			}
+			ISP = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Dino Grandi"
+					desc = "IOP_gov_spain_party_desc"
+					picture = "ISP_Dino_Grandi.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Dino Grandi"
+					desc = "IOP_gov_spain_party_desc"
+					picture = "ISP_Dino_Grandi.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Dino Grandi"
+					desc = "IOP_gov_spain_party_desc"
+					picture = "ISP_Dino_Grandi.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+				create_country_leader = {
+					name = "Dino Grandi"
+					desc = "IOP_gov_spain_party_desc"
+					picture = "ISP_Dino_Grandi.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_diplomat_governor
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IPG - Portugal ----------------
+iop_appoint_portugal_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_portugal_legit }
+				clr_country_flag = iop_gov_portugal_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_portugal_party }
+				clr_country_flag = iop_gov_portugal_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_portugal_order } }
+				set_country_flag = iop_gov_portugal_order
+				iop_gov_add_order = yes
+			}
+			IPG = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Rolão Preto"
+					desc = "PODCAT_ROLAO_PRETO_DESC"
+					picture = "IPG_Rolao_Preto.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_blueshirt_leader
+					}
+				}
+				create_country_leader = {
+					name = "Rolão Preto"
+					desc = "PODCAT_ROLAO_PRETO_DESC"
+					picture = "IPG_Rolao_Preto.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_blueshirt_leader
+					}
+				}
+				create_country_leader = {
+					name = "Rolão Preto"
+					desc = "PODCAT_ROLAO_PRETO_DESC"
+					picture = "IPG_Rolao_Preto.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_blueshirt_leader
+					}
+				}
+				create_country_leader = {
+					name = "Rolão Preto"
+					desc = "PODCAT_ROLAO_PRETO_DESC"
+					picture = "IPG_Rolao_Preto.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_blueshirt_leader
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_portugal_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_portugal_order }
+				clr_country_flag = iop_gov_portugal_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_portugal_party }
+				clr_country_flag = iop_gov_portugal_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_portugal_legit } }
+				set_country_flag = iop_gov_portugal_legit
+				iop_gov_add_legit = yes
+			}
+			IPG = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "António de Oliveira Salazar"
+					desc = "IOP_gov_portugal_legit_desc"
+					picture = "IPG_Antonio_de_Oliveira_Salazar.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_bureaucrat
+					}
+				}
+				create_country_leader = {
+					name = "António de Oliveira Salazar"
+					desc = "IOP_gov_portugal_legit_desc"
+					picture = "IPG_Antonio_de_Oliveira_Salazar.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_bureaucrat
+					}
+				}
+				create_country_leader = {
+					name = "António de Oliveira Salazar"
+					desc = "IOP_gov_portugal_legit_desc"
+					picture = "IPG_Antonio_de_Oliveira_Salazar.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_bureaucrat
+					}
+				}
+				create_country_leader = {
+					name = "António de Oliveira Salazar"
+					desc = "IOP_gov_portugal_legit_desc"
+					picture = "IPG_Antonio_de_Oliveira_Salazar.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_bureaucrat
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_portugal_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_portugal_order }
+				clr_country_flag = iop_gov_portugal_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_portugal_legit }
+				clr_country_flag = iop_gov_portugal_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_portugal_party } }
+				set_country_flag = iop_gov_portugal_party
+				iop_gov_add_party = yes
+			}
+			IPG = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Giovanni Preziosi"
+					desc = "IOP_gov_portugal_party_desc"
+					picture = "IPG_Giovanni_Preziosi.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+				create_country_leader = {
+					name = "Giovanni Preziosi"
+					desc = "IOP_gov_portugal_party_desc"
+					picture = "IPG_Giovanni_Preziosi.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+				create_country_leader = {
+					name = "Giovanni Preziosi"
+					desc = "IOP_gov_portugal_party_desc"
+					picture = "IPG_Giovanni_Preziosi.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+				create_country_leader = {
+					name = "Giovanni Preziosi"
+					desc = "IOP_gov_portugal_party_desc"
+					picture = "IPG_Giovanni_Preziosi.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IOC - Occitania ----------------
+iop_appoint_occitania_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_occitania_legit }
+				clr_country_flag = iop_gov_occitania_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_occitania_party }
+				clr_country_flag = iop_gov_occitania_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_occitania_order } }
+				set_country_flag = iop_gov_occitania_order
+				iop_gov_add_order = yes
+			}
+			IOC = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Enea Navarini"
+					desc = "PODCAT_ENEA_NAVARINI_DESC"
+					picture = "IOC_Enea_Navarini.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_staff_officer
+					}
+				}
+				create_country_leader = {
+					name = "Enea Navarini"
+					desc = "PODCAT_ENEA_NAVARINI_DESC"
+					picture = "IOC_Enea_Navarini.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_staff_officer
+					}
+				}
+				create_country_leader = {
+					name = "Enea Navarini"
+					desc = "PODCAT_ENEA_NAVARINI_DESC"
+					picture = "IOC_Enea_Navarini.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_staff_officer
+					}
+				}
+				create_country_leader = {
+					name = "Enea Navarini"
+					desc = "PODCAT_ENEA_NAVARINI_DESC"
+					picture = "IOC_Enea_Navarini.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_staff_officer
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_occitania_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_occitania_order }
+				clr_country_flag = iop_gov_occitania_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_occitania_party }
+				clr_country_flag = iop_gov_occitania_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_occitania_legit } }
+				set_country_flag = iop_gov_occitania_legit
+				iop_gov_add_legit = yes
+			}
+			IOC = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Philippe Pétain"
+					desc = "IOP_gov_occitania_legit_desc"
+					picture = "IOC_Philippe_Petain.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Philippe Pétain"
+					desc = "IOP_gov_occitania_legit_desc"
+					picture = "IOC_Philippe_Petain.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Philippe Pétain"
+					desc = "IOP_gov_occitania_legit_desc"
+					picture = "IOC_Philippe_Petain.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+				create_country_leader = {
+					name = "Philippe Pétain"
+					desc = "IOP_gov_occitania_legit_desc"
+					picture = "IOC_Philippe_Petain.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_quisling_premier
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_occitania_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_occitania_order }
+				clr_country_flag = iop_gov_occitania_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_occitania_legit }
+				clr_country_flag = iop_gov_occitania_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_occitania_party } }
+				set_country_flag = iop_gov_occitania_party
+				iop_gov_add_party = yes
+			}
+			IOC = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Joseph Darnand"
+					desc = "IOP_gov_occitania_party_desc"
+					picture = "IOC_Joseph_Darnand.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_hardliner
+					}
+				}
+				create_country_leader = {
+					name = "Joseph Darnand"
+					desc = "IOP_gov_occitania_party_desc"
+					picture = "IOC_Joseph_Darnand.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_hardliner
+					}
+				}
+				create_country_leader = {
+					name = "Joseph Darnand"
+					desc = "IOP_gov_occitania_party_desc"
+					picture = "IOC_Joseph_Darnand.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_hardliner
+					}
+				}
+				create_country_leader = {
+					name = "Joseph Darnand"
+					desc = "IOP_gov_occitania_party_desc"
+					picture = "IOC_Joseph_Darnand.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_hardliner
+					}
+				}
+			}
+		}
+}
+
+# ---------------- ILV - Levant ----------------
+iop_appoint_levant_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_levant_legit }
+				clr_country_flag = iop_gov_levant_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_levant_party }
+				clr_country_flag = iop_gov_levant_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_levant_order } }
+				set_country_flag = iop_gov_levant_order
+				iop_gov_add_order = yes
+			}
+			ILV = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Shakib Arslan"
+					desc = "PODCAT_SHAKIB_ARSLAN_DESC"
+					picture = "ILV_Shakib_Arslan.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_amir_al_bayan
+					}
+				}
+				create_country_leader = {
+					name = "Shakib Arslan"
+					desc = "PODCAT_SHAKIB_ARSLAN_DESC"
+					picture = "ILV_Shakib_Arslan.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_amir_al_bayan
+					}
+				}
+				create_country_leader = {
+					name = "Shakib Arslan"
+					desc = "PODCAT_SHAKIB_ARSLAN_DESC"
+					picture = "ILV_Shakib_Arslan.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_amir_al_bayan
+					}
+				}
+				create_country_leader = {
+					name = "Shakib Arslan"
+					desc = "PODCAT_SHAKIB_ARSLAN_DESC"
+					picture = "ILV_Shakib_Arslan.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_amir_al_bayan
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_levant_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_levant_order }
+				clr_country_flag = iop_gov_levant_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_levant_party }
+				clr_country_flag = iop_gov_levant_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_levant_legit } }
+				set_country_flag = iop_gov_levant_legit
+				iop_gov_add_legit = yes
+			}
+			ILV = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Haj Amin al-Husseini"
+					desc = "IOP_gov_levant_legit_desc"
+					picture = "ILV_Haj_Amin_al_Husseini.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_cleric_governor
+					}
+				}
+				create_country_leader = {
+					name = "Haj Amin al-Husseini"
+					desc = "IOP_gov_levant_legit_desc"
+					picture = "ILV_Haj_Amin_al_Husseini.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_cleric_governor
+					}
+				}
+				create_country_leader = {
+					name = "Haj Amin al-Husseini"
+					desc = "IOP_gov_levant_legit_desc"
+					picture = "ILV_Haj_Amin_al_Husseini.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_cleric_governor
+					}
+				}
+				create_country_leader = {
+					name = "Haj Amin al-Husseini"
+					desc = "IOP_gov_levant_legit_desc"
+					picture = "ILV_Haj_Amin_al_Husseini.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_cleric_governor
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_levant_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_levant_order }
+				clr_country_flag = iop_gov_levant_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_levant_legit }
+				clr_country_flag = iop_gov_levant_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_levant_party } }
+				set_country_flag = iop_gov_levant_party
+				iop_gov_add_party = yes
+			}
+			ILV = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Luigi Barlassina"
+					desc = "IOP_gov_levant_party_desc"
+					picture = "ILV_Luigi_Barlassina.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_latin_patriarch
+					}
+				}
+				create_country_leader = {
+					name = "Luigi Barlassina"
+					desc = "IOP_gov_levant_party_desc"
+					picture = "ILV_Luigi_Barlassina.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_latin_patriarch
+					}
+				}
+				create_country_leader = {
+					name = "Luigi Barlassina"
+					desc = "IOP_gov_levant_party_desc"
+					picture = "ILV_Luigi_Barlassina.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_latin_patriarch
+					}
+				}
+				create_country_leader = {
+					name = "Luigi Barlassina"
+					desc = "IOP_gov_levant_party_desc"
+					picture = "ILV_Luigi_Barlassina.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_latin_patriarch
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IIQ - Iraq ----------------
+iop_appoint_iraq_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_iraq_legit }
+				clr_country_flag = iop_gov_iraq_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_iraq_party }
+				clr_country_flag = iop_gov_iraq_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_iraq_order } }
+				set_country_flag = iop_gov_iraq_order
+				iop_gov_add_order = yes
+			}
+			IIQ = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Rashid Ali al-Gaylani"
+					desc = "PODCAT_RASHID_ALI_AL_GAYLANI_DESC"
+					picture = "IIQ_Rashid_Ali_al-Gaylani.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_arab_nationalist
+					}
+				}
+				create_country_leader = {
+					name = "Rashid Ali al-Gaylani"
+					desc = "PODCAT_RASHID_ALI_AL_GAYLANI_DESC"
+					picture = "IIQ_Rashid_Ali_al-Gaylani.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_arab_nationalist
+					}
+				}
+				create_country_leader = {
+					name = "Rashid Ali al-Gaylani"
+					desc = "PODCAT_RASHID_ALI_AL_GAYLANI_DESC"
+					picture = "IIQ_Rashid_Ali_al-Gaylani.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_arab_nationalist
+					}
+				}
+				create_country_leader = {
+					name = "Rashid Ali al-Gaylani"
+					desc = "PODCAT_RASHID_ALI_AL_GAYLANI_DESC"
+					picture = "IIQ_Rashid_Ali_al-Gaylani.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_arab_nationalist
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_iraq_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_iraq_order }
+				clr_country_flag = iop_gov_iraq_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_iraq_party }
+				clr_country_flag = iop_gov_iraq_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_iraq_legit } }
+				set_country_flag = iop_gov_iraq_legit
+				iop_gov_add_legit = yes
+			}
+			IIQ = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Fawzi al-Qawuqji"
+					desc = "IOP_gov_iraq_legit_desc"
+					picture = "IIQ_Fawzi_al_Qawuqji.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_warlord
+					}
+				}
+				create_country_leader = {
+					name = "Fawzi al-Qawuqji"
+					desc = "IOP_gov_iraq_legit_desc"
+					picture = "IIQ_Fawzi_al_Qawuqji.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_warlord
+					}
+				}
+				create_country_leader = {
+					name = "Fawzi al-Qawuqji"
+					desc = "IOP_gov_iraq_legit_desc"
+					picture = "IIQ_Fawzi_al_Qawuqji.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_warlord
+					}
+				}
+				create_country_leader = {
+					name = "Fawzi al-Qawuqji"
+					desc = "IOP_gov_iraq_legit_desc"
+					picture = "IIQ_Fawzi_al_Qawuqji.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_warlord
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_iraq_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_iraq_order }
+				clr_country_flag = iop_gov_iraq_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_iraq_legit }
+				clr_country_flag = iop_gov_iraq_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_iraq_party } }
+				set_country_flag = iop_gov_iraq_party
+				iop_gov_add_party = yes
+			}
+			IIQ = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Emilio De Bono"
+					desc = "IOP_gov_iraq_party_desc"
+					picture = "IIQ_Emilio_De_Bono.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_quadrumvir
+					}
+				}
+				create_country_leader = {
+					name = "Emilio De Bono"
+					desc = "IOP_gov_iraq_party_desc"
+					picture = "IIQ_Emilio_De_Bono.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_quadrumvir
+					}
+				}
+				create_country_leader = {
+					name = "Emilio De Bono"
+					desc = "IOP_gov_iraq_party_desc"
+					picture = "IIQ_Emilio_De_Bono.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_quadrumvir
+					}
+				}
+				create_country_leader = {
+					name = "Emilio De Bono"
+					desc = "IOP_gov_iraq_party_desc"
+					picture = "IIQ_Emilio_De_Bono.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_quadrumvir
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IAR - Arabia ----------------
+iop_appoint_arabia_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_arabia_legit }
+				clr_country_flag = iop_gov_arabia_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_arabia_party }
+				clr_country_flag = iop_gov_arabia_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_arabia_order } }
+				set_country_flag = iop_gov_arabia_order
+				iop_gov_add_order = yes
+			}
+			IAR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Guglielmo Nasi"
+					desc = "PODCAT_GUGLIELMO_NASI_DESC"
+					picture = "IAR_Guglielmo_Nasi.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_desert_quartermaster
+					}
+				}
+				create_country_leader = {
+					name = "Guglielmo Nasi"
+					desc = "PODCAT_GUGLIELMO_NASI_DESC"
+					picture = "IAR_Guglielmo_Nasi.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_desert_quartermaster
+					}
+				}
+				create_country_leader = {
+					name = "Guglielmo Nasi"
+					desc = "PODCAT_GUGLIELMO_NASI_DESC"
+					picture = "IAR_Guglielmo_Nasi.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_desert_quartermaster
+					}
+				}
+				create_country_leader = {
+					name = "Guglielmo Nasi"
+					desc = "PODCAT_GUGLIELMO_NASI_DESC"
+					picture = "IAR_Guglielmo_Nasi.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_desert_quartermaster
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_arabia_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_arabia_order }
+				clr_country_flag = iop_gov_arabia_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_arabia_party }
+				clr_country_flag = iop_gov_arabia_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_arabia_legit } }
+				set_country_flag = iop_gov_arabia_legit
+				iop_gov_add_legit = yes
+			}
+			IAR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Zeid bin Hussein"
+					desc = "IOP_gov_arabia_legit_desc"
+					picture = "IAR_Zeid_bin_Hussein.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_restored_monarch
+					}
+				}
+				create_country_leader = {
+					name = "Zeid bin Hussein"
+					desc = "IOP_gov_arabia_legit_desc"
+					picture = "IAR_Zeid_bin_Hussein.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_restored_monarch
+					}
+				}
+				create_country_leader = {
+					name = "Zeid bin Hussein"
+					desc = "IOP_gov_arabia_legit_desc"
+					picture = "IAR_Zeid_bin_Hussein.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_restored_monarch
+					}
+				}
+				create_country_leader = {
+					name = "Zeid bin Hussein"
+					desc = "IOP_gov_arabia_legit_desc"
+					picture = "IAR_Zeid_bin_Hussein.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_restored_monarch
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_arabia_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_arabia_order }
+				clr_country_flag = iop_gov_arabia_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_arabia_legit }
+				clr_country_flag = iop_gov_arabia_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_arabia_party } }
+				set_country_flag = iop_gov_arabia_party
+				iop_gov_add_party = yes
+			}
+			IAR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Alessandro Lessona"
+					desc = "IOP_gov_arabia_party_desc"
+					picture = "IAR_Alessandro_Lessona.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_mandate_administrator
+					}
+				}
+				create_country_leader = {
+					name = "Alessandro Lessona"
+					desc = "IOP_gov_arabia_party_desc"
+					picture = "IAR_Alessandro_Lessona.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_mandate_administrator
+					}
+				}
+				create_country_leader = {
+					name = "Alessandro Lessona"
+					desc = "IOP_gov_arabia_party_desc"
+					picture = "IAR_Alessandro_Lessona.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_mandate_administrator
+					}
+				}
+				create_country_leader = {
+					name = "Alessandro Lessona"
+					desc = "IOP_gov_arabia_party_desc"
+					picture = "IAR_Alessandro_Lessona.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_mandate_administrator
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IAM - Armenia ----------------
+iop_appoint_armenia_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_armenia_legit }
+				clr_country_flag = iop_gov_armenia_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_armenia_party }
+				clr_country_flag = iop_gov_armenia_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_armenia_order } }
+				set_country_flag = iop_gov_armenia_order
+				iop_gov_add_order = yes
+			}
+			IAM = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Drastamat 'Dro' Kanayan"
+					desc = "PODCAT_DRASTAMAT_KANAYAN_DESC"
+					picture = "IAM_Drastamat_Dro_Kanayan.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_mountain_defender
+					}
+				}
+				create_country_leader = {
+					name = "Drastamat 'Dro' Kanayan"
+					desc = "PODCAT_DRASTAMAT_KANAYAN_DESC"
+					picture = "IAM_Drastamat_Dro_Kanayan.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_mountain_defender
+					}
+				}
+				create_country_leader = {
+					name = "Drastamat 'Dro' Kanayan"
+					desc = "PODCAT_DRASTAMAT_KANAYAN_DESC"
+					picture = "IAM_Drastamat_Dro_Kanayan.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_mountain_defender
+					}
+				}
+				create_country_leader = {
+					name = "Drastamat 'Dro' Kanayan"
+					desc = "PODCAT_DRASTAMAT_KANAYAN_DESC"
+					picture = "IAM_Drastamat_Dro_Kanayan.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_mountain_defender
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_armenia_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_armenia_order }
+				clr_country_flag = iop_gov_armenia_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_armenia_party }
+				clr_country_flag = iop_gov_armenia_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_armenia_legit } }
+				set_country_flag = iop_gov_armenia_legit
+				iop_gov_add_legit = yes
+			}
+			IAM = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Garegin Nzhdeh"
+					desc = "IOP_gov_armenia_legit_desc"
+					picture = "IAM_Garegin_Nzhdeh.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_warlord
+					}
+				}
+				create_country_leader = {
+					name = "Garegin Nzhdeh"
+					desc = "IOP_gov_armenia_legit_desc"
+					picture = "IAM_Garegin_Nzhdeh.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_warlord
+					}
+				}
+				create_country_leader = {
+					name = "Garegin Nzhdeh"
+					desc = "IOP_gov_armenia_legit_desc"
+					picture = "IAM_Garegin_Nzhdeh.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_warlord
+					}
+				}
+				create_country_leader = {
+					name = "Garegin Nzhdeh"
+					desc = "IOP_gov_armenia_legit_desc"
+					picture = "IAM_Garegin_Nzhdeh.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_warlord
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_armenia_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_armenia_order }
+				clr_country_flag = iop_gov_armenia_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_armenia_legit }
+				clr_country_flag = iop_gov_armenia_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_armenia_party } }
+				set_country_flag = iop_gov_armenia_party
+				iop_gov_add_party = yes
+			}
+			IAM = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Filippo Tommaso Marinetti"
+					desc = "IOP_gov_armenia_party_desc"
+					picture = "IAM_Filippo_Tommaso_Marinetti.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+				create_country_leader = {
+					name = "Filippo Tommaso Marinetti"
+					desc = "IOP_gov_armenia_party_desc"
+					picture = "IAM_Filippo_Tommaso_Marinetti.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+				create_country_leader = {
+					name = "Filippo Tommaso Marinetti"
+					desc = "IOP_gov_armenia_party_desc"
+					picture = "IAM_Filippo_Tommaso_Marinetti.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+				create_country_leader = {
+					name = "Filippo Tommaso Marinetti"
+					desc = "IOP_gov_armenia_party_desc"
+					picture = "IAM_Filippo_Tommaso_Marinetti.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_party_ideologue
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IIR - Iran ----------------
+iop_appoint_iran_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_iran_legit }
+				clr_country_flag = iop_gov_iran_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_iran_party }
+				clr_country_flag = iop_gov_iran_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_iran_order } }
+				set_country_flag = iop_gov_iran_order
+				iop_gov_add_order = yes
+			}
+			IIR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Reza Shah Pahlavi"
+					desc = "PODCAT_REZA_SHAH_PAHLAVI_DESC"
+					picture = "IIR_Reza_Shah_Pahlavi.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_modernising_autocrat
+					}
+				}
+				create_country_leader = {
+					name = "Reza Shah Pahlavi"
+					desc = "PODCAT_REZA_SHAH_PAHLAVI_DESC"
+					picture = "IIR_Reza_Shah_Pahlavi.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_modernising_autocrat
+					}
+				}
+				create_country_leader = {
+					name = "Reza Shah Pahlavi"
+					desc = "PODCAT_REZA_SHAH_PAHLAVI_DESC"
+					picture = "IIR_Reza_Shah_Pahlavi.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_modernising_autocrat
+					}
+				}
+				create_country_leader = {
+					name = "Reza Shah Pahlavi"
+					desc = "PODCAT_REZA_SHAH_PAHLAVI_DESC"
+					picture = "IIR_Reza_Shah_Pahlavi.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_modernising_autocrat
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_iran_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_iran_order }
+				clr_country_flag = iop_gov_iran_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_iran_party }
+				clr_country_flag = iop_gov_iran_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_iran_legit } }
+				set_country_flag = iop_gov_iran_legit
+				iop_gov_add_legit = yes
+			}
+			IIR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Fazlollah Zahedi"
+					desc = "IOP_gov_iran_legit_desc"
+					picture = "IIR_Fazlollah_Zahedi.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_police_chief
+					}
+				}
+				create_country_leader = {
+					name = "Fazlollah Zahedi"
+					desc = "IOP_gov_iran_legit_desc"
+					picture = "IIR_Fazlollah_Zahedi.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_police_chief
+					}
+				}
+				create_country_leader = {
+					name = "Fazlollah Zahedi"
+					desc = "IOP_gov_iran_legit_desc"
+					picture = "IIR_Fazlollah_Zahedi.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_police_chief
+					}
+				}
+				create_country_leader = {
+					name = "Fazlollah Zahedi"
+					desc = "IOP_gov_iran_legit_desc"
+					picture = "IIR_Fazlollah_Zahedi.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_police_chief
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_iran_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_iran_order }
+				clr_country_flag = iop_gov_iran_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_iran_legit }
+				clr_country_flag = iop_gov_iran_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_iran_party } }
+				set_country_flag = iop_gov_iran_party
+				iop_gov_add_party = yes
+			}
+			IIR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Giuseppe Volpi"
+					desc = "IOP_gov_iran_party_desc"
+					picture = "IIR_Giuseppe_Volpi.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_oil_director
+					}
+				}
+				create_country_leader = {
+					name = "Giuseppe Volpi"
+					desc = "IOP_gov_iran_party_desc"
+					picture = "IIR_Giuseppe_Volpi.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_oil_director
+					}
+				}
+				create_country_leader = {
+					name = "Giuseppe Volpi"
+					desc = "IOP_gov_iran_party_desc"
+					picture = "IIR_Giuseppe_Volpi.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_oil_director
+					}
+				}
+				create_country_leader = {
+					name = "Giuseppe Volpi"
+					desc = "IOP_gov_iran_party_desc"
+					picture = "IIR_Giuseppe_Volpi.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_oil_director
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IMR - Morocco ----------------
+iop_appoint_morocco_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_morocco_legit }
+				clr_country_flag = iop_gov_morocco_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_morocco_party }
+				clr_country_flag = iop_gov_morocco_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_morocco_order } }
+				set_country_flag = iop_gov_morocco_order
+				iop_gov_add_order = yes
+			}
+			IMR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Abdelkhalek Torres"
+					desc = "PODCAT_ABDELKHALEK_TORRES_DESC"
+					picture = "IMR_Abdelkhalek_Torres.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_reformist_nationalist
+					}
+				}
+				create_country_leader = {
+					name = "Abdelkhalek Torres"
+					desc = "PODCAT_ABDELKHALEK_TORRES_DESC"
+					picture = "IMR_Abdelkhalek_Torres.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_reformist_nationalist
+					}
+				}
+				create_country_leader = {
+					name = "Abdelkhalek Torres"
+					desc = "PODCAT_ABDELKHALEK_TORRES_DESC"
+					picture = "IMR_Abdelkhalek_Torres.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_reformist_nationalist
+					}
+				}
+				create_country_leader = {
+					name = "Abdelkhalek Torres"
+					desc = "PODCAT_ABDELKHALEK_TORRES_DESC"
+					picture = "IMR_Abdelkhalek_Torres.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_reformist_nationalist
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_morocco_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_morocco_order }
+				clr_country_flag = iop_gov_morocco_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_morocco_party }
+				clr_country_flag = iop_gov_morocco_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_morocco_legit } }
+				set_country_flag = iop_gov_morocco_legit
+				iop_gov_add_legit = yes
+			}
+			IMR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Thami El Glaoui"
+					desc = "IOP_gov_morocco_legit_desc"
+					picture = "IMR_Thami_El_Glaoui.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+				create_country_leader = {
+					name = "Thami El Glaoui"
+					desc = "IOP_gov_morocco_legit_desc"
+					picture = "IMR_Thami_El_Glaoui.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+				create_country_leader = {
+					name = "Thami El Glaoui"
+					desc = "IOP_gov_morocco_legit_desc"
+					picture = "IMR_Thami_El_Glaoui.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+				create_country_leader = {
+					name = "Thami El Glaoui"
+					desc = "IOP_gov_morocco_legit_desc"
+					picture = "IMR_Thami_El_Glaoui.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_local_strongman
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_morocco_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_morocco_order }
+				clr_country_flag = iop_gov_morocco_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_morocco_legit }
+				clr_country_flag = iop_gov_morocco_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_morocco_party } }
+				set_country_flag = iop_gov_morocco_party
+				iop_gov_add_party = yes
+			}
+			IMR = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Luigi Federzoni"
+					desc = "IOP_gov_morocco_party_desc"
+					picture = "IMR_Luigi_Federzoni.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_colonial_repressor
+					}
+				}
+				create_country_leader = {
+					name = "Luigi Federzoni"
+					desc = "IOP_gov_morocco_party_desc"
+					picture = "IMR_Luigi_Federzoni.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_colonial_repressor
+					}
+				}
+				create_country_leader = {
+					name = "Luigi Federzoni"
+					desc = "IOP_gov_morocco_party_desc"
+					picture = "IMR_Luigi_Federzoni.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_colonial_repressor
+					}
+				}
+				create_country_leader = {
+					name = "Luigi Federzoni"
+					desc = "IOP_gov_morocco_party_desc"
+					picture = "IMR_Luigi_Federzoni.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_colonial_repressor
+					}
+				}
+			}
+		}
+}
+
+# ---------------- IOM - Oman ----------------
+iop_appoint_oman_order = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_oman_legit }
+				clr_country_flag = iop_gov_oman_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_oman_party }
+				clr_country_flag = iop_gov_oman_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_oman_order } }
+				set_country_flag = iop_gov_oman_order
+				iop_gov_add_order = yes
+			}
+			IOM = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_order
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Said bin Taimur"
+					desc = "PODCAT_SAID_BIN_TAIMUR_DESC"
+					picture = "IOM_Said_Bin_Taimur.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_sultan
+					}
+				}
+				create_country_leader = {
+					name = "Said bin Taimur"
+					desc = "PODCAT_SAID_BIN_TAIMUR_DESC"
+					picture = "IOM_Said_Bin_Taimur.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_sultan
+					}
+				}
+				create_country_leader = {
+					name = "Said bin Taimur"
+					desc = "PODCAT_SAID_BIN_TAIMUR_DESC"
+					picture = "IOM_Said_Bin_Taimur.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_sultan
+					}
+				}
+				create_country_leader = {
+					name = "Said bin Taimur"
+					desc = "PODCAT_SAID_BIN_TAIMUR_DESC"
+					picture = "IOM_Said_Bin_Taimur.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_sultan
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_oman_legit = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_oman_order }
+				clr_country_flag = iop_gov_oman_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_oman_party }
+				clr_country_flag = iop_gov_oman_party
+				iop_gov_drop_party = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_oman_legit } }
+				set_country_flag = iop_gov_oman_legit
+				iop_gov_add_legit = yes
+			}
+			IOM = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_legit
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Muhammad al-Khalili"
+					desc = "IOP_gov_oman_legit_desc"
+					picture = "IOM_Muhammad_al_Khalili.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_cleric_governor
+					}
+				}
+				create_country_leader = {
+					name = "Muhammad al-Khalili"
+					desc = "IOP_gov_oman_legit_desc"
+					picture = "IOM_Muhammad_al_Khalili.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_cleric_governor
+					}
+				}
+				create_country_leader = {
+					name = "Muhammad al-Khalili"
+					desc = "IOP_gov_oman_legit_desc"
+					picture = "IOM_Muhammad_al_Khalili.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_cleric_governor
+					}
+				}
+				create_country_leader = {
+					name = "Muhammad al-Khalili"
+					desc = "IOP_gov_oman_legit_desc"
+					picture = "IOM_Muhammad_al_Khalili.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_cleric_governor
+					}
+				}
+			}
+		}
+}
+
+iop_appoint_oman_party = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = iop_gov_oman_order }
+				clr_country_flag = iop_gov_oman_order
+				iop_gov_drop_order = yes
+			}
+			if = {
+				limit = { has_country_flag = iop_gov_oman_legit }
+				clr_country_flag = iop_gov_oman_legit
+				iop_gov_drop_legit = yes
+			}
+			if = {
+				limit = { NOT = { has_country_flag = iop_gov_oman_party } }
+				set_country_flag = iop_gov_oman_party
+				iop_gov_add_party = yes
+			}
+			IOM = {
+				if = { limit = { has_idea = iop_governor_order } remove_ideas = iop_governor_order }
+				if = { limit = { has_idea = iop_governor_legit } remove_ideas = iop_governor_legit }
+				if = { limit = { has_idea = iop_governor_party } remove_ideas = iop_governor_party }
+				add_ideas = iop_governor_party
+				retire_country_leader = yes
+				create_country_leader = {
+					name = "Giuseppe Tucci"
+					desc = "IOP_gov_oman_party_desc"
+					picture = "IOM_Giuseppe_Tucci.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						iop_trait_mandate_administrator
+					}
+				}
+				create_country_leader = {
+					name = "Giuseppe Tucci"
+					desc = "IOP_gov_oman_party_desc"
+					picture = "IOM_Giuseppe_Tucci.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						iop_trait_mandate_administrator
+					}
+				}
+				create_country_leader = {
+					name = "Giuseppe Tucci"
+					desc = "IOP_gov_oman_party_desc"
+					picture = "IOM_Giuseppe_Tucci.dds"
+					expire = "1965.1.1"
+					ideology = liberalism
+					traits = {
+						iop_trait_mandate_administrator
+					}
+				}
+				create_country_leader = {
+					name = "Giuseppe Tucci"
+					desc = "IOP_gov_oman_party_desc"
+					picture = "IOM_Giuseppe_Tucci.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						iop_trait_mandate_administrator
+					}
+				}
+			}
+		}
+}
+

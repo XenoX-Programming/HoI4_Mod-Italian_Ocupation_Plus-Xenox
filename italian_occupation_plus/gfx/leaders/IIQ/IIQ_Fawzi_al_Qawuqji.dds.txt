@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   IIQ_Fawzi_al_Qawuqji.dds
+Portrait: Fawzi al-Qawuqji - local collaborator of Iraq (IIQ)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  IIQ_Fawzi_al_Qawuqji.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/IIQ_Fawzi_al_Qawuqji.png

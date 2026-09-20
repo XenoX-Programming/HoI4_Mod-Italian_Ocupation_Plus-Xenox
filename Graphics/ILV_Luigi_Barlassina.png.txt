@@ -1,0 +1,10 @@
+PLACEHOLDER - source image goes here.
+
+Needed:   ILV_Luigi_Barlassina.png
+Portrait: Luigi Barlassina - Fascist Party appointee of Levant (ILV)
+Used as:  italian_occupation_plus/gfx/leaders/ILV/ILV_Luigi_Barlassina.dds
+
+1. Save the source image here as:  ILV_Luigi_Barlassina.png
+2. Convert it to 156 x 210 px DXT5 .dds and save it as
+   italian_occupation_plus/gfx/leaders/ILV/ILV_Luigi_Barlassina.dds
+3. Delete this note and the note next to the .dds.

@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   IPG_Giovanni_Preziosi.dds
+Portrait: Giovanni Preziosi - Fascist Party appointee of Portugal (IPG)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  IPG_Giovanni_Preziosi.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/IPG_Giovanni_Preziosi.png

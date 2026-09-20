@@ -1,0 +1,39 @@
+# ============================================================
+# Italian Occupation Plus - governor styles (v0.0.37)
+#
+# Three Rome-side dynamic modifiers, one per governing style chosen in
+# the iop_gov.<n> appointment events. Each is variable-scaled, so the
+# bonus grows with every occupation government run that way:
+#
+#   iop_gov_order  Italian general  - cheaper garrisons, broken resistance
+#   iop_gov_legit  local figure     - faster compliance, but subjects drift
+#   iop_gov_party  Party appointee  - political power and resources,
+#                                     and more resistance with them
+#
+# The variables are maintained by the iop_gov_add_* / iop_gov_drop_*
+# scripted effects (see common/scripted_effects/iop_governors.txt), and
+# hold the actual modifier value - e.g. -0.03 after three proconsular
+# zones. Per-zone bonuses stay in iop_zones.txt and are untouched.
+# ============================================================
+
+# ICR... any zone run by an Italian general.
+iop_gov_order = {
+	icon = GFX_idea_iop_occupation_directorate
+	required_garrison_factor = iop_gov_order_garrison
+	resistance_growth_on_our_occupied_states = iop_gov_order_resistance
+}
+
+# Any zone handed to a local figure, monarch or cleric.
+iop_gov_legit = {
+	icon = GFX_idea_iop_occupation_directorate
+	compliance_growth_on_our_occupied_states = iop_gov_legit_compliance
+	subjects_autonomy_gain = iop_gov_legit_autonomy
+}
+
+# Any zone handed to a Fascist Party appointee.
+iop_gov_party = {
+	icon = GFX_idea_iop_occupation_directorate
+	political_power_gain = iop_gov_party_pp
+	local_resources_factor = iop_gov_party_resources
+	resistance_growth_on_our_occupied_states = iop_gov_party_resistance
+}

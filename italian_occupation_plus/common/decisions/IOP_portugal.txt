@@ -62,6 +62,9 @@ iop_occupation = {
 			custom_effect_tooltip = iop_establish_portugal_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
+				country_event = { id = iop_gov.11 days = 2 }
+			}
+			hidden_effect = {
 				set_country_flag = iop_portugal_established
 				180 = { add_core_of = IPG }
 				181 = { add_core_of = IPG }

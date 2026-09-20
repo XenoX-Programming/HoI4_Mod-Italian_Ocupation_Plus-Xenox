@@ -1,0 +1,600 @@
+# ============================================================
+# Italian Occupation Plus - Governorates decisions (v0.0.37)
+#
+# One decision per occupation government, visible once that zone has been
+# founded. It costs political power and re-fires the zone's governor
+# appointment event, so a governor can always be replaced: the new
+# appointment hands the old style's bonuses back and applies its own.
+# ============================================================
+
+iop_governors = {
+
+	# ---------------- ICR - Croatia ----------------
+	iop_replace_governor_croatia = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = ICR
+			has_country_flag = iop_zone_croatia
+		}
+
+		available = {
+			country_exists = ICR
+			has_country_flag = iop_zone_croatia
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.1 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- ISE - Serbia ----------------
+	iop_replace_governor_serbia = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = ISE
+			has_country_flag = iop_zone_serbia
+		}
+
+		available = {
+			country_exists = ISE
+			has_country_flag = iop_zone_serbia
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.2 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IMT - Montenegro ----------------
+	iop_replace_governor_montenegro = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IMT
+			has_country_flag = iop_zone_montenegro
+		}
+
+		available = {
+			country_exists = IMT
+			has_country_flag = iop_zone_montenegro
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.3 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IAL - Albania ----------------
+	iop_replace_governor_albania = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IAL
+			has_country_flag = iop_zone_albania
+		}
+
+		available = {
+			country_exists = IAL
+			has_country_flag = iop_zone_albania
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.4 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IBL - Bulgaria ----------------
+	iop_replace_governor_bulgaria = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IBL
+			has_country_flag = iop_zone_bulgaria
+		}
+
+		available = {
+			country_exists = IBL
+			has_country_flag = iop_zone_bulgaria
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.5 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IGR - Greece ----------------
+	iop_replace_governor_greece = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IGR
+			has_country_flag = iop_zone_greece
+		}
+
+		available = {
+			country_exists = IGR
+			has_country_flag = iop_zone_greece
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.6 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- ITR - Turkey ----------------
+	iop_replace_governor_turkey = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = ITR
+			has_country_flag = iop_zone_turkey
+		}
+
+		available = {
+			country_exists = ITR
+			has_country_flag = iop_zone_turkey
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.7 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- INA - North Africa ----------------
+	iop_replace_governor_north_africa = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = INA
+			has_country_flag = iop_zone_north_africa
+		}
+
+		available = {
+			country_exists = INA
+			has_country_flag = iop_zone_north_africa
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.8 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IEG - Egypt ----------------
+	iop_replace_governor_egypt = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IEG
+			has_country_flag = iop_zone_egypt
+		}
+
+		available = {
+			country_exists = IEG
+			has_country_flag = iop_zone_egypt
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.9 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- ISP - Spain ----------------
+	iop_replace_governor_spain = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = ISP
+			has_country_flag = iop_zone_spain
+		}
+
+		available = {
+			country_exists = ISP
+			has_country_flag = iop_zone_spain
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.10 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IPG - Portugal ----------------
+	iop_replace_governor_portugal = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IPG
+			has_country_flag = iop_zone_portugal
+		}
+
+		available = {
+			country_exists = IPG
+			has_country_flag = iop_zone_portugal
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.11 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IOC - Occitania ----------------
+	iop_replace_governor_occitania = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IOC
+			has_country_flag = iop_zone_occitania
+		}
+
+		available = {
+			country_exists = IOC
+			has_country_flag = iop_zone_occitania
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.12 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- ILV - Levant ----------------
+	iop_replace_governor_levant = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = ILV
+			has_country_flag = iop_zone_levant
+		}
+
+		available = {
+			country_exists = ILV
+			has_country_flag = iop_zone_levant
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.13 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IIQ - Iraq ----------------
+	iop_replace_governor_iraq = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IIQ
+			has_country_flag = iop_zone_iraq
+		}
+
+		available = {
+			country_exists = IIQ
+			has_country_flag = iop_zone_iraq
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.14 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IAR - Arabia ----------------
+	iop_replace_governor_arabia = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IAR
+			has_country_flag = iop_zone_arabia
+		}
+
+		available = {
+			country_exists = IAR
+			has_country_flag = iop_zone_arabia
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.15 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IAM - Armenia ----------------
+	iop_replace_governor_armenia = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IAM
+			has_country_flag = iop_zone_armenia
+		}
+
+		available = {
+			country_exists = IAM
+			has_country_flag = iop_zone_armenia
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.16 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IIR - Iran ----------------
+	iop_replace_governor_iran = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IIR
+			has_country_flag = iop_zone_iran
+		}
+
+		available = {
+			country_exists = IIR
+			has_country_flag = iop_zone_iran
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.17 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IMR - Morocco ----------------
+	iop_replace_governor_morocco = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IMR
+			has_country_flag = iop_zone_morocco
+		}
+
+		available = {
+			country_exists = IMR
+			has_country_flag = iop_zone_morocco
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.18 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ---------------- IOM - Oman ----------------
+	iop_replace_governor_oman = {
+		icon = generic_political_pressure
+		cost = 50
+		days_re_enable = 30
+		fire_only_once = no
+
+		allowed = { original_tag = ITA }
+
+		visible = {
+			original_tag = ITA
+			country_exists = IOM
+			has_country_flag = iop_zone_oman
+		}
+
+		available = {
+			country_exists = IOM
+			has_country_flag = iop_zone_oman
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				country_event = { id = iop_gov.19 days = 2 }
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

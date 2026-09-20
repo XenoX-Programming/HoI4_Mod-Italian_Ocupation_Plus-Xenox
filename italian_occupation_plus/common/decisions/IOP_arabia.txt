@@ -54,6 +54,9 @@ iop_occupation = {
 			custom_effect_tooltip = iop_establish_iraq_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
+				country_event = { id = iop_gov.14 days = 2 }
+			}
+			hidden_effect = {
 				set_country_flag = iop_iraq_established
 				676 = { add_core_of = IIQ }
 				1010 = { add_core_of = IIQ }
@@ -144,6 +147,9 @@ iop_occupation = {
 			}
 			custom_effect_tooltip = iop_establish_arabia_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
+			hidden_effect = {
+				country_event = { id = iop_gov.15 days = 2 }
+			}
 			hidden_effect = {
 				set_country_flag = iop_arabia_established
 				854 = { add_core_of = IAR }

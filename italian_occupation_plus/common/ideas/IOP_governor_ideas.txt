@@ -1,0 +1,59 @@
+# ============================================================
+# Italian Occupation Plus - governor spirits (v0.0.37)
+#
+# One visible national spirit per governing style, worn by the
+# occupation government itself so the player can always see at a glance
+# who runs a zone. Swapped by the iop_appoint_<zone>_* scripted effects;
+# on_remove is not needed - the appointment effects remove all three
+# before adding the new one.
+#
+# Like the rest of the Directorate these are puppet-side flavour: the
+# real rewards live on Italy (see common/dynamic_modifiers/iop_governors.txt).
+# ============================================================
+
+ideas = {
+	country = {
+
+		# Italian general / proconsul - order through the garrison.
+		iop_governor_order = {
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = iop_occupation_directorate
+
+			modifier = {
+				drift_defence_factor = 0.10
+				supply_consumption_factor = -0.05
+				stability_factor = -0.05
+			}
+		}
+
+		# Local collaborator, monarch or cleric - legitimacy.
+		iop_governor_legit = {
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = iop_occupation_directorate
+
+			modifier = {
+				stability_factor = 0.10
+				political_power_gain = 0.05
+				trade_opinion_factor = 0.05
+			}
+		}
+
+		# Fascist Party appointee - the fascio runs the ministries.
+		iop_governor_party = {
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = iop_occupation_directorate
+
+			modifier = {
+				war_support_factor = 0.05
+				political_power_factor = 0.05
+				stability_factor = -0.05
+			}
+		}
+	}
+}

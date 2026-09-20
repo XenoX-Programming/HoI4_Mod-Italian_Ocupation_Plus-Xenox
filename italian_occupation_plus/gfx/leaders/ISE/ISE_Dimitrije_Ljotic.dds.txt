@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   ISE_Dimitrije_Ljotic.dds
+Portrait: Dimitrije Ljotić - local collaborator of Serbia (ISE)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  ISE_Dimitrije_Ljotic.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/ISE_Dimitrije_Ljotic.png

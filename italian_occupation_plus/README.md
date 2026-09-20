@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.36 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Morocco + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
+# Italian Occupation Plus — v0.0.37 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Morocco + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -180,6 +180,37 @@ All new modifiers were checked against the HOI4 wiki modifier list; all new loca
 - **Restore the Roman Empire**: once every listed Mediterranean coastal state is owned by Italy or an Italian subject, a one-time decision appears. Completing it renames Italy to **Imperium Romanum** (cosmetic tag `ITA_roman` with new flags) and switches every occupation government to a new **Province** autonomy level (`autonomy_province`, min_freedom 0.05): full industry/manpower/trade to Rome plus construction & stability bonuses, at the cost of −35% PP, −60% recruitable population and −10% research.
 - All new modifiers verified against the HOI4 wiki modifier list; new localisation in `IOP_roman_l_english.yml` (UTF-8 BOM).
 
+## What's in v0.0.37 (who governs? — the governor appointment system)
+
+Every occupation government is no longer stuck with the same man forever. Founding one now raises the
+question **who shall govern?** — an event with three answers, each installing a different governor with a
+different portrait, trait and political price. Governors can be replaced at any time from the new
+**Governorates** decision tab for 50 political power, so a campaign can reshape its empire as it grows.
+
+| Style | Who | Rome gets | The cost |
+|---|---|---|---|
+| **Proconsular Rule** | the Italian general already in place (incumbent) | −1% garrison requirements per zone, −1% resistance growth | — |
+| **Collaborationist Rule** | a local figure: monarch, quisling premier, cleric or warlord | +1% compliance growth per zone | +3% subject autonomy gain per zone — they drift |
+| **Party Rule** | a Fascist Party appointee: ras, minister, ideologue | +2% political power and +1% resources per zone | +1% resistance growth per zone |
+
+- **19 new events** (`events/IOP_governors.txt`, namespace `iop_gov`), one per occupation government, fired
+  automatically when the government is founded (17 founding decisions + the Montenegrin and Omani founding
+  options) and re-fired by the replacement decisions.
+- **38 new governors**, all second or third options behind the incumbent: Ante Pavelić and Roberto Farinacci
+  for Croatia, Dimitrije Ljotić and Alessandro Pavolini for Serbia, Prince Idris and **Italo Balbo (alive)**
+  for North Africa, Salazar himself for Portugal, Pétain and Darnand for Occitania, the Mufti and the
+  **Latin Patriarch of Jerusalem** for the Levant, Fazlollah Zahedi and Count Volpi for Iran, Nuri Pasha
+  Killigil and Galeazzo Ciano for Turkey, **Filippo Tommaso Marinetti** for Armenia, and so on.
+- **19 replacement decisions** in a new **Governorates** tab (`common/decisions/IOP_governors.txt`), 50 PP
+  each, 30-day cooldown; the outgoing governor hands his style's bonuses back before the new one applies his.
+- **Three Rome-side dynamic modifiers** (`iop_gov_order` / `iop_gov_legit` / `iop_gov_party`) scale with the
+  number of zones run each way, and **three puppet-side spirits** (`iop_governor_*`) show at a glance who is
+  in charge of a zone.
+- **Portraits are placeholders.** The 38 alternative governors have no art yet: every missing file has a
+  `.txt` note next to where it should go (`gfx/leaders/<TAG>/<file>.dds.txt`) plus a source-image note in
+  `Graphics/<file>.png.txt`, and the full list is in **`Graphics/PORTRAITS_TODO.md`**. The mod plays fine
+  without them (those options simply show a blank portrait) — the incumbents all still have their art.
+
 ## What's in v0.0.34 (zone bonuses replace puppet spirits + Oman rework)
 
 - **Puppet national spirits removed.** With Military Occupation funnelling all industry, manpower and trade to Italy, puppet-side modifiers were dead weight: `iop_military_government`, all six `iop_flavour_*` regionals and the four puppet-side timed spirits are gone (governor traits and the shared focus tree stay — the tree is now gated on the `iop_puppet` country flag instead).
@@ -209,6 +240,10 @@ All new modifiers were checked against the HOI4 wiki modifier list; all new loca
 4. Click **Establish Military Occupation of Croatia / Serbia / Albania / Bulgaria / Greece / Turkey / North Africa / Egypt** (free), and use **Fall of Montenegro** for Montenegro. Puppets appear as your subjects with the **Military Occupation** autonomy level.
 5. Use the **"Determine Fate of …"** decisions (free) — an event pops up letting you pick which **bordering** puppet gets the state. Assign in contiguous order (e.g. Macedonia before Debar, Central Macedonia before Thrace, Thrace or Plovdiv before Edirne). The North African **"Transfer …"** decisions instead hand whole regions straight to INA with no event, and "Transfer Sudan to Egypt" does the same for IEG.
 6. For Zara/Istria, the event offers **cede to Croatia** (must border) vs **annex to Italy** (adds an Italian core). For Crete, the event offers **cede to Greece** (needs IGR to exist, no border check — islands) vs **annex to Italy**; Dodecanese additionally offers **cede to Turkey** (needs IGR or ITR). Bursa/Istanbul work the same with Turkey (must border), Edirne offers Bulgaria, Greece or annexation, Sidi Ifni offers North Africa or integration into Italy proper, and the Fall of Suez Canal offers Egypt or integration.
+7. Two days after a government is founded, **"The Government of …"** pops up: pick the Italian general, a
+   local figure (monarch, quisling premier, cleric or warlord) or a Fascist Party appointee. The Governorates
+   tab can recall and replace any governor later for 50 political power — the outgoing style's bonuses are
+   handed back and the new one's applied, so the Directorate changes character as you reshuffle.
 
 **Quick console test:** `tag ITA`, `annex YUG`, then open decisions. (Annexing via console gives you control of everything, so all founding decisions light up.)
 
@@ -218,6 +253,15 @@ All new modifiers were checked against the HOI4 wiki modifier list; all new loca
 - Founding effect: `add_core_of` → `release_puppet = TAG` → `set_autonomy` (Military Occupation) → `transfer_state` for each controlled initial state (guarded by `if` + `controls_state`, so it never steals land from Germany).
 - Distribution: decision (`available` requires ≥1 bordering puppet) → `country_event` → event option does `add_core_of` + `transfer_state` to the chosen puppet. Option triggers use `any_neighbor_state = { is_owned_by = TAG }`.
 - AI never touches it (`ai_will_do = { factor = 0 }`), so Italy AI won't break itself.
+- **Governor appointments:** `iop_appoint_<zone>_<style>` scripted effects (one per zone × style, 57 in
+  `common/scripted_effects/iop_governors.txt`) do all the work: they clear the zone's previous style, set a
+  Rome-side flag (`iop_gov_<zone>_order|legit|party`), install the new governor in the puppet for all four
+  ideologies (`retire_country_leader` → four `create_country_leader` blocks), swap the puppet's governor
+  spirit and update the Rome-side dynamic modifiers. The three styles are counted with
+  `iop_gov_order_*` / `iop_gov_legit_*` / `iop_gov_party_*` variables whose value *is* the modifier value
+  (−0.01 garrison per proconsular zone, +0.01 compliance per collaborationist zone, +0.02 PP per Party zone),
+  read straight by `common/dynamic_modifiers/iop_governors.txt`. Style changes are one-shot per zone, so
+  re-founding or swapping never double-counts.
 - Localisation files are UTF-8 **with BOM** (required by HOI4).
 - Flags are placeholders: local colors + Italian tricolor canton, in all 3 sizes × 5 ideologies.
 
@@ -241,6 +285,9 @@ italian_occupation_plus/
 │   ├── decisions/IOP_portugal.txt                 # 1 founding (IPG) + canarias + azores/madeira + unite iberia
 │   ├── decisions/IOP_occitania.txt                # 1 founding (IOC) + provence + savoy/var + corsica + aquitaine/pa + poitou
 │   ├── decisions/IOP_levant.txt                   # 1 founding (ILV) + hatay + sinai + cyprus
+│   ├── decisions/IOP_governors.txt                # v0.0.37: 19 "Replace the Governor of …" decisions (Governorates tab)
+│   ├── dynamic_modifiers/iop_governors.txt        # v0.0.37: the three governor-style bonuses on Italy
+│   ├── ideas/IOP_governor_ideas.txt               # v0.0.37: puppet-side spirits (Military Government / National Government / Fascist Administration)
 │   ├── ideas/IOP_ideas.txt                        # "Military Government" national spirit (all puppets)
 │   ├── decisions/IOP_arabia.txt                   # 2 foundings (IIQ, IAR) + kuwait + yemen/abu dhabi/qatar transfers + oman fate
 │   ├── decisions/IOP_morocco.txt                  # 1 founding (IMR) + rio de oro fate
@@ -273,6 +320,9 @@ italian_occupation_plus/
 ├── gfx/leaders/IMR/IMR_Shakib_Arslan.dds    # custom IMR portrait (Shakib Arslan)
 ├── events/IOP_armenia.txt                   # 1 event (iop_armenia.354)
 ├── events/IOP_yugoslavia.txt                # 19 events (iop_yugo.102, .103, ...)
+├── events/IOP_governors.txt                 # v0.0.37: 19 governor appointment events (iop_gov.1-19), 3 options each
+├── common/scripted_effects/iop_governors.txt # v0.0.37: 57 iop_appoint_<zone>_<style> effects + the add/drop plumbing
+├── localisation/english/IOP_governors_l_english.yml # v0.0.37: events, options, styles, 38 governor bios (BOM!)
 ├── events/IOP_greece.txt                    # 4 events (iop_greece.731, .184, .182, .164)
 ├── events/IOP_turkey.txt                    # 3 events (iop_turkey.341, .340, .797)
 ├── events/IOP_north_africa.txt               # 3 events (iop_africa.783, .290, .699)
@@ -285,6 +335,11 @@ italian_occupation_plus/
 │   └── interface/autonomy/                  # Military Occupation .dds icon
 └── localisation/english/IOP_*_l_english.yml # countries / decisions / events / autonomy (BOM!)
 ```
+
+Art notes for the v0.0.37 governors live outside the mod folder: `Graphics/PORTRAITS_TODO.md` lists the 38
+portraits still needed, and each one has a placeholder `.txt` note next to where the finished file belongs
+(`gfx/leaders/<TAG>/<file>.dds.txt`) and next to where the source image goes (`Graphics/<file>.png.txt`).
+Delete a note once its image exists.
 
 ## Extending (Greece, Albania, France…)
 
@@ -316,6 +371,8 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 - **Missing portraits:** if a leader shows a silhouette, the portrait `.dds` name doesn't exist in your game version — replace `picture = ...` in the history file with another vanilla portrait. It never crashes, it's cosmetic.
 
 ## Changelog
+
+- **0.0.37** — **Governor appointment system ("who shall govern?").** Founding a government now raises a 3-option event (`events/IOP_governors.txt`, namespace `iop_gov`, 19 events) choosing its governing style: **Proconsular Rule** (the Italian general already in place: −1% garrison requirements and −1% resistance growth per zone), **Collaborationist Rule** (a local figure: +1% compliance growth per zone, but +3% subject autonomy gain per zone) or **Party Rule** (a Fascist Party appointee: +2% political power and +1% resources per zone, at +1% resistance growth). The three styles are Rome-side dynamic modifiers (`common/dynamic_modifiers/iop_governors.txt`) scaled by per-style variables, plus three visible puppet-side spirits (`common/ideas/IOP_governor_ideas.txt`) that show who runs a zone. All 57 appointments are scripted effects (`common/scripted_effects/iop_governors.txt`): each clears the zone's previous style, installs the new governor for all four ideologies (`retire_country_leader` + four `create_country_leader` blocks) and swaps the spirit; style changes are one-shot per zone so nothing double-counts. **38 new governors** were added as second/third options — Pavelić, Ljotić, Drljević, Vërlaci, Filov, Rallis, Nuri Pasha Killigil, Idris I, Ali Mahir, Serrano Suñer, Salazar, Pétain, al-Husseini, Qawuqji, Zeid bin Hussein, Nzhdeh, Zahedi, El Glaoui, al-Khalili and, for spice, Italo Balbo (alive), the Latin Patriarch Barlassina, Count Volpi, Marinetti and the orientalist Tucci — with 7 shared traits (`fascist_ras`, `party_ideologue`, `local_strongman`, `restored_monarch`, `cleric_governor`, `warlord`, `latin_patriarch`) and recycled orphans for the rest. New **Governorates** decision tab (`common/decisions/IOP_governors.txt`, new category `iop_governors`): 19 "Replace the Governor of …" decisions, 50 PP, 30-day cooldown, re-firing the appointment event. The 17 founding decisions and the Montenegrin/Omani founding options fire the event 2 days after release. **Art:** the 38 new governors have no portraits yet — placeholders are in place (`gfx/leaders/<TAG>/<file>.dds.txt`, `Graphics/<file>.png.txt`) and listed in `Graphics/PORTRAITS_TODO.md`; incumbents keep their existing art, so nothing looks broken while they are missing.
 
 - **0.0.36** — **Governor roster rework.** Eight governors replaced with figures who actually belong to their territory: ISE Tito Agosti → **Milan Nedić** (Quisling Premier), IGR Pietro Parini → **Cesare Maria De Vecchi** (Quadrumvir), IEG Italo Gariboldi → **King Farouk I** (Playboy Monarch), IPG Giuseppe Lombrassa → **Rolão Preto** (Blueshirt Chief), IIQ Nino Sozzani → **Rashid Ali al-Gaylani** (Pan-Arab Agitator), IAR Gianrico Tedeschi — *a film actor, not a general* — → **Guglielmo Nasi** (recycled Desert Quartermaster), IIR Giuseppe Pièche → **Reza Shah Pahlavi** (Modernising Autocrat), IMR Shakib Arslan → **Abdelkhalek Torres** (Reformist Nationalist). Arslan was not dropped but **moved to ILV**, where a Lebanese pan-Arabist belongs (replacing Niccolò Nicchiarelli). Seven new bespoke governor traits + eight new `PODCAT_*_DESC` entries. All eight portraits regenerated in the existing colorized-photograph style at 156×210 DXT5. **Flag fixes:** Oman's five medium flags existed only under the retired `IMO` tag — renamed to `IOM` (Oman had no medium flag at all); Bulgaria's base `IBL.tga` was missing in all three sizes and is now present, so all 19 tags have the full 15-file flag set.
 

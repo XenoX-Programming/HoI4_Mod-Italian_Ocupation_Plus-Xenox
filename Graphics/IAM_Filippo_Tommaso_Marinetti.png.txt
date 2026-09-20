@@ -1,0 +1,10 @@
+PLACEHOLDER - source image goes here.
+
+Needed:   IAM_Filippo_Tommaso_Marinetti.png
+Portrait: Filippo Tommaso Marinetti - Fascist Party appointee of Armenia (IAM)
+Used as:  italian_occupation_plus/gfx/leaders/IAM/IAM_Filippo_Tommaso_Marinetti.dds
+
+1. Save the source image here as:  IAM_Filippo_Tommaso_Marinetti.png
+2. Convert it to 156 x 210 px DXT5 .dds and save it as
+   italian_occupation_plus/gfx/leaders/IAM/IAM_Filippo_Tommaso_Marinetti.dds
+3. Delete this note and the note next to the .dds.

@@ -1,0 +1,10 @@
+PLACEHOLDER - source image goes here.
+
+Needed:   IMT_Ettore_Muti.png
+Portrait: Ettore Muti - Fascist Party appointee of Montenegro (IMT)
+Used as:  italian_occupation_plus/gfx/leaders/IMT/IMT_Ettore_Muti.dds
+
+1. Save the source image here as:  IMT_Ettore_Muti.png
+2. Convert it to 156 x 210 px DXT5 .dds and save it as
+   italian_occupation_plus/gfx/leaders/IMT/IMT_Ettore_Muti.dds
+3. Delete this note and the note next to the .dds.

@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   IEG_Ali_Mahir_Pasha.dds
+Portrait: Ali Mahir Pasha - local collaborator of Egypt (IEG)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  IEG_Ali_Mahir_Pasha.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/IEG_Ali_Mahir_Pasha.png

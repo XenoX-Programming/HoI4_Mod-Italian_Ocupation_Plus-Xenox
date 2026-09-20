@@ -848,6 +848,9 @@ country_event = {
 			autonomous_state = autonomy_military_occupation
 		}
 		IMT = { transfer_state = 105 }
+		hidden_effect = {
+			country_event = { id = iop_gov.3 days = 2 }
+		}
 		ai_chance = { factor = 100 }
 	}
 }

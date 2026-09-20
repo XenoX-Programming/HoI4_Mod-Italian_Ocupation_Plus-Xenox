@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   IOM_Giuseppe_Tucci.dds
+Portrait: Giuseppe Tucci - Fascist Party appointee of Oman (IOM)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  IOM_Giuseppe_Tucci.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/IOM_Giuseppe_Tucci.png

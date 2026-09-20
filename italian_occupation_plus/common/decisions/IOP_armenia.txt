@@ -43,6 +43,9 @@ iop_occupation = {
 			custom_effect_tooltip = iop_establish_armenia_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
+				country_event = { id = iop_gov.16 days = 2 }
+			}
+			hidden_effect = {
 				set_country_flag = iop_armenia_established
 				230 = { add_core_of = IAM }
 				release_puppet = IAM
@@ -129,6 +132,9 @@ iop_occupation = {
 			}
 			custom_effect_tooltip = iop_establish_iran_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
+			hidden_effect = {
+				country_event = { id = iop_gov.17 days = 2 }
+			}
 			hidden_effect = {
 				set_country_flag = iop_iran_established
 				419 = { add_core_of = IIR }

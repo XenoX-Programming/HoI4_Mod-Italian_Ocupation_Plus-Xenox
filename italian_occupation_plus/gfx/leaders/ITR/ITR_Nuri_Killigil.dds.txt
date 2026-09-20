@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   ITR_Nuri_Killigil.dds
+Portrait: Nuri Killigil - local collaborator of Turkey (ITR)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  ITR_Nuri_Killigil.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/ITR_Nuri_Killigil.png

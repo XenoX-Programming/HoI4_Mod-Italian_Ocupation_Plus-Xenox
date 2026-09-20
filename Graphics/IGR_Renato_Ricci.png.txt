@@ -1,0 +1,10 @@
+PLACEHOLDER - source image goes here.
+
+Needed:   IGR_Renato_Ricci.png
+Portrait: Renato Ricci - Fascist Party appointee of Greece (IGR)
+Used as:  italian_occupation_plus/gfx/leaders/IGR/IGR_Renato_Ricci.dds
+
+1. Save the source image here as:  IGR_Renato_Ricci.png
+2. Convert it to 156 x 210 px DXT5 .dds and save it as
+   italian_occupation_plus/gfx/leaders/IGR/IGR_Renato_Ricci.dds
+3. Delete this note and the note next to the .dds.

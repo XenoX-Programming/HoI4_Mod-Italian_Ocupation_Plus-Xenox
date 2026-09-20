@@ -64,6 +64,9 @@ iop_occupation = {
 			custom_effect_tooltip = iop_establish_occitania_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
+				country_event = { id = iop_gov.12 days = 2 }
+			}
+			hidden_effect = {
 				set_country_flag = iop_occitania_established
 				33 = { add_core_of = IOC }
 				25 = { add_core_of = IOC }

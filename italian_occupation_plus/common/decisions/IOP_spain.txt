@@ -92,6 +92,9 @@ iop_occupation = {
 			custom_effect_tooltip = iop_establish_spain_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
+				country_event = { id = iop_gov.10 days = 2 }
+			}
+			hidden_effect = {
 				set_country_flag = iop_spain_established
 				171 = { add_core_of = ISP }
 				790 = { add_core_of = ISP }

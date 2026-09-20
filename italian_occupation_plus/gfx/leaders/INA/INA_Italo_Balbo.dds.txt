@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   INA_Italo_Balbo.dds
+Portrait: Italo Balbo - Fascist Party appointee of North Africa (INA)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  INA_Italo_Balbo.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/INA_Italo_Balbo.png

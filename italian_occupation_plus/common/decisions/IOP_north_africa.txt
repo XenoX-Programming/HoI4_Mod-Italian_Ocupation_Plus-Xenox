@@ -72,6 +72,9 @@ iop_occupation = {
 			custom_effect_tooltip = iop_establish_north_africa_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
+				country_event = { id = iop_gov.8 days = 2 }
+			}
+			hidden_effect = {
 				set_country_flag = iop_north_africa_established
 				448 = { add_core_of = INA }
 				661 = { add_core_of = INA }

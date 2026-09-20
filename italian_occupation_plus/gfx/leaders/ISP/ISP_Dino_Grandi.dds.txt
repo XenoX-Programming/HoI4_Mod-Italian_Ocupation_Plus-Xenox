@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   ISP_Dino_Grandi.dds
+Portrait: Dino Grandi - Fascist Party appointee of Spain (ISP)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  ISP_Dino_Grandi.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/ISP_Dino_Grandi.png

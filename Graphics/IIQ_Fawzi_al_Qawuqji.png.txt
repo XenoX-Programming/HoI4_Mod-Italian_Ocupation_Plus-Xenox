@@ -1,0 +1,10 @@
+PLACEHOLDER - source image goes here.
+
+Needed:   IIQ_Fawzi_al_Qawuqji.png
+Portrait: Fawzi al-Qawuqji - local collaborator of Iraq (IIQ)
+Used as:  italian_occupation_plus/gfx/leaders/IIQ/IIQ_Fawzi_al_Qawuqji.dds
+
+1. Save the source image here as:  IIQ_Fawzi_al_Qawuqji.png
+2. Convert it to 156 x 210 px DXT5 .dds and save it as
+   italian_occupation_plus/gfx/leaders/IIQ/IIQ_Fawzi_al_Qawuqji.dds
+3. Delete this note and the note next to the .dds.

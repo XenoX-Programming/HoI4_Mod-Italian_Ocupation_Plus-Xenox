@@ -1,0 +1,10 @@
+PLACEHOLDER - source image goes here.
+
+Needed:   ISE_Alessandro_Pavolini.png
+Portrait: Alessandro Pavolini - Fascist Party appointee of Serbia (ISE)
+Used as:  italian_occupation_plus/gfx/leaders/ISE/ISE_Alessandro_Pavolini.dds
+
+1. Save the source image here as:  ISE_Alessandro_Pavolini.png
+2. Convert it to 156 x 210 px DXT5 .dds and save it as
+   italian_occupation_plus/gfx/leaders/ISE/ISE_Alessandro_Pavolini.dds
+3. Delete this note and the note next to the .dds.

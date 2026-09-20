@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   IBL_Bogdan_Filov.dds
+Portrait: Bogdan Filov - local collaborator of Bulgaria (IBL)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  IBL_Bogdan_Filov.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/IBL_Bogdan_Filov.png

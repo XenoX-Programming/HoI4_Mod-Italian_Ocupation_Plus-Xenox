@@ -1,0 +1,10 @@
+PLACEHOLDER - source image goes here.
+
+Needed:   IPG_Antonio_de_Oliveira_Salazar.png
+Portrait: António de Oliveira Salazar - local collaborator of Portugal (IPG)
+Used as:  italian_occupation_plus/gfx/leaders/IPG/IPG_Antonio_de_Oliveira_Salazar.dds
+
+1. Save the source image here as:  IPG_Antonio_de_Oliveira_Salazar.png
+2. Convert it to 156 x 210 px DXT5 .dds and save it as
+   italian_occupation_plus/gfx/leaders/IPG/IPG_Antonio_de_Oliveira_Salazar.dds
+3. Delete this note and the note next to the .dds.

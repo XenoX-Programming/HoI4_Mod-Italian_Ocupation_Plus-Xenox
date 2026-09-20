@@ -58,6 +58,9 @@ iop_occupation = {
 			custom_effect_tooltip = iop_establish_croatia_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
+				country_event = { id = iop_gov.1 days = 2 }
+			}
+			hidden_effect = {
 				set_country_flag = iop_croatia_established
 				109 = { add_core_of = ICR }
 				104 = { add_core_of = ICR }
@@ -125,6 +128,9 @@ iop_occupation = {
 			custom_effect_tooltip = iop_establish_serbia_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
+				country_event = { id = iop_gov.2 days = 2 }
+			}
+			hidden_effect = {
 				set_country_flag = iop_serbia_established
 				107 = { add_core_of = ISE }
 				108 = { add_core_of = ISE }
@@ -186,6 +192,9 @@ iop_occupation = {
 			}
 			custom_effect_tooltip = iop_establish_albania_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
+			hidden_effect = {
+				country_event = { id = iop_gov.4 days = 2 }
+			}
 			hidden_effect = {
 				set_country_flag = iop_albania_established
 				44 = { add_core_of = IAL }
@@ -251,6 +260,9 @@ iop_occupation = {
 			}
 			custom_effect_tooltip = iop_establish_bulgaria_tt
 			custom_effect_tooltip = iop_directorate_zone_tt
+			hidden_effect = {
+				country_event = { id = iop_gov.5 days = 2 }
+			}
 			hidden_effect = {
 				set_country_flag = iop_bulgaria_established
 				48 = { add_core_of = IBL }

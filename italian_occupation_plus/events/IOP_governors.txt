@@ -1,0 +1,642 @@
+# ============================================================
+# Italian Occupation Plus - governor appointment events (v0.0.37)
+#
+# One event per occupation government. Fired when the government is
+# founded (from the iop_establish_<zone> decisions, or the Montenegrin
+# and Omani founding events) and again whenever Italy replaces a
+# governor from the Governorates decision tab. ROOT = Italy.
+#
+# Three governing styles, each with its own man and its own price:
+#   a  Italian general  - order: cheaper garrisons, broken resistance
+#   b  local figure     - legitimacy: compliance now, autonomy drift later
+#   c  Party appointee  - exploitation: political power, resources, resentment
+# ============================================================
+
+add_namespace = iop_gov
+
+# ---------------- 1 - Croatia (ICR) ----------------
+country_event = {
+	id = iop_gov.1
+	title = iop_gov_1_title
+	desc = iop_gov_1_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_1_a
+		trigger = { country_exists = ICR }
+		hidden_effect = { iop_appoint_croatia_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_1_b
+		trigger = { country_exists = ICR }
+		hidden_effect = { iop_appoint_croatia_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_1_c
+		trigger = { country_exists = ICR }
+		hidden_effect = { iop_appoint_croatia_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 2 - Serbia (ISE) ----------------
+country_event = {
+	id = iop_gov.2
+	title = iop_gov_2_title
+	desc = iop_gov_2_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_2_a
+		trigger = { country_exists = ISE }
+		hidden_effect = { iop_appoint_serbia_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_2_b
+		trigger = { country_exists = ISE }
+		hidden_effect = { iop_appoint_serbia_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_2_c
+		trigger = { country_exists = ISE }
+		hidden_effect = { iop_appoint_serbia_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 3 - Montenegro (IMT) ----------------
+country_event = {
+	id = iop_gov.3
+	title = iop_gov_3_title
+	desc = iop_gov_3_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_3_a
+		trigger = { country_exists = IMT }
+		hidden_effect = { iop_appoint_montenegro_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_3_b
+		trigger = { country_exists = IMT }
+		hidden_effect = { iop_appoint_montenegro_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_3_c
+		trigger = { country_exists = IMT }
+		hidden_effect = { iop_appoint_montenegro_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 4 - Albania (IAL) ----------------
+country_event = {
+	id = iop_gov.4
+	title = iop_gov_4_title
+	desc = iop_gov_4_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_4_a
+		trigger = { country_exists = IAL }
+		hidden_effect = { iop_appoint_albania_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_4_b
+		trigger = { country_exists = IAL }
+		hidden_effect = { iop_appoint_albania_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_4_c
+		trigger = { country_exists = IAL }
+		hidden_effect = { iop_appoint_albania_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 5 - Bulgaria (IBL) ----------------
+country_event = {
+	id = iop_gov.5
+	title = iop_gov_5_title
+	desc = iop_gov_5_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_5_a
+		trigger = { country_exists = IBL }
+		hidden_effect = { iop_appoint_bulgaria_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_5_b
+		trigger = { country_exists = IBL }
+		hidden_effect = { iop_appoint_bulgaria_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_5_c
+		trigger = { country_exists = IBL }
+		hidden_effect = { iop_appoint_bulgaria_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 6 - Greece (IGR) ----------------
+country_event = {
+	id = iop_gov.6
+	title = iop_gov_6_title
+	desc = iop_gov_6_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_6_a
+		trigger = { country_exists = IGR }
+		hidden_effect = { iop_appoint_greece_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_6_b
+		trigger = { country_exists = IGR }
+		hidden_effect = { iop_appoint_greece_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_6_c
+		trigger = { country_exists = IGR }
+		hidden_effect = { iop_appoint_greece_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 7 - Turkey (ITR) ----------------
+country_event = {
+	id = iop_gov.7
+	title = iop_gov_7_title
+	desc = iop_gov_7_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_7_a
+		trigger = { country_exists = ITR }
+		hidden_effect = { iop_appoint_turkey_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_7_b
+		trigger = { country_exists = ITR }
+		hidden_effect = { iop_appoint_turkey_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_7_c
+		trigger = { country_exists = ITR }
+		hidden_effect = { iop_appoint_turkey_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 8 - North Africa (INA) ----------------
+country_event = {
+	id = iop_gov.8
+	title = iop_gov_8_title
+	desc = iop_gov_8_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_8_a
+		trigger = { country_exists = INA }
+		hidden_effect = { iop_appoint_north_africa_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_8_b
+		trigger = { country_exists = INA }
+		hidden_effect = { iop_appoint_north_africa_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_8_c
+		trigger = { country_exists = INA }
+		hidden_effect = { iop_appoint_north_africa_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 9 - Egypt (IEG) ----------------
+country_event = {
+	id = iop_gov.9
+	title = iop_gov_9_title
+	desc = iop_gov_9_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_9_a
+		trigger = { country_exists = IEG }
+		hidden_effect = { iop_appoint_egypt_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_9_b
+		trigger = { country_exists = IEG }
+		hidden_effect = { iop_appoint_egypt_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_9_c
+		trigger = { country_exists = IEG }
+		hidden_effect = { iop_appoint_egypt_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 10 - Spain (ISP) ----------------
+country_event = {
+	id = iop_gov.10
+	title = iop_gov_10_title
+	desc = iop_gov_10_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_10_a
+		trigger = { country_exists = ISP }
+		hidden_effect = { iop_appoint_spain_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_10_b
+		trigger = { country_exists = ISP }
+		hidden_effect = { iop_appoint_spain_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_10_c
+		trigger = { country_exists = ISP }
+		hidden_effect = { iop_appoint_spain_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 11 - Portugal (IPG) ----------------
+country_event = {
+	id = iop_gov.11
+	title = iop_gov_11_title
+	desc = iop_gov_11_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_11_a
+		trigger = { country_exists = IPG }
+		hidden_effect = { iop_appoint_portugal_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_11_b
+		trigger = { country_exists = IPG }
+		hidden_effect = { iop_appoint_portugal_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_11_c
+		trigger = { country_exists = IPG }
+		hidden_effect = { iop_appoint_portugal_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 12 - Occitania (IOC) ----------------
+country_event = {
+	id = iop_gov.12
+	title = iop_gov_12_title
+	desc = iop_gov_12_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_12_a
+		trigger = { country_exists = IOC }
+		hidden_effect = { iop_appoint_occitania_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_12_b
+		trigger = { country_exists = IOC }
+		hidden_effect = { iop_appoint_occitania_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_12_c
+		trigger = { country_exists = IOC }
+		hidden_effect = { iop_appoint_occitania_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 13 - Levant (ILV) ----------------
+country_event = {
+	id = iop_gov.13
+	title = iop_gov_13_title
+	desc = iop_gov_13_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_13_a
+		trigger = { country_exists = ILV }
+		hidden_effect = { iop_appoint_levant_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_13_b
+		trigger = { country_exists = ILV }
+		hidden_effect = { iop_appoint_levant_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_13_c
+		trigger = { country_exists = ILV }
+		hidden_effect = { iop_appoint_levant_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 14 - Iraq (IIQ) ----------------
+country_event = {
+	id = iop_gov.14
+	title = iop_gov_14_title
+	desc = iop_gov_14_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_14_a
+		trigger = { country_exists = IIQ }
+		hidden_effect = { iop_appoint_iraq_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_14_b
+		trigger = { country_exists = IIQ }
+		hidden_effect = { iop_appoint_iraq_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_14_c
+		trigger = { country_exists = IIQ }
+		hidden_effect = { iop_appoint_iraq_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 15 - Arabia (IAR) ----------------
+country_event = {
+	id = iop_gov.15
+	title = iop_gov_15_title
+	desc = iop_gov_15_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_15_a
+		trigger = { country_exists = IAR }
+		hidden_effect = { iop_appoint_arabia_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_15_b
+		trigger = { country_exists = IAR }
+		hidden_effect = { iop_appoint_arabia_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_15_c
+		trigger = { country_exists = IAR }
+		hidden_effect = { iop_appoint_arabia_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 16 - Armenia (IAM) ----------------
+country_event = {
+	id = iop_gov.16
+	title = iop_gov_16_title
+	desc = iop_gov_16_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_16_a
+		trigger = { country_exists = IAM }
+		hidden_effect = { iop_appoint_armenia_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_16_b
+		trigger = { country_exists = IAM }
+		hidden_effect = { iop_appoint_armenia_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_16_c
+		trigger = { country_exists = IAM }
+		hidden_effect = { iop_appoint_armenia_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 17 - Iran (IIR) ----------------
+country_event = {
+	id = iop_gov.17
+	title = iop_gov_17_title
+	desc = iop_gov_17_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_17_a
+		trigger = { country_exists = IIR }
+		hidden_effect = { iop_appoint_iran_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_17_b
+		trigger = { country_exists = IIR }
+		hidden_effect = { iop_appoint_iran_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_17_c
+		trigger = { country_exists = IIR }
+		hidden_effect = { iop_appoint_iran_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 18 - Morocco (IMR) ----------------
+country_event = {
+	id = iop_gov.18
+	title = iop_gov_18_title
+	desc = iop_gov_18_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_18_a
+		trigger = { country_exists = IMR }
+		hidden_effect = { iop_appoint_morocco_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_18_b
+		trigger = { country_exists = IMR }
+		hidden_effect = { iop_appoint_morocco_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_18_c
+		trigger = { country_exists = IMR }
+		hidden_effect = { iop_appoint_morocco_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}
+
+# ---------------- 19 - Oman (IOM) ----------------
+country_event = {
+	id = iop_gov.19
+	title = iop_gov_19_title
+	desc = iop_gov_19_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = { # order
+		name = iop_gov_19_a
+		trigger = { country_exists = IOM }
+		hidden_effect = { iop_appoint_oman_order = yes }
+		custom_effect_tooltip = iop_gov_order_tt
+		ai_chance = { factor = 45 }
+	}
+
+	option = { # legit
+		name = iop_gov_19_b
+		trigger = { country_exists = IOM }
+		hidden_effect = { iop_appoint_oman_legit = yes }
+		custom_effect_tooltip = iop_gov_legit_tt
+		ai_chance = { factor = 30 }
+	}
+
+	option = { # party
+		name = iop_gov_19_c
+		trigger = { country_exists = IOM }
+		hidden_effect = { iop_appoint_oman_party = yes }
+		custom_effect_tooltip = iop_gov_party_tt
+		ai_chance = { factor = 25 }
+	}
+}

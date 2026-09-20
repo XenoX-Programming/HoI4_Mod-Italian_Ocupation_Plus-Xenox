@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   IGR_Renato_Ricci.dds
+Portrait: Renato Ricci - Fascist Party appointee of Greece (IGR)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  IGR_Renato_Ricci.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/IGR_Renato_Ricci.png

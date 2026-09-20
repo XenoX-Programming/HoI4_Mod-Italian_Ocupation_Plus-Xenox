@@ -9,3 +9,15 @@ iop_occupation = {
 		original_tag = ITA
 	}
 }
+
+# Governorates (v0.0.37) - recalling and replacing the governors of the
+# occupation governments founded in the tab above. Shares its icon.
+iop_governors = {
+	icon = iop_occupation
+	allowed = {
+		original_tag = ITA
+	}
+	visible = {
+		original_tag = ITA
+	}
+}

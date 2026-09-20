@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   IAL_Carlo_Scorza.dds
+Portrait: Carlo Scorza - Fascist Party appointee of Albania (IAL)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  IAL_Carlo_Scorza.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/IAL_Carlo_Scorza.png

@@ -278,4 +278,79 @@ leader_traits = {
 		}
 	}
 
+	# ------------------------------------------------ governor styles (v0.0.37)
+	# Shared traits for the alternative governors added by the iop_gov.<n>
+	# appointment events: local figures and Fascist Party appointees.
+
+	# Fascist Party ras, secretary or minister sent to run a zone.
+	iop_trait_fascist_ras = {
+		random = no
+		modifier = {
+			war_support_factor = 0.10
+			political_power_factor = 0.10
+			required_garrison_factor = 0.05
+			stability_factor = -0.05
+		}
+	}
+
+	# Party ideologue: doctrine first, government second.
+	iop_trait_party_ideologue = {
+		random = no
+		modifier = {
+			political_power_gain = 0.10
+			drift_defence_factor = 0.20
+			stability_factor = -0.05
+		}
+	}
+
+	# Local strongman: landlord, pasha or federalist boss.
+	iop_trait_local_strongman = {
+		random = no
+		modifier = {
+			stability_factor = 0.10
+			compliance_growth_on_our_occupied_states = 0.05
+			drift_defence_factor = 0.10
+		}
+	}
+
+	# Restored monarch or claimant lent to Rome.
+	iop_trait_restored_monarch = {
+		random = no
+		modifier = {
+			monthly_population = 0.05
+			political_power_factor = 0.10
+			stability_factor = 0.05
+		}
+	}
+
+	# Cleric governor: imam, mufti or patriarch.
+	iop_trait_cleric_governor = {
+		random = no
+		modifier = {
+			stability_factor = 0.10
+			drift_defence_factor = 0.15
+			political_power_gain = -0.05
+		}
+	}
+
+	# Warlord: a commander with his own men and his own war.
+	iop_trait_warlord = {
+		random = no
+		modifier = {
+			war_support_factor = 0.10
+			conscription_factor = 0.05
+			stability_factor = -0.05
+		}
+	}
+
+	# Latin Patriarch of Jerusalem: the Church as an imperial instrument.
+	iop_trait_latin_patriarch = {
+		random = no
+		modifier = {
+			stability_factor = 0.05
+			trade_opinion_factor = 0.10
+			monthly_population = 0.05
+		}
+	}
+
 }

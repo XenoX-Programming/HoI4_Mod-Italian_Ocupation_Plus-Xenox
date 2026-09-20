@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   IAM_Garegin_Nzhdeh.dds
+Portrait: Garegin Nzhdeh - local collaborator of Armenia (IAM)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  IAM_Garegin_Nzhdeh.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/IAM_Garegin_Nzhdeh.png

@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   IAR_Zeid_bin_Hussein.dds
+Portrait: Zeid bin Hussein - local collaborator of Arabia (IAR)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  IAR_Zeid_bin_Hussein.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/IAR_Zeid_bin_Hussein.png

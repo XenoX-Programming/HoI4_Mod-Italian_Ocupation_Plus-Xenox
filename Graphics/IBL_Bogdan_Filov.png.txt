@@ -1,0 +1,10 @@
+PLACEHOLDER - source image goes here.
+
+Needed:   IBL_Bogdan_Filov.png
+Portrait: Bogdan Filov - local collaborator of Bulgaria (IBL)
+Used as:  italian_occupation_plus/gfx/leaders/IBL/IBL_Bogdan_Filov.dds
+
+1. Save the source image here as:  IBL_Bogdan_Filov.png
+2. Convert it to 156 x 210 px DXT5 .dds and save it as
+   italian_occupation_plus/gfx/leaders/IBL/IBL_Bogdan_Filov.dds
+3. Delete this note and the note next to the .dds.

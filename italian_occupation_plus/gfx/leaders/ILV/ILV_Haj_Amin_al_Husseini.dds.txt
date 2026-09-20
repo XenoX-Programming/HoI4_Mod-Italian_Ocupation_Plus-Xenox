@@ -1,0 +1,11 @@
+PLACEHOLDER - put the real portrait here.
+
+Needed:   ILV_Haj_Amin_al_Husseini.dds
+Portrait: Haj Amin al-Husseini - local collaborator of Levant (ILV)
+Format:   leader portrait, 156 x 210 px, DXT5 .dds
+Style:    match the other files in this folder
+
+1. Save the finished portrait in this folder as:  ILV_Haj_Amin_al_Husseini.dds
+2. Delete this .txt note.
+
+Source image, if you keep one: Graphics/ILV_Haj_Amin_al_Husseini.png
