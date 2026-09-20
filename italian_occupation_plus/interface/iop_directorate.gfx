@@ -1,0 +1,13 @@
+# ============================================================
+# Italian Occupation Plus - Occupation Directorate icon (v0.0.34)
+# Only the Directorate hub spirit keeps a custom icon; the old
+# regional flavour icons were removed with the puppet-side
+# national spirits. Name follows the GFX_idea_<idea> convention.
+# ============================================================
+
+spriteTypes = {
+	spriteType = {
+		name = "GFX_idea_iop_occupation_directorate"
+		texturefile = "gfx/interface/ideas/iop_occupation_directorate.dds"
+	}
+}

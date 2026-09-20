@@ -49,12 +49,10 @@ iop_occupation = {
 
 		complete_effect = {
 			hidden_effect = {
-				if = {
-					limit = { NOT = { has_idea = iop_occupation_directorate } }
-					add_ideas = iop_occupation_directorate
-				}
+				iop_grant_zone_iraq = yes
 			}
 			custom_effect_tooltip = iop_establish_iraq_tt
+			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_iraq_established
 				676 = { add_core_of = IIQ }
@@ -142,12 +140,10 @@ iop_occupation = {
 
 		complete_effect = {
 			hidden_effect = {
-				if = {
-					limit = { NOT = { has_idea = iop_occupation_directorate } }
-					add_ideas = iop_occupation_directorate
-				}
+				iop_grant_zone_arabia = yes
 			}
 			custom_effect_tooltip = iop_establish_arabia_tt
+			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_arabia_established
 				854 = { add_core_of = IAR }
@@ -306,7 +302,7 @@ iop_occupation = {
 	# ------------------------------------------------------------
 	# v0.0.32 - OMAN: Dhofar (1016) + Oman (1015) + Muscat (294)
 	# Fires an event: hand the territory to the Arabian occupation
-	# government (IAR), restore the Sultanate of Oman (IMO) as a
+	# government (IAR), restore the Sultanate of Oman (IOM) as a
 	# separate military occupation under Sultan Said bin Taimur,
 	# or - if the Sultanate already exists - expand it.
 	# ------------------------------------------------------------

@@ -183,7 +183,7 @@ leader_traits = {
 		}
 	}
 
-	# IMO - Said bin Taimur (Sultan of Muscat and Oman; remote, austere, exacting)
+	# IOM - Said bin Taimur (Sultan of Muscat and Oman; remote, austere, exacting)
 	iop_trait_sultan = {
 		random = no
 		modifier = {

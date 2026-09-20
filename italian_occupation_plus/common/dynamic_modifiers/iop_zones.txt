@@ -1,0 +1,111 @@
+# ============================================================
+# Italian Occupation Plus - Occupation Zone bonuses (v0.0.34)
+# One dynamic modifier per occupation government. Each zone
+# grants Italy something different (small, thematic, stacking).
+# Granted once per zone by the iop_grant_zone_* scripted effects
+# (flag-guarded, so re-founding a destroyed puppet adds nothing
+# new). All modifiers below already appear elsewhere in this mod.
+# ============================================================
+
+# ICR - Dinaric mountain warfare hardens the army.
+iop_zone_croatia = {
+	attrition = -0.03
+	winter_attrition_factor = -0.05
+}
+
+# ISE - Gendarmerie order: fewer troops hold more land.
+iop_zone_serbia = {
+	required_garrison_factor = -0.03
+	compliance_growth_on_our_occupied_states = 0.02
+}
+
+# IMT - The iron fist rallies Rome and crushes resistance.
+iop_zone_montenegro = {
+	war_support_factor = 0.03
+	resistance_growth_on_our_occupied_states = -0.02
+}
+
+# IAL - Albanian levies fill the ranks.
+iop_zone_albania = {
+	conscription_factor = 0.02
+}
+
+# IBL - Sofia workshops build for the war.
+iop_zone_bulgaria = {
+	production_speed_buildings_factor = 0.03
+}
+
+# IGR - Aegean sea lanes feed the supply net.
+iop_zone_greece = {
+	supply_consumption_factor = -0.03
+}
+
+# ITR - Anatolian chrome and minerals.
+iop_zone_turkey = {
+	local_resources_factor = 0.04
+}
+
+# INA - Saharan logistics: the desert army endures.
+iop_zone_north_africa = {
+	heat_attrition_factor = -0.10
+	out_of_supply_factor = 0.05
+}
+
+# IEG - The Suez tolls keep trade flowing.
+iop_zone_egypt = {
+	trade_opinion_factor = 0.10
+}
+
+# ISP - Iberian mines and heavy industry.
+iop_zone_spain = {
+	industrial_capacity_factory = 0.02
+}
+
+# IPG - Tungsten revenue eases the home economy.
+iop_zone_portugal = {
+	consumer_goods_factor = -0.02
+}
+
+# IOC - French factories, Italian efficiency.
+iop_zone_occitania = {
+	production_factory_efficiency_gain_factor = 0.05
+}
+
+# ILV - Levantine trade enriches and steadies Rome.
+iop_zone_levant = {
+	stability_factor = 0.02
+	trade_opinion_factor = 0.05
+}
+
+# IIQ - Kirkuk crude flows to Italy.
+iop_zone_iraq = {
+	production_oil_factor = 0.08
+}
+
+# IAR - Desert oil, desert-toughened quartermasters.
+iop_zone_arabia = {
+	production_oil_factor = 0.05
+	heat_attrition_factor = -0.05
+}
+
+# IAM - Isolated highlands: loyal and defiant.
+iop_zone_armenia = {
+	drift_defence_factor = 0.15
+	war_support_factor = 0.02
+}
+
+# IIR - Abadan oil and Persian mines.
+iop_zone_iran = {
+	production_oil_factor = 0.05
+	local_resources_factor = 0.02
+}
+
+# IMR - Captured French stocks arm new divisions.
+iop_zone_morocco = {
+	equipment_capture_factor = 0.05
+}
+
+# IOM - The Sultan's tribute fills the political coffers.
+iop_zone_oman = {
+	political_power_gain = 0.10
+}

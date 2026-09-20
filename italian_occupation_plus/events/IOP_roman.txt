@@ -21,7 +21,7 @@ country_event = {
 		# Every occupation government becomes a Province of the Empire.
 		hidden_effect = {
 			every_country = {
-				limit = { is_subject_of = ITA has_idea = iop_military_government }
+				limit = { is_subject_of = ITA has_country_flag = iop_puppet }
 				set_autonomy = { target = THIS autonomous_state = autonomy_province }
 			}
 		}

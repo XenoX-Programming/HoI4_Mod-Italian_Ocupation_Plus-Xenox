@@ -1,9 +1,11 @@
 # ============================================================
 # Italian Occupation Plus - shared puppet focus tree (v0.0.31)
 # A small, generic "occupation administration" tree applied to
-# every occupation government (they all carry the
-# iop_military_government spirit). One-off rewards only - no new
-# spirits, so the tree stays tiny and safe. Vanilla generic icons.
+# every occupation government (they all set the iop_puppet country
+# flag at release; gated on the flag since v0.0.34, when the
+# puppet-side national spirits were removed). One-off rewards only
+# - no new spirits, so the tree stays tiny and safe.
+# Vanilla generic icons.
 # ============================================================
 
 focus_tree = {
@@ -13,7 +15,7 @@ focus_tree = {
 		factor = 0
 		modifier = {
 			add = 10
-			has_idea = iop_military_government
+			has_country_flag = iop_puppet
 		}
 	}
 

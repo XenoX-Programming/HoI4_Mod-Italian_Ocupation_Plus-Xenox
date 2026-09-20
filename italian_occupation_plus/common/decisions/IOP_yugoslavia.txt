@@ -53,12 +53,10 @@ iop_occupation = {
 
 		complete_effect = {
 			hidden_effect = {
-				if = {
-					limit = { NOT = { has_idea = iop_occupation_directorate } }
-					add_ideas = iop_occupation_directorate
-				}
+				iop_grant_zone_croatia = yes
 			}
 			custom_effect_tooltip = iop_establish_croatia_tt
+			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_croatia_established
 				109 = { add_core_of = ICR }
@@ -122,12 +120,10 @@ iop_occupation = {
 
 		complete_effect = {
 			hidden_effect = {
-				if = {
-					limit = { NOT = { has_idea = iop_occupation_directorate } }
-					add_ideas = iop_occupation_directorate
-				}
+				iop_grant_zone_serbia = yes
 			}
 			custom_effect_tooltip = iop_establish_serbia_tt
+			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_serbia_established
 				107 = { add_core_of = ISE }
@@ -186,12 +182,10 @@ iop_occupation = {
 
 		complete_effect = {
 			hidden_effect = {
-				if = {
-					limit = { NOT = { has_idea = iop_occupation_directorate } }
-					add_ideas = iop_occupation_directorate
-				}
+				iop_grant_zone_albania = yes
 			}
 			custom_effect_tooltip = iop_establish_albania_tt
+			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_albania_established
 				44 = { add_core_of = IAL }
@@ -253,12 +247,10 @@ iop_occupation = {
 
 		complete_effect = {
 			hidden_effect = {
-				if = {
-					limit = { NOT = { has_idea = iop_occupation_directorate } }
-					add_ideas = iop_occupation_directorate
-				}
+				iop_grant_zone_bulgaria = yes
 			}
 			custom_effect_tooltip = iop_establish_bulgaria_tt
+			custom_effect_tooltip = iop_directorate_zone_tt
 			hidden_effect = {
 				set_country_flag = iop_bulgaria_established
 				48 = { add_core_of = IBL }
