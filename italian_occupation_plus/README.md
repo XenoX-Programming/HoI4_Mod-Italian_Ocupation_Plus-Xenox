@@ -1,10 +1,23 @@
-# Italian Occupation Plus — v0.0.36 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Morocco + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran + Georgia)
+# Italian Occupation Plus — v0.0.37 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Morocco + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran + Georgia)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
 As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"** → found military occupation governments as puppets → distribute individual states to them through events where **you pick the recipient (must border the state)**.
 
 > **Version scheme:** `0.0.x` — future updates increment only the last number (0.0.4, 0.0.5, …).
+
+## What's in v0.0.37 (Roman law discipline)
+
+Every occupation government is administered from Rome, so its three law slots are no longer its own business:
+
+- **New national spirit `iop_locked_laws` — "Rome Sets the Laws"** on **all 20** occupation governments (ICR, ISE, IMT, IAL, IBL, IGR, ITR, INA, IEG, ISP, IPG, IOC, ILV, IIQ, IAR, IAM, IIR, IMR, IOM, IGE). It is granted in every `history/countries/*.txt`, so it is present no matter how the country comes into existence (founding decision, peace conference, console `release`), and it is re-applied defensively by the founding scripted effect. `removal_cost = -1`, so the player cannot strip it off.
+- **Conscription, trade and economy law are closed.** HOI4 has no engine flag that greys out a law slot from a national spirit — a real grey-out would mean overriding vanilla `common/ideas/_manpower.txt`, `_economic.txt` and `_political.txt`, which this mod deliberately never does (it would pin the mod to one vanilla version). The lock is therefore two layers deep:
+  1. the spirit sets `mobilization_laws_cost_factor`, `trade_laws_cost_factor` and `economy_cost_factor` to `+1000%`, so a 150 PP law change costs 1650 PP;
+  2. a **weekly watchdog** (`on_weekly` in `common/on_actions/iop_on_actions.txt` → `iop_enforce_roman_laws`) puts the mandated laws straight back, so even a console/decision-driven change (e.g. vanilla "demobilise the economy") cannot be kept.
+- **New founding decree event `iop_laws.1` — "A Decree from Rome"** (`events/IOP_laws.txt`). It fires **for the puppet itself, never for Italy**, 6–12 hours after that puppet is founded (queued by the `iop_on_puppet_founded` scripted effect, which every one of the 20 `release_puppet` sites now calls). Its single option sets **Conscription law → Service by Requirement** (`service_by_requirement`) and **Economy law → Total Mobilization** (`tot_economic_mobilisation`), and records whichever **trade law** the government holds at that moment as the fixed one.
+- A **catch-all** in the same `on_weekly` hands the spirit and the decree to any occupation government that appeared outside the founding decisions, so nothing can slip through unregulated.
+- **Fix:** `localisation/english/IOP_flavour_l_english.yml` was missing its UTF-8 BOM, so every string in it (the Occupation Directorate spirit and the flavour events) rendered as a raw key in-game. BOM added.
+- **Repo housekeeping:** the source PNGs moved to `Additional_Data/Graphics/`, and `Additional_Data/Information_for_AI.md` documents the project for the next maintainer (human or AI). `python3 Additional_Data/tools/validate_iop.py` is the static check that runs over the shipped files (braces, loc BOM/keys/duplicates, event ids and references, idea sprites, tag coverage, founding hooks, version agreement).
 
 ## What's in v0.0.3
 
@@ -208,90 +221,63 @@ All new modifiers were checked against the HOI4 wiki modifier list; all new loca
 
 ## How it works (for modding)
 
-- **No `history/states` overrides.** Cores are added at release time via state-scope `add_core_of`, so the mod is compatible with map mods and future vanilla state changes (as long as IDs stay the same).
-- Founding effect: `add_core_of` → `release_puppet = TAG` → `set_autonomy` (Military Occupation) → `transfer_state` for each controlled initial state (guarded by `if` + `controls_state`, so it never steals land from Germany).
+- **No `history/states` overrides.** Cores are added at release time via state-scope `add_core_of`, so the mod is compatible with map mods and future vanilla state changes (as long as IDs stay the same). For the same reason the mod **never overrides vanilla `common/ideas/_manpower.txt` / `_economic.txt` / `_political.txt`** — which is why the law lock is implemented with cost modifiers + a watchdog instead of greying the law slots out (see v0.0.37).
+- Founding effect: `add_core_of` → `release_puppet = TAG` → `TAG = { iop_on_puppet_founded = yes }` (law-lock spirit + founding decree event for the puppet) → `set_autonomy` (Military Occupation) → `transfer_state` for each controlled initial state (guarded by `if` + `iop_med_controlled`, so it never steals land from Germany).
 - Distribution: decision (`available` requires ≥1 bordering puppet) → `country_event` → event option does `add_core_of` + `transfer_state` to the chosen puppet. Option triggers use `any_neighbor_state = { is_owned_by = TAG }`.
-- AI never touches it (`ai_will_do = { factor = 0 }`), so Italy AI won't break itself.
+- AI never touches the decisions (`ai_will_do = { factor = 0 }`), so Italy AI won't break itself. The founding decree event *is* answered by the AI (`ai_chance = { factor = 100 }`), because occupation governments are AI-run by default.
 - Localisation files are UTF-8 **with BOM** (required by HOI4).
 - Flags are placeholders: local colors + Italian tricolor canton, in all 3 sizes × 5 ideologies.
+- **Static check:** `python3 Additional_Data/tools/validate_iop.py` (from the repository root) parses every shipped file — brace balance, loc BOM/keys/duplicates, event ids and every `country_event` reference, idea loc keys and picture sprites, tag coverage (history file + `iop_locked_laws`), and that each `release_puppet` is followed by its founding hook. Exit code 0 = clean.
 
 ## File map
 
 ```
 italian_occupation_plus/
-├── descriptor.mod
+├── descriptor.mod                             # version must match ../italian_occupation_plus.mod
 ├── README.md
 ├── common/
-│   ├── autonomous_states/iop_autonomy.txt   # Military Occupation level
-│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA / IEG / ISP / IPG / IOC / ILV / IIQ / IAR / IAM / IIR / IMR / IOM
-│   ├── countries/Italy_*.txt                # gfx culture + map color
-│   ├── decisions/categories/iop_categories.txt # "Italian Occupation" tab (note: categories/ subfolder!)
-│   ├── decisions/IOP_yugoslavia.txt         # 4 founding + Fall of Montenegro + 18 distribution decisions
-│   ├── decisions/IOP_greece.txt             # 1 founding (IGR) + 4 distribution decisions (731/184/182/164)
-│   ├── decisions/IOP_turkey.txt             # 1 founding (ITR) + 3 distribution decisions (341/340/797)
-│   ├── decisions/IOP_north_africa.txt        # 1 founding (INA) + 5 distribution decisions (tunisia/algeria/morocco/spanish_africa/783)
-│   ├── decisions/IOP_egypt.txt                    # 1 founding (IEG) + 2 distribution decisions (sudan/suez)
-│   ├── decisions/IOP_spain.txt                    # 1 founding (ISP) + 2 distribution decisions (gibraltar/baleares)
-│   ├── decisions/IOP_portugal.txt                 # 1 founding (IPG) + canarias + azores/madeira + unite iberia
-│   ├── decisions/IOP_occitania.txt                # 1 founding (IOC) + provence + savoy/var + corsica + aquitaine/pa + poitou
-│   ├── decisions/IOP_levant.txt                   # 1 founding (ILV) + hatay + sinai + cyprus
-│   ├── ideas/IOP_ideas.txt                        # "Military Government" national spirit (all puppets)
-│   ├── decisions/IOP_arabia.txt                   # 2 foundings (IIQ, IAR) + kuwait + yemen/abu dhabi/qatar transfers + oman fate
-│   ├── decisions/IOP_morocco.txt                  # 1 founding (IMR) + rio de oro fate
-│   └── decisions/IOP_armenia.txt                  # 2 foundings (IAM, IIR) + trabzon/van
-├── history/
-│   ├── countries/ICR|ISE|IMT|IAL|IBL|IGR|ITR|INA|IEG|ISP|IPG|IOC|ILV|IIQ|IAR|IAM|IIR|IMR|IOM*.txt  # capitals, leaders, tech
-│   └── units/IOP_empty.txt                  # empty puppet OOB
-├── gfx/leaders/ICR/ICR_Giuseppe_Bastianini.dds # custom ICR portrait (tag subfolder required!)
-├── gfx/leaders/IMT/IMT_Alessandro_Pirzio_Biroli.dds # custom IMT portrait
-├── gfx/leaders/IAL/IAL_Alfredo_Guzzoni.dds # custom IAL portrait
-├── gfx/leaders/ISE/ISE_Tito_Agosti.dds # custom ISE portrait
-├── gfx/leaders/IBL/IBL_Attilio_Biseo.dds # custom IBL portrait
-├── gfx/leaders/IGR/IGR_Pietro_Parini.dds # custom IGR portrait
-├── gfx/leaders/ITR/ITR_Rodolfo_Graziani.dds # custom ITR portrait
-├── gfx/leaders/INA/INA_Ettore_Bastico.dds # custom INA portrait
-├── gfx/leaders/IEG/IEG_Italo_Gariboldi.dds # custom IEG portrait
-├── gfx/leaders/ISP/ISP_Mario_Roatta.dds    # custom ISP portrait
-├── events/IOP_spain.txt                     # 2 events (iop_spain.118, .177)
-├── events/IOP_portugal.txt                  # 2 events (iop_portugal.178, .698)
-├── gfx/leaders/IOC/IOC_Enea_Navarini.dds   # custom IOC portrait
-├── events/IOP_occitania.txt                 # 3 events (iop_occitania.32, .735, .1)
-├── events/IOP_levant.txt                    # 3 events (iop_levant.799, .453, .183)
-├── gfx/leaders/IAR/IAR_Gianrico_Tedeschi.dds # custom IAR portrait
-├── events/IOP_arabia.txt                    # 2 events (iop_arabia.656, .294)
-├── gfx/leaders/IAM/IAM_Drastamat_Dro_Kanayan.dds # custom IAM portrait
-├── gfx/leaders/IMR/IMR_Shakib_Arslan.dds    # custom IMR portrait (Shakib Arslan)
-├── events/IOP_armenia.txt                   # 1 event (iop_armenia.354)
-├── events/IOP_yugoslavia.txt                # 19 events (iop_yugo.102, .103, ...)
-├── events/IOP_greece.txt                    # 4 events (iop_greece.731, .184, .182, .164)
-├── events/IOP_turkey.txt                    # 3 events (iop_turkey.341, .340, .797)
-├── events/IOP_north_africa.txt               # 3 events (iop_africa.783, .290, .699)
-├── events/IOP_egypt.txt                         # 1 event (iop_egypt.446)
-├── interface/iop_autonomy.gfx               # autonomy icon sprite
-├── interface/iop_decisions.gfx               # category icon sprite
-├── interface/iop_directorate.gfx             # Occupation Directorate idea icon sprite
+│   ├── autonomous_states/
+│   │   ├── iop_autonomy.txt                   # Military Occupation level (autonomy_military_occupation)
+│   │   └── iop_province.txt                   # Province level (after the Roman Empire is restored)
+│   ├── countries/Italy_*.txt                  # one per tag: graphical culture + rgb map colour
+│   ├── country_tags/iop_tags.txt              # the 20 tags (ISE not ISR, IOM not IMO, IGE not GEO)
+│   ├── country_leader/iop_traits.txt          # governor traits
+│   ├── decisions/categories/iop_categories.txt # "Italian Occupation" tab (categories/ subfolder is mandatory!)
+│   ├── decisions/IOP_*.txt                    # 91 decisions: foundings, "Determine Fate of …", Roman Empire
+│   ├── dynamic_modifiers/iop_zones.txt        # 20 per-zone bonuses granted to Italy
+│   ├── ideas/IOP_ideas.txt                    # Italy-side spirits + iop_locked_laws (puppet law lock)
+│   ├── national_focus/iop_puppet.txt          # shared focus tree for every occupation government
+│   ├── on_actions/iop_on_actions.txt          # Roman-integration pulse + weekly law watchdog (v0.0.37)
+│   ├── scripted_effects/iop_zones.txt         # iop_grant_zone_* (one-shot per zone)
+│   ├── scripted_effects/iop_laws.txt          # iop_on_puppet_founded / iop_lock_current_trade_law / iop_enforce_roman_laws
+│   ├── scripted_localisation/iop_zones.txt    # zone list inside the Directorate tooltip
+│   ├── scripted_localisation/iop_decision_names.txt
+│   └── scripted_triggers/iop_triggers.txt     # iop_med_owned / iop_med_controlled
+├── events/IOP_*.txt                           # 61 events (fate pickers, flavour, Roman Empire, iop_laws.1)
 ├── gfx/
-│   ├── flags/ (+ medium/, small/)           # placeholder .tga flags (base + 4 ideologies x 3 sizes per tag)
-│   └── interface/autonomy/                  # Military Occupation .dds icon
-└── localisation/english/IOP_*_l_english.yml # countries / decisions / events / autonomy (BOM!)
+│   ├── flags/ (+ medium/, small/)             # 114 .tga per size: base + 4 ideologies per tag/cosmetic tag
+│   ├── leaders/<TAG>/<TAG>_Name.dds           # custom portraits - the tag subfolder is REQUIRED
+│   └── interface/{autonomy,decision_category,ideas}/   # .dds icons
+├── history/
+│   ├── countries/*.txt                        # 20 files: capital, leaders, tech, iop_puppet flag, iop_locked_laws
+│   └── units/IOP_empty.txt                    # empty puppet OOB
+├── interface/iop_{autonomy,decisions,directorate}.gfx  # sprite definitions for the .dds above
+└── localisation/english/IOP_*_l_english.yml   # 9 files, ~1130 keys - UTF-8 WITH BOM (required!)
 ```
 
-## Extending (Greece, Albania, France…)
+Everything outside `italian_occupation_plus/` in this repository — the `Additional_Data/` folder with the source PNGs (`Additional_Data/Graphics/`), `Additional_Data/Information_for_AI.md` and `Additional_Data/tools/validate_iop.py` — is **development material, not part of the mod**. Never copy it into the game's mod folder.
+
+## Extending (a new region)
 
 The pattern per new region is:
 
-│   ├── country_tags/iop_tags.txt            # ICR / ISE / IMT / IAL / IBL / IGR / ITR / INA / IEG / ISP / IPG / IOC / ILV / IIQ / IAR / IAM / IIR
-│   ├── decisions/IOP_greece.txt             # 1 founding (IGR) + 4 distribution decisions (731/184/182/164)
-│   ├── decisions/IOP_turkey.txt             # 1 founding (ITR) + 3 distribution decisions (341/340/797)
-│   ├── decisions/IOP_north_africa.txt        # 1 founding (INA) + 5 distribution decisions (tunisia/algeria/morocco/spanish_africa/783)
-│   ├── decisions/IOP_egy── decisions/IOP_spain.txt                    # 1 founding (ISP) + 2 distribution decisions (gibraltar/baleares)
-│   ├── decisions/IOP_portugal.txt                 # 1 founding (IPG) + canarias + azores/madeira + unite iberia
-│   ├── decisions/IOP_occitania.txt                # 1 founding (IOC) + provence + savoy/var + corsica + poitou
-│   └── decisions/IOP_levant.txt                   # 1 founding (ILV) + hatay + sinai
-3. **Distribution decisions + events** per state (copy a `iop_decide_*` block and its event, change the state ID — border logic works automatically).
-4. **Localisation**: add decision/event/country keys to the `.yml` files (keep the BOM!).
-
-Suggested next regions: Albania protectorate, Corsica/Savoy, Egypt/Libya, Ethiopia/East Africa.
+1. **Tag**: add `IXX = "countries/Italy_<Region>.txt"` to `common/country_tags/iop_tags.txt`, write `common/countries/Italy_<Region>.txt` (colour + gfx culture) and `history/countries/IXX - <full name>.txt` (capital, leaders for all 4 ideologies, tech, `set_country_flag = iop_puppet`, `add_ideas = { iop_locked_laws }`).
+2. **Flags**: `gfx/flags/IXX*.tga` in all three sizes × 5 variants (base + 4 ideologies).
+3. **Founding decision** in `common/decisions/IOP_<region>.txt` (copy an `iop_establish_*` block): highlight the states, `count_triggers` for "at least half controlled", capital check in `available`, then `add_core_of` → `release_puppet` → **`IXX = { iop_on_puppet_founded = yes }`** → `set_autonomy` → `transfer_state` per state (each guarded by `iop_med_controlled`).
+4. **Zone bonus**: add `iop_zone_<region>` to `common/dynamic_modifiers/iop_zones.txt`, a matching `iop_grant_zone_<region>` scripted effect, and its scripted-localisation line in the Directorate tooltip.
+5. **Distribution decisions + events** per state (copy an `iop_decide_*` block and its event, change the state ID — the border logic works automatically).
+6. **Localisation**: add country/decision/event keys to the `.yml` files (keep the BOM!).
+7. **Check it**: `python3 Additional_Data/tools/validate_iop.py` fails if the new tag has no `iop_locked_laws` spirit, if a `release_puppet` is missing its `iop_on_puppet_founded` hook, if an event fires an id that does not exist, or if any loc key is missing.
 
 ## IMPORTANT: always clean-reinstall
 
@@ -307,6 +293,7 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 
 ## Changelog
 
+- **0.0.37** — Roman law discipline: new `iop_locked_laws` national spirit ("Rome Sets the Laws") on all 20 occupation governments, closing their conscription, trade and economy law (+1000% law-change cost, `removal_cost = -1`, granted from every history file); new founding decree event `iop_laws.1` fired **for the puppet itself** 6–12 h after its formation, setting Service by Requirement + Total Mobilization and fixing the trade law in force at that moment; weekly `on_weekly` watchdog (`iop_enforce_roman_laws`) restores the mandated laws so no change can be kept, plus a catch-all that regulates occupation governments created outside the founding decisions; `IOP_flavour_l_english.yml` regained its missing UTF-8 BOM; repository housekeeping (`Additional_Data/` for source art, `Information_for_AI.md`, `tools/validate_iop.py`).
 - **0.0.36** — New 20th puppet: IGE (Governo militare di occupazione della Georgia, Tbilisi (231) + Abkhazia (826)), led by Jakov Dzhugashvili (portrait from the PNG added on main, converted to DXT5 DDS); Georgian Occupation Zone (Chiatura manganese: resource-shortage penalties reduced); generated Georgian five-cross flags with the Italian canton (base/medium/small × 5 variants) plus the same set for the new IGT_transcaucasus cosmetic tag; "Form the Transcaucasus Vicerealm" decision using the vanilla Transcaucasian formable condition (Armenia 230 + Georgia 231 + Abkhazia 826 + Azerbaijan 229 all controlled by Italy or its subjects, IGE founded): IGE annexes IAM if it exists and is our subject, absorbs the Caucasian states, takes the IGT_transcaucasus tag and Jakov re-emerges as Viceroy; Roman integration names the provinces Iberia (IGE) and Lazica et Iberia (IGT).
 - **0.0.35** — Occupation Directorate is now a container spirit: its description dynamically lists exactly the zones founded (19 scripted-localisation tokens + `iop_zone_list_*` loc keys, empty fallback for the rest); zone modifiers themselves unchanged.
 - **0.0.34** — Puppet national spirits removed (Military Government, six regionals, four puppet-side timed spirits — dead weight under 100% extraction); Italy's Occupation Directorate is now a slim hub (−10% garrisons, +5% compliance, −25% subject autonomy gain) with 19 different stacking per-zone bonuses (dynamic modifiers, one-shot per zone via `iop_grant_zone_*` scripted effects); flavour events pay Italian bonuses instead; shared focus tree and Roman-Empire filter re-gated on the `iop_puppet` flag; Oman retagged IMO → IOM (IMO ignored the map colour) with the vanilla Said bin Taimur portrait; regional flavour icons deleted.

@@ -80,6 +80,7 @@ iop_occupation = {
 				456 = { add_core_of = IEG }
 				457 = { add_core_of = IEG }
 				release_puppet = IEG
+				IEG = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {

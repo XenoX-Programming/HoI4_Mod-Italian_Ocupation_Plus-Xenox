@@ -63,6 +63,7 @@ iop_occupation = {
 				461 = { add_core_of = IMR }
 				462 = { add_core_of = IMR }
 				release_puppet = IMR
+				IMR = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {

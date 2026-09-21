@@ -61,6 +61,7 @@ iop_occupation = {
 				231 = { add_core_of = IGE }
 				826 = { add_core_of = IGE }
 				release_puppet = IGE
+				IGE = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {

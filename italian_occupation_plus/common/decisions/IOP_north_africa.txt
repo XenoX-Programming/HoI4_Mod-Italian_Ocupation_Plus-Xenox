@@ -88,6 +88,7 @@ iop_occupation = {
 				663 = { add_core_of = INA }
 				273 = { add_core_of = INA }
 				release_puppet = INA
+				INA = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {

@@ -80,6 +80,7 @@ iop_occupation = {
 				20 = { add_core_of = IOC }
 				22 = { add_core_of = IOC }
 				release_puppet = IOC
+				IOC = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {

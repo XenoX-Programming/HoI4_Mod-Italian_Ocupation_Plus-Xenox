@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
  iop_occupation_directorate:0 "Occupation Directorate"
  iop_occupation_directorate_desc:0 "Rome runs every occupation government from a single directorate. Each zone founded adds its own stacking bonus to Italy - the zones under its administration are:\n[Iop_Zone_List_Croatia][Iop_Zone_List_Serbia][Iop_Zone_List_Montenegro][Iop_Zone_List_Albania][Iop_Zone_List_Bulgaria][Iop_Zone_List_Greece][Iop_Zone_List_Turkey][Iop_Zone_List_Armenia][Iop_Zone_List_Iran][Iop_Zone_List_Iraq][Iop_Zone_List_Arabia][Iop_Zone_List_Oman][Iop_Zone_List_Levant][Iop_Zone_List_Egypt][Iop_Zone_List_North_Africa][Iop_Zone_List_Morocco][Iop_Zone_List_Portugal][Iop_Zone_List_Spain][Iop_Zone_List_Occitania][Iop_Zone_List_Georgia]"
  iop_spirit_directorate_efficiency:0 "Directorate Efficiency"

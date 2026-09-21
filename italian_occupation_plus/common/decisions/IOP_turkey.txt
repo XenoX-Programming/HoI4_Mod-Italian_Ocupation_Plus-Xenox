@@ -100,6 +100,7 @@ iop_occupation = {
 				345 = { add_core_of = ITR }
 				346 = { add_core_of = ITR }
 				release_puppet = ITR
+				ITR = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {

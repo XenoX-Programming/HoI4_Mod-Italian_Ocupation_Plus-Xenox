@@ -67,6 +67,7 @@ iop_occupation = {
 				675 = { add_core_of = IIQ }
 				1011 = { add_core_of = IIQ }
 				release_puppet = IIQ
+				IIQ = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {
@@ -178,6 +179,7 @@ iop_occupation = {
 				678 = { add_core_of = IAR }
 				858 = { add_core_of = IAR }
 				release_puppet = IAR
+				IAR = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {
