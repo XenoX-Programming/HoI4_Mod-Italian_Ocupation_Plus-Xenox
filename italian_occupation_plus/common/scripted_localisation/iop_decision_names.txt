@@ -388,3 +388,47 @@ defined_text = {
 		localization_key = iop_establish_morocco_normal_desc
 	}
 }
+
+defined_text = {
+	name = GetEstablishGeorgiaName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_georgia_roman
+	}
+	text = {
+		localization_key = iop_establish_georgia_normal
+	}
+}
+
+defined_text = {
+	name = GetEstablishGeorgiaDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_establish_georgia_roman_desc
+	}
+	text = {
+		localization_key = iop_establish_georgia_normal_desc
+	}
+}
+
+defined_text = {
+	name = GetFormTranscaucasusName
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_form_transcaucasus_roman
+	}
+	text = {
+		localization_key = iop_form_transcaucasus_normal
+	}
+}
+
+defined_text = {
+	name = GetFormTranscaucasusDesc
+	text = {
+		trigger = { has_country_flag = iop_roman_empire }
+		localization_key = iop_form_transcaucasus_roman_desc
+	}
+	text = {
+		localization_key = iop_form_transcaucasus_normal_desc
+	}
+}

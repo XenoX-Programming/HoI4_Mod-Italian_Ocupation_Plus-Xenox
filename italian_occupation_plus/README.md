@@ -1,4 +1,4 @@
-# Italian Occupation Plus — v0.0.34 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Morocco + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran)
+# Italian Occupation Plus — v0.0.36 (Yugoslavia + Albania + Bulgaria + Greece + Turkey + North Africa + Egypt + Morocco + Spain + Portugal + Occitania + Levant + Iraq + Arabia + Armenia + Iran + Georgia)
 
 A Hearts of Iron 4 mod that gives **Italy** its own Reichskommissariat-style occupation system, inspired by *Reichskommissariats Plus*.
 
@@ -8,7 +8,7 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 
 ## What's in v0.0.3
 
-### 18 new puppet nations
+### 20 new puppet nations
 
 | Tag | Full name | Capital | Initial states (state IDs) |
 |-----|-----------|---------|----------------------------|
@@ -30,6 +30,7 @@ As Italy, occupy Yugoslav land → open the decisions tab **"Italian Occupation"
 | **IAM** | Governatorato di occupazione militare dell'Armenia | Armenia (230, Yerevan) | Armenia (230) |
 | **IIR** | Governatorato di occupazione militare dell'Iran | Tehran (266) | West Azerbaijan (419), East Azerbaijan (1000), Gilan (420), Kurdistan (1001), Ilam (421), Hamadan (417), Khuzestan (413), Tehran (266), North Khorasan (1004), Khorasan (416), Semnan (418), Isfahan (411), Yazd (1002), South Khorasan (1003), Fars (412), Kerman (414), Sistan (410) |
 | **IMR** | Governo Militare di Occupazione del Marocco | Casablanca (461) | Casablanca (461), Marrakech (462) — expands into Spanish Africa (290), Sidi Ifni (783), Rio de Oro (699) |
+| **IGE** | Governo militare di occupazione della Georgia | Georgia (231, Tbilisi) | Georgia (231), Abkhazia (826) — expands into Armenia (230) and Azerbaijan (229) via the Transcaucasus unification decision |
 
 > **Why ISE and not ISR?** `ISR` is already used by vanilla HOI4 for **Israel** (releasable by the UK). Using it would overwrite Israel. `ISE` (Italian SErbia) keeps the `Ixx` pattern and is free in vanilla.
 
@@ -52,6 +53,7 @@ Puppet leaders (historical placeholders, all fascist):
 - **IAM** — Drastamat "Dro" Kanayan (Governor of Armenia, custom portrait included)
 - **IIR** — Reza Shah Pahlavi (Iranian sovereign/client, vanilla CL-U portrait)
 - **IMR** — Shakib Arslan, "Amir al-Bayan" (Governor of Morocco, custom portrait included)
+- **IGE** — Jakov Dzhugashvili (Governor of Georgia, custom portrait included; becomes Viceroy of the Transcaucasus after unification)
 - **IOM** — Said bin Taimur (Sultan of Muscat and Oman — created from the Oman fate event, no custom portrait)
 
 ### New autonomy level: Military Occupation
@@ -305,6 +307,7 @@ HOI4 does not clean up removed/renamed mod files on update. If puppets show **wr
 
 ## Changelog
 
+- **0.0.36** — New 20th puppet: IGE (Governo militare di occupazione della Georgia, Tbilisi (231) + Abkhazia (826)), led by Jakov Dzhugashvili (portrait from the PNG added on main, converted to DXT5 DDS); Georgian Occupation Zone (Chiatura manganese: resource-shortage penalties reduced); generated Georgian five-cross flags with the Italian canton (base/medium/small × 5 variants) plus the same set for the new IGT_transcaucasus cosmetic tag; "Form the Transcaucasus Vicerealm" decision using the vanilla Transcaucasian formable condition (Armenia 230 + Georgia 231 + Abkhazia 826 + Azerbaijan 229 all controlled by Italy or its subjects, IGE founded): IGE annexes IAM if it exists and is our subject, absorbs the Caucasian states, takes the IGT_transcaucasus tag and Jakov re-emerges as Viceroy; Roman integration names the provinces Iberia (IGE) and Lazica et Iberia (IGT).
 - **0.0.35** — Occupation Directorate is now a container spirit: its description dynamically lists exactly the zones founded (19 scripted-localisation tokens + `iop_zone_list_*` loc keys, empty fallback for the rest); zone modifiers themselves unchanged.
 - **0.0.34** — Puppet national spirits removed (Military Government, six regionals, four puppet-side timed spirits — dead weight under 100% extraction); Italy's Occupation Directorate is now a slim hub (−10% garrisons, +5% compliance, −25% subject autonomy gain) with 19 different stacking per-zone bonuses (dynamic modifiers, one-shot per zone via `iop_grant_zone_*` scripted effects); flavour events pay Italian bonuses instead; shared focus tree and Roman-Empire filter re-gated on the `iop_puppet` flag; Oman retagged IMO → IOM (IMO ignored the map colour) with the vanilla Said bin Taimur portrait; regional flavour icons deleted.
 - **0.0.33** — "Transfer Poitou to Occitania" can no longer reappear after being taken (one-shot `fire_only_once` + `iop_poitou_given` country-flag guard; its "owner is a subject" trigger stayed true after the transfer — every other decision was audited and already self-hides, terminal one-shots are flag-guarded). Founding checks reworked: the "at least half of the initial states" count and the capital check now accept states controlled by Italy **or its subjects**, and founding pulls in every initial state controlled by Italy or a subject (puppet occupation zones count and are pooled into the new government; scripted trigger `iop_med_controlled`). New "Transfer Aquitaine and the Pyrénées-Atlantiques to Occitania" direct decision (19 + 806 → IOC). Istanbul/Constantinople can now also be restored to Greece itself (GRE existence check, plain handover — no cores). Rebuilt the Bursa and Istanbul events: the v0.0.32 nested-option repair had mis-fired and shipped malformed blocks (now rebuilt cleanly and covered by a parser-based validator).

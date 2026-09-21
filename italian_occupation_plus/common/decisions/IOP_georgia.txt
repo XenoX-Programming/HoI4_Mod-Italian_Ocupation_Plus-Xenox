@@ -1,0 +1,205 @@
+# ============================================================
+# Italian Occupation Plus v0.0.36 - Georgia
+# 1) Found IGE (needs Georgia (231, Tbilisi) controlled by Italy
+#    or one of its subjects; Abkhazia (826) transfers if controlled).
+# 2) "Form the Transcaucasus Vicerealm": once Armenia (230),
+#    Georgia (231), Abkhazia (826) and Azerbaijan (229) are all
+#    controlled by Italy or its subjects and IGE has been founded,
+#    IGE absorbs the Caucasian states - annexing the Armenian
+#    occupation government if it exists and is our subject - and
+#    becomes the Transcaucasus government, still led by Jakov
+#    Dzhugashvili (vanilla Transcaucasian formable condition).
+# ============================================================
+
+iop_occupation = {
+
+	iop_establish_georgia = {
+		icon = generic_political_pressure
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 231
+				state = 826
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			NOT = { country_exists = IGE }
+			# Only appears once Italy or its subjects control at least half of the required territory (1 of 2 states).
+			count_triggers = {
+				amount = 1
+				231 = { iop_med_controlled = yes }
+				826 = { iop_med_controlled = yes }
+			}
+		}
+
+		available = {
+			231 = { iop_med_controlled = yes }
+		}
+
+		fire_only_once = no
+
+		complete_effect = {
+			hidden_effect = {
+				iop_grant_zone_georgia = yes
+			}
+			if = {
+				limit = { ROOT = { has_country_flag = iop_roman_empire } }
+				custom_effect_tooltip = iop_establish_georgia_roman_tt
+			}
+			else = {
+				custom_effect_tooltip = iop_establish_georgia_tt
+			}
+			custom_effect_tooltip = iop_directorate_zone_tt
+			hidden_effect = {
+				set_country_flag = iop_georgia_established
+				231 = { add_core_of = IGE }
+				826 = { add_core_of = IGE }
+				release_puppet = IGE
+				if = {
+					limit = { ROOT = { has_country_flag = iop_roman_empire } }
+					set_autonomy = {
+						target = IGE
+						autonomous_state = autonomy_province
+					}
+					IGE = { set_cosmetic_tag = IGE_roman }
+				}
+				else = {
+					set_autonomy = {
+						target = IGE
+						autonomous_state = autonomy_military_occupation
+					}
+				}
+				if = {
+					limit = { 231 = { iop_med_controlled = yes } }
+					IGE = { transfer_state = 231 }
+				}
+				if = {
+					limit = { 826 = { iop_med_controlled = yes } }
+					IGE = { transfer_state = 826 }
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# ------------------------------------------------------------
+	# UNIFICATION: THE TRANSCAUCASUS VICEREALM
+	# Mirrors "Unite the Iberian Peninsula": the Georgian puppet
+	# absorbs the Armenian one and takes the whole Caucasus.
+	# ------------------------------------------------------------
+
+	iop_form_transcaucasus = {
+		icon = generic_form_nation
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 230
+				state = 231
+				state = 826
+				state = 229
+			}
+		}
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		visible = {
+			original_tag = ITA
+			has_country_flag = iop_georgia_established
+			country_exists = IGE
+			NOT = { has_country_flag = iop_transcaucasus_formed }
+		}
+
+		available = {
+			country_exists = IGE
+			IGE = { is_subject_of = ROOT }
+			230 = { iop_med_controlled = yes }
+			231 = { iop_med_controlled = yes }
+			826 = { iop_med_controlled = yes }
+			229 = { iop_med_controlled = yes }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			custom_effect_tooltip = iop_form_transcaucasus_tt
+			hidden_effect = {
+				set_country_flag = iop_transcaucasus_formed
+				230 = { add_core_of = IGE }
+				229 = { add_core_of = IGE }
+				if = {
+					limit = {
+						country_exists = IAM
+						IAM = { is_subject_of = ROOT }
+					}
+					IGE = { annex_country = { target = IAM transfer_troops = yes } }
+				}
+				IGE = {
+					if = {
+						limit = { 230 = { iop_med_controlled = yes } }
+						transfer_state = 230
+					}
+					if = {
+						limit = { 229 = { iop_med_controlled = yes } }
+						transfer_state = 229
+					}
+					if = {
+						limit = { ROOT = { has_country_flag = iop_roman_empire } }
+						set_cosmetic_tag = IGT_roman
+					}
+					else = {
+						set_cosmetic_tag = IGT_transcaucasus
+					}
+					set_country_flag = iop_transcaucasus
+					# Jakov becomes Viceroy of the Transcaucasus
+					create_country_leader = {
+						name = "Jakov Dzhugashvili"
+						desc = "PODCAT_JAKOV_DZHUGASHVILI_VICEROY_DESC"
+						picture = "IGE_Jakov_Dzhugashvili.dds"
+						expire = "1965.1.1"
+						ideology = fascism_ideology
+						traits = { iop_trait_son_of_the_commissar }
+					}
+					create_country_leader = {
+						name = "Jakov Dzhugashvili"
+						desc = "PODCAT_JAKOV_DZHUGASHVILI_VICEROY_DESC"
+						picture = "IGE_Jakov_Dzhugashvili.dds"
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = { iop_trait_son_of_the_commissar }
+					}
+					create_country_leader = {
+						name = "Jakov Dzhugashvili"
+						desc = "PODCAT_JAKOV_DZHUGASHVILI_VICEROY_DESC"
+						picture = "IGE_Jakov_Dzhugashvili.dds"
+						expire = "1965.1.1"
+						ideology = liberalism
+						traits = { iop_trait_son_of_the_commissar }
+					}
+					create_country_leader = {
+						name = "Jakov Dzhugashvili"
+						desc = "PODCAT_JAKOV_DZHUGASHVILI_VICEROY_DESC"
+						picture = "IGE_Jakov_Dzhugashvili.dds"
+						expire = "1965.1.1"
+						ideology = marxism
+						traits = { iop_trait_son_of_the_commissar }
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

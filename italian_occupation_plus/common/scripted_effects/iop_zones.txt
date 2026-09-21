@@ -236,3 +236,15 @@ iop_grant_zone_oman = {
 		add_dynamic_modifier = { modifier = iop_zone_oman }
 	}
 }
+
+iop_grant_zone_georgia = {
+	if = {
+		limit = { NOT = { has_idea = iop_occupation_directorate } }
+		add_ideas = iop_occupation_directorate
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_zone_georgia } }
+		set_country_flag = iop_zone_georgia
+		add_dynamic_modifier = { modifier = iop_zone_georgia }
+	}
+}

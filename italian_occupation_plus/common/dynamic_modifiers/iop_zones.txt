@@ -109,3 +109,8 @@ iop_zone_morocco = {
 iop_zone_oman = {
 	political_power_gain = 0.10
 }
+
+# IGE - Chiatura manganese feeds the foundries.
+iop_zone_georgia = {
+	production_lack_of_resource_penalty_factor = -0.05
+}
