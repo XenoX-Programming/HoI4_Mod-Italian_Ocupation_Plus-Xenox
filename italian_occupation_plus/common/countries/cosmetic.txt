@@ -120,3 +120,22 @@ ISP_iberia = {
 	color = rgb { 25 100 14 }
 	color_ui = rgb { 25 100 14 }
 }
+
+# Georgian Occupation Government - Roman Province (Iberia)
+IGE_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}
+
+# Unified Transcaucasus Vicerealm (Georgia + Armenia + Azerbaijan + Abkhazia,
+# set by the "Form the Transcaucasus Vicerealm" decision; Jakov stays leader)
+IGT_transcaucasus = {
+	color = rgb { 23 110 82 }
+	color_ui = rgb { 23 110 82 }
+}
+
+# Transcaucasus Vicerealm after the restoration of Rome
+IGT_roman = {
+	color = rgb { 112 35 24 }
+	color_ui = rgb { 112 35 24 }
+}

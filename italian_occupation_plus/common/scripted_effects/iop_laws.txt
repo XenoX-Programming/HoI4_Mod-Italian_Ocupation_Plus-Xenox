@@ -1,0 +1,135 @@
+# ============================================================
+# Italian Occupation Plus - Roman law discipline (v0.0.37)
+#
+# Every occupation government is administered from Rome: its
+# conscription, trade and economy laws are fixed by decree and
+# may not be changed locally.
+#
+# The chain of responsibility:
+#   1. history/countries/*.txt      grants iop_locked_laws to every
+#                                   occupation government tag, so the
+#                                   spirit is present no matter how
+#                                   the country comes into existence
+#                                   (founding decision, peace
+#                                   conference, console release).
+#   2. iop_on_puppet_founded        called in the NEW PUPPET's scope
+#                                   immediately after every
+#                                   "release_puppet = TAG" in the
+#                                   founding decisions/events.
+#                                   Re-applies the spirit (guarded)
+#                                   and fires the founding decree
+#                                   event iop_laws.1 for the puppet
+#                                   itself - never for Italy.
+#   3. iop_laws.1                   the puppet accepts the decree:
+#                                   Service by Requirement +
+#                                   Total Mobilization, and the trade
+#                                   law it holds at that moment is
+#                                   recorded as the fixed one.
+#   4. iop_enforce_roman_laws       weekly watchdog (on_weekly in
+#                                   common/on_actions/iop_on_actions.txt)
+#                                   that restores the mandated laws,
+#                                   so a law change is impossible to
+#                                   keep even if the player pays the
+#                                   +1000% PP cost (or uses a vanilla
+#                                   "demobilise" decision).
+# ============================================================
+
+# ------------------------------------------------------------
+# Run in the scope of the newly released occupation government,
+# right after "release_puppet = TAG". Idempotent, so calling it
+# twice in one life is harmless: the iop_laws_decree_fired flag
+# dies with the country, so a puppet that is annexed and later
+# re-founded gets its decree again, but never twice in a row.
+# ------------------------------------------------------------
+iop_on_puppet_founded = {
+	if = {
+		limit = { NOT = { has_idea = iop_locked_laws } }
+		add_ideas = iop_locked_laws
+	}
+	if = {
+		limit = { NOT = { has_country_flag = iop_laws_decree_fired } }
+		set_country_flag = iop_laws_decree_fired
+		# A few hours' delay so the decree arrives "after the
+		# formation" and never inside the founding effect chain.
+		country_event = { id = iop_laws.1 hours = 6 random_hours = 6 }
+	}
+}
+
+# ------------------------------------------------------------
+# Records which trade law Rome allows this puppet to keep, so the
+# watchdog can put it back. Called by the option of iop_laws.1.
+# A country always holds exactly one trade law, so plain "if"
+# blocks are enough.
+# ------------------------------------------------------------
+iop_lock_current_trade_law = {
+	if = {
+		limit = { has_idea = free_trade }
+		set_country_flag = iop_trade_law_free_trade
+	}
+	if = {
+		limit = { has_idea = export_focus }
+		set_country_flag = iop_trade_law_export_focus
+	}
+	if = {
+		limit = { has_idea = limited_exports }
+		set_country_flag = iop_trade_law_limited_exports
+	}
+	if = {
+		limit = { has_idea = closed_economy }
+		set_country_flag = iop_trade_law_closed_economy
+	}
+}
+
+# ------------------------------------------------------------
+# Watchdog. Run in the occupation government's scope (the on_weekly
+# gate already checked has_idea = iop_locked_laws). Only restores
+# laws the founding decree actually established, so a puppet whose
+# decree event has not been answered yet is never silently changed.
+# ------------------------------------------------------------
+iop_enforce_roman_laws = {
+	# Conscription law: Service by Requirement.
+	if = {
+		limit = {
+			has_country_flag = iop_laws_decree_accepted
+			NOT = { has_idea = service_by_requirement }
+		}
+		add_ideas = service_by_requirement
+	}
+	# Economy law: Total Mobilization.
+	if = {
+		limit = {
+			has_country_flag = iop_laws_decree_accepted
+			NOT = { has_idea = tot_economic_mobilisation }
+		}
+		add_ideas = tot_economic_mobilisation
+	}
+	# Trade law: whatever the decree recorded.
+	if = {
+		limit = {
+			has_country_flag = iop_trade_law_free_trade
+			NOT = { has_idea = free_trade }
+		}
+		add_ideas = free_trade
+	}
+	if = {
+		limit = {
+			has_country_flag = iop_trade_law_export_focus
+			NOT = { has_idea = export_focus }
+		}
+		add_ideas = export_focus
+	}
+	if = {
+		limit = {
+			has_country_flag = iop_trade_law_limited_exports
+			NOT = { has_idea = limited_exports }
+		}
+		add_ideas = limited_exports
+	}
+	if = {
+		limit = {
+			has_country_flag = iop_trade_law_closed_economy
+			NOT = { has_idea = closed_economy }
+		}
+		add_ideas = closed_economy
+	}
+}

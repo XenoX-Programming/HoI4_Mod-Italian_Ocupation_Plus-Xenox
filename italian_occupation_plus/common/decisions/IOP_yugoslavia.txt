@@ -69,6 +69,7 @@ iop_occupation = {
 				104 = { add_core_of = ICR }
 				804 = { add_core_of = ICR }
 				release_puppet = ICR
+				ICR = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {
@@ -151,6 +152,7 @@ iop_occupation = {
 				107 = { add_core_of = ISE }
 				108 = { add_core_of = ISE }
 				release_puppet = ISE
+				ISE = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {
@@ -229,6 +231,7 @@ iop_occupation = {
 				44 = { add_core_of = IAL }
 				934 = { add_core_of = IAL }
 				release_puppet = IAL
+				IAL = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {
@@ -312,6 +315,7 @@ iop_occupation = {
 				212 = { add_core_of = IBL }
 				211 = { add_core_of = IBL }
 				release_puppet = IBL
+				IBL = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {

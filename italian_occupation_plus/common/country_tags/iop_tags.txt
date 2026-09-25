@@ -23,3 +23,6 @@ IAM = "countries/Italy_Armenia.txt"
 IIR = "countries/Italy_Iran.txt"
 IMR = "countries/Italy_Morocco.txt"
 IOM = "countries/Italy_Oman.txt"
+# NOTE: vanilla releasable Georgia is GEO; the Italian occupation
+# government uses IGE (Italian GEorgia) to keep the Ixx pattern.
+IGE = "countries/Italy_Georgia.txt"

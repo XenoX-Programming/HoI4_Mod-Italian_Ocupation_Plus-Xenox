@@ -1,0 +1,9 @@
+﻿l_english:
+ # v0.0.37 - Roman law discipline. National spirit on every occupation
+ # government + the founding decree event (events/IOP_laws.txt).
+ iop_locked_laws:0 "Rome Sets the Laws"
+ iop_locked_laws_desc:0 "This administration answers to the Occupation Directorate in Rome. Conscription, trade and economic legislation is issued by decree from the metropole: the local government may not alter it. Any attempt to do so is ruinously expensive - and Rome annuls it within the week."
+
+ iop_laws_decree_title:0 "A Decree from Rome"
+ iop_laws_decree_desc:0 "The first dispatch to reach [Root.GetName] carries no local signature. The Occupation Directorate in Rome has already decided how this territory will be governed: every able-bodied citizen is entered on the conscription rolls (Service by Requirement), and the whole economy is placed on a footing of Total Mobilization. The trade arrangements in force on the day of the founding are confirmed by the same decree. Conscription, trade and economic law are closed to local amendment from this hour."
+ iop_laws_decree_accept:0 "As Rome commands."

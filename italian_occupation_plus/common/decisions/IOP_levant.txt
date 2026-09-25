@@ -70,6 +70,7 @@ iop_occupation = {
 				677 = { add_core_of = ILV }
 				680 = { add_core_of = ILV }
 				release_puppet = ILV
+				ILV = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {

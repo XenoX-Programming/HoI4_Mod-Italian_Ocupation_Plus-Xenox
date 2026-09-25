@@ -75,6 +75,7 @@ iop_occupation = {
 				795 = { add_core_of = IPG }
 				179 = { add_core_of = IPG }
 				release_puppet = IPG
+				IPG = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {

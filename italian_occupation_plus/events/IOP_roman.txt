@@ -129,6 +129,20 @@ country_event = {
 				IOM = { set_cosmetic_tag = IOM_roman }
 			}
 			if = {
+				limit = { country_exists = IGE IGE = { is_subject_of = ROOT } }
+				set_autonomy = { target = IGE autonomous_state = autonomy_province }
+				IGE = {
+					# A Transcaucasus that already formed keeps its unified name.
+					if = {
+						limit = { has_cosmetic_tag = IGT_transcaucasus }
+						set_cosmetic_tag = IGT_roman
+					}
+					else = {
+						set_cosmetic_tag = IGE_roman
+					}
+				}
+			}
+			if = {
 				limit = { country_exists = AOI AOI = { is_subject_of = ROOT } }
 				set_autonomy = { target = AOI autonomous_state = autonomy_province }
 				AOI = { set_cosmetic_tag = AOI_roman }

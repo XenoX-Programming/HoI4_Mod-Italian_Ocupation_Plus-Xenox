@@ -215,3 +215,14 @@ defined_text = {
 		localization_key = iop_zone_empty
 	}
 }
+
+defined_text = {
+	name = Iop_Zone_List_Georgia
+	text = {
+		trigger = { has_country_flag = iop_zone_georgia }
+		localization_key = iop_zone_list_georgia
+	}
+	text = {
+		localization_key = iop_zone_empty
+	}
+}

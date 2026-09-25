@@ -86,6 +86,7 @@ country_event = {
 			1015 = { add_core_of = IOM }
 			294 = { add_core_of = IOM }
 			release_puppet = IOM
+			IOM = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {

@@ -1,0 +1,36 @@
+# ============================================================
+# Italian Occupation Plus v0.0.37 - Roman law discipline
+#
+# iop_laws.1 fires for the OCCUPATION GOVERNMENT ITSELF (never for
+# Italy), a few hours after it is founded - it is queued by the
+# iop_on_puppet_founded scripted effect, which every founding
+# decision/event calls in the new puppet's scope.
+#
+# The single option applies the decree: Conscription law becomes
+# Service by Requirement, Economy law becomes Total Mobilization,
+# and the trade law the government holds right now is recorded as
+# the fixed one. Together with the iop_locked_laws national spirit
+# (which makes any law change cost +1000% PP) and the weekly
+# watchdog, the three law slots are effectively closed.
+# ============================================================
+
+add_namespace = iop_laws
+
+country_event = {
+	id = iop_laws.1
+	title = iop_laws_decree_title
+	desc = iop_laws_decree_desc
+	picture = GFX_report_event_generic
+	is_triggered_only = yes
+
+	option = {
+		name = iop_laws_decree_accept
+		add_ideas = service_by_requirement
+		add_ideas = tot_economic_mobilisation
+		set_country_flag = iop_laws_decree_accepted
+		hidden_effect = {
+			iop_lock_current_trade_law = yes
+		}
+		ai_chance = { factor = 100 }
+	}
+}

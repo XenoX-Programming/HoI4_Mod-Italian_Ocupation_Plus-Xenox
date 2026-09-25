@@ -1,11 +1,12 @@
 # ============================================================
-# Italian Occupation Plus - national spirits (v0.0.34)
+# Italian Occupation Plus - national spirits (v0.0.37)
 #
-# The occupation governments carry NO national spirits: with the
-# Military Occupation autonomy level funnelling all industry,
-# manpower and trade to the overlord, puppet-side modifiers were
-# dead weight (removed v0.0.34 - the old iop_military_government
-# and iop_flavour_* ideas are gone). All rewards now live on Italy:
+# The occupation governments carry NO gameplay national spirits:
+# with the Military Occupation autonomy level funnelling all
+# industry, manpower and trade to the overlord, puppet-side
+# modifiers were dead weight (removed v0.0.34 - the old
+# iop_military_government and iop_flavour_* ideas are gone). All
+# rewards now live on Italy:
 #
 # iop_occupation_directorate  : Italy-side hub spirit, granted by
 #                               the first founding (via the
@@ -16,6 +17,20 @@
 #                               modifier per zone, each granting
 #                               something different (see
 #                               common/dynamic_modifiers/iop_zones.txt).
+#
+# The one puppet-side spirit is administrative, not economic:
+#
+# iop_locked_laws             : "Rome Sets the Laws" (v0.0.37).
+#                               Every occupation government is
+#                               administered from Rome, so it may
+#                               not change its conscription, trade
+#                               or economy law. Granted by every
+#                               history file (so it survives any
+#                               creation path) and re-applied by
+#                               the iop_on_puppet_founded scripted
+#                               effect. See
+#                               common/scripted_effects/iop_laws.txt
+#                               for the enforcement chain.
 # ============================================================
 
 ideas = {
@@ -55,6 +70,31 @@ ideas = {
 			modifier = {
 				required_garrison_factor = 0.10
 				political_power_gain = 0.10
+			}
+		}
+
+		# ------------------------------------------------ puppet law lock (v0.0.37)
+		# Rome dictates the conscription, trade and economy law of every
+		# occupation government, so changing them is prohibitively
+		# expensive - and anything that slips through is reverted by the
+		# weekly watchdog in common/on_actions/iop_on_actions.txt
+		# (iop_enforce_roman_laws). HOI4 has no engine-level "lock this
+		# law slot" flag for spirits; a true grey-out would mean
+		# overriding vanilla common/ideas/_manpower.txt, _economic.txt and
+		# _political.txt, which this mod deliberately never does.
+		# NOTE: *_laws_cost_factor / economy_cost_factor are safe to use in
+		# a mod because the vanilla law files (names starting with "_") are
+		# read before any mod idea file, so the law slots already exist.
+		iop_locked_laws = {
+			allowed = { always = no }
+			allowed_civil_war = { always = yes }
+			removal_cost = -1
+			picture = iop_occupation_directorate
+
+			modifier = {
+				mobilization_laws_cost_factor = 10
+				trade_laws_cost_factor = 10
+				economy_cost_factor = 10
 			}
 		}
 	}

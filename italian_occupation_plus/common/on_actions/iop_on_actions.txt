@@ -1,8 +1,15 @@
 # ============================================================
 # Italian Occupation Plus - on_actions
-# Handles dynamic status conversion for Italian subjects (such as
-# vanilla Italian East Africa AOI) if formed or puppeted after the
-# Roman Empire has already been restored.
+#
+# on_monthly_pulse : dynamic status conversion for Italian subjects
+#                    (such as vanilla Italian East Africa AOI) if
+#                    formed or puppeted after the Roman Empire has
+#                    already been restored.
+# on_weekly        : Roman law discipline (v0.0.37) - restores the
+#                    conscription / economy / trade law of every
+#                    occupation government, and hands the founding
+#                    decree to any occupation government that came
+#                    into existence outside our founding decisions.
 # ============================================================
 
 on_actions = {
@@ -27,6 +34,36 @@ on_actions = {
 					}
 					AOI = { set_cosmetic_tag = AOI_roman }
 				}
+			}
+		}
+	}
+
+	# ------------------------------------------------------------
+	# Roman law discipline. on_weekly runs for every country, but
+	# both blocks below are gated on a single cheap country-level
+	# trigger (has_idea / has_country_flag), so the cost is
+	# negligible even on a full world map.
+	# ------------------------------------------------------------
+	on_weekly = {
+		effect = {
+			# 1) Put the mandated laws back if anything moved them
+			#    (the iop_locked_laws spirit only makes changes
+			#    expensive; this is what makes them impossible).
+			if = {
+				limit = { has_idea = iop_locked_laws }
+				iop_enforce_roman_laws = yes
+			}
+			# 2) Catch-all: an occupation government created by some
+			#    other route (peace conference, console release, a
+			#    future founding we forgot to hook up) still gets the
+			#    spirit and the founding decree.
+			if = {
+				limit = {
+					is_subject_of = ITA
+					has_country_flag = iop_puppet
+					NOT = { has_country_flag = iop_laws_decree_fired }
+				}
+				iop_on_puppet_founded = yes
 			}
 		}
 	}

@@ -120,6 +120,7 @@ iop_occupation = {
 				169 = { add_core_of = ISP }
 				173 = { add_core_of = ISP }
 				release_puppet = ISP
+				ISP = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {

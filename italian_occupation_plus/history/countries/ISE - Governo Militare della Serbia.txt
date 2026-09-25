@@ -79,4 +79,11 @@ set_research_slots = 2
 
 set_country_flag = iop_puppet
 
+# Rome fixes the conscription, trade and economy law of every occupation
+# government (v0.0.37). The founding decree event iop_laws.1 sets the laws
+# themselves; the on_weekly watchdog keeps them there.
+add_ideas = {
+	iop_locked_laws
+}
+
 set_country_flag = iop_serbia

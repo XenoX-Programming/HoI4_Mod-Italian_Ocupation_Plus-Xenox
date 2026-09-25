@@ -52,6 +52,7 @@ iop_occupation = {
 				set_country_flag = iop_armenia_established
 				230 = { add_core_of = IAM }
 				release_puppet = IAM
+				IAM = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {
@@ -171,6 +172,7 @@ iop_occupation = {
 				414 = { add_core_of = IIR }
 				410 = { add_core_of = IIR }
 				release_puppet = IIR
+				IIR = { iop_on_puppet_founded = yes }
 				if = {
 					limit = { ROOT = { has_country_flag = iop_roman_empire } }
 					set_autonomy = {
